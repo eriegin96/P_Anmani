@@ -1,10 +1,8 @@
-import {createClient, groq} from "next-sanity";
-import config from "./config";
+import {groq} from "next-sanity";
 import {Category} from "@/types/Category";
 import {Voucher} from "@/types/Voucher";
 import {Property} from "@/types/Property";
-
-export const client = createClient(config);
+import client from "./config/client";
 
 export async function getCategories(): Promise<Category[]> {
 	return client.fetch(groq`*[_type == "category"]{
