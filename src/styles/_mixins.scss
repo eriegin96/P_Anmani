@@ -1,0 +1,19 @@
+@use "src/styles/variables" as var;
+
+@mixin mobile {
+	@media (max-width: #{var.$breakpoint-sm}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: #{var.$breakpoint-sm + 1px}) and (max-width: #{var.$breakpoint-lg}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{$breakpoint-lg + 1px}) {
+		@content;
+	}
+}

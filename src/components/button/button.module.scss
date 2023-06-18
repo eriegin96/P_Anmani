@@ -1,0 +1,15 @@
+@use "src/styles/variables" as var;
+@use "src/styles/mixins" as mixin;
+
+.button {
+	background-color: var.$color-primary;
+	color: var.$color-white;
+
+	font-size: 32px;
+	@include mixin.tablet {
+		font-size: 20px;
+	}
+	@include mixin.mobile {
+		font-size: 12px;
+	}
+}
