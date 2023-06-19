@@ -1,2 +1,5 @@
 @use "src/styles/reset";
-@use "src/styles/variables";
+
+a {
+	text-decoration: none;
+}

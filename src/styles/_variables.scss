@@ -1,12 +1,37 @@
-/* colors */
-$color-primary: #007ce8;
-$color-text: #0194f3;
+// colors
+$color-primary-1: #007ce8;
+$color-primary-2: #1ba0e2;
+$color-primary-3: #30c5f7;
+
+$color-text-primary: #0194f3;
+$color-text-black: #03121a;
+
 $color-white: #ffffff;
 $color-black: #000000;
+$color-gray: #687176;
 
-/* breakpoints */
+$color-green-1: #6dd3ce;
+$color-green-2: #087e8b;
+$color-green-3: #20bf55;
+
+$color-blue-1: #235d9f;
+
+$color-red-1: #ec3a3e;
+$color-red-2: #ff6d6a;
+
+$color-orange-1: #ff5e1f;
+
+$color-purple-1: #931682;
+
+// breakpoints
 $breakpoint-sm: 480px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 $breakpoint-2xl: 1536px;
+
+// border radius
+$round-sm: 4px;
+$round-md: 8px;
+$round-lg: 12px;
+$round-xl: 16px;

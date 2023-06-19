@@ -1,0 +1,18 @@
+.wrapper {
+	@include center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: rem(40);
+}
+
+.item {
+	@include center-inline;
+	width: 20%;
+	color: $color-gray;
+}
+
+.isActive {
+	color: $color-primary-1;
+}

@@ -1,0 +1,13 @@
+.wrapper {
+	@include center-inline;
+}
+
+.icon {
+	stroke: $color-gray;
+}
+
+.input {
+	height: 20px;
+	border-radius: $round-md;
+	font-size: 16px;
+}

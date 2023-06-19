@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import {Header, NavigationBar} from "@/components";
 import "../globals.scss";
 import {Inter} from "next/font/google";
 
@@ -10,6 +10,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			<body className={inter.className}>
 				<Header />
 				{children}
+				<NavigationBar />
 			</body>
 		</html>
 	);

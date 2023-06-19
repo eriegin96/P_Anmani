@@ -3,7 +3,8 @@ const path = require("path");
 
 const nextConfig = {
 	sassOptions: {
-		includePaths: [path.join(__dirname, "_styles")],
+		additionalData: `@use "@/styles" as *;`,
+		includePaths: [path.join(__dirname, "styles")],
 	},
 };
 
