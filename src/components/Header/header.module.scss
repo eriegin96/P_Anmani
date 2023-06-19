@@ -1,0 +1,124 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	background-color: $color-primary-1;
+	color: $color-white;
+}
+
+.overlay {
+	background-color: $color-rgba-black-5;
+	position: fixed;
+	inset: 0;
+
+	&[data-state="open"] {
+		animation-name: overlayShow;
+	}
+	&[data-state="closed"] {
+		animation-name: overlayHide;
+	}
+}
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	background-color: $color-white;
+
+	&[data-state="open"] {
+		animation-name: contentShow;
+	}
+	&[data-state="closed"] {
+		animation-name: contentHide;
+	}
+}
+
+.animation {
+	animation-duration: 0.2s;
+	animation-timing-function: ease-in-out;
+}
+
+.description {
+	background-color: $color-primary-2;
+	color: $color-white;
+	padding: rem(10) rem(20);
+	display: flex;
+	align-items: center;
+	gap: rem(10);
+
+	@include mobile {
+		font-size: rem(12);
+		padding: rem(10);
+
+		svg {
+			width: rem(20);
+			height: rem(20);
+		}
+	}
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+}
+
+.link {
+	color: $color-text-black;
+	display: flex;
+	align-items: center;
+	padding: rem(10) rem(20);
+	gap: rem(12);
+	font-weight: 500;
+
+	&:hover {
+		background-color: $color-gray-2;
+	}
+
+	@include mobile {
+		font-size: rem(12);
+		padding: rem(5) rem(10);
+
+		svg {
+			width: rem(20);
+			height: rem(20);
+		}
+	}
+}
+
+@keyframes overlayShow {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes overlayHide {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes contentShow {
+	from {
+		transform: translate(-100%, 0);
+	}
+	to {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes contentHide {
+	from {
+		transform: translate(0, 0);
+	}
+	to {
+		transform: translate(-100%, 0);
+	}
+}

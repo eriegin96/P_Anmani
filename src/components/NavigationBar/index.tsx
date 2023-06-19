@@ -4,13 +4,20 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import styles from "./navigationBar.module.scss";
 import clsx from "clsx";
+import {
+	IconClipboardText,
+	IconLayoutDashboard,
+	IconMail,
+	IconPlaneTilt,
+	IconUser,
+} from "@tabler/icons-react";
 
 const navLinks = [
-	{href: "/", name: "Trang chủ"},
-	{href: "/tin-nhan", name: "Tin nhắn"},
-	{href: "/kham-pha", name: "Khám phá"},
-	{href: "/luu-tru", name: "Đã lưu"},
-	{href: "/ho-so", name: "Hồ sơ"},
+	{href: "/", name: "Trang chủ", icon: <IconPlaneTilt />},
+	{href: "/tin-nhan", name: "Tin nhắn", icon: <IconMail />},
+	{href: "/kham-pha", name: "Khám phá", icon: <IconLayoutDashboard />},
+	{href: "/luu-tru", name: "Đã lưu", icon: <IconClipboardText />},
+	{href: "/ho-so", name: "Hồ sơ", icon: <IconUser />},
 ];
 
 export default function NavigationBar() {
@@ -19,13 +26,14 @@ export default function NavigationBar() {
 	return (
 		<div className={styles.wrapper}>
 			{navLinks.map((link) => {
-				const isActive = pathname.startsWith(link.href);
+				const isActive = pathname === link.href;
 
 				return (
 					<Link
 						key={link.href}
 						href={link.href}
 						className={clsx(styles.item, isActive && styles.isActive)}>
+						{link.icon}
 						{link.name}
 					</Link>
 				);
