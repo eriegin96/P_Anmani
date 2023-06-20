@@ -1,5 +1,9 @@
 .carousel {
 	position: relative;
+
+	& :global(.slick-slide) > div {
+		display: flex;
+	}
 }
 
 .imageContainer {
@@ -9,10 +13,11 @@
 
 .slickDots {
 	@include center;
-	position: relative;
-	// height: 55px;
+	position: absolute;
 	gap: rem(10);
 	bottom: rem(20);
+	left: 0;
+	right: 0;
 
 	& li:global(.slick-active) .slickDot {
 		background-color: $color-white;

@@ -1,3 +1,16 @@
-.h1 {
-	color: red;
+.searchWrapper {
+	@include center;
+	background-color: $color-primary-2;
+	gap: rem(20);
+	padding: rem(20);
+
+	@include mobile {
+		padding: rem(20) rem(10);
+	}
+}
+
+.networkList {
+	display: inline-flex;
+	align-items: center;
+	gap: rem(8);
 }

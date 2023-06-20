@@ -1,22 +1,9 @@
 import {getCategories} from "@/sanity/sanity-api";
 import styles from "./page.module.scss";
 import {Footer, SearchBox} from "@/components";
-import {Carousel, Reports} from "./_components";
-import Vouchers from "./_components/Vouchers";
-import Category from "./_components/Category";
-import Investor from "./_components/Investor";
-
-const categories = [
-	{_id: "1", title: "Dinh thự & Biệt thự đơn lập"},
-	{_id: "2", title: "Biệt thự song lập"},
-	{_id: "3", title: "Shophouse nhà phố thương mại"},
-	{_id: "4", title: "Căn hộ"},
-	{_id: "5", title: "BĐS chuyển nhượng giá tốt"},
-];
-const investors = [
-	{_id: "1", title: "KDI Holding"},
-	{_id: "2", title: "Sun Property"},
-];
+import {Carousel, Category, Investor, Reports, Vouchers} from "./_components";
+import {categories, investors, socialNetworks} from "./data";
+import Image from "next/image";
 
 export default async function Page() {
 	// const categories = await getCategories();
@@ -25,7 +12,18 @@ export default async function Page() {
 	return (
 		<>
 			<Carousel />
-			<SearchBox />
+			<div className={styles.searchWrapper}>
+				<SearchBox />
+				<ul className={styles.networkList}>
+					{socialNetworks.map((network) => (
+						<li key={network.href}>
+							<a href={network.href} target="_blank" rel="noreferrer">
+								<Image src={network.icon} alt="" width={30} height={30} />
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
 			<Reports />
 			<Vouchers />
 

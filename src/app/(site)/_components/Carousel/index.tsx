@@ -21,7 +21,7 @@ const carouselList = [
 export default function Carousel() {
 	const settings = {
 		arrows: false,
-		autoplay: true,
+		autoplay: false,
 		autoplaySpeed: 4000,
 		className: styles.carousel,
 		dots: true,
