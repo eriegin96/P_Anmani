@@ -1,0 +1,28 @@
+.carousel {
+	position: relative;
+}
+
+.imageContainer {
+	height: calc(100vw * 2 / 3);
+	position: relative;
+}
+
+.slickDots {
+	@include center;
+	position: relative;
+	// height: 55px;
+	gap: rem(10);
+	bottom: rem(20);
+
+	& li:global(.slick-active) .slickDot {
+		background-color: $color-white;
+	}
+}
+
+.slickDot {
+	cursor: pointer;
+	border-radius: 100%;
+	width: 10px;
+	height: 10px;
+	background-color: $color-rgba-white-5;
+}
