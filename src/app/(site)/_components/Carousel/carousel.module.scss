@@ -6,11 +6,6 @@
 	}
 }
 
-.imageContainer {
-	height: calc(100vw * 2 / 3);
-	position: relative;
-}
-
 .slickDots {
 	@include center;
 	position: absolute;

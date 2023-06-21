@@ -1,6 +1,6 @@
 "use client";
 
-import {IUser} from "@/types/user.type";
+import {TUser} from "@/types/user.type";
 import {
 	Dispatch,
 	ReactNode,
@@ -11,8 +11,8 @@ import {
 } from "react";
 
 type TAuthContextDefault = {
-	userInfo?: IUser | undefined;
-	setUserInfo?: Dispatch<SetStateAction<IUser | undefined>>;
+	userInfo?: TUser | undefined;
+	setUserInfo?: Dispatch<SetStateAction<TUser | undefined>>;
 };
 
 type TAuthProviderProps = {
@@ -22,7 +22,7 @@ type TAuthProviderProps = {
 export const AuthContext = createContext<TAuthContextDefault>({});
 
 export default function AuthProvider({children}: TAuthProviderProps) {
-	const [userInfo, setUserInfo] = useState<IUser | undefined>(undefined);
+	const [userInfo, setUserInfo] = useState<TUser | undefined>(undefined);
 
 	const value = {
 		userInfo,

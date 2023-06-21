@@ -9,7 +9,7 @@ import {
 	Reports,
 	Vouchers,
 } from "./_components";
-import {categories, investors, socialNetworks} from "./data";
+import {carouselList, categories, investors, socialNetworks} from "./data";
 import Image from "next/image";
 
 export default async function Page() {
@@ -18,7 +18,13 @@ export default async function Page() {
 
 	return (
 		<>
-			<Carousel />
+			<Carousel>
+				{carouselList.map((image) => (
+					<div key={image.id} className={styles.imageContainer}>
+						<Image src={image.src} alt="" fill />
+					</div>
+				))}
+			</Carousel>
 			<div className={styles.searchWrapper}>
 				<SearchBox />
 				<ul className={styles.networkList}>

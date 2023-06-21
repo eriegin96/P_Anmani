@@ -1,0 +1,15 @@
+.title {
+	display: flex;
+	align-items: center;
+}
+
+.clock {
+	margin-left: rem(20);
+
+	span {
+		background-color: $color-black;
+		color: $color-white;
+		border-radius: $round-sm;
+		padding: rem(2);
+	}
+}

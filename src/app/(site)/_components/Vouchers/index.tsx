@@ -1,27 +1,19 @@
 "use client";
 
-import {voucherList} from "./data";
 import Link from "next/link";
-import Carousel from "react-slick";
-import * as Slider from "@radix-ui/react-slider";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
-import styles from "./vouchers.module.scss";
 import dynamic from "next/dynamic";
+import * as Slider from "@radix-ui/react-slider";
+import {voucherList} from "./data";
+import styles from "./vouchers.module.scss";
+import Carousel from "../Carousel";
 
 const Title = dynamic(() => import("../Title"));
 
 export default function Vouchers() {
-	const settings = {
-		arrows: false,
-		autoplay: true,
-		autoplaySpeed: 4000,
-		className: styles.carousel,
+	const setting = {
 		draggable: false,
 		dots: false,
-		infinite: true,
 		slidesToShow: 4,
-		slidesToScroll: 1,
 		responsive: [
 			{
 				breakpoint: 1200,
@@ -42,13 +34,12 @@ export default function Vouchers() {
 				},
 			},
 		],
-		speed: 500,
 	};
 
 	return (
 		<>
 			<Title>Trung tâm voucher</Title>
-			<Carousel {...settings}>
+			<Carousel setting={setting}>
 				{voucherList.map((voucher) => (
 					<div key={voucher.id}>
 						<Link href={voucher.href} className={styles.voucherWrapper}>
