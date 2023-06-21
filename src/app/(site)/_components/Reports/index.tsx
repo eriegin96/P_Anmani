@@ -1,21 +1,23 @@
-import React from "react";
+import Title from "../Title";
+import {reportList} from "./data";
+import styles from "./reports.module.scss";
 
 export default function Reports() {
+	// TODO call api and put link in href
+
 	return (
-		<div>
-			<h2>Báo cáo thị trường cập nhật thường xuyên</h2>
-			<div>
-				<div>Thị trường BĐS Hồ Chí Minh</div>
-				<div>Thị trường BĐS Nha Trang</div>
-				<div>Thị trường BĐS Phú Quốc</div>
-				<div>Thị trường BĐS Đà Nẵng</div>
-			</div>
-			<div>
-				<div>Giá BĐS Hồ Chí Minh</div>
-				<div>Giá BĐS Nha Trang</div>
-				<div>Giá BĐS Phú Quốc</div>
-				<div>Giá BĐS Đà Nẵng</div>
-			</div>
-		</div>
+		<>
+			<Title>Báo cáo thị trường cập nhật thường xuyên</Title>
+			<ul className={styles.reportList}>
+				{reportList.map((report) => (
+					<li key={report.title} className={styles.reportItem}>
+						<a href="/" target="_blank" rel="noreferrer">
+							{report.icon}
+							{report.title}
+						</a>
+					</li>
+				))}
+			</ul>
+		</>
 	);
 }

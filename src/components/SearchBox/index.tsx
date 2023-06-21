@@ -5,7 +5,12 @@ export default function SearchBox() {
 	return (
 		<div className={styles.wrapper}>
 			<IconSearch size={20} className={styles.icon} />
-			<input type="text" className={styles.input} />
+			<input
+				type="text"
+				title="search"
+				placeholder="Tìm bất động sản"
+				className={styles.input}
+			/>
 		</div>
 	);
 }

@@ -1,7 +1,14 @@
 import {getCategories} from "@/sanity/sanity-api";
 import styles from "./page.module.scss";
 import {Footer, SearchBox} from "@/components";
-import {Carousel, Category, Investor, Reports, Vouchers} from "./_components";
+import {
+	Carousel,
+	Category,
+	FlashSale,
+	Investor,
+	Reports,
+	Vouchers,
+} from "./_components";
 import {categories, investors, socialNetworks} from "./data";
 import Image from "next/image";
 
@@ -24,8 +31,15 @@ export default async function Page() {
 					))}
 				</ul>
 			</div>
-			<Reports />
-			<Vouchers />
+			<div className={styles.blockWrapper}>
+				<Reports />
+			</div>
+			<div className={styles.blockWrapper}>
+				<Vouchers />
+			</div>
+			<div className={styles.blockWrapper}>
+				<FlashSale />
+			</div>
 
 			{categories.map(({_id, title}) => (
 				<Category key={_id} title={title} />

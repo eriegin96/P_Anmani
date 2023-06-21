@@ -14,3 +14,11 @@
 	align-items: center;
 	gap: rem(8);
 }
+
+.blockWrapper {
+	padding: rem(40) rem(20) 0;
+
+	@include mobile {
+		padding: rem(40) rem(10);
+	}
+}
