@@ -47,11 +47,13 @@ export default async function Page() {
 				<FlashSale />
 			</div>
 
-			{categories.map(({_id, title}) => (
-				<Category key={_id} title={title} />
+			{categories.map((category) => (
+				<div key={category.id} className={styles.blockWrapper}>
+					<Category category={category} />
+				</div>
 			))}
-			{investors.map(({_id, title}) => (
-				<Investor key={_id} title={title} />
+			{investors.map(({id, title}) => (
+				<Investor key={id} title={title} />
 			))}
 			<Footer />
 		</>

@@ -6,36 +6,11 @@ import * as Slider from "@radix-ui/react-slider";
 import {voucherList} from "./data";
 import styles from "./vouchers.module.scss";
 import Carousel from "../Carousel";
+import {setting} from "@/constants/carouselSetting";
 
 const Title = dynamic(() => import("../Title"));
 
 export default function Vouchers() {
-	const setting = {
-		draggable: false,
-		dots: false,
-		slidesToShow: 4,
-		responsive: [
-			{
-				breakpoint: 1200,
-				settings: {
-					slidesToShow: 3,
-				},
-			},
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 2,
-				},
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-				},
-			},
-		],
-	};
-
 	return (
 		<>
 			<Title>Trung tâm voucher</Title>

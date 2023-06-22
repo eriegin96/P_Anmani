@@ -18,6 +18,7 @@ export default function Carousel({setting, children}: TCarouselProps) {
 		autoplaySpeed: 4000,
 		className: styles.carousel,
 		dots: true,
+		lazyload: true,
 		infinite: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,

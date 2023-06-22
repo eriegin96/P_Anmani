@@ -1,40 +1,16 @@
 import {IconBolt} from "@tabler/icons-react";
 import styles from "./flashSale.module.scss";
 import Carousel from "../Carousel";
-import {saleList} from "./data";
 import ProductCard from "../ProductCard";
+import {setting} from "@/constants/carouselSetting";
+import {saleList} from "../../data";
 
 type Props = {};
+const carouselSetting = {...setting, autoplaySpeed: 3500};
 
 export default function FlashSale({}: Props) {
-	const setting = {
-		draggable: false,
-		dots: false,
-		slidesToShow: 4,
-		responsive: [
-			{
-				breakpoint: 1200,
-				settings: {
-					slidesToShow: 3,
-				},
-			},
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 2,
-				},
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-				},
-			},
-		],
-	};
-
 	return (
-		<div>
+		<>
 			<div className={styles.title}>
 				<span>
 					F
@@ -46,11 +22,11 @@ export default function FlashSale({}: Props) {
 				</div>
 			</div>
 
-			<Carousel setting={setting}>
+			<Carousel setting={carouselSetting}>
 				{saleList.map((sale) => (
-					<ProductCard key={sale.name} info={sale} />
+					<ProductCard key={sale.name} info={sale} isShowView />
 				))}
 			</Carousel>
-		</div>
+		</>
 	);
 }

@@ -8,10 +8,19 @@
 	display: flex;
 	background-color: $color-pink-1;
 	color: $color-text-black;
-	margin: rem(10);
+	margin: rem(20) rem(10);
 	padding: rem(12);
 	border-radius: $round-md;
 	min-height: rem(100);
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		transform: scale(1.03);
+
+		@include tablet {
+			transform: scale(1.05);
+		}
+	}
 }
 
 .leftSection {

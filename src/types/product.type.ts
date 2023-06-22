@@ -1,3 +1,13 @@
+export const TProductStatus = {
+	SOLD: "Đã bán",
+	SAVED: "Đang quan tâm",
+	IN_STOCK: "Còn hàng",
+	BOOKED: "Hàng đặt",
+} as const;
+
+export type TProductStatusKey = keyof typeof TProductStatus;
+export type TProductStatusValue = (typeof TProductStatus)[TProductStatusKey];
+
 export type TProduct = {
 	href: string;
 	name?: string;
@@ -16,4 +26,5 @@ export type TProduct = {
 	};
 	view: number;
 	thumbnail: string;
+	status: TProductStatusValue;
 };

@@ -2,14 +2,36 @@ import Link from "next/link";
 import styles from "./productCard.module.scss";
 import {TProduct} from "@/types/product.type";
 import Image from "next/image";
+import color from "@/styles/color.module.scss";
 
 type TProductCardProps = {
 	info: TProduct;
+	isShowView?: boolean;
 };
 
-export default function ProductCard({info}: TProductCardProps) {
-	const {href, name, price, salePrice, information, view, thumbnail, location} =
-		info;
+export default function ProductCard({
+	info,
+	isShowView = false,
+}: TProductCardProps) {
+	const {
+		href,
+		name,
+		price,
+		salePrice,
+		information,
+		view,
+		thumbnail,
+		location,
+		status,
+	} = info;
+	const bgColor =
+		status === "Đang quan tâm"
+			? color.primary3
+			: status === "Còn hàng"
+			? color.green3
+			: status === "Hàng đặt"
+			? color.pink2
+			: color.orange2;
 
 	return (
 		<Link href={href} key={name} className={styles.itemWrapper}>
@@ -37,7 +59,13 @@ export default function ProductCard({info}: TProductCardProps) {
 				</div>
 			</div>
 
-			<div className={styles.view}>ĐÃ XEM {view}</div>
+			{isShowView ? (
+				<div className={styles.view}>ĐÃ XEM {view}</div>
+			) : (
+				<div style={{backgroundColor: bgColor}} className={styles.view}>
+					{status}
+				</div>
+			)}
 		</Link>
 	);
 }

@@ -1,7 +1,17 @@
 .itemWrapper {
 	position: relative;
-	margin: rem(10);
+	margin: rem(20) rem(10);
 	border-radius: $round-md;
+	width: 100%;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		transform: scale(1.03);
+
+		@include tablet {
+			transform: scale(1.05);
+		}
+	}
 }
 
 .imageWrapper {
@@ -23,6 +33,7 @@
 	font-size: rem(12);
 	background-color: $color-rgba-black-3;
 	padding: rem(4) rem(8);
+	border-top-left-radius: $round-md;
 	border-bottom-right-radius: $round-md;
 }
 
@@ -41,6 +52,7 @@
 .descriptionWrapper {
 	padding: rem(10);
 	color: $color-text-black;
+	background-color: $color-white;
 	border: solid rem(1) $color-gray-1;
 	border-bottom-left-radius: $round-md;
 	border-bottom-right-radius: $round-md;
@@ -84,6 +96,8 @@
 	background-color: $color-orange-1;
 	text-align: center;
 	border-radius: $round-md;
-	padding: rem(4) 0;
+	padding: rem(6) 0;
 	font-size: rem(14);
+	text-transform: uppercase;
+	font-weight: 500;
 }

@@ -1,9 +1,59 @@
-import React from "react";
+"use client";
+
+import {TCategory} from "@/types/category.type";
+import styles from "./category.module.scss";
+import {IconChevronRight} from "@tabler/icons-react";
+import Link from "next/link";
+import Image from "next/image";
+import * as Tabs from "@radix-ui/react-tabs";
+import Carousel from "../Carousel";
+import ProductCard from "../ProductCard";
+import {setting} from "@/constants/carouselSetting";
+import {saleList} from "../../data";
 
 type TCategoryProps = {
-	title: string;
+	category: TCategory;
 };
 
-export default function Category({title}: TCategoryProps) {
-	return <div>{title}</div>;
+export default function Category({category}: TCategoryProps) {
+	const {title, location, href, icon} = category;
+
+	return (
+		<div className={styles.wrapper}>
+			<div className={styles.titleWrapper}>
+				<h2 className={styles.title}>
+					<Image src={icon} alt="" width={36} height={36} />
+					{title}
+				</h2>
+				<Link href={href} className={styles.more}>
+					Xem thêm <IconChevronRight size={18} />
+				</Link>
+			</div>
+
+			<Tabs.Root defaultValue={location[0]} className={styles.tabsRoot}>
+				<Tabs.List aria-label="Category" className={styles.tabsList}>
+					{location.map((locationItem) => (
+						<Tabs.Trigger
+							key={locationItem}
+							value={locationItem}
+							className={styles.tabsTrigger}>
+							{locationItem}
+						</Tabs.Trigger>
+					))}
+				</Tabs.List>
+				{location.map((locationItem) => (
+					<Tabs.Content
+						key={locationItem}
+						value={locationItem}
+						className={styles.tabsContent}>
+						<Carousel setting={setting}>
+							{saleList.map((saleItem) => (
+								<ProductCard key={saleItem.name} info={saleItem} />
+							))}
+						</Carousel>
+					</Tabs.Content>
+				))}
+			</Tabs.Root>
+		</div>
+	);
 }
