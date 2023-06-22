@@ -11,7 +11,23 @@
 		@include tablet {
 			transform: scale(1.05);
 		}
+
+		.cardContent {
+			box-shadow: 0 0 rem(25) $color-gray-2;
+		}
 	}
+}
+
+.cardContent {
+	position: relative;
+}
+
+.overlay {
+	position: absolute;
+	inset: 0;
+	border-radius: $round-md;
+	z-index: 1;
+	transition: all 0.2s ease-in-out;
 }
 
 .imageWrapper {

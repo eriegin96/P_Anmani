@@ -1,9 +1,19 @@
-import React from "react";
+import Image from "next/image";
+import styles from "./investor.module.scss";
 
 type TCategoryProps = {
-	title: string;
+	investor: {title: string; src: string};
 };
 
-export default function Investor({title}: TCategoryProps) {
-	return <div>{title}</div>;
+export default function Investor({investor}: TCategoryProps) {
+	const {title, src} = investor;
+
+	return (
+		<div>
+			<h3 className={styles.title}>Đối tác chủ đầu tư {title}</h3>
+			<div className={styles.wrapper}>
+				<Image src={src} alt="" fill />
+			</div>
+		</div>
+	);
 }

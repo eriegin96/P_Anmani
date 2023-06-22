@@ -21,6 +21,9 @@
 }
 
 .blockWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: rem(40);
 	padding: rem(40) rem(20) 0;
 
 	@include mobile {

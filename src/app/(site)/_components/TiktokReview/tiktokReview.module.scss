@@ -1,0 +1,15 @@
+.imageWrapper {
+	margin-top: rem(30);
+	@include center;
+	gap: rem(40);
+
+	img {
+		border-radius: rem(20);
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			transform: scale(1.1);
+			box-shadow: 0 0 rem(25) $color-gray-3;
+		}
+	}
+}

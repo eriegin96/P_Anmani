@@ -1,0 +1,23 @@
+.wrapper {
+	@include center;
+	margin-top: rem(20);
+
+	& img {
+		border-radius: $round-lg;
+	}
+}
+
+.infoList {
+	margin-left: rem(20);
+}
+
+.info {
+	display: flex;
+	align-items: center;
+	margin: rem(4) 0;
+
+	& span:nth-of-type(1) {
+		width: rem(120);
+		font-weight: 500;
+	}
+}

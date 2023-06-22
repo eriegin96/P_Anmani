@@ -6,3 +6,8 @@ export {default as Category} from "./Category";
 export {default as Investor} from "./Investor";
 export {default as Title} from "./Title";
 export {default as ProductCard} from "./ProductCard";
+export {default as HowTo} from "./HowTo";
+export {default as TiktokReview} from "./TiktokReview";
+export {default as Deposit} from "./Deposit";
+export {default as PersonalInfo} from "./PersonalInfo";
+export {default as Connection} from "./Connection";

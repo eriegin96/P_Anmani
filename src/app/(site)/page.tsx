@@ -4,9 +4,14 @@ import {Footer, SearchBox} from "@/components";
 import {
 	Carousel,
 	Category,
+	Connection,
+	Deposit,
 	FlashSale,
+	HowTo,
 	Investor,
+	PersonalInfo,
 	Reports,
+	TiktokReview,
 	Vouchers,
 } from "./_components";
 import {carouselList, categories, investors, socialNetworks} from "./data";
@@ -39,22 +44,21 @@ export default async function Page() {
 			</div>
 			<div className={styles.blockWrapper}>
 				<Reports />
-			</div>
-			<div className={styles.blockWrapper}>
 				<Vouchers />
-			</div>
-			<div className={styles.blockWrapper}>
 				<FlashSale />
+				{categories.map((category) => (
+					<Category key={category.id} category={category} />
+				))}
+				{investors.map((investor) => (
+					<Investor key={investor.id} investor={investor} />
+				))}
+				<HowTo />
+				<TiktokReview />
+				<Deposit />
+				<PersonalInfo />
+				<Connection />
 			</div>
 
-			{categories.map((category) => (
-				<div key={category.id} className={styles.blockWrapper}>
-					<Category category={category} />
-				</div>
-			))}
-			{investors.map(({id, title}) => (
-				<Investor key={id} title={title} />
-			))}
 			<Footer />
 		</>
 	);
