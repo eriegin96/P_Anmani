@@ -41,10 +41,14 @@ export default function Header() {
 					</Dialog.Content>
 				</Dialog.Portal>
 			</Dialog.Root>
-			<Image src={ImageLogo} alt="" width={50} height={50} />
+			<Link href="/">
+				<Image src={ImageLogo} alt="" width={50} height={50} />
+			</Link>
 			<div className={styles.rightSection}>
 				{!userInfo ? (
-					<Button className={styles.triggerBtn}>Sign in</Button>
+					<Link href="dang-nhap" className={styles.triggerBtn}>
+						Login
+					</Link>
 				) : (
 					<>
 						<Button className={styles.triggerBtn}>

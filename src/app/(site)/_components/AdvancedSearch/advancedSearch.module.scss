@@ -1,0 +1,44 @@
+.wrapper {
+	@include center;
+	flex-direction: column;
+	background-color: $color-primary-2;
+	gap: rem(20);
+	padding: rem(20);
+
+	@include mobile {
+		padding: rem(20) rem(10);
+	}
+}
+
+.searchBar {
+	@include center;
+	width: 100%;
+	gap: rem(20);
+}
+
+.networkList {
+	display: inline-flex;
+	align-items: center;
+	gap: rem(8);
+}
+
+.advancedSearch {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: rem(20);
+
+	@include mobile {
+		gap: rem(10);
+	}
+}
+
+.searchBtn {
+	border-radius: $round-md;
+	background-color: $color-white;
+	color: $color-primary-2;
+	font-weight: 600;
+	padding: rem(4) rem(10);
+	text-transform: uppercase;
+}
