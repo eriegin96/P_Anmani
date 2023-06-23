@@ -9,6 +9,8 @@ import styles from "./header.module.scss";
 import {navLinks} from "./data";
 import color from "@/styles/color.module.scss";
 import {useAuthContext} from "@/providers/AuthProvider";
+import Image from "next/image";
+import {ImageLogo} from "../../../public";
 
 const Button = dynamic(() => import("../Button"));
 
@@ -39,7 +41,7 @@ export default function Header() {
 					</Dialog.Content>
 				</Dialog.Portal>
 			</Dialog.Root>
-			<span>Logo</span>
+			<Image src={ImageLogo} alt="" width={50} height={50} />
 			<div className={styles.rightSection}>
 				{!userInfo ? (
 					<Button className={styles.triggerBtn}>Sign in</Button>

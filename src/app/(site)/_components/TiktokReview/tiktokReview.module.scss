@@ -3,13 +3,29 @@
 	@include center;
 	gap: rem(40);
 
-	img {
-		border-radius: rem(20);
-		transition: all 0.2s ease-in-out;
+	@include mobile {
+		gap: rem(10);
+	}
 
-		&:hover {
-			transform: scale(1.1);
-			box-shadow: 0 0 rem(25) $color-gray-3;
+	a {
+		position: relative;
+		border: solid rem(1) $color-gray-3;
+		border-radius: rem(20);
+		width: rem(300);
+		aspect-ratio: 1 / 2;
+
+		@include mobile {
+			width: rem(200);
+		}
+
+		img {
+			border-radius: rem(20);
+			transition: all 0.2s ease-in-out;
+
+			&:hover {
+				transform: scale(1.1);
+				box-shadow: 0 0 rem(25) $color-gray-3;
+			}
 		}
 	}
 }

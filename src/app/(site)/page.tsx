@@ -1,6 +1,6 @@
 import {getCategories} from "@/sanity/sanity-api";
 import styles from "./page.module.scss";
-import {Footer, SearchBox} from "@/components";
+import {SearchBox} from "@/components";
 import {
 	Carousel,
 	Category,
@@ -58,8 +58,6 @@ export default async function Page() {
 				<PersonalInfo />
 				<Connection />
 			</div>
-
-			<Footer />
 		</>
 	);
 }

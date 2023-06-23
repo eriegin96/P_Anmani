@@ -9,11 +9,6 @@ const nextConfig = {
 				hostname: "*.previews.dropboxusercontent.com",
 				port: "",
 			},
-			{
-				protocol: "https",
-				hostname: "picsum.photos",
-				port: "",
-			},
 		],
 	},
 	sassOptions: {

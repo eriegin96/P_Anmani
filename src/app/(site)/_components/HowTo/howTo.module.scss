@@ -4,9 +4,21 @@
 }
 
 .textWrapper {
-	margin-top: rem(10);
+	margin-top: rem(20);
+	padding-top: rem(20);
+}
+
+.stepBlock {
+	margin-bottom: rem(40);
+
+	span {
+		font-size: rem(18);
+		font-weight: 600;
+		text-transform: uppercase;
+	}
 
 	p {
-		margin: rem(8) 0;
+		margin: rem(20) 0;
+		color: $color-gray-1;
 	}
 }

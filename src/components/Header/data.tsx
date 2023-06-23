@@ -1,14 +1,12 @@
 import {
-	IconBeach,
 	IconBuilding,
 	IconBuildingBank,
+	IconBuildingFortress,
+	IconBuildingSkyscraper,
 	IconBuildingStore,
-	IconFlipFlops,
 	IconHome,
-	IconMountain,
 	IconNetwork,
 	IconShip,
-	IconSofa,
 	IconSpeedboat,
 } from "@tabler/icons-react";
 import color from "@/styles/color.module.scss";
@@ -16,53 +14,45 @@ import color from "@/styles/color.module.scss";
 export const navLinks = [
 	{
 		href: "/",
-		name: "Dinh thự & Biệt thự Nha Trang",
+		name: "Dinh thự & Biệt thự Đơn lập",
 		icon: <IconHome color={color.primary1} />,
 	},
 	{
 		href: "/",
-		name: "Biệt thự Phú Quốc",
-		icon: <IconShip color={color.primary2} />,
+		name: "Dinh thự & Biệt thự Đơn lập",
+		icon: <IconBuildingFortress color={color.green3} />,
 	},
 	{
 		href: "/",
-		name: "Căn hộ 5 sao Nha Trang",
-		icon: <IconFlipFlops color={color.primary3} />,
+		name: "Shophouse",
+		icon: <IconBuildingStore color={color.yellow1} />,
 	},
 	{
 		href: "/",
-		name: "Căn hộ Phú Quốc",
-		icon: <IconBeach color={color.green1} />,
+		name: "Căn hộ",
+		icon: <IconBuilding color={color.red2} />,
 	},
-	{
-		href: "/",
-		name: "BĐS Chuyển nhượng giá tốt",
-		icon: <IconSofa color={color.green2} />,
-	},
-	{
-		href: "/",
-		name: "Nhà phố thương mại - Shophouse Phú Quốc",
-		icon: <IconBuildingStore color={color.green3} />,
-	},
+
 	{
 		href: "/",
 		name: "Thị trường BĐS Nha Trang",
-		icon: <IconSpeedboat color={color.yellow1} />,
+		icon: <IconSpeedboat color={color.primary2} />,
 	},
 	{
 		href: "/",
 		name: "Thị trường BĐS Phú Quốc",
-		icon: <IconMountain color={color.red1} />,
+		icon: <IconShip color={color.green2} />,
 	},
+
 	{
 		href: "/",
 		name: "Đối tác Chủ Đầu Tư",
-		icon: <IconBuilding color={color.red2} />,
+		icon: <IconBuildingSkyscraper color={color.red2} />,
 	},
 	{
 		href: "/",
 		name: "Ký gửi Bất Động Sản",
-		icon: <IconBuildingBank color={color.orange1} />,
+		icon: <IconBuildingBank color={color.pink2} />,
 	},
 	{
 		href: "/",

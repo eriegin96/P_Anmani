@@ -10,3 +10,8 @@ export {default as IconSongLap} from "./icons/song-lap.png";
 export {default as IconCanHo} from "./icons/can-ho.png";
 export {default as IconShopHouse} from "./icons/shop.png";
 export {default as IconTrendingUp} from "./icons/trending-up.png";
+
+export {default as ImageAvatar} from "./images/avatar.png";
+export {default as ImageLogo} from "./images/logo.png";
+export {default as ImageTikTokReview1} from "./images/tiktok-review-1.png";
+export {default as ImageTikTokReview2} from "./images/tiktok-review-2.png";

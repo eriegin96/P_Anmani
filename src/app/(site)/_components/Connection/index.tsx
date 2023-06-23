@@ -1,20 +1,29 @@
 import {Button} from "@/components";
 import Title from "../Title";
 import styles from "./connection.module.scss";
+import {socialNetworks} from "../../data";
+import Image from "next/image";
 
 export default function Connection() {
 	return (
 		<div className={styles.wrapper}>
 			<Title>Kết nối</Title>
 			<div>
-				<p>0924627467</p>
-				<a href="mailto:tahualucnhu@gmail.com" target="_blank" rel="noreferrer">
-					tahualucnhu@gmail.com
-				</a>
-				<div>
+				<ul className={styles.networkList}>
+					{socialNetworks.map((network) => (
+						<li key={network.href}>
+							<a href={network.href} target="_blank" rel="noreferrer">
+								<Image src={network.icon} alt="" width={40} height={40} />
+							</a>
+						</li>
+					))}
+				</ul>
+				<div className={styles.newsletter}>
 					<span>Nhận bản tin</span>
-					<input type="text" placeholder="Vui lòng nhập email của bạn" />
-					<Button>Gửi</Button>
+					<div className={styles.inputBlock}>
+						<input type="text" placeholder="Vui lòng nhập email của bạn" />
+						<Button>Gửi</Button>
+					</div>
 				</div>
 			</div>
 		</div>

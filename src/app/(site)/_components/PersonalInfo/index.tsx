@@ -2,18 +2,14 @@ import Image from "next/image";
 import Title from "../Title";
 import styles from "./personalInfo.module.scss";
 import {personalInfo, soldProjects} from "./data";
+import {ImageAvatar} from "../../../../../public";
 
 export default function PersonalInfo() {
 	return (
 		<div>
 			<Title>Thông tin cá nhân</Title>
 			<div className={styles.wrapper}>
-				<Image
-					src="https://picsum.photos/id/15/200/300"
-					alt=""
-					width={200}
-					height={300}
-				/>
+				<Image src={ImageAvatar} alt="avatar" width={200} height={300} />
 
 				<ul className={styles.infoList}>
 					{personalInfo.map((info) => (

@@ -1,3 +1,7 @@
 .footer {
-	min-height: rem(60);
+	margin-bottom: rem(60);
+
+	@include mobile {
+		margin-bottom: rem(48);
+	}
 }

@@ -3,5 +3,11 @@
 
 	& p {
 		margin-top: rem(8);
+		line-height: rem(20);
 	}
+}
+
+.link {
+	color: $color-primary-2;
+	font-weight: 500;
 }
