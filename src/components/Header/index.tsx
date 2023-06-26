@@ -23,7 +23,7 @@ export default function Header() {
 				<Dialog.Trigger className={styles.triggerBtn}>
 					<IconMenu2 color={color.white} />
 				</Dialog.Trigger>
-				<Dialog.Portal>
+				<Dialog.Portal className={styles.portal}>
 					<Dialog.Overlay className={clsx(styles.overlay, styles.animation)} />
 					<Dialog.Content className={clsx(styles.sidebar, styles.animation)}>
 						<Dialog.Description className={styles.description}>

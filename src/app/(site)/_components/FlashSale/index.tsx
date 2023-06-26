@@ -13,8 +13,7 @@ export default function FlashSale({}: Props) {
 		<>
 			<div className={styles.title}>
 				<span>
-					F
-					<IconBolt />
+					F<IconBolt />
 					ash sale
 				</span>
 				<div className={styles.clock}>

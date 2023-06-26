@@ -1,13 +1,17 @@
 "use client";
 
+import * as Dialog from "@radix-ui/react-dialog";
 import Link from "next/link";
 import styles from "./productCard.module.scss";
-import {TProduct} from "@/types/product.type";
+import {TProduct, TProductSaveValue} from "@/types/product.type";
 import Image from "next/image";
 import color from "@/styles/color.module.scss";
-import {Button} from "@/components";
+import {Button, SaveDialogPortal} from "@/components";
 import {IconBookmark} from "@tabler/icons-react";
 import {ImageLogoSG} from "@/assets";
+import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/value";
+import {useState} from "react";
+import {RadioChangeEvent} from "antd";
 
 type TProductCardProps = {
 	info: TProduct;
@@ -31,16 +35,20 @@ export default function ProductCard({
 		status,
 	} = info;
 	const bgColor =
-		status === "Đang quan tâm"
+		status === PRODUCT_STATUS.SAVED
 			? color.primary3
-			: status === "Còn hàng"
+			: status === PRODUCT_STATUS.IN_STOCK
 			? color.green3
-			: status === "Hàng đặt"
+			: status === PRODUCT_STATUS.BOOKED
 			? color.pink2
 			: color.orange2;
+	const [value, setValue] = useState<TProductSaveValue>(
+		PRODUCT_SAVE_VALUE.LATER
+	);
 
-	const handleSave = () => {
-		console.log("save");
+	const handleSave = (e: RadioChangeEvent) => {
+		console.log(e.target.value);
+		setValue(e.target.value);
 	};
 
 	return (
@@ -91,9 +99,12 @@ export default function ProductCard({
 				)}
 			</Link>
 
-			<Button className={styles.save} onClick={handleSave}>
-				<IconBookmark size={30} />
-			</Button>
+			<Dialog.Root>
+				<Dialog.Trigger className={styles.save}>
+					<IconBookmark size={30} />
+				</Dialog.Trigger>
+				<SaveDialogPortal value={value} onChange={handleSave} />
+			</Dialog.Root>
 		</div>
 	);
 }

@@ -39,6 +39,7 @@
 	background-color: $color-rgba-black-5;
 	position: fixed;
 	inset: 0;
+	z-index: 1;
 
 	&[data-state="open"] {
 		animation-name: overlayShow;
@@ -54,6 +55,7 @@
 	left: 0;
 	height: 100vh;
 	background-color: $color-white;
+	z-index: 1;
 
 	&[data-state="open"] {
 		animation-name: contentShow;
