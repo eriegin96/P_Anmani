@@ -10,7 +10,7 @@ import {navLinks} from "./data";
 import color from "@/styles/color.module.scss";
 import {useAuthContext} from "@/providers/AuthProvider";
 import Image from "next/image";
-import {ImageLogo} from "../../../public";
+import {ImageLogo} from "@/assets";
 
 const Button = dynamic(() => import("../Button"));
 

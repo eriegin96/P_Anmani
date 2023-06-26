@@ -41,6 +41,21 @@
 	border-top-right-radius: $round-md;
 }
 
+.logoWrapper {
+	position: absolute;
+	left: rem(4);
+	top: rem(24);
+	border-radius: rem(9999);
+	padding: rem(4);
+	border: solid rem(2) $color-primary-2;
+}
+
+.logo {
+	background-color: $color-white;
+	border-radius: rem(9999);
+	padding: rem(4);
+}
+
 .location {
 	position: absolute;
 	top: 0;
@@ -51,6 +66,23 @@
 	padding: rem(4) rem(8);
 	border-top-left-radius: $round-md;
 	border-bottom-right-radius: $round-md;
+}
+
+.save {
+	position: absolute;
+	top: rem(4);
+	right: 0;
+	z-index: 1;
+
+	svg {
+		stroke: $color-white;
+	}
+
+	&:hover {
+		svg {
+			stroke: $color-primary-1;
+		}
+	}
 }
 
 .discount {

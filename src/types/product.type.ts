@@ -9,7 +9,7 @@ export type TProductStatusKey = keyof typeof TProductStatus;
 export type TProductStatusValue = (typeof TProductStatus)[TProductStatusKey];
 
 export type TProduct = {
-	href: string;
+	id: string;
 	name?: string;
 	price?: string;
 	salePrice?: string;
@@ -26,5 +26,6 @@ export type TProduct = {
 	};
 	view: number;
 	thumbnail: string;
+	logo: any;
 	status: TProductStatusValue;
 };

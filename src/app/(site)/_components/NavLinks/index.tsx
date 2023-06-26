@@ -1,8 +1,8 @@
 import Link from "next/link";
 import {navLinkList} from "./data";
 import styles from "./navLinks.module.scss";
-import {IconCollision} from "../../../../../public";
 import Image from "next/image";
+import {IconCollision} from "@/assets";
 
 export default function NavLinks() {
 	return (

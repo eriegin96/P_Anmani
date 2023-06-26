@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Title from "../Title";
 import styles from "./tiktokReview.module.scss";
-import {ImageTikTokReview1, ImageTikTokReview2} from "../../../../../public";
+import {ImageTikTokReview1, ImageTikTokReview2} from "@/assets";
 
 export default function TiktokReview() {
 	return (

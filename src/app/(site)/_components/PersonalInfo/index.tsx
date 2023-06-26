@@ -2,7 +2,7 @@ import Image from "next/image";
 import Title from "../Title";
 import styles from "./personalInfo.module.scss";
 import {personalInfo, soldProjects} from "./data";
-import {ImageAvatar} from "../../../../../public";
+import {ImageAvatar} from "@/assets";
 
 export default function PersonalInfo() {
 	return (
