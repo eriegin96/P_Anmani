@@ -4,6 +4,7 @@ export {default as IconTiktok} from "./icons/icons8-tiktok.svg";
 export {default as IconZalo} from "./icons/icons8-zalo.svg";
 export {default as IconYoutube} from "./icons/icons8-youtube.svg";
 export {default as IconGmail} from "./icons/icons8-gmail.svg";
+export {default as IconCollision} from "./icons/icons8-collision.png";
 
 export {default as IconDonLap} from "./icons/don-lap.png";
 export {default as IconSongLap} from "./icons/song-lap.png";

@@ -1,9 +1,12 @@
 .wrapper {
+	position: sticky;
+	top: rem(70);
 	@include center;
 	flex-direction: column;
 	background-color: $color-primary-2;
 	gap: rem(20);
 	padding: rem(20);
+	z-index: 1;
 
 	@include mobile {
 		padding: rem(20) rem(10);

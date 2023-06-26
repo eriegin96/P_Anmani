@@ -1,0 +1,56 @@
+.list {
+	@include center;
+	gap: rem(20);
+	margin: rem(40) 0;
+}
+
+.listItem {
+	position: relative;
+}
+
+.link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: rem(10);
+	color: $color-text-black;
+	font-weight: 500;
+
+	svg {
+		width: rem(36);
+		height: rem(36);
+		stroke: $color-text-black;
+	}
+
+	&:hover {
+		color: $color-primary-2;
+
+		svg {
+			stroke: $color-primary-2;
+		}
+	}
+}
+
+.tag {
+	position: absolute;
+	top: rem(-6);
+	right: rem(20);
+	transform: rotate(45deg);
+
+	img,
+	span {
+		position: absolute;
+	}
+
+	img {
+		top: rem(-12);
+		left: rem(-8);
+	}
+
+	span {
+		text-transform: uppercase;
+		font-size: rem(10);
+		font-weight: 500;
+		color: $color-text-black;
+	}
+}

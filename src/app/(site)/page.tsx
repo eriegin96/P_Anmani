@@ -9,6 +9,7 @@ import {
 	FlashSale,
 	HowTo,
 	Investor,
+	NavLinks,
 	PersonalInfo,
 	Reports,
 	TiktokReview,
@@ -23,6 +24,7 @@ export default async function Page() {
 
 	return (
 		<>
+			<NavLinks />
 			<Carousel>
 				{carouselList.map((image) => (
 					<div key={image.id} className={styles.imageContainer}>

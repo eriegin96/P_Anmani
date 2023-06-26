@@ -1,5 +1,9 @@
 $padding: 8;
 
+.selectPortal {
+	z-index: 1;
+}
+
 .selectTrigger {
 	@include center-inline;
 	background-color: $color-white;

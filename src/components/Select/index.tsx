@@ -20,7 +20,7 @@ export default function Select({placeholder, items}: TSelectProps) {
 				</RadixSelect.Icon>
 			</RadixSelect.Trigger>
 
-			<RadixSelect.Portal>
+			<RadixSelect.Portal className={styles.selectPortal}>
 				<RadixSelect.Content className={styles.selectContent}>
 					<RadixSelect.Viewport className={styles.selectViewPort}>
 						<RadixSelect.Item value="" className={styles.selectItem}>
