@@ -2,6 +2,7 @@ import {Header, NavigationBar} from "@/components";
 import "../globals.scss";
 import {Inter} from "next/font/google";
 import AuthProvider from "@/providers/AuthProvider";
+import styles from "./page.module.scss";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -11,7 +12,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			<body className={inter.className}>
 				<AuthProvider>
 					<Header />
-					{children}
+					<main className={styles.main}>{children}</main>
 					<NavigationBar />
 				</AuthProvider>
 			</body>

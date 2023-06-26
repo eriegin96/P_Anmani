@@ -1,0 +1,39 @@
+.imageWrapper {
+	position: relative;
+	aspect-ratio: 16 / 9;
+}
+
+.imageMore {
+	display: flex;
+	flex-wrap: wrap;
+
+	& > .imageItem:first-of-type {
+		width: 100%;
+	}
+
+	& > .imageItem:not(:first-of-type) {
+		width: 25%;
+	}
+}
+
+.imageItem {
+	position: relative;
+
+	&:hover .overlay {
+		@include center;
+		background-color: $color-rgba-black-5;
+	}
+}
+
+.overlay {
+	display: none;
+	position: absolute;
+	inset: 0;
+	background-color: $color-rgba-black-2;
+	color: $color-white;
+	cursor: pointer;
+}
+
+.previewGroup {
+	display: none;
+}

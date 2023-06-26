@@ -1,3 +1,11 @@
+.main {
+	margin-bottom: rem(60);
+
+	@include mobile {
+		margin-bottom: rem(48);
+	}
+}
+
 .imageContainer {
 	height: calc(100vw * 2 / 3);
 	position: relative;
