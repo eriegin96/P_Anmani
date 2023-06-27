@@ -1,12 +1,18 @@
 "use client";
 
+import clsx from "clsx";
 import {saleList} from "../../data";
 import styles from "./[id].module.scss";
-import {ImagePreviewGroup, VoucherList} from "./_components";
+import {Action, PageNav} from "./_components";
+import {pageAnchorList} from "./data";
+import {TProduct} from "@/types/product.type";
+import {Element} from "react-scroll";
+import {PRODUCT_ANCHOR} from "@/constants/product";
 
 type TProductPageProps = {
 	params: {id: string};
 };
+export type TItemsRef = {[key: string]: HTMLDivElement | null};
 
 // export const dynamicParams = true // true | false,
 
@@ -19,20 +25,24 @@ type TProductPageProps = {
 // }
 
 export default function ProductPage({params}: TProductPageProps) {
-	const product = saleList.find((item) => item.id === params.id);
-	console.log(product);
+	const product = saleList.find((item) => item.id === params.id) as TProduct;
+	const anchorList = pageAnchorList(product);
 
 	return (
 		<div>
-			<ImagePreviewGroup />
-			<div>
-				<h3>{product?.name}</h3>
-				<span>{product?.type}</span>
-				<span>
-					{product?.location.sub}, {product?.location.main}
-				</span>
-			</div>
-			<VoucherList />
+			<PageNav anchorList={anchorList} />
+
+			{anchorList.map((item) => (
+				<Element
+					key={item.title}
+					name={item.anchor}
+					id={item.anchor}
+					className={clsx(item.anchor !== PRODUCT_ANCHOR.MAIN && styles.block)}>
+					{item.component}
+				</Element>
+			))}
+
+			<Action />
 		</div>
 	);
 }

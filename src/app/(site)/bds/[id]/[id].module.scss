@@ -1,0 +1,8 @@
+.block {
+	margin: rem(20);
+	border-bottom: solid rem(2) $color-gray-2;
+
+	@include mobile {
+		margin: rem(20) rem(10);
+	}
+}

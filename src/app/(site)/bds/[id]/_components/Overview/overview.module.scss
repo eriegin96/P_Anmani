@@ -1,0 +1,40 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	margin: rem(20);
+	padding-bottom: rem(10);
+	font-size: rem(14);
+	border-bottom: solid rem(2) $color-gray-2;
+
+	@include mobile {
+		margin: rem(20) rem(10);
+	}
+}
+
+.title {
+	font-weight: 600;
+	font-size: rem(20);
+}
+
+.typeWrapper {
+	margin: rem(16) 0;
+}
+
+.type {
+	font-weight: 500;
+	border: solid rem(2) $color-primary-2;
+	color: $color-primary-2;
+	padding: rem(4) rem(10);
+	border-radius: $round-xl;
+}
+
+.location {
+	display: flex;
+	align-items: center;
+	color: $color-gray-1;
+
+	p {
+		display: inline-block;
+		margin-left: rem(4);
+	}
+}

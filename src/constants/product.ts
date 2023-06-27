@@ -17,3 +17,12 @@ export const PRODUCT_TYPE = {
 	SHOPHOUSE: "Shophouse nhà phố thương mại",
 	APARTMENT: "Căn hộ",
 } as const;
+
+export const PRODUCT_ANCHOR = {
+	MAIN: "main",
+	VOUCHER: "voucher",
+	FACILITIES: "facilities",
+	LOCATION: "location",
+	POLICY: "policy",
+	DESCRIPTION: "description",
+} as const;
