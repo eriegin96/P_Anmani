@@ -9,7 +9,7 @@ import color from "@/styles/color.module.scss";
 import {Button, SaveDialogPortal} from "@/components";
 import {IconBookmark} from "@tabler/icons-react";
 import {ImageLogoSG} from "@/assets";
-import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/value";
+import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/product";
 import {useState} from "react";
 import {RadioChangeEvent} from "antd";
 

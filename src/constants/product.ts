@@ -10,3 +10,10 @@ export const PRODUCT_SAVE_VALUE = {
 	BUY: "buy",
 	RENT: "rent",
 } as const;
+
+export const PRODUCT_TYPE = {
+	SINGLE_VILLA: "Dinh thự & Biệt thự đơn lập",
+	DOUBLE_VILLA: "Dinh thự & Biệt thự song lập",
+	SHOPHOUSE: "Shophouse nhà phố thương mại",
+	APARTMENT: "Căn hộ",
+} as const;

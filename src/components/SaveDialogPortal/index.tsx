@@ -5,7 +5,7 @@ import type {RadioChangeEvent} from "antd";
 import {Radio} from "antd";
 import styles from "./saveDialogPortal.module.scss";
 import clsx from "clsx";
-import {PRODUCT_SAVE_VALUE} from "@/constants/value";
+import {PRODUCT_SAVE_VALUE} from "@/constants/product";
 
 type TSaveDialogPortalProps = {
 	value: string;

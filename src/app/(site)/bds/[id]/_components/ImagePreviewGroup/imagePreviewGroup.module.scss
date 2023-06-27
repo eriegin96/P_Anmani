@@ -1,0 +1,49 @@
+.imageWrapper {
+	position: relative;
+	aspect-ratio: 16 / 9;
+}
+
+.imageMore {
+	display: flex;
+	flex-wrap: wrap;
+
+	& > .imageItem:first-of-type {
+		width: 100%;
+	}
+
+	& > .imageItem:not(:first-of-type) {
+		width: 25%;
+	}
+}
+
+.imageItem {
+	position: relative;
+
+	&:hover .overlay {
+		background-color: transparent;
+	}
+}
+
+.itemHidden {
+	display: none;
+}
+
+.image {
+	width: 100%;
+}
+
+.overlay {
+	@include center;
+	position: absolute;
+	inset: 0;
+	background-color: $color-rgba-black-5;
+	color: $color-white;
+	cursor: pointer;
+	pointer-events: none;
+	transition: all 0.3s;
+	font-size: rem(14);
+}
+
+.previewGroup {
+	display: none;
+}

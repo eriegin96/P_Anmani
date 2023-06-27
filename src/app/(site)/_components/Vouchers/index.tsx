@@ -1,12 +1,8 @@
-"use client";
-
-import Link from "next/link";
 import dynamic from "next/dynamic";
-import * as Slider from "@radix-ui/react-slider";
 import {voucherList} from "./data";
-import styles from "./vouchers.module.scss";
 import Carousel from "../Carousel";
 import {setting} from "@/constants/carouselSetting";
+import {Voucher} from "@/components";
 
 const Title = dynamic(() => import("../Title"));
 
@@ -17,33 +13,7 @@ export default function Vouchers() {
 			<Carousel setting={setting}>
 				{voucherList.map((voucher) => (
 					<div key={voucher.id}>
-						<Link href={voucher.href} className={styles.voucherWrapper}>
-							<div className={styles.leftSection}>
-								<div className={styles.leftTopSection}>
-									<p className={styles.subTitle}>Quy đổi giới hạn</p>
-									<p className={styles.discount}>
-										Giảm {voucher.discountAmount}
-									</p>
-									<p className={styles.condition}>{voucher.condition}</p>
-								</div>
-								<div>
-									<Slider.Root
-										className={styles.sliderRoot}
-										defaultValue={[50]}
-										disabled
-										max={100}
-										step={1}>
-										<Slider.Track className={styles.sliderTrack}>
-											<Slider.Range className={styles.sliderRange} />
-										</Slider.Track>
-									</Slider.Root>
-									<span className={styles.usedText}>Đã dùng 50%</span>
-								</div>
-							</div>
-							<div>
-								<span className={styles.useBtn}>Sử dụng</span>
-							</div>
-						</Link>
+						<Voucher voucher={voucher} />
 					</div>
 				))}
 			</Carousel>

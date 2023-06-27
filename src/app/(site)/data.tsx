@@ -11,6 +11,7 @@ import {
 	IconYoutube,
 	ImageLogoSG,
 } from "../../assets";
+import {PRODUCT_TYPE} from "@/constants/product";
 
 export const categoryList = [
 	{
@@ -98,6 +99,7 @@ export const carouselList = [
 export const saleList: TProduct[] = [
 	{
 		id: "1",
+		type: PRODUCT_TYPE.SINGLE_VILLA,
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
@@ -118,6 +120,7 @@ export const saleList: TProduct[] = [
 	},
 	{
 		id: "2",
+		type: PRODUCT_TYPE.DOUBLE_VILLA,
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
@@ -138,6 +141,7 @@ export const saleList: TProduct[] = [
 	},
 	{
 		id: "3",
+		type: PRODUCT_TYPE.SHOPHOUSE,
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
@@ -158,6 +162,7 @@ export const saleList: TProduct[] = [
 	},
 	{
 		id: "4",
+		type: PRODUCT_TYPE.APARTMENT,
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
@@ -178,6 +183,7 @@ export const saleList: TProduct[] = [
 	},
 	{
 		id: "5",
+		type: PRODUCT_TYPE.SINGLE_VILLA,
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",

@@ -5,3 +5,4 @@ export {default as NavigationBar} from "./NavigationBar";
 export {default as SearchBox} from "./SearchBox";
 export {default as Select} from "./Select";
 export {default as SaveDialogPortal} from "./SaveDialogPortal";
+export {default as Voucher} from "./Voucher";

@@ -1,13 +1,20 @@
-import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/value";
+import {
+	PRODUCT_SAVE_VALUE,
+	PRODUCT_STATUS,
+	PRODUCT_TYPE,
+} from "@/constants/product";
 
 export type TProductStatusKey = keyof typeof PRODUCT_STATUS;
 export type TProductStatusValue = (typeof PRODUCT_STATUS)[TProductStatusKey];
 export type TProductSaveKey = keyof typeof PRODUCT_SAVE_VALUE;
 export type TProductSaveValue = (typeof PRODUCT_SAVE_VALUE)[TProductSaveKey];
+export type TProductTypeKey = keyof typeof PRODUCT_TYPE;
+export type TProductTypeValue = (typeof PRODUCT_TYPE)[TProductTypeKey];
 
 export type TProduct = {
 	id: string;
-	name?: string;
+	type: TProductTypeValue;
+	name: string;
 	price?: string;
 	salePrice?: string;
 	information: {
