@@ -1,7 +1,7 @@
 import {TProduct, TProductAnchorValue} from "@/types/product.type";
 import {
 	Description,
-	Facilities,
+	Facility,
 	Location,
 	Overview,
 	Policy,
@@ -18,7 +18,11 @@ export const pageAnchorList = (
 		component: <Overview product={product} />,
 	},
 	{anchor: "voucher", title: "Voucher", component: <VoucherList />},
-	{anchor: "facilities", title: "Tiện ích", component: <Facilities />},
+	{
+		anchor: "facilities",
+		title: "Tiện ích",
+		component: <Facility product={product} />,
+	},
 	{
 		anchor: "location",
 		title: "Vị trí",

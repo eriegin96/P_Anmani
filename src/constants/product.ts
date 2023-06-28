@@ -27,6 +27,15 @@ export const PRODUCT_ANCHOR = {
 	DESCRIPTION: "description",
 } as const;
 
+export const PRODUCT_FACILITY = {
+	LAND_AREA: "landArea",
+	FLOOR_AREA: "floorArea",
+	FLOOR: "floor",
+	BEDROOM: "bedroom",
+	BATHROOM: "bathroom",
+	OTHER: "other",
+} as const;
+
 export const PRODUCT_LOCATION = {
 	NEARBY: "nearby",
 	POPULAR: "popular",

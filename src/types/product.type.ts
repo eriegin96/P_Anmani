@@ -28,9 +28,10 @@ export type TProduct = {
 	information: {
 		landArea: string;
 		floor: string;
-		bedroom?: string;
-		bathroom?: string;
+		bedroom: string;
+		bathroom: string;
 		floorArea: string;
+		other: string;
 	};
 	policy: {
 		main: string;
