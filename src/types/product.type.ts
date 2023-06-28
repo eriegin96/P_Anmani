@@ -1,6 +1,5 @@
 import {
 	PRODUCT_ANCHOR,
-	PRODUCT_LOCATION,
 	PRODUCT_SAVE_VALUE,
 	PRODUCT_STATUS,
 	PRODUCT_TYPE,
@@ -14,9 +13,6 @@ export type TProductTypeKey = keyof typeof PRODUCT_TYPE;
 export type TProductTypeValue = (typeof PRODUCT_TYPE)[TProductTypeKey];
 export type TProductAnchorKey = keyof typeof PRODUCT_ANCHOR;
 export type TProductAnchorValue = (typeof PRODUCT_ANCHOR)[TProductAnchorKey];
-export type TProductLocationKey = keyof typeof PRODUCT_LOCATION;
-export type TProductLocationValue =
-	(typeof PRODUCT_LOCATION)[TProductLocationKey];
 
 export type TProductPlace = {
 	name: string;
@@ -35,6 +31,15 @@ export type TProduct = {
 		bedroom?: string;
 		bathroom?: string;
 		floorArea: string;
+	};
+	policy: {
+		main: string;
+		loan: string;
+		equity: string;
+	};
+	description: {
+		pros: string;
+		cons: string;
 	};
 	location: {
 		main: string;

@@ -24,6 +24,14 @@ export const pageAnchorList = (
 		title: "Vị trí",
 		component: <Location product={product} />,
 	},
-	{anchor: "policy", title: "Chính sách", component: <Policy />},
-	{anchor: "description", title: "Mô tả", component: <Description />},
+	{
+		anchor: "policy",
+		title: "Chính sách",
+		component: <Policy product={product} />,
+	},
+	{
+		anchor: "description",
+		title: "Mô tả",
+		component: <Description product={product} />,
+	},
 ];

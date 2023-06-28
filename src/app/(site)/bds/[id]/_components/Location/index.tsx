@@ -1,12 +1,17 @@
 "use client";
 
-import {GoogleMap, Marker, useJsApiLoader} from "@react-google-maps/api";
+import {
+	GoogleMap,
+	Marker,
+	useGoogleMap,
+	useJsApiLoader,
+} from "@react-google-maps/api";
 import * as Tabs from "@radix-ui/react-tabs";
 import styles from "./location.module.scss";
 import {TProduct} from "@/types/product.type";
 import {PRODUCT_LOCATION} from "@/constants/product";
-import {IconMapPinFilled, IconStarFilled} from "@tabler/icons-react";
 import {locationTabList} from "./data";
+import {useCallback, useEffect, useState} from "react";
 
 type TLocationProps = {
 	product: TProduct;
@@ -16,12 +21,26 @@ const CENTER = {
 	lat: 10.729886,
 	lng: 106.724992,
 };
+const ZOOM = 11;
 
 export default function Location({product}: TLocationProps) {
 	const {isLoaded} = useJsApiLoader({
 		id: "google-map-script",
 		googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY as string,
 	});
+	const [map, setMap] = useState<google.maps.Map | null>(null);
+
+	const onLoad = useCallback(function callback(map: google.maps.Map) {
+		console.log(map);
+		map.setCenter(CENTER);
+		map.setZoom(ZOOM);
+
+		setMap(map);
+	}, []);
+
+	const onUnmount = useCallback(function callback(map: google.maps.Map) {
+		setMap(null);
+	}, []);
 
 	return (
 		<div>
@@ -34,7 +53,9 @@ export default function Location({product}: TLocationProps) {
 						borderRadius: "10px",
 					}}
 					center={CENTER}
-					zoom={11}>
+					zoom={ZOOM}
+					onLoad={onLoad}
+					onUnmount={onUnmount}>
 					<Marker position={CENTER} />
 				</GoogleMap>
 			) : (

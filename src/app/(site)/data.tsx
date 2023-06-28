@@ -96,6 +96,43 @@ export const carouselList = [
 	},
 ];
 
+export const productPolicy = {
+	main: `  - Bàn Giao đầy đủ nội thất cao cấp
+  - Nội thất tùy biến tôn vinh chủ nhân với các module đa dạng: thư phòng, nhà hát tại gia, home spa & gym, wine & cigar lounge
+  - Chủ nhân được sử dụng 30 đêm nghỉ/năm trong vòng 10 năm khi tham gia CTCT
+  - Chủ nhân có thể mua ở và không tham gia CTCT
+  - Dinh thự được quản lý theo tiêu chuẩn	6 sao của Gran Meliá đầu tiên tại Châu Á
+  - Tặng 2 thẻ Melia Platinum 
+  - Miễn phí dịch vụ quản lý vận hành 10 năm đối với Khách hàng mua ở
+  - 10 vé xem Show the Đó/năm
+  - 10 vé lặn ngắm san hô/năm
+  - 1 bữa tiệc tại gia cho 6 người/năm
+  - Spa Thổ Nhĩ Kì 2 người/năm
+  - 1 chuyến du thuyền cho 6-10 người/năm
+  - Dịch vụ đưa đón bằng xe riêng cùng quản gia riêng`,
+	loan: `  - Thanh toán giãn 30% đến khi nhận nhà Quý I/2024
+  - Lãi suất 0% kể từ ngày giải ngân đầu tiên đến 31/12/2024 cho khoản vay 65%
+  - Ân hạn nợ gốc lên tới 36 tháng
+  - Thời hạn vay lên tới 30 năm 
+  - Miễn phí trả nợ trước hạn trong thời gian hỗ trợ lãi suất`,
+	equity: `  - Chia 10 lần thanh toán: mỗi lần là 10% cách nhau 3 tháng
+  - Ký HĐMB: sau 2 tháng kể từ ngày đặt cọc
+  - Thanh toán đủ 45% là nhận nhà 15/2/2024
+  - Theo thông báo nhận sổ hồng thanh toán 5% 
+	`,
+};
+
+export const productDescription = {
+	pros: `  - Giá cho thuê cao nhất : 160 triệu/đêm
+  - Lợi nhuận khách hàng nhận dự kiến 714 triệu/tháng - tỷ suất sinh lời 3,5%/năm
+  - Được thiết kế riêng bởi nhà thiết kế Roberto Cavalli 82 tuổi và gần 50 năm kinh nghiệm từ giường ngủ, thảm, sofa, bàn ăn, giấy dán tường, các loại bát đĩa, lọ hoa, đèn bàn đều theo trường phái Avant Garde, ký phiên bản độc quyền 2 căn duy nhất trên toàn thế giới.
+  - Đã có sổ đất riêng ra full diện tích đất
+  - Đơn giá thấp bằng 1/3 giá đường Trần Phú Nha Trang
+  - Vị trí mặt biển duy nhất còn lại của Vịnh Nha Trang, được sở du lich đánh giá là trung tâm hàng đầu của Nha Trang và khách du lịch quốc tế khi có 4 thương hiệu hàng đầu Gran Meliá, Melia, Newworld, Accor
+	`,
+	cons: ``,
+};
+
 export const saleList: TProduct[] = [
 	{
 		id: "1",
@@ -117,6 +154,8 @@ export const saleList: TProduct[] = [
 				{name: "Cảng Nha Trang", distance: "20 phút"},
 			],
 		},
+		policy: productPolicy,
+		description: productDescription,
 		view: 110,
 		information: {
 			landArea: "Diện tích đất 150m2",
@@ -151,6 +190,8 @@ export const saleList: TProduct[] = [
 				{name: "Cảng Nha Trang", distance: "20 phút"},
 			],
 		},
+		policy: productPolicy,
+		description: productDescription,
 		view: 12,
 		information: {
 			landArea: "Diện tích đất 150m2",
@@ -185,6 +226,8 @@ export const saleList: TProduct[] = [
 				{name: "Cảng Nha Trang", distance: "20 phút"},
 			],
 		},
+		policy: productPolicy,
+		description: productDescription,
 		view: 45,
 		information: {
 			landArea: "Diện tích đất 150m2",
@@ -219,6 +262,8 @@ export const saleList: TProduct[] = [
 				{name: "Cảng Nha Trang", distance: "20 phút"},
 			],
 		},
+		policy: productPolicy,
+		description: productDescription,
 		view: 110,
 		information: {
 			landArea: "Diện tích đất 150m2",
@@ -253,6 +298,8 @@ export const saleList: TProduct[] = [
 				{name: "Cảng Nha Trang", distance: "20 phút"},
 			],
 		},
+		policy: productPolicy,
+		description: productDescription,
 		view: 110,
 		information: {
 			landArea: "Diện tích đất 150m2",

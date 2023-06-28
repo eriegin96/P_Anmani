@@ -31,3 +31,8 @@ export const PRODUCT_LOCATION = {
 	NEARBY: "nearby",
 	POPULAR: "popular",
 } as const;
+
+export const PRODUCT_DESCRIPTION = {
+	PROS: "pros",
+	CONS: "cons",
+} as const;
