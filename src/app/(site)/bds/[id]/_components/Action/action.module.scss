@@ -1,0 +1,44 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: $color-gray-2;
+	padding: rem(20);
+
+	@include mobile {
+		padding: rem(20) rem(10);
+	}
+}
+
+.leftSection {
+	display: flex;
+	flex-direction: column;
+	color: $color-gray-1;
+	gap: rem(6);
+}
+
+.title {
+	font-weight: 500;
+	color: $color-text-black;
+}
+
+.price {
+	text-decoration: line-through;
+	font-size: rem(14);
+}
+
+.salePrice {
+	font-weight: 600;
+	color: $color-orange-1;
+}
+
+.btn {
+	background-color: $color-orange-1;
+	color: $color-white;
+	padding: rem(10);
+	border-radius: $round-md;
+
+	&:hover {
+		background-color: $color-orange-2;
+	}
+}

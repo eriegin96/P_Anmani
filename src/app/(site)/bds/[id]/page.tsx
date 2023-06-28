@@ -45,7 +45,7 @@ export default function ProductPage({params}: TProductPageProps) {
 				</Element>
 			))}
 
-			<Action />
+			<Action product={product} />
 		</div>
 	);
 }
