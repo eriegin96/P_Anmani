@@ -2,6 +2,7 @@
 
 import {Link} from "react-scroll";
 import styles from "./pageNav.module.scss";
+import size from "@/styles/size.module.scss";
 
 type Props = {
 	anchorList: {
@@ -12,6 +13,14 @@ type Props = {
 };
 
 export default function PageNav({anchorList}: Props) {
+	const MARGIN_BOTTOM = 20;
+	const offset =
+		Number(size.heightHeader.substring(0, size.heightHeader.length - 2)) +
+		Number(
+			size.heightProductNavbar.substring(0, size.heightProductNavbar.length - 2)
+		) +
+		MARGIN_BOTTOM;
+
 	return (
 		<div>
 			<nav className={styles.navBar}>
@@ -24,7 +33,7 @@ export default function PageNav({anchorList}: Props) {
 						spy={true}
 						hashSpy={true}
 						smooth={true}
-						offset={-70}
+						offset={-offset}
 						duration={300}>
 						{item.title}
 					</Link>

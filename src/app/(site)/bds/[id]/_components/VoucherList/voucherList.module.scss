@@ -3,3 +3,18 @@
 	font-size: rem(14);
 	margin-top: rem(10);
 }
+
+.list {
+	display: flex;
+	flex-wrap: wrap;
+
+	& > div {
+		width: 40%;
+	}
+
+	@include mobile {
+		& > div {
+			width: 100%;
+		}
+	}
+}

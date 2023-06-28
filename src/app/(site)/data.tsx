@@ -103,6 +103,19 @@ export const saleList: TProduct[] = [
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
+			nearby: [
+				{name: "Vịnh Nha Trang", distance: "0m"},
+				{name: "San hô", distance: "60m"},
+				{name: "Núi cô Tiên", distance: "100m"},
+				{name: "Bến du thuyền", distance: "500m"},
+				{name: "Bãi tắm vega", distance: "500m"},
+			],
+			popular: [
+				{name: "Chợ đêm Trần Phú Nha Trang", distance: "10 phút"},
+				{name: "Tháp PoNagar", distance: "8 phút"},
+				{name: "Ga Nha Trang", distance: "15 phút"},
+				{name: "Cảng Nha Trang", distance: "20 phút"},
+			],
 		},
 		view: 110,
 		information: {
@@ -124,6 +137,19 @@ export const saleList: TProduct[] = [
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
+			nearby: [
+				{name: "Vịnh Nha Trang", distance: "0m"},
+				{name: "San hô", distance: "60m"},
+				{name: "Núi cô Tiên", distance: "100m"},
+				{name: "Bến du thuyền", distance: "500m"},
+				{name: "Bãi tắm vega", distance: "500m"},
+			],
+			popular: [
+				{name: "Chợ đêm Trần Phú Nha Trang", distance: "10 phút"},
+				{name: "Tháp PoNagar", distance: "8 phút"},
+				{name: "Ga Nha Trang", distance: "15 phút"},
+				{name: "Cảng Nha Trang", distance: "20 phút"},
+			],
 		},
 		view: 12,
 		information: {
@@ -145,6 +171,19 @@ export const saleList: TProduct[] = [
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
+			nearby: [
+				{name: "Vịnh Nha Trang", distance: "0m"},
+				{name: "San hô", distance: "60m"},
+				{name: "Núi cô Tiên", distance: "100m"},
+				{name: "Bến du thuyền", distance: "500m"},
+				{name: "Bãi tắm vega", distance: "500m"},
+			],
+			popular: [
+				{name: "Chợ đêm Trần Phú Nha Trang", distance: "10 phút"},
+				{name: "Tháp PoNagar", distance: "8 phút"},
+				{name: "Ga Nha Trang", distance: "15 phút"},
+				{name: "Cảng Nha Trang", distance: "20 phút"},
+			],
 		},
 		view: 45,
 		information: {
@@ -166,6 +205,19 @@ export const saleList: TProduct[] = [
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
+			nearby: [
+				{name: "Vịnh Nha Trang", distance: "0m"},
+				{name: "San hô", distance: "60m"},
+				{name: "Núi cô Tiên", distance: "100m"},
+				{name: "Bến du thuyền", distance: "500m"},
+				{name: "Bãi tắm vega", distance: "500m"},
+			],
+			popular: [
+				{name: "Chợ đêm Trần Phú Nha Trang", distance: "10 phút"},
+				{name: "Tháp PoNagar", distance: "8 phút"},
+				{name: "Ga Nha Trang", distance: "15 phút"},
+				{name: "Cảng Nha Trang", distance: "20 phút"},
+			],
 		},
 		view: 110,
 		information: {
@@ -187,6 +239,19 @@ export const saleList: TProduct[] = [
 		location: {
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
+			nearby: [
+				{name: "Vịnh Nha Trang", distance: "0m"},
+				{name: "San hô", distance: "60m"},
+				{name: "Núi cô Tiên", distance: "100m"},
+				{name: "Bến du thuyền", distance: "500m"},
+				{name: "Bãi tắm vega", distance: "500m"},
+			],
+			popular: [
+				{name: "Chợ đêm Trần Phú Nha Trang", distance: "10 phút"},
+				{name: "Tháp PoNagar", distance: "8 phút"},
+				{name: "Ga Nha Trang", distance: "15 phút"},
+				{name: "Cảng Nha Trang", distance: "20 phút"},
+			],
 		},
 		view: 110,
 		information: {

@@ -19,7 +19,11 @@ export const pageAnchorList = (
 	},
 	{anchor: "voucher", title: "Voucher", component: <VoucherList />},
 	{anchor: "facilities", title: "Tiện ích", component: <Facilities />},
-	{anchor: "location", title: "Vị trí", component: <Location />},
+	{
+		anchor: "location",
+		title: "Vị trí",
+		component: <Location product={product} />,
+	},
 	{anchor: "policy", title: "Chính sách", component: <Policy />},
 	{anchor: "description", title: "Mô tả", component: <Description />},
 ];

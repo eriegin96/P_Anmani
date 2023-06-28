@@ -7,7 +7,7 @@ import styles from "./voucherList.module.scss";
 export default function VoucherList() {
 	const {id} = useParams();
 	const vouchers = voucherList.filter(
-		(voucher) => voucher.id === id
+		(voucher) => voucher.id !== id
 	) as TVoucher[];
 
 	return (
@@ -15,9 +15,11 @@ export default function VoucherList() {
 			<p className={styles.description}>
 				Hãy áp dụng ngay mã giảm giá trước khi hết hạn
 			</p>
-			{vouchers?.map((voucher) => (
-				<Voucher key={voucher.id} voucher={voucher} />
-			))}
+			<div className={styles.list}>
+				{vouchers?.map((voucher) => (
+					<Voucher key={voucher.id} voucher={voucher} />
+				))}
+			</div>
 		</>
 	);
 }

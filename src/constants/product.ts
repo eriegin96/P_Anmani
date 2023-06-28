@@ -26,3 +26,8 @@ export const PRODUCT_ANCHOR = {
 	POLICY: "policy",
 	DESCRIPTION: "description",
 } as const;
+
+export const PRODUCT_LOCATION = {
+	NEARBY: "nearby",
+	POPULAR: "popular",
+} as const;

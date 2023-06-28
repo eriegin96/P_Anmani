@@ -1,6 +1,4 @@
-import { PortableTextBlock } from 'sanity';
-import { Voucher } from './Voucher';
-import { Category } from './Category';
+import {Voucher} from "./Voucher";
 
 type PropertyImageLinks = {
 	main: string[];
@@ -23,17 +21,13 @@ type PropertyPlace = {
 	time: string;
 };
 
-type PropertyPolicy = {
-	overall: PortableTextBlock[];
-	loan: PortableTextBlock[];
-};
+type PropertyPolicy = {};
 
 export type Property = {
 	_id: string;
 	_createdAt: Date;
 	name: string;
 	slug: string;
-	category: Category;
 	address: string;
 	price: number;
 	mainImage: string;
@@ -45,6 +39,5 @@ export type Property = {
 		popular: PropertyPlace;
 	};
 	policy: PropertyPolicy;
-	description: PortableTextBlock[];
 	vouchers: Voucher[];
 };
