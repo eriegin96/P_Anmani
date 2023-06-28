@@ -1,4 +1,3 @@
-import {getCategories} from "@/sanity/sanity-api";
 import styles from "./page.module.scss";
 import {
 	AdvancedSearch,
