@@ -9,4 +9,5 @@ export type TCartItem = {
 	productId: string;
 	quantity: number;
 	voucherAdded: string[];
+	value: string;
 };

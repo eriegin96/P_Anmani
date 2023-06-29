@@ -1,7 +1,37 @@
 .wrapper {
+	margin-top: rem(20);
 }
 
 .title {
+	text-align: center;
 	font-size: rem(24);
 	font-weight: 600;
+}
+
+.checkboxGroup {
+	flex-direction: column;
+	display: flex;
+	gap: rem(10);
+
+	& :global(.ant-checkbox-group-item) {
+		gap: rem(10);
+	}
+}
+
+.layout {
+	margin: rem(20);
+
+	@include mobile {
+		margin: rem(10);
+	}
+}
+
+.cartAction {
+	display: flex;
+	align-items: center;
+	gap: rem(10);
+	margin-bottom: rem(100);
+}
+
+.checkboxLabel {
 }

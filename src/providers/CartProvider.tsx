@@ -11,7 +11,7 @@ import {
 } from "react";
 
 type TCartContextDefault = {
-	cart?: TCartItem[];
+	cart: TCartItem[];
 	setCart?: Dispatch<SetStateAction<TCartItem[]>>;
 };
 
@@ -20,11 +20,11 @@ type TCartProviderProps = {
 };
 
 const mockData: TCartItem[] = [
-	{id: "1", productId: "1", quantity: 1, voucherAdded: ["1", "2"]},
-	{id: "2", productId: "2", quantity: 2, voucherAdded: ["3"]},
+	{id: "1", productId: "1", quantity: 1, voucherAdded: ["1", "2"], value: "1"},
+	{id: "2", productId: "2", quantity: 2, voucherAdded: ["3"], value: "2"},
 ];
 
-export const CartContext = createContext<TCartContextDefault>({});
+export const CartContext = createContext<TCartContextDefault>({cart: []});
 
 export default function CartProvider({children}: TCartProviderProps) {
 	const [cart, setCart] = useState<TCartItem[]>(mockData);
