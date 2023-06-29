@@ -1,5 +1,6 @@
 .navBar {
 	position: fixed;
+	// top: $height-header;
 	display: flex;
 	align-items: center;
 	left: 0;
@@ -17,6 +18,13 @@
 	text-align: center;
 	cursor: pointer;
 	color: $color-gray-1;
+	height: $height-product-navbar;
+	@include center;
+
+	@include mobile {
+		font-size: rem(12);
+		padding: rem(10);
+	}
 }
 
 .linkActive {

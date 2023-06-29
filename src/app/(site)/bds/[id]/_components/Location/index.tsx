@@ -31,7 +31,6 @@ export default function Location({product}: TLocationProps) {
 	const [map, setMap] = useState<google.maps.Map | null>(null);
 
 	const onLoad = useCallback(function callback(map: google.maps.Map) {
-		console.log(map);
 		map.setCenter(CENTER);
 		map.setZoom(ZOOM);
 
