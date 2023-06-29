@@ -1,17 +1,12 @@
 "use client";
 
-import {
-	GoogleMap,
-	Marker,
-	useGoogleMap,
-	useJsApiLoader,
-} from "@react-google-maps/api";
+import {GoogleMap, Marker, useJsApiLoader} from "@react-google-maps/api";
 import * as Tabs from "@radix-ui/react-tabs";
 import styles from "./location.module.scss";
 import {TProduct} from "@/types/product.type";
 import {PRODUCT_LOCATION} from "@/constants/product";
-import {locationTabList} from "./data";
-import {useCallback, useEffect, useState} from "react";
+import {locationTabList} from "./static";
+import {useCallback, useState} from "react";
 
 type TLocationProps = {
 	product: TProduct;

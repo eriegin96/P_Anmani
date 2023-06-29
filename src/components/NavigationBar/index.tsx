@@ -11,13 +11,14 @@ import {
 	IconPlaneTilt,
 	IconUser,
 } from "@tabler/icons-react";
+import {ROUTE} from "@/constants/route";
 
 const navLinks = [
-	{href: "/", name: "Trang chủ", icon: <IconPlaneTilt />},
-	{href: "/tin-nhan", name: "Tin nhắn", icon: <IconMail />},
-	{href: "/kham-pha", name: "Khám phá", icon: <IconLayoutDashboard />},
-	{href: "/luu-tru", name: "Đã lưu", icon: <IconClipboardText />},
-	{href: "/ho-so", name: "Hồ sơ", icon: <IconUser />},
+	{href: ROUTE.HOME, name: "Trang chủ", icon: <IconPlaneTilt />},
+	{href: ROUTE.MESSAGE, name: "Tin nhắn", icon: <IconMail />},
+	{href: ROUTE.EXPLORE, name: "Khám phá", icon: <IconLayoutDashboard />},
+	{href: ROUTE.SAVE, name: "Đã lưu", icon: <IconClipboardText />},
+	{href: ROUTE.PROFILE, name: "Hồ sơ", icon: <IconUser />},
 ];
 
 export default function NavigationBar() {

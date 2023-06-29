@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Title from "../Title";
 import styles from "./personalInfo.module.scss";
-import {personalInfo, soldProjects} from "./data";
+import {personalInfo, soldProjects} from "./static";
 import {ImageAvatar} from "@/assets";
 
 export default function PersonalInfo() {

@@ -5,7 +5,7 @@ import {
 	investorList,
 	locationList,
 	socialNetworks,
-} from "../../data";
+} from "../../../../mock/data";
 import styles from "./advancedSearch.module.scss";
 import Image from "next/image";
 import Slider from "@/components/Slider";

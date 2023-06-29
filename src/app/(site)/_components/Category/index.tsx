@@ -9,7 +9,7 @@ import * as Tabs from "@radix-ui/react-tabs";
 import Carousel from "../Carousel";
 import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
-import {saleList} from "../../data";
+import {saleList} from "../../../../mock/data";
 
 type TCategoryProps = {
 	category: TCategory;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {navLinkList} from "./data";
+import {navLinkList} from "./static";
 import styles from "./navLinks.module.scss";
 import Image from "next/image";
 import {IconCollision} from "@/assets";

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Title from "../Title";
 import styles from "./deposit.module.scss";
+import {ROUTE} from "@/constants/route";
 
 export default function Deposit() {
 	return (
@@ -12,7 +13,7 @@ export default function Deposit() {
 				</p>
 				<p>
 					2. Hoặc Quý Khách{" "}
-					<Link href="/sign-in" className={styles.link}>
+					<Link href={ROUTE.SIGN_IN} className={styles.link}>
 						đăng nhập
 					</Link>{" "}
 					và điền vào thông tin ký gửi

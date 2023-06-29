@@ -14,7 +14,7 @@ import {
 	TiktokReview,
 	Vouchers,
 } from "./_components";
-import {carouselList, categoryList, investorList} from "./data";
+import {carouselList, categoryList, investorList} from "../../mock/data";
 import Image from "next/image";
 
 export default async function Page() {

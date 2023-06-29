@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import {Image} from "antd";
-import {imagePreviews} from "./data";
+import {imagePreviews} from "@/mock/data";
 import styles from "./imagePreviewGroup.module.scss";
 
 type TImagePreviewGroupProps = {};

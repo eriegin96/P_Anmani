@@ -12,6 +12,7 @@ import {ImageLogoSG} from "@/assets";
 import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/product";
 import {useState} from "react";
 import {RadioChangeEvent} from "antd";
+import {ROUTE} from "@/constants/route";
 
 type TProductCardProps = {
 	info: TProduct;
@@ -53,7 +54,7 @@ export default function ProductCard({
 
 	return (
 		<div className={styles.itemWrapper}>
-			<Link href={`/bds/${id}`} key={name}>
+			<Link href={`${ROUTE.PRODUCT}/${id}`} key={name}>
 				<div className={styles.cardContent}>
 					<div className={styles.overlay} />
 					<div className={styles.imageWrapper}>

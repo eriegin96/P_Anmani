@@ -2,7 +2,7 @@ import {TProduct} from "@/types/product.type";
 import * as Tabs from "@radix-ui/react-tabs";
 import styles from "./description.module.scss";
 import {PRODUCT_DESCRIPTION} from "@/constants/product";
-import {descriptionTabList} from "./data";
+import {descriptionTabList} from "./static";
 
 type TDescriptionProps = {
 	product: TProduct;

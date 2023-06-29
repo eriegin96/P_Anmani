@@ -1,16 +1,23 @@
 "use client";
 
 import * as Dialog from "@radix-ui/react-dialog";
-import {IconBell, IconMenu2, IconPhoneFilled} from "@tabler/icons-react";
+import {
+	IconBell,
+	IconMenu2,
+	IconPhoneFilled,
+	IconShoppingCart,
+} from "@tabler/icons-react";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import styles from "./header.module.scss";
-import {navLinks} from "./data";
+import {navLinks} from "./static";
 import color from "@/styles/color.module.scss";
 import {useAuthContext} from "@/providers/AuthProvider";
 import Image from "next/image";
 import {ImageLogo} from "@/assets";
+import {Badge} from "antd";
+import {ROUTE} from "@/constants/route";
 
 const Button = dynamic(() => import("../Button"));
 
@@ -41,12 +48,12 @@ export default function Header() {
 					</Dialog.Content>
 				</Dialog.Portal>
 			</Dialog.Root>
-			<Link href="/">
+			<Link href={ROUTE.HOME}>
 				<Image src={ImageLogo} alt="" width={50} height={50} />
 			</Link>
 			<div className={styles.rightSection}>
-				{!userInfo ? (
-					<Link href="dang-nhap" className={styles.triggerBtn}>
+				{/* {!userInfo ? (
+					<Link href={ROUTE.SIGN_IN} className={styles.triggerBtn}>
 						Login
 					</Link>
 				) : (
@@ -58,7 +65,20 @@ export default function Header() {
 							<Button className={styles.triggerBtn}>Cart</Button>
 						)}
 					</>
-				)}
+				)} */}
+
+				<>
+					<Button className={styles.triggerBtn}>
+						<Badge size="small" count={5}>
+							<IconBell color={color.white} />
+						</Badge>
+					</Button>
+					<Link href={ROUTE.CART} className={styles.triggerBtn}>
+						<Badge size="small" count={5}>
+							<IconShoppingCart color={color.white} />
+						</Badge>
+					</Link>
+				</>
 			</div>
 		</header>
 	);

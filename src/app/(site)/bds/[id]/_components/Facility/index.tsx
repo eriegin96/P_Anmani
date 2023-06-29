@@ -1,6 +1,6 @@
 import {TProduct} from "@/types/product.type";
 import styles from "./facilities.module.scss";
-import {facilityList} from "./data";
+import {facilityList} from "./static";
 
 type TFacilityProps = {
 	product: TProduct;

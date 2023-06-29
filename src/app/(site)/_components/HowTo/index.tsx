@@ -1,5 +1,5 @@
 import Title from "../Title";
-import {stepList} from "./data";
+import {stepList} from "./static";
 import styles from "./howTo.module.scss";
 
 export default function HowTo() {

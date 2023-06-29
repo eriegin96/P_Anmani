@@ -3,3 +3,10 @@ export type TUser = {
 	name: string;
 	role: string;
 };
+
+export type TCartItem = {
+	id: string;
+	productId: string;
+	quantity: number;
+	voucherAdded: string[];
+};

@@ -1,10 +1,10 @@
 "use client";
 
 import clsx from "clsx";
-import {saleList} from "../../data";
+import {saleList} from "../../../../mock/data";
 import styles from "./[id].module.scss";
 import {Action, PageNav} from "./_components";
-import {pageAnchorList} from "./data";
+import {pageAnchorList} from "./static";
 import {TProduct} from "@/types/product.type";
 import {Element} from "react-scroll";
 import {PRODUCT_ANCHOR} from "@/constants/product";

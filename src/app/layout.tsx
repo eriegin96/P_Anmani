@@ -1,10 +1,11 @@
 import {Header, NavigationBar} from "@/components";
-import "../globals.scss";
+import "./globals.scss";
 import {Inter} from "next/font/google";
 import AuthProvider from "@/providers/AuthProvider";
-import styles from "./page.module.scss";
+import styles from "./(site)/page.module.scss";
 import {Suspense} from "react";
-import Loading from "./loading";
+import Loading from "./(site)/loading";
+import CartProvider from "@/providers/CartProvider";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -13,10 +14,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 		<html lang="en">
 			<body className={inter.className}>
 				<AuthProvider>
-					<Header />
-					<Suspense fallback={<Loading />}>
-						<main className={styles.main}>{children}</main>
-					</Suspense>
+					<CartProvider>
+						<Header />
+						<Suspense fallback={<Loading />}>
+							<main className={styles.main}>{children}</main>
+						</Suspense>
+					</CartProvider>
 					<NavigationBar />
 				</AuthProvider>
 			</body>

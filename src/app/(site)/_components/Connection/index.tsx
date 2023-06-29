@@ -1,7 +1,7 @@
 import {Button} from "@/components";
 import Title from "../Title";
 import styles from "./connection.module.scss";
-import {socialNetworks} from "../../data";
+import {socialNetworks} from "../../../../mock/data";
 import Image from "next/image";
 
 export default function Connection() {
