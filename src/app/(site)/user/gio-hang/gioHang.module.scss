@@ -15,6 +15,16 @@
 
 	& :global(.ant-checkbox-group-item) {
 		gap: rem(10);
+
+		& :global(.ant-checkbox-inner) {
+			width: rem(20);
+			height: rem(20);
+			border-radius: 100%;
+		}
+
+		& :global(.ant-checkbox)::after {
+			border-radius: 100%;
+		}
 	}
 }
 
@@ -29,9 +39,41 @@
 .cartAction {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	gap: rem(10);
-	margin-bottom: rem(100);
 }
 
-.checkboxLabel {
+.checkboxAll {
+	color: $color-gray-1;
+
+	& :global(.ant-checkbox) {
+		gap: rem(10);
+
+		& :global(.ant-checkbox-inner) {
+			width: rem(20);
+			height: rem(20);
+			border-radius: 100%;
+		}
+
+		&::after {
+			border-radius: 100%;
+		}
+	}
+}
+
+.totalPrice {
+	font-size: rem(18);
+	font-weight: 500;
+	margin-right: rem(10);
+}
+
+.btn {
+	background-color: $color-pink-2;
+	color: $color-white;
+	border-radius: $round-sm;
+	padding: rem(10);
+
+	&:hover {
+		background-color: $color-red-1;
+	}
 }

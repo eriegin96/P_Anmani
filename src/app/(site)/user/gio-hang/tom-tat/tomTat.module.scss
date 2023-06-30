@@ -1,0 +1,131 @@
+.pageWrapper {
+	background-color: $color-gray-2;
+	display: flex;
+	flex-direction: column;
+	gap: rem(10);
+}
+
+.wrapper {
+	padding: rem(20);
+	background-color: $color-white;
+
+	@include mobile {
+		padding: rem(10);
+	}
+}
+
+.titleWrapper {
+	@include center;
+	position: relative;
+
+	button {
+		position: absolute;
+		left: rem(20);
+		top: rem(20);
+		width: rem(30);
+		height: rem(30);
+		padding: 0;
+
+		&:hover {
+			color: $color-primary-2;
+		}
+	}
+
+	h3 {
+		font-size: rem(24);
+		font-weight: 600;
+	}
+}
+
+.productList {
+	display: flex;
+	flex-direction: column;
+	gap: rem(10);
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.calculationTitle {
+	display: flex;
+	align-items: center;
+	font-size: rem(20);
+	font-weight: 500;
+
+	svg {
+		color: $color-green-3;
+	}
+}
+
+.calculationLine {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: rem(6);
+}
+
+.originalPrice {
+	span:nth-of-type(2) {
+		font-weight: 500;
+	}
+}
+
+.discountAmount {
+	span:nth-of-type(2) {
+		color: $color-pink-2;
+	}
+}
+
+.finalPrice {
+	font-weight: 600;
+}
+
+.lastSection {
+	padding-bottom: 0;
+}
+
+.summaryWrapper {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+
+	& > span {
+		font-weight: 500;
+		font-size: rem(20);
+	}
+
+	& > div {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: rem(4);
+		font-weight: 500;
+
+		span:first-of-type {
+			font-size: rem(20);
+		}
+
+		span:nth-of-type(2) {
+			color: $color-pink-2;
+			font-size: rem(14);
+		}
+	}
+}
+
+.action {
+	display: flex;
+	gap: rem(10);
+	margin-top: rem(20);
+
+	button {
+		border: none;
+		width: 50%;
+		background-color: $color-pink-2;
+		color: $color-white;
+		padding: rem(10) 0;
+		border-radius: $round-md;
+
+		&:hover {
+			background-color: $color-red-1;
+		}
+	}
+}

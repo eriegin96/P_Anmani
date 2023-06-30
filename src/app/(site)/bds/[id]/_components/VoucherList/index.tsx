@@ -1,8 +1,8 @@
-import {voucherList} from "@/app/(site)/_components/Vouchers/data";
 import {Voucher} from "@/components";
 import {TVoucher} from "@/types/voucher.type";
 import {useParams} from "next/navigation";
 import styles from "./voucherList.module.scss";
+import {voucherList} from "@/mock/data";
 
 export default function VoucherList() {
 	const {id} = useParams();
@@ -17,7 +17,7 @@ export default function VoucherList() {
 			</p>
 			<div className={styles.list}>
 				{vouchers?.map((voucher) => (
-					<Voucher key={voucher.id} voucher={voucher} />
+					<Voucher key={voucher.id} voucher={voucher} shouldShowBtn />
 				))}
 			</div>
 		</>

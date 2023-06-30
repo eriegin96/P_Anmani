@@ -9,9 +9,13 @@ import Button from "../Button";
 
 type TVoucherProps = {
 	voucher: TVoucher;
+	shouldShowBtn?: boolean;
 };
 
-export default function Voucher({voucher}: TVoucherProps) {
+export default function Voucher({
+	voucher,
+	shouldShowBtn = false,
+}: TVoucherProps) {
 	const {discount, condition, expiredDate} = voucher;
 	const discountAmount = discount.amount
 		? discount.amount.toString().replace(NUMBER_FORMAT, ".")
@@ -40,9 +44,11 @@ export default function Voucher({voucher}: TVoucherProps) {
 				</div>
 				<span className={styles.expiredDate}>HSD: {expiredDate}</span>
 			</div>
-			<div>
-				<Button className={styles.useBtn}>Sử dụng</Button>
-			</div>
+			{shouldShowBtn && (
+				<div>
+					<Button className={styles.useBtn}>Sử dụng</Button>
+				</div>
+			)}
 		</div>
 	);
 }

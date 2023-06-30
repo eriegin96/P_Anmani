@@ -19,7 +19,7 @@ export default function Vouchers() {
 						key={voucher.id}
 						href={`${ROUTE.PRODUCT}/${voucher.productId}`}
 						className={styles.link}>
-						<Voucher voucher={voucher} />
+						<Voucher voucher={voucher} shouldShowBtn />
 					</Link>
 				))}
 			</Carousel>

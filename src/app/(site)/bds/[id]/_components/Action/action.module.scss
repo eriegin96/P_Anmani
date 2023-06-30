@@ -4,6 +4,7 @@
 	justify-content: space-between;
 	background-color: $color-gray-2;
 	padding: rem(20);
+	margin-bottom: rem(-30);
 
 	@include mobile {
 		padding: rem(20) rem(10);

@@ -23,8 +23,8 @@ export type TProduct = {
 	id: string;
 	type: TProductTypeValue;
 	name: string;
-	price?: string;
-	salePrice?: string;
+	price?: number;
+	salePrice?: number;
 	information: {
 		landArea: string;
 		floor: string;

@@ -1,7 +1,7 @@
 "use client";
 
 import {useCartContext} from "@/providers/CartProvider";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import CartItem from "./_components/CartItem";
 import styles from "./gioHang.module.scss";
 import clsx from "clsx";
@@ -9,21 +9,22 @@ import {TCartItem} from "@/types/user.type";
 import {Checkbox, Divider} from "antd";
 import type {CheckboxChangeEvent} from "antd/es/checkbox";
 import type {CheckboxValueType} from "antd/es/checkbox/Group";
+import {saleList} from "@/mock/data";
+import {formatCurrency} from "@/utils/formatCurrency";
+import Link from "next/link";
+import {ROUTE} from "@/constants/route";
 
 const CheckboxGroup = Checkbox.Group;
 
 export type TIem = TCartItem & {checked: boolean | "indeterminate"};
 
 export default function Page() {
-	const {cart} = useCartContext();
+	const {cart, checkedListDefault, checkedList, setCheckedList, totalPrice} =
+		useCartContext();
 	const cartList = cart.map((item) => ({
 		...item,
 		label: <CartItem item={item} />,
 	}));
-	const checkedListDefault = cart.map((item) => item.value);
-
-	const [checkedList, setCheckedList] =
-		useState<CheckboxValueType[]>(checkedListDefault);
 	const [indeterminate, setIndeterminate] = useState(true);
 	const [checkAll, setCheckAll] = useState(false);
 
@@ -57,9 +58,18 @@ export default function Page() {
 					<Checkbox
 						indeterminate={indeterminate}
 						onChange={onCheckAllChange}
-						checked={checkAll}>
+						checked={checkAll}
+						className={styles.checkboxAll}>
 						Chọn tất cả
 					</Checkbox>
+					<div>
+						<span className={styles.totalPrice}>
+							{formatCurrency(totalPrice)}
+						</span>
+						<Link href={ROUTE.CART_SUMMARY} className={styles.btn}>
+							Tính nháp sau khi chiết khấu
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>

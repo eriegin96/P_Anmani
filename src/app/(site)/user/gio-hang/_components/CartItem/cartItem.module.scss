@@ -1,3 +1,8 @@
+.wrapper {
+	padding: rem(20) 0;
+	background-color: $color-white;
+}
+
 .cartItem {
 	display: flex;
 	align-items: center;
@@ -49,6 +54,10 @@
 	position: relative;
 	aspect-ratio: 16 / 9;
 	width: rem(400);
+
+	img {
+		border-radius: $round-xl;
+	}
 }
 
 .info {
@@ -72,6 +81,22 @@
 	color: $color-text-black;
 	font-weight: 600;
 	font-size: rem(18);
+}
+
+.voucherWrapper {
+	margin-top: rem(20);
+}
+
+.voucherTitle {
+	font-size: rem(20);
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+
+	svg {
+		stroke: $color-pink-2;
+		margin-right: rem(4);
+	}
 }
 
 @include mobile {
