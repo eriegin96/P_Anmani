@@ -16,8 +16,9 @@ import color from "@/styles/color.module.scss";
 import {useAuthContext} from "@/providers/AuthProvider";
 import Image from "next/image";
 import {ImageLogo} from "@/assets";
-import {Badge} from "antd";
+import {Badge, Popover} from "antd";
 import {ROUTE} from "@/constants/route";
+import NotificationContent from "../NotificationContent";
 
 const Button = dynamic(() => import("../Button"));
 
@@ -68,11 +69,18 @@ export default function Header() {
 				)} */}
 
 				<>
-					<Button className={styles.triggerBtn}>
-						<Badge size="small" count={5}>
-							<IconBell color={color.white} />
-						</Badge>
-					</Button>
+					<Popover
+						content={<NotificationContent />}
+						placement="bottomRight"
+						trigger="click"
+						className={styles.popover}
+					>
+						<Button className={styles.triggerBtn}>
+							<Badge size="small" count={5}>
+								<IconBell color={color.white} />
+							</Badge>
+						</Button>
+					</Popover>
 					<Link href={ROUTE.CART} className={styles.triggerBtn}>
 						<Badge size="small" count={5}>
 							<IconShoppingCart color={color.white} />

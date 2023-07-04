@@ -114,13 +114,13 @@ export const investorList = [
 		id: "1",
 		value: "KDI Holding",
 		title: "KDI Holding",
-		src: "https://ucf2d35e2ac9dbaf6d74c1455039.previews.dropboxusercontent.com/p/thumb/AB9pCsgIG7cyN2cvUhqzOeMb1pXJDlzTr3tTuDJC8nWo3oX-lh2n2IwS2Y78XyrwBKZiC5Yu0-6ZhZIMHquQBOoJW9pl9EM-xTPT8gHHZ5O3R8FhCL4n89uPuPLe_rjCqTg_Ybh1wjtfzAMSUOUkfY3f_L7fytXTUM8slEjIhyjuM3e27TmmKJ9D5O8BYkISo4ratRZDnA4ZjCv_7qwW0w24YRUpH6zMxN_HRARmE12BmLZ2VvBZfKLBYeVIuvUCD_01yhYk9oTvto6_RJD_ltzgo_fQdrcPiah2Hb8jWzKJYyUSB9O7_IrjeKm07-VbDwpEN3GPVGE_r613FtOjdZ2I0UwPseTzC5ODrQk2Ydax1qA9oKlApxeui1RYIOKla0raEne05aqy7do5JBWRtVj4rwXFlmm_QLPT4TOV8pGbFAYdMnSnot_n1Ifln2juqnYky24-GMeMUc20ZiR89NZ3GSVoEcyLtwWXK-NuKFTvqA/p.jpeg",
+		src: "https://picsum.photos/id/201/1600/900",
 	},
 	{
 		id: "2",
 		value: "Sun Property",
 		title: "Sun Property",
-		src: "https://ucf2d35e2ac9dbaf6d74c1455039.previews.dropboxusercontent.com/p/thumb/AB9pCsgIG7cyN2cvUhqzOeMb1pXJDlzTr3tTuDJC8nWo3oX-lh2n2IwS2Y78XyrwBKZiC5Yu0-6ZhZIMHquQBOoJW9pl9EM-xTPT8gHHZ5O3R8FhCL4n89uPuPLe_rjCqTg_Ybh1wjtfzAMSUOUkfY3f_L7fytXTUM8slEjIhyjuM3e27TmmKJ9D5O8BYkISo4ratRZDnA4ZjCv_7qwW0w24YRUpH6zMxN_HRARmE12BmLZ2VvBZfKLBYeVIuvUCD_01yhYk9oTvto6_RJD_ltzgo_fQdrcPiah2Hb8jWzKJYyUSB9O7_IrjeKm07-VbDwpEN3GPVGE_r613FtOjdZ2I0UwPseTzC5ODrQk2Ydax1qA9oKlApxeui1RYIOKla0raEne05aqy7do5JBWRtVj4rwXFlmm_QLPT4TOV8pGbFAYdMnSnot_n1Ifln2juqnYky24-GMeMUc20ZiR89NZ3GSVoEcyLtwWXK-NuKFTvqA/p.jpeg",
+		src: "https://picsum.photos/id/201/1600/900",
 	},
 ];
 
@@ -134,11 +134,11 @@ export const socialNetworks = [
 export const carouselList = [
 	{
 		id: "1",
-		src: "https://ucf2d35e2ac9dbaf6d74c1455039.previews.dropboxusercontent.com/p/thumb/AB9pCsgIG7cyN2cvUhqzOeMb1pXJDlzTr3tTuDJC8nWo3oX-lh2n2IwS2Y78XyrwBKZiC5Yu0-6ZhZIMHquQBOoJW9pl9EM-xTPT8gHHZ5O3R8FhCL4n89uPuPLe_rjCqTg_Ybh1wjtfzAMSUOUkfY3f_L7fytXTUM8slEjIhyjuM3e27TmmKJ9D5O8BYkISo4ratRZDnA4ZjCv_7qwW0w24YRUpH6zMxN_HRARmE12BmLZ2VvBZfKLBYeVIuvUCD_01yhYk9oTvto6_RJD_ltzgo_fQdrcPiah2Hb8jWzKJYyUSB9O7_IrjeKm07-VbDwpEN3GPVGE_r613FtOjdZ2I0UwPseTzC5ODrQk2Ydax1qA9oKlApxeui1RYIOKla0raEne05aqy7do5JBWRtVj4rwXFlmm_QLPT4TOV8pGbFAYdMnSnot_n1Ifln2juqnYky24-GMeMUc20ZiR89NZ3GSVoEcyLtwWXK-NuKFTvqA/p.jpeg",
+		src: "https://picsum.photos/id/208/1600/900",
 	},
 	{
 		id: "2",
-		src: "https://uc0d8c518c736a6b4692a3a53f7c.previews.dropboxusercontent.com/p/thumb/AB-zjgtHkWqpUgT0WfDIAV06kvGnIiqfgFJ8LEO2_2PvsMUCqneWExQg9ui-P_VyAJeKOR52UnQCd8UpSA7jev67F88obUCs4vyeb9n-8zJx0KHUsLBJcY4raWZWALDTQcdKFy4L-4ABCrXdyEGnII1A6f5srhMuX8h0q9S9r058gBTR2id3Hhw4ihT5gwaOJvt3HcE41X7FxpCdNYlLa7s1Hu_JmwH3L066BQ0E7yz2o8i94Rhb-F1XgMFZ7bUK1ibj11C0bt-PkVx_WJPmsXGKtXLDvgZJq29KRAMsMKVwAScPRrIn4EY9hDiKaA9JnangqX1alu10oeZlDk6qZAqgJSXMuSTe2Z1Lrym8Q0tUBmJEbBWU1hGK1wZpar0SPUVDgfRopEpWW1v4F4ADPA5t_WTsIbjQwEQUaaMHl1t4COX_lCG_qFysFMr5kj_g0s5qL6DY1LRngqGPePn9sjEnkZqGF9xhfkDXC2lqDnGr3KJ6VW-k0ttDgZOkd940VSqfyDeCQo5OfRngc52loMA0mBZJfYr_GlVh66wvIqXjixMr9v-0nzv0yIdRGoD6xWQBLt0BHpXnJ4U3KQ5Af6bJD0zwtKZ0rkS61EmysopYUg/p.jpeg",
+		src: "https://picsum.photos/id/206/1600/900",
 	},
 ];
 
@@ -214,8 +214,7 @@ export const saleList: TProduct[] = [
 		view: 110,
 		information: productInformation,
 		name: "Mã căn M110",
-		thumbnail:
-			"https://ucf2d35e2ac9dbaf6d74c1455039.previews.dropboxusercontent.com/p/thumb/AB9pCsgIG7cyN2cvUhqzOeMb1pXJDlzTr3tTuDJC8nWo3oX-lh2n2IwS2Y78XyrwBKZiC5Yu0-6ZhZIMHquQBOoJW9pl9EM-xTPT8gHHZ5O3R8FhCL4n89uPuPLe_rjCqTg_Ybh1wjtfzAMSUOUkfY3f_L7fytXTUM8slEjIhyjuM3e27TmmKJ9D5O8BYkISo4ratRZDnA4ZjCv_7qwW0w24YRUpH6zMxN_HRARmE12BmLZ2VvBZfKLBYeVIuvUCD_01yhYk9oTvto6_RJD_ltzgo_fQdrcPiah2Hb8jWzKJYyUSB9O7_IrjeKm07-VbDwpEN3GPVGE_r613FtOjdZ2I0UwPseTzC5ODrQk2Ydax1qA9oKlApxeui1RYIOKla0raEne05aqy7do5JBWRtVj4rwXFlmm_QLPT4TOV8pGbFAYdMnSnot_n1Ifln2juqnYky24-GMeMUc20ZiR89NZ3GSVoEcyLtwWXK-NuKFTvqA/p.jpeg",
+		thumbnail: "https://picsum.photos/id/200/1600/900",
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
@@ -246,8 +245,7 @@ export const saleList: TProduct[] = [
 		view: 12,
 		information: productInformation,
 		name: "Mã căn W616",
-		thumbnail:
-			"https://ucf2d35e2ac9dbaf6d74c1455039.previews.dropboxusercontent.com/p/thumb/AB9pCsgIG7cyN2cvUhqzOeMb1pXJDlzTr3tTuDJC8nWo3oX-lh2n2IwS2Y78XyrwBKZiC5Yu0-6ZhZIMHquQBOoJW9pl9EM-xTPT8gHHZ5O3R8FhCL4n89uPuPLe_rjCqTg_Ybh1wjtfzAMSUOUkfY3f_L7fytXTUM8slEjIhyjuM3e27TmmKJ9D5O8BYkISo4ratRZDnA4ZjCv_7qwW0w24YRUpH6zMxN_HRARmE12BmLZ2VvBZfKLBYeVIuvUCD_01yhYk9oTvto6_RJD_ltzgo_fQdrcPiah2Hb8jWzKJYyUSB9O7_IrjeKm07-VbDwpEN3GPVGE_r613FtOjdZ2I0UwPseTzC5ODrQk2Ydax1qA9oKlApxeui1RYIOKla0raEne05aqy7do5JBWRtVj4rwXFlmm_QLPT4TOV8pGbFAYdMnSnot_n1Ifln2juqnYky24-GMeMUc20ZiR89NZ3GSVoEcyLtwWXK-NuKFTvqA/p.jpeg",
+		thumbnail: "https://picsum.photos/id/201/1600/900",
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
@@ -278,8 +276,7 @@ export const saleList: TProduct[] = [
 		view: 45,
 		information: productInformation,
 		name: "Mã căn Sf30",
-		thumbnail:
-			"https://ucf2d35e2ac9dbaf6d74c1455039.previews.dropboxusercontent.com/p/thumb/AB9pCsgIG7cyN2cvUhqzOeMb1pXJDlzTr3tTuDJC8nWo3oX-lh2n2IwS2Y78XyrwBKZiC5Yu0-6ZhZIMHquQBOoJW9pl9EM-xTPT8gHHZ5O3R8FhCL4n89uPuPLe_rjCqTg_Ybh1wjtfzAMSUOUkfY3f_L7fytXTUM8slEjIhyjuM3e27TmmKJ9D5O8BYkISo4ratRZDnA4ZjCv_7qwW0w24YRUpH6zMxN_HRARmE12BmLZ2VvBZfKLBYeVIuvUCD_01yhYk9oTvto6_RJD_ltzgo_fQdrcPiah2Hb8jWzKJYyUSB9O7_IrjeKm07-VbDwpEN3GPVGE_r613FtOjdZ2I0UwPseTzC5ODrQk2Ydax1qA9oKlApxeui1RYIOKla0raEne05aqy7do5JBWRtVj4rwXFlmm_QLPT4TOV8pGbFAYdMnSnot_n1Ifln2juqnYky24-GMeMUc20ZiR89NZ3GSVoEcyLtwWXK-NuKFTvqA/p.jpeg",
+		thumbnail: "https://picsum.photos/id/202/1600/900",
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
@@ -310,8 +307,7 @@ export const saleList: TProduct[] = [
 		view: 110,
 		information: productInformation,
 		name: "Mã căn M110",
-		thumbnail:
-			"https://ucf2d35e2ac9dbaf6d74c1455039.previews.dropboxusercontent.com/p/thumb/AB9pCsgIG7cyN2cvUhqzOeMb1pXJDlzTr3tTuDJC8nWo3oX-lh2n2IwS2Y78XyrwBKZiC5Yu0-6ZhZIMHquQBOoJW9pl9EM-xTPT8gHHZ5O3R8FhCL4n89uPuPLe_rjCqTg_Ybh1wjtfzAMSUOUkfY3f_L7fytXTUM8slEjIhyjuM3e27TmmKJ9D5O8BYkISo4ratRZDnA4ZjCv_7qwW0w24YRUpH6zMxN_HRARmE12BmLZ2VvBZfKLBYeVIuvUCD_01yhYk9oTvto6_RJD_ltzgo_fQdrcPiah2Hb8jWzKJYyUSB9O7_IrjeKm07-VbDwpEN3GPVGE_r613FtOjdZ2I0UwPseTzC5ODrQk2Ydax1qA9oKlApxeui1RYIOKla0raEne05aqy7do5JBWRtVj4rwXFlmm_QLPT4TOV8pGbFAYdMnSnot_n1Ifln2juqnYky24-GMeMUc20ZiR89NZ3GSVoEcyLtwWXK-NuKFTvqA/p.jpeg",
+		thumbnail: "https://picsum.photos/id/203/1600/900",
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
@@ -342,8 +338,7 @@ export const saleList: TProduct[] = [
 		view: 110,
 		information: productInformation,
 		name: "Mã căn 2412",
-		thumbnail:
-			"https://ucf2d35e2ac9dbaf6d74c1455039.previews.dropboxusercontent.com/p/thumb/AB9pCsgIG7cyN2cvUhqzOeMb1pXJDlzTr3tTuDJC8nWo3oX-lh2n2IwS2Y78XyrwBKZiC5Yu0-6ZhZIMHquQBOoJW9pl9EM-xTPT8gHHZ5O3R8FhCL4n89uPuPLe_rjCqTg_Ybh1wjtfzAMSUOUkfY3f_L7fytXTUM8slEjIhyjuM3e27TmmKJ9D5O8BYkISo4ratRZDnA4ZjCv_7qwW0w24YRUpH6zMxN_HRARmE12BmLZ2VvBZfKLBYeVIuvUCD_01yhYk9oTvto6_RJD_ltzgo_fQdrcPiah2Hb8jWzKJYyUSB9O7_IrjeKm07-VbDwpEN3GPVGE_r613FtOjdZ2I0UwPseTzC5ODrQk2Ydax1qA9oKlApxeui1RYIOKla0raEne05aqy7do5JBWRtVj4rwXFlmm_QLPT4TOV8pGbFAYdMnSnot_n1Ifln2juqnYky24-GMeMUc20ZiR89NZ3GSVoEcyLtwWXK-NuKFTvqA/p.jpeg",
+		thumbnail: "https://picsum.photos/id/204/1600/900",
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
@@ -359,4 +354,79 @@ export const imagePreviews = [
 	{id: "5", src: "https://picsum.photos/id/30/1600/900"},
 	{id: "6", src: "https://picsum.photos/id/31/1600/900"},
 	{id: "7", src: "https://picsum.photos/id/32/1600/900"},
+];
+
+export const notificationList = [
+	{
+		id: "1",
+		type: "update",
+		avatar: "https://picsum.photos/id/40/300/300",
+		title: "Title 1",
+		date: "01/07/2023",
+		content:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+	},
+	{
+		id: "2",
+		type: "update",
+		avatar: "https://picsum.photos/id/41/300/300",
+		title: "Title 2",
+		date: "01/07/2023",
+		content:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+	},
+	{
+		id: "3",
+		type: "update",
+		avatar: "https://picsum.photos/id/42/300/300",
+		title: "Title 3",
+		date: "01/07/2023",
+		content:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+	},
+	{
+		id: "4",
+		type: "update",
+		avatar: "https://picsum.photos/id/43/300/300",
+		title: "Title 4",
+		date: "01/07/2023",
+		content:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+	},
+	{
+		id: "5",
+		type: "update",
+		avatar: "https://picsum.photos/id/44/300/300",
+		title: "Title 5",
+		date: "01/07/2023",
+		content:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+	},
+	{
+		id: "6",
+		type: "info",
+		avatar: "https://picsum.photos/id/45/300/300",
+		title: "Title 6",
+		date: "01/07/2023",
+		content:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+	},
+	{
+		id: "7",
+		type: "info",
+		avatar: "https://picsum.photos/id/46/300/300",
+		title: "Title 7",
+		date: "01/07/2023",
+		content:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+	},
+	{
+		id: "8",
+		type: "info",
+		avatar: "https://picsum.photos/id/47/300/300",
+		title: "Title 8",
+		date: "01/07/2023",
+		content:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+	},
 ];

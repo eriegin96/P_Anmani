@@ -13,6 +13,7 @@ import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/product";
 import {useState} from "react";
 import {RadioChangeEvent} from "antd";
 import {ROUTE} from "@/constants/route";
+import {formatCurrency} from "@/utils/formatCurrency";
 
 type TProductCardProps = {
 	info: TProduct;
@@ -77,8 +78,10 @@ export default function ProductCard({
 							<span className={styles.name}>{name}</span>
 
 							<div className={styles.priceWrapper}>
-								<div className={styles.price}>{price}</div>
-								<div className={styles.salePrice}>{salePrice}</div>
+								<div className={styles.price}>{formatCurrency(price)}</div>
+								<div className={styles.salePrice}>
+									{formatCurrency(salePrice)}
+								</div>
 							</div>
 						</div>
 						<div className={styles.rightSection}>

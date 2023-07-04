@@ -1,0 +1,60 @@
+.tabsRoot {
+	max-width: 50vw;
+
+	@include mobile {
+		max-width: 80vw;
+	}
+}
+
+.tabsList {
+	display: flex;
+}
+
+.tabsTrigger {
+	background-color: $color-white;
+	border: none;
+	flex: 1;
+	padding: rem(10) 0;
+	font-weight: 500;
+	@include center;
+}
+
+.tabsTrigger[data-state="active"] {
+	border-bottom: solid rem(2) $color-primary-2;
+}
+
+.tabsContent {
+	max-height: 70vh;
+	overflow-y: auto;
+}
+
+.notiAmount {
+	background-color: $color-red-1;
+	color: $color-white;
+	margin-left: rem(4);
+	padding: rem(1) rem(8);
+	border-radius: $round-xl;
+	font-size: rem(12);
+}
+
+.notiWrapper {
+	padding: rem(10);
+	display: flex;
+	gap: rem(10);
+
+	&:nth-of-type(odd) {
+		background-color: $color-blue-2;
+	}
+}
+
+.notiText {
+	h5 {
+		font-weight: 500;
+		font-size: rem(14);
+	}
+
+	p {
+		font-size: rem(12);
+		@include line-clamp(4);
+	}
+}
