@@ -11,8 +11,9 @@ import {
 	IconYoutube,
 	ImageLogoSG,
 } from "../assets";
-import {PRODUCT_TYPE} from "@/constants/product";
+import {PRODUCT_SAVE_VALUE, PRODUCT_TYPE} from "@/constants/product";
 import {TVoucher} from "@/types/voucher.type";
+import {NOTIFICATION_TYPE} from "@/constants/notification";
 
 export const voucherList: TVoucher[] = [
 	{
@@ -306,7 +307,7 @@ export const saleList: TProduct[] = [
 		description: productDescription,
 		view: 110,
 		information: productInformation,
-		name: "Mã căn M110",
+		name: "Mã căn ND2",
 		thumbnail: "https://picsum.photos/id/203/1600/900",
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
@@ -359,7 +360,7 @@ export const imagePreviews = [
 export const notificationList = [
 	{
 		id: "1",
-		type: "update",
+		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/40/300/300",
 		title: "Title 1",
 		date: "01/07/2023",
@@ -368,7 +369,7 @@ export const notificationList = [
 	},
 	{
 		id: "2",
-		type: "update",
+		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/41/300/300",
 		title: "Title 2",
 		date: "01/07/2023",
@@ -377,7 +378,7 @@ export const notificationList = [
 	},
 	{
 		id: "3",
-		type: "update",
+		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/42/300/300",
 		title: "Title 3",
 		date: "01/07/2023",
@@ -386,7 +387,7 @@ export const notificationList = [
 	},
 	{
 		id: "4",
-		type: "update",
+		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/43/300/300",
 		title: "Title 4",
 		date: "01/07/2023",
@@ -395,7 +396,7 @@ export const notificationList = [
 	},
 	{
 		id: "5",
-		type: "update",
+		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/44/300/300",
 		title: "Title 5",
 		date: "01/07/2023",
@@ -404,7 +405,7 @@ export const notificationList = [
 	},
 	{
 		id: "6",
-		type: "info",
+		type: NOTIFICATION_TYPE.INFO,
 		avatar: "https://picsum.photos/id/45/300/300",
 		title: "Title 6",
 		date: "01/07/2023",
@@ -413,7 +414,7 @@ export const notificationList = [
 	},
 	{
 		id: "7",
-		type: "info",
+		type: NOTIFICATION_TYPE.INFO,
 		avatar: "https://picsum.photos/id/46/300/300",
 		title: "Title 7",
 		date: "01/07/2023",
@@ -422,11 +423,19 @@ export const notificationList = [
 	},
 	{
 		id: "8",
-		type: "info",
+		type: NOTIFICATION_TYPE.INFO,
 		avatar: "https://picsum.photos/id/47/300/300",
 		title: "Title 8",
 		date: "01/07/2023",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
 	},
+];
+
+export const saveList = [
+	{...saleList[0], type: PRODUCT_SAVE_VALUE.LATER},
+	{...saleList[1], type: PRODUCT_SAVE_VALUE.BUY},
+	{...saleList[2], type: PRODUCT_SAVE_VALUE.BUY},
+	{...saleList[3], type: PRODUCT_SAVE_VALUE.LATER},
+	{...saleList[4], type: PRODUCT_SAVE_VALUE.LATER},
 ];

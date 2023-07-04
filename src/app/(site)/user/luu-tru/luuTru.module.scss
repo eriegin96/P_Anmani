@@ -1,0 +1,99 @@
+.tabsList {
+	display: flex;
+}
+
+.tabsTrigger {
+	background-color: $color-white;
+	border: none;
+	flex: 1;
+	padding: rem(10) 0;
+	border-bottom: solid rem(2) transparent;
+	font-weight: 600;
+	@include center;
+}
+
+.tabsTrigger[data-state="active"] {
+	border-bottom-color: $color-primary-2;
+}
+
+.noSave {
+	@include center;
+	flex-direction: column;
+	margin-top: rem(40);
+}
+
+.itemWrapper {
+	display: flex;
+	align-items: center;
+	padding: rem(20);
+
+	@include mobile {
+		padding: rem(10);
+	}
+}
+
+.itemInfo {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	gap: rem(20);
+	margin-right: rem(20);
+
+	@include mobile {
+		flex-direction: column;
+		gap: rem(10);
+		margin-right: rem(10);
+	}
+}
+
+.imageWrapper {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	width: 100%;
+
+	img {
+		border-radius: $round-lg;
+	}
+}
+
+.descriptionWrapper {
+	h5 {
+		font-weight: 500;
+	}
+}
+
+.price {
+	color: $color-orange-2;
+	font-weight: 500;
+	margin: rem(4) 0;
+}
+
+.description {
+	white-space: pre-wrap;
+	color: $color-gray-1;
+
+	@include mobile {
+		@include line-clamp(4);
+	}
+}
+
+.popoverTrigger {
+	color: $color-primary-1;
+}
+
+.popoverContent {
+	display: flex;
+	flex-direction: column;
+	padding: rem(10);
+	gap: rem(10);
+
+	button {
+		display: flex;
+		align-items: center;
+		gap: rem(4);
+
+		&:hover {
+			color: $color-primary-1;
+		}
+	}
+}

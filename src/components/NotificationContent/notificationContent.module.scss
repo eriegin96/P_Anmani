@@ -1,8 +1,8 @@
 .tabsRoot {
-	max-width: 50vw;
+	max-width: 40vw;
 
 	@include mobile {
-		max-width: 80vw;
+		max-width: 70vw;
 	}
 }
 
@@ -16,11 +16,16 @@
 	flex: 1;
 	padding: rem(10) 0;
 	font-weight: 500;
+	border-bottom: solid rem(2) transparent;
 	@include center;
+
+	@include mobile {
+		padding: rem(10) rem(4);
+	}
 }
 
 .tabsTrigger[data-state="active"] {
-	border-bottom: solid rem(2) $color-primary-2;
+	border-bottom-color: $color-primary-2;
 }
 
 .tabsContent {

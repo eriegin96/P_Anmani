@@ -13,7 +13,7 @@ export default function NotificationContent() {
 				defaultValue={notificationTab[0].value}
 				className={styles.tabsRoot}
 			>
-				<Tabs.List aria-label="Category" className={styles.tabsList}>
+				<Tabs.List aria-label="Notification" className={styles.tabsList}>
 					{notificationTab.map((tab) => (
 						<Tabs.Trigger
 							key={tab.value}

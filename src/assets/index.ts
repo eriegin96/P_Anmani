@@ -12,6 +12,7 @@ export {default as IconSongLap} from "../../public/icons/song-lap.png";
 export {default as IconCanHo} from "../../public/icons/can-ho.png";
 export {default as IconShopHouse} from "../../public/icons/shop.png";
 export {default as IconTrendingUp} from "../../public/icons/trending-up.png";
+export {default as IconBookmark} from "../../public/icons/bookmark.png";
 
 export {default as ImageAvatar} from "../../public/images/avatar.png";
 export {default as ImageLogo} from "../../public/images/logo.png";
