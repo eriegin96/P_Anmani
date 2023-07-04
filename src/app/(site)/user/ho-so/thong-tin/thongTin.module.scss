@@ -1,0 +1,53 @@
+.inputWrapper {
+	margin-top: rem(20);
+
+	& > span:first-of-type {
+		display: block;
+		margin-bottom: rem(10);
+		font-weight: 500;
+	}
+
+	& > span:nth-of-type(2) {
+		color: $color-gray-1;
+	}
+
+	& :global(.ant-picker),
+	:global(.ant-select) {
+		width: 100%;
+	}
+
+	& :global(.ant-picker-input) {
+		flex-direction: row-reverse;
+	}
+
+	& :global(.ant-picker-suffix) {
+		margin-left: 0;
+		margin-right: rem(4);
+		color: $color-gray-1;
+	}
+}
+
+.lastSection {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: rem(10);
+	margin-bottom: rem(30);
+
+	& .inputWrapper {
+		width: 50%;
+	}
+}
+
+.button {
+	@include btn;
+	width: 100%;
+	background-color: $color-primary-2;
+	color: $color-white;
+	padding: rem(10) 0;
+	border-radius: $round-md;
+
+	&:hover {
+		background-color: $color-primary-3;
+	}
+}

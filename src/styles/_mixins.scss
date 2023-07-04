@@ -51,6 +51,11 @@
 	}
 }
 
+@mixin btn {
+	background-color: unset;
+	border: none;
+}
+
 @keyframes overlayShow {
 	from {
 		opacity: 0;

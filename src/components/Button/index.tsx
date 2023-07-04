@@ -1,12 +1,10 @@
-import { ComponentPropsWithoutRef } from 'react';
-import styles from './button.module.scss';
-import clsx from 'clsx';
+import {ComponentPropsWithoutRef} from "react";
 
-interface ButtonProps extends ComponentPropsWithoutRef<'button'> {}
+interface ButtonProps extends ComponentPropsWithoutRef<"button"> {}
 
-export default function Button({ children, className, ...props }: ButtonProps) {
+export default function Button({children, className, ...props}: ButtonProps) {
 	return (
-		<button className={clsx(className, styles.button)} {...props}>
+		<button className={className} {...props}>
 			{children}
 		</button>
 	);

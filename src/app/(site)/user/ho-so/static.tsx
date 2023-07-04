@@ -6,6 +6,12 @@ import {
 	IconUserCog,
 } from "@tabler/icons-react";
 
+export const pageName: {[key: string]: string} = {
+	"thong-tin": "Thông tin cá nhân",
+	"du-an": "Dự án",
+	"gop-y": "Góp ý",
+};
+
 export const profilePageList = [
 	{
 		href: ROUTE.INFO,

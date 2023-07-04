@@ -19,6 +19,7 @@
 	position: relative;
 
 	button {
+		@include btn;
 		position: absolute;
 		left: rem(20);
 		top: rem(20);

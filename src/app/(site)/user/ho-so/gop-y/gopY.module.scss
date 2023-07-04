@@ -1,0 +1,16 @@
+.textarea {
+	margin: rem(20) 0;
+}
+
+.button {
+	@include btn;
+	width: 100%;
+	background-color: $color-primary-2;
+	color: $color-white;
+	padding: rem(10) 0;
+	border-radius: $round-md;
+
+	&:hover {
+		background-color: $color-primary-3;
+	}
+}
