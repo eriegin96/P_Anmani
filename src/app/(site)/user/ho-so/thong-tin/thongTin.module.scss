@@ -11,16 +11,16 @@
 		color: $color-gray-1;
 	}
 
-	& :global(.ant-picker),
+	:global(.ant-picker),
 	:global(.ant-select) {
 		width: 100%;
 	}
 
-	& :global(.ant-picker-input) {
+	:global(.ant-picker-input) {
 		flex-direction: row-reverse;
 	}
 
-	& :global(.ant-picker-suffix) {
+	:global(.ant-picker-suffix) {
 		margin-left: 0;
 		margin-right: rem(4);
 		color: $color-gray-1;

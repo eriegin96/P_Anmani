@@ -13,16 +13,16 @@
 	display: flex;
 	gap: rem(10);
 
-	& :global(.ant-checkbox-group-item) {
+	:global(.ant-checkbox-group-item) {
 		gap: rem(10);
 
-		& :global(.ant-checkbox-inner) {
+		:global(.ant-checkbox-inner) {
 			width: rem(20);
 			height: rem(20);
 			border-radius: 100%;
 		}
 
-		& :global(.ant-checkbox)::after {
+		:global(.ant-checkbox)::after {
 			border-radius: 100%;
 		}
 	}
@@ -46,10 +46,10 @@
 .checkboxAll {
 	color: $color-gray-1;
 
-	& :global(.ant-checkbox) {
+	:global(.ant-checkbox) {
 		gap: rem(10);
 
-		& :global(.ant-checkbox-inner) {
+		:global(.ant-checkbox-inner) {
 			width: rem(20);
 			height: rem(20);
 			border-radius: 100%;

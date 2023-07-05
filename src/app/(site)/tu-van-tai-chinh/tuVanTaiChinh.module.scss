@@ -1,0 +1,52 @@
+.titleWrapper {
+	@include center;
+	position: relative;
+	padding-top: rem(20);
+
+	a {
+		@include btn;
+		position: absolute;
+		left: rem(20);
+		width: rem(30);
+		height: rem(30);
+		padding: 0;
+		@include center;
+
+		&:hover {
+			color: $color-primary-2;
+		}
+	}
+
+	h3 {
+		font-size: rem(24);
+		font-weight: 600;
+
+		@include mobile {
+			font-size: rem(20);
+		}
+	}
+}
+
+.contentWrapper {
+	padding: rem(20);
+
+	& > p {
+		color: $color-gray-1;
+	}
+}
+
+.inputWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: rem(30);
+}
+
+.sectionTitle {
+	font-weight: 600;
+	font-size: rem(18);
+	margin: rem(30) 0 rem(10);
+
+	@include mobile {
+		font-size: rem(16);
+	}
+}

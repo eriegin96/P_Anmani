@@ -36,6 +36,7 @@
 	top: rem(-6);
 	right: rem(20);
 	transform: rotate(45deg);
+	pointer-events: none;
 
 	img,
 	span {

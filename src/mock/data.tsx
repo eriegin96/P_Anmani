@@ -439,3 +439,31 @@ export const saveList = [
 	{...saleList[3], type: PRODUCT_SAVE_VALUE.LATER},
 	{...saleList[4], type: PRODUCT_SAVE_VALUE.LATER},
 ];
+
+export const documentList = [
+	{
+		id: "1",
+		title: "Title 1",
+		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
+	},
+	{
+		id: "2",
+		title: "Title 2",
+		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
+	},
+	{
+		id: "3",
+		title: "Title 3",
+		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
+	},
+	{
+		id: "4",
+		title: "Title 4",
+		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
+	},
+	{
+		id: "5",
+		title: "Title 5",
+		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
+	},
+];

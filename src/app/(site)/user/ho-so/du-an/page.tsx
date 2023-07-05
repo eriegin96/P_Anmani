@@ -1,7 +1,15 @@
-import React from "react";
+import {documentList} from "@/mock/data";
 
-type Props = {};
-
-export default function Page({}: Props) {
-	return <div>Dự án</div>;
+export default function Page() {
+	return (
+		<div>
+			{documentList.map((document) => (
+				<div key={document.id}>
+					<a href={document.href} target="_blank" rel="noreferer" download>
+						{document.title}
+					</a>
+				</div>
+			))}
+		</div>
+	);
 }
