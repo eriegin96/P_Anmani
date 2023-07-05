@@ -38,6 +38,7 @@
 }
 
 .searchBtn {
+	@include btn;
 	border-radius: $round-md;
 	background-color: $color-white;
 	color: $color-primary-2;

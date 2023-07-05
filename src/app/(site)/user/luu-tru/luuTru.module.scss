@@ -78,6 +78,7 @@
 }
 
 .popoverTrigger {
+	@include btn;
 	color: $color-primary-1;
 }
 

@@ -34,6 +34,7 @@
 }
 
 .btn {
+	@include btn;
 	background-color: $color-orange-1;
 	color: $color-white;
 	padding: rem(10);

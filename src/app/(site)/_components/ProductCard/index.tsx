@@ -7,7 +7,7 @@ import {TProduct, TProductSaveValue} from "@/types/product.type";
 import Image from "next/image";
 import color from "@/styles/color.module.scss";
 import {Button, SaveDialogPortal} from "@/components";
-import {IconBookmark} from "@tabler/icons-react";
+import {IconBookmark, IconBookmarkFilled} from "@tabler/icons-react";
 import {ImageLogoSG} from "@/assets";
 import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/product";
 import {useState} from "react";
@@ -94,18 +94,16 @@ export default function ProductCard({
 					</div>
 				</div>
 
-				{isShowView ? (
-					<div className={styles.view}>ĐÃ XEM {view}</div>
-				) : (
-					<div style={{backgroundColor: bgColor}} className={styles.view}>
-						{status}
-					</div>
-				)}
+				{isShowView && <div className={styles.view}>ĐÃ XEM {view}</div>}
 			</Link>
 
 			<Dialog.Root>
 				<Dialog.Trigger className={styles.save}>
-					<IconBookmark size={30} />
+					{status === PRODUCT_STATUS.SAVED ? (
+						<IconBookmarkFilled size={30} />
+					) : (
+						<IconBookmark size={30} />
+					)}
 				</Dialog.Trigger>
 				<SaveDialogPortal value={value} onChange={handleSave} />
 			</Dialog.Root>

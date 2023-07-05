@@ -34,6 +34,7 @@
 	}
 
 	button {
+		@include btn;
 		color: $color-white;
 		background-color: $color-primary-2;
 		border-radius: $round-md;
