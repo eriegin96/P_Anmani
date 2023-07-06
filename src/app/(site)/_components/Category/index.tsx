@@ -9,7 +9,7 @@ import * as Tabs from "@radix-ui/react-tabs";
 import Carousel from "../Carousel";
 import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
-import {saleList} from "../../../../mock/data";
+import {productList} from "../../../../mock/data";
 
 type TCategoryProps = {
 	category: TCategory;
@@ -36,7 +36,8 @@ export default function Category({category}: TCategoryProps) {
 						<Tabs.Trigger
 							key={locationItem}
 							value={locationItem}
-							className={styles.tabsTrigger}>
+							className={styles.tabsTrigger}
+						>
 							{locationItem}
 						</Tabs.Trigger>
 					))}
@@ -45,10 +46,13 @@ export default function Category({category}: TCategoryProps) {
 					<Tabs.Content
 						key={locationItem}
 						value={locationItem}
-						className={styles.tabsContent}>
+						className={styles.tabsContent}
+					>
 						<Carousel setting={setting}>
-							{saleList.map((saleItem) => (
-								<ProductCard key={saleItem.name} info={saleItem} />
+							{productList.map((saleItem) => (
+								<div key={saleItem.name} className={styles.productWrapper}>
+									<ProductCard info={saleItem} />
+								</div>
 							))}
 						</Carousel>
 					</Tabs.Content>

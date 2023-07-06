@@ -9,7 +9,7 @@ import {TCartItem} from "@/types/user.type";
 import {Checkbox, Divider} from "antd";
 import type {CheckboxChangeEvent} from "antd/es/checkbox";
 import type {CheckboxValueType} from "antd/es/checkbox/Group";
-import {saleList} from "@/mock/data";
+import {productList} from "@/mock/data";
 import {formatCurrency} from "@/utils/formatCurrency";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
@@ -59,7 +59,8 @@ export default function Page() {
 						indeterminate={indeterminate}
 						onChange={onCheckAllChange}
 						checked={checkAll}
-						className={styles.checkboxAll}>
+						className={styles.checkboxAll}
+					>
 						Chọn tất cả
 					</Checkbox>
 					<div>

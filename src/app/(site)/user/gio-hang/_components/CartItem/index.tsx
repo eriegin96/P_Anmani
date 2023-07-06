@@ -1,4 +1,4 @@
-import {saleList, voucherList} from "@/mock/data";
+import {productList, voucherList} from "@/mock/data";
 import {TProduct} from "@/types/product.type";
 import {TCartItem} from "@/types/user.type";
 import * as Checkbox from "@radix-ui/react-checkbox";
@@ -18,7 +18,7 @@ export default function CartItem({
 	item,
 	shouldShowVoucher = false,
 }: TCartItemProps) {
-	const product = saleList.find((p) => p.id === item.productId) as TProduct;
+	const product = productList.find((p) => p.id === item.productId) as TProduct;
 
 	return (
 		<div className={styles.wrapper}>

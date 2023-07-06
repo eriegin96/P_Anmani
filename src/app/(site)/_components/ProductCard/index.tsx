@@ -55,47 +55,50 @@ export default function ProductCard({
 
 	return (
 		<div className={styles.itemWrapper}>
-			<Link href={`${ROUTE.PRODUCT}/${id}`} key={name}>
-				<div className={styles.cardContent}>
-					<div className={styles.overlay} />
-					<div className={styles.imageWrapper}>
-						<Image src={thumbnail} alt="" fill className={styles.thumbnail} />
-						<span className={styles.location}>{location.sub}</span>
-						<div className={styles.logoWrapper}>
-							<Image
-								src={logo}
-								alt=""
-								width={24}
-								height={24}
-								className={styles.logo}
-							/>
+			<div className={styles.linkWrapper}>
+				<Link href={`${ROUTE.PRODUCT}/${id}`} key={name}>
+					<div className={styles.cardContent}>
+						<div className={styles.imageWrapper}>
+							<Image src={thumbnail} alt="" fill className={styles.thumbnail} />
+							<span className={styles.location}>{location.sub}</span>
+							<div className={styles.logoWrapper}>
+								<Image
+									src={logo}
+									alt=""
+									width={24}
+									height={24}
+									className={styles.logo}
+								/>
+							</div>
+							<span className={styles.discount}>Tiết kiệm {32}%</span>
 						</div>
-						<span className={styles.discount}>Tiết kiệm {32}%</span>
-					</div>
 
-					<div className={styles.descriptionWrapper}>
-						<div className={styles.leftSection}>
-							<span className={styles.name}>{name}</span>
+						<div className={styles.descriptionWrapper}>
+							<div className={styles.leftSection}>
+								<span className={styles.name}>{name}</span>
 
-							<div className={styles.priceWrapper}>
-								<div className={styles.price}>{formatCurrency(price)}</div>
-								<div className={styles.salePrice}>
-									{formatCurrency(salePrice)}
+								<div className={styles.priceWrapper}>
+									<div className={styles.price}>{formatCurrency(price)}</div>
+									<div className={styles.salePrice}>
+										{formatCurrency(salePrice)}
+									</div>
+								</div>
+							</div>
+							<div className={styles.rightSection}>
+								<div>
+									<span>{information.landArea}</span>
+									<span>{information.floorArea}</span>
+									<span>{information.floor}</span>
 								</div>
 							</div>
 						</div>
-						<div className={styles.rightSection}>
-							<div>
-								<span>{information.landArea}</span>
-								<span>{information.floorArea}</span>
-								<span>{information.floor}</span>
-							</div>
-						</div>
 					</div>
-				</div>
-
-				{isShowView && <div className={styles.view}>ĐÃ XEM {view}</div>}
-			</Link>
+				</Link>
+				{info.status === PRODUCT_STATUS.SOLD && (
+					<div className={styles.overlay}>- Đã bán -</div>
+				)}
+			</div>
+			{isShowView && <div className={styles.view}>ĐÃ XEM {view}</div>}
 
 			<Dialog.Root>
 				<Dialog.Trigger className={styles.save}>

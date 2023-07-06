@@ -19,14 +19,18 @@ import {ImageLogo} from "@/assets";
 import {Badge, Popover} from "antd";
 import {ROUTE} from "@/constants/route";
 import NotificationContent from "../NotificationContent";
+import {useParams, usePathname} from "next/navigation";
 
 const Button = dynamic(() => import("../Button"));
 
 export default function Header() {
 	const {userInfo} = useAuthContext();
+	const pathname = usePathname();
+	const {id} = useParams();
+	const isAtExplorePage = pathname.includes(ROUTE.EXPLORE) && id;
 
 	return (
-		<header className={styles.wrapper}>
+		<header className={clsx(styles.wrapper, isAtExplorePage && styles.hidden)}>
 			<Dialog.Root>
 				<Dialog.Trigger className={styles.triggerBtn}>
 					<IconMenu2 color={color.white} />

@@ -3,7 +3,7 @@ import styles from "./flashSale.module.scss";
 import Carousel from "../Carousel";
 import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
-import {saleList} from "../../../../mock/data";
+import {productList} from "../../../../mock/data";
 
 type Props = {};
 const carouselSetting = {...setting, autoplaySpeed: 3500};
@@ -22,8 +22,10 @@ export default function FlashSale({}: Props) {
 			</div>
 
 			<Carousel setting={carouselSetting}>
-				{saleList.map((sale) => (
-					<ProductCard key={sale.name} info={sale} isShowView />
+				{productList.map((sale) => (
+					<div key={sale.name} className={styles.productWrapper}>
+						<ProductCard info={sale} isShowView />
+					</div>
 				))}
 			</Carousel>
 		</>

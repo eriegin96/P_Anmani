@@ -19,10 +19,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				<AuthProvider>
 					<CartProvider>
 						<ConfigProvider
-							theme={{token: {fontFamily: inter.style.fontFamily}}}>
+							theme={{token: {fontFamily: inter.style.fontFamily}}}
+						>
 							<Header />
 							<Suspense fallback={<Loading />}>
-								<main className={styles.main}>{children}</main>
+								<main>{children}</main>
 							</Suspense>
 						</ConfigProvider>
 					</CartProvider>

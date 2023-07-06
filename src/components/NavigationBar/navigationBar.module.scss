@@ -1,6 +1,6 @@
 .wrapper {
 	@include center;
-	position: fixed;
+	position: sticky;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -12,14 +12,13 @@
 .item {
 	@include center-inline;
 	width: 20%;
-	height: rem(60);
+	height: $height-navbar;
 	color: $color-gray-1;
 	flex-direction: column;
 	gap: rem(2);
 
 	@include mobile {
 		font-size: rem(12);
-		height: rem(48);
 
 		svg {
 			width: rem(20);
@@ -30,4 +29,17 @@
 
 .isActive {
 	color: $color-primary-1;
+}
+
+.revert {
+	box-shadow: none;
+	background-color: $color-rgba-black-5;
+
+	.item {
+		color: $color-gray-1;
+	}
+
+	.isActive {
+		color: $color-white;
+	}
 }

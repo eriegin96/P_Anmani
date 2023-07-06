@@ -1,6 +1,6 @@
 "use client";
 
-import {saleList} from "@/mock/data";
+import {productList} from "@/mock/data";
 import {TCartItem} from "@/types/user.type";
 import {CheckboxValueType} from "antd/es/checkbox/Group";
 import {
@@ -54,7 +54,7 @@ export default function CartProvider({children}: TCartProviderProps) {
 			cart.reduce((prev, current) => {
 				return (
 					prev +
-					(saleList.find(() => checkedList.includes(current.productId))
+					(productList.find(() => checkedList.includes(current.productId))
 						?.salePrice || 0)
 				);
 			}, 0)

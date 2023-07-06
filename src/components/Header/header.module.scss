@@ -113,6 +113,10 @@
 	}
 }
 
+.hidden {
+	visibility: hidden;
+}
+
 @keyframes contentShow {
 	from {
 		transform: translate(-100%, 0);
