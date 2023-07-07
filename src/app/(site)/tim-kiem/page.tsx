@@ -31,30 +31,30 @@ export default function Page() {
 		() => [
 			{
 				placeholder: "Phân loại",
-				value: searchParams.get("tag"),
+				value: searchParams.get("tag") || null,
 				onChange: handleChange,
 				options: tagOptions,
 			},
 			{
 				placeholder: "Loại hình",
-				value: null,
+				value: searchParams.get("type") || null,
 				onChange: handleChange,
 				options: typeOptions,
 			},
 			{
 				placeholder: "Khu vực",
-				value: null,
+				value: searchParams.get("area") || null,
 				onChange: handleChange,
 				options: areaOptions,
 			},
 			{
 				placeholder: "Chủ đầu tư",
-				value: null,
+				value: searchParams.get("investor") || null,
 				onChange: handleChange,
 				options: investorOptions,
 			},
 			{
-				placeholder: "Bộ lọc",
+				placeholder: "Sắp xếp",
 				value: null,
 				onChange: handleChange,
 				options: sortOptions,

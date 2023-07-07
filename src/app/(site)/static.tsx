@@ -27,7 +27,7 @@ export const categoryList = [
 		value: 1,
 		title: PRODUCT_TYPE.SINGLE_VILLA,
 		location: locationList,
-		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TYPE.SINGLE}`,
+		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.SINGLE}`,
 		icon: IconDonLap,
 	},
 	{
@@ -35,7 +35,7 @@ export const categoryList = [
 		value: 2,
 		title: PRODUCT_TYPE.DOUBLE_VILLA,
 		location: locationList,
-		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TYPE.DOUBLE}`,
+		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.DOUBLE}`,
 		icon: IconSongLap,
 	},
 	{
@@ -43,7 +43,7 @@ export const categoryList = [
 		value: 3,
 		title: PRODUCT_TYPE.SHOPHOUSE,
 		location: locationList,
-		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TYPE.SHOPHOUSE}`,
+		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.SHOPHOUSE}`,
 		icon: IconCanHo,
 	},
 	{
@@ -51,7 +51,7 @@ export const categoryList = [
 		value: 4,
 		title: PRODUCT_TYPE.APARTMENT,
 		location: locationList,
-		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TYPE.APARTMENT}`,
+		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.APARTMENT}`,
 		icon: IconShopHouse,
 	},
 	{

@@ -1,4 +1,3 @@
-// export {default as IconFacebook} from "../../public/icons";
 export {default as IconFacebook} from "../../public/icons/icons8-facebook.svg";
 export {default as IconMessenger} from "../../public/icons/icons8-messenger.svg";
 export {default as IconTiktok} from "../../public/icons/icons8-tiktok.svg";
@@ -6,6 +5,7 @@ export {default as IconZalo} from "../../public/icons/icons8-zalo.svg";
 export {default as IconYoutube} from "../../public/icons/icons8-youtube.svg";
 export {default as IconGmail} from "../../public/icons/icons8-gmail.svg";
 export {default as IconCollision} from "../../public/icons/icons8-collision.png";
+export {default as IconFlashSale} from "../../public/icons/icon-flashSale.svg";
 
 export {default as IconDonLap} from "../../public/icons/don-lap.png";
 export {default as IconSongLap} from "../../public/icons/song-lap.png";
