@@ -2,11 +2,13 @@
 
 import {exploreVideoList, productList} from "@/mock/data";
 import styles from "./[id].module.scss";
-import {IconHeart, IconShare} from "@tabler/icons-react";
+import {IconHeart, IconShare, IconShoppingCart} from "@tabler/icons-react";
 import clsx from "clsx";
-import {Button, Drawer} from "antd";
+import {Badge, Button, Drawer} from "antd";
 import {useState} from "react";
 import {ProductCard} from "../../_components";
+import Link from "next/link";
+import {ROUTE} from "@/constants/route";
 
 type TKhamPhaPageProps = {params: {id: string}};
 
@@ -42,7 +44,16 @@ export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 				</div>
 			</div>
 			<Drawer
-				title="Liên kết"
+				title={
+					<>
+						<h4>Liên kết</h4>
+						<Link href={ROUTE.CART} className={styles.cartBtn}>
+							<Badge size="small" count={5}>
+								<IconShoppingCart size={20} />
+							</Badge>
+						</Link>
+					</>
+				}
 				placement="bottom"
 				onClose={onClose}
 				open={open}

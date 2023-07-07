@@ -18,7 +18,8 @@ export default function Vouchers() {
 					<Link
 						key={voucher.id}
 						href={`${ROUTE.PRODUCT}/${voucher.productId}`}
-						className={styles.link}>
+						className={styles.link}
+					>
 						<Voucher voucher={voucher} shouldShowBtn />
 					</Link>
 				))}
