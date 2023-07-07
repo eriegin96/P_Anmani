@@ -1,16 +1,5 @@
 import {TProduct} from "@/types/product.type";
-import {
-	IconCanHo,
-	IconDonLap,
-	IconFacebook,
-	IconGmail,
-	IconShopHouse,
-	IconSongLap,
-	IconTiktok,
-	IconTrendingUp,
-	IconYoutube,
-	ImageLogoSG,
-} from "../assets";
+import {ImageLogoSG} from "../assets";
 import {
 	PRODUCT_SAVE_VALUE,
 	PRODUCT_STATUS,
@@ -61,89 +50,6 @@ export const voucherList: TVoucher[] = [
 		productId: "1",
 		condition: "trên số tiền và số ngày thanh toán trước hạn của từng đợt",
 		expiredDate: "31/12/2023",
-	},
-];
-
-export const categoryList = [
-	{
-		id: "1",
-		value: 1,
-		title: "Dinh thự & Biệt thự đơn lập",
-		location: ["Hồ Chí Minh", "Nha Trang", "Phú Quốc", "Đà Nẵng"],
-		href: "/",
-		icon: IconDonLap,
-	},
-	{
-		id: "2",
-		value: 2,
-		title: "Dinh thự & Biệt thự song lập",
-		location: ["Hồ Chí Minh", "Nha Trang", "Phú Quốc", "Đà Nẵng"],
-		href: "/",
-		icon: IconSongLap,
-	},
-	{
-		id: "3",
-		value: 3,
-		title: "Shophouse nhà phố thương mại",
-		location: ["Hồ Chí Minh", "Nha Trang", "Phú Quốc", "Đà Nẵng"],
-		href: "/",
-		icon: IconCanHo,
-	},
-	{
-		id: "4",
-		value: 4,
-		title: "Căn hộ",
-		location: ["Hồ Chí Minh", "Nha Trang", "Phú Quốc", "Đà Nẵng"],
-		href: "/",
-		icon: IconShopHouse,
-	},
-	{
-		id: "5",
-		value: 5,
-		title: "BĐS chuyển nhượng giá tốt",
-		location: ["Hồ Chí Minh", "Nha Trang", "Phú Quốc", "Đà Nẵng"],
-		href: "/",
-		icon: IconTrendingUp,
-	},
-];
-
-export const locationList = [
-	{value: "nha-trang", title: "Nha Trang"},
-	{value: "phu-quoc", title: "Phú Quốc"},
-	{value: "hcm", title: "Hồ Chí Minh"},
-	{value: "da-nang", title: "Đà Nẵng"},
-];
-
-export const investorList = [
-	{
-		id: "1",
-		value: "KDI Holding",
-		title: "KDI Holding",
-		src: "https://picsum.photos/id/201/1600/900",
-	},
-	{
-		id: "2",
-		value: "Sun Property",
-		title: "Sun Property",
-		src: "https://picsum.photos/id/201/1600/900",
-	},
-];
-
-export const socialNetworks = [
-	{icon: IconGmail, href: "mailto:tahualucnhu@gmail.com"},
-	{icon: IconTiktok, href: "https://www.tiktok.com/@tahualucnhu"},
-	{icon: IconFacebook, href: "https://www.facebook.com/luca.nhu"},
-	{icon: IconYoutube, href: "https://bit.ly/3A2k5gQ"},
-];
-
-export const carouselList = [
-	{
-		id: "1",
-		src: "https://picsum.photos/id/208/1600/900",
-	},
-	{
-		id: "2",
-		src: "https://picsum.photos/id/206/1600/900",
 	},
 ];
 

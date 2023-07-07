@@ -22,3 +22,27 @@ export const ROUTE = {
 	SAVE: `/${ROUTE_PREFIX_USER}/luu-tru`,
 	MESSAGE: `/${ROUTE_PREFIX_USER}/tin-nhan`,
 };
+
+export const QUERY_PARAMS = {
+	TAG: {
+		INVESTOR: "investor",
+		TRANSFER: "transfer",
+		RENT: "rent",
+	},
+	TYPE: {
+		SINGLE: "single",
+		DOUBLE: "double",
+		SHOPHOUSE: "shophouse",
+		APARTMENT: "apartment",
+	},
+	AREA: {
+		HCM: "hcm",
+		NHA_TRANG: "nha-trang",
+		PHU_QUOC: "phu-quoc",
+		DA_NANG: "da-nang",
+	},
+	SORT: {
+		PRICE_ASCENDING: "price-asceding",
+		PRICE_DESCENDING: "price-descending",
+	},
+};

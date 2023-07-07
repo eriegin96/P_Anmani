@@ -18,6 +18,12 @@ export const PRODUCT_TYPE = {
 	APARTMENT: "Căn hộ",
 } as const;
 
+export const PRODUCT_TAG = {
+	INVESTOR: "BĐS Giá Chủ đầu tư",
+	TRANSFER: "BĐS Giá Chuyển nhượng",
+	RENT: "Cho thuê",
+} as const;
+
 export const PRODUCT_ANCHOR = {
 	MAIN: "main",
 	VOUCHER: "voucher",

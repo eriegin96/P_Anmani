@@ -1,0 +1,21 @@
+.wrapper {
+	padding: rem(20);
+}
+
+.filterList {
+	margin-top: rem(20);
+}
+
+.filterItem {
+	width: 100%;
+}
+
+.slider {
+	margin-top: rem(20);
+
+	@include slider;
+}
+
+.divider {
+	margin-top: rem(50);
+}

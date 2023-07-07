@@ -1,6 +1,6 @@
 .wrapper {
 	position: sticky;
-	top: rem(70);
+	top: $height-header;
 	@include center;
 	flex-direction: column;
 	background-color: $color-primary-2;
@@ -23,18 +23,6 @@
 	display: inline-flex;
 	align-items: center;
 	gap: rem(8);
-}
-
-.advancedSearch {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	gap: rem(20);
-
-	@include mobile {
-		gap: rem(10);
-	}
 }
 
 .searchBtn {

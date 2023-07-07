@@ -38,6 +38,7 @@
 	margin-top: rem(8);
 	font-size: rem(12);
 	text-transform: capitalize;
+	min-height: rem(30);
 	@include line-clamp(2);
 
 	@include mobile {

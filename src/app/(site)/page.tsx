@@ -14,8 +14,8 @@ import {
 	TiktokReview,
 	Vouchers,
 } from "./_components";
-import {carouselList, categoryList, investorList} from "../../mock/data";
 import Image from "next/image";
+import {carouselList, categoryList, investorList} from "./static";
 
 export default async function Page() {
 	// const categoryList = await getCategories();
@@ -23,6 +23,7 @@ export default async function Page() {
 
 	return (
 		<>
+			<AdvancedSearch />
 			<NavLinks />
 			<Carousel>
 				{carouselList.map((image) => (
@@ -31,7 +32,6 @@ export default async function Page() {
 					</div>
 				))}
 			</Carousel>
-			<AdvancedSearch />
 			<div className={styles.blockWrapper}>
 				<Reports />
 				<Vouchers />

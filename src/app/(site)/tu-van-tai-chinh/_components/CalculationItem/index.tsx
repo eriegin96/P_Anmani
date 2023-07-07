@@ -35,7 +35,7 @@ export default function CalculationItem({
 	};
 
 	const formatter = (value?: number) => {
-		return formatCurrency(value, true);
+		return formatCurrency(value, true, true);
 	};
 
 	return (

@@ -51,6 +51,7 @@
 	height: 100vh;
 	background-color: $color-white;
 	z-index: 10;
+	overflow: auto;
 
 	&[data-state="open"] {
 		animation-name: contentShow;

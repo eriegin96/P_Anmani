@@ -1,62 +1,89 @@
 import {
 	IconBuilding,
 	IconBuildingBank,
+	IconBuildingCommunity,
 	IconBuildingFortress,
 	IconBuildingSkyscraper,
 	IconBuildingStore,
+	IconCoins,
 	IconHome,
+	IconHomeCheck,
 	IconNetwork,
-	IconShip,
 	IconSpeedboat,
 } from "@tabler/icons-react";
 import color from "@/styles/color.module.scss";
+import {QUERY_PARAMS, ROUTE} from "@/constants/route";
+import {PRODUCT_TAG, PRODUCT_TYPE} from "@/constants/product";
 
 export const navLinks = [
 	{
-		href: "/",
-		name: "Dinh thự & Biệt thự Đơn lập",
+		href: `${ROUTE.ADVANCED_SEARCH}/?type=${QUERY_PARAMS.TYPE.SINGLE}`,
+		name: PRODUCT_TYPE.SINGLE_VILLA,
 		icon: <IconHome color={color.primary1} />,
 	},
 	{
-		href: "/",
-		name: "Dinh thự & Biệt thự Đơn lập",
-		icon: <IconBuildingFortress color={color.green3} />,
+		href: `${ROUTE.ADVANCED_SEARCH}/?type=${QUERY_PARAMS.TYPE.DOUBLE}`,
+		name: PRODUCT_TYPE.DOUBLE_VILLA,
+		icon: <IconBuildingFortress color={color.primary2} />,
+	},
+	{
+		href: `${ROUTE.ADVANCED_SEARCH}/?type=${QUERY_PARAMS.TYPE.SHOPHOUSE}`,
+		name: PRODUCT_TYPE.SHOPHOUSE,
+		icon: <IconBuildingStore color={color.primary3} />,
+	},
+	{
+		href: `${ROUTE.ADVANCED_SEARCH}/?type=${QUERY_PARAMS.TYPE.APARTMENT}`,
+		name: PRODUCT_TYPE.APARTMENT,
+		icon: <IconBuilding color={color.red1} />,
+	},
+	{
+		href: `${ROUTE.ADVANCED_SEARCH}/?tag=${QUERY_PARAMS.TAG.TRANSFER}`,
+		name: PRODUCT_TAG.TRANSFER,
+		icon: <IconSpeedboat color={color.red2} />,
+	},
+	{
+		href: `${ROUTE.ADVANCED_SEARCH}/?tag=${QUERY_PARAMS.TAG.RENT}`,
+		name: PRODUCT_TAG.RENT,
+		icon: <IconHomeCheck color={color.yellow1} />,
+	},
+	{
+		href: ROUTE.CONSULT,
+		name: "Tài chính",
+		icon: <IconCoins color={color.green2} />,
 	},
 	{
 		href: "/",
-		name: "Shophouse",
-		icon: <IconBuildingStore color={color.yellow1} />,
+		name: "Thị trường BĐS Hồ Chí Minh",
+		icon: <IconBuildingCommunity color={color.green3} />,
 	},
-	{
-		href: "/",
-		name: "Căn hộ",
-		icon: <IconBuilding color={color.red2} />,
-	},
-
 	{
 		href: "/",
 		name: "Thị trường BĐS Nha Trang",
-		icon: <IconSpeedboat color={color.primary2} />,
+		icon: <IconBuildingCommunity color={color.primary1} />,
 	},
 	{
 		href: "/",
 		name: "Thị trường BĐS Phú Quốc",
-		icon: <IconShip color={color.green2} />,
+		icon: <IconBuildingCommunity color={color.primary2} />,
 	},
-
+	{
+		href: "/",
+		name: "Thị trường BĐS Đà Nẵng",
+		icon: <IconBuildingCommunity color={color.primary3} />,
+	},
 	{
 		href: "/",
 		name: "Đối tác Chủ Đầu Tư",
-		icon: <IconBuildingSkyscraper color={color.red2} />,
+		icon: <IconBuildingSkyscraper color={color.red1} />,
 	},
 	{
 		href: "/",
 		name: "Ký gửi Bất Động Sản",
-		icon: <IconBuildingBank color={color.pink2} />,
+		icon: <IconBuildingBank color={color.red2} />,
 	},
 	{
 		href: "/",
 		name: "Kết nối",
-		icon: <IconNetwork color={color.purple1} />,
+		icon: <IconNetwork color={color.yellow1} />,
 	},
 ];

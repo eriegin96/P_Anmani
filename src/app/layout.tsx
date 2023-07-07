@@ -23,7 +23,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 						>
 							<Header />
 							<Suspense fallback={<Loading />}>
-								<main>{children}</main>
+								<main className={styles.main}>{children}</main>
 							</Suspense>
 						</ConfigProvider>
 					</CartProvider>
