@@ -1,4 +1,3 @@
-import {NavigationBar} from "@/components";
 import "./globals.scss";
 import AuthProvider from "@/providers/AuthProvider";
 import CartProvider from "@/providers/CartProvider";
@@ -23,7 +22,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 					<CartProvider>
 						<ConfigProvider>{children}</ConfigProvider>
 					</CartProvider>
-					<NavigationBar />
 				</AuthProvider>
 			</body>
 		</html>

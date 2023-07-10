@@ -1,4 +1,5 @@
 export const ROUTE_PREFIX_USER = "user";
+export const ROUTE_PREFIX_ADMIN = "admin";
 
 export const ROUTE = {
 	HOME: "/",
@@ -7,7 +8,6 @@ export const ROUTE = {
 	EXPLORE: "/kham-pha",
 	CHANGE_PASSWORD: `/doi-mat-khau`,
 	PRODUCT: "/bds",
-	ADMIN: "/admin",
 	ADVANCED_SEARCH: "/tim-kiem",
 	CONSULT: "/tu-van-tai-chinh",
 
@@ -21,6 +21,14 @@ export const ROUTE = {
 
 	SAVE: `/${ROUTE_PREFIX_USER}/luu-tru`,
 	MESSAGE: `/${ROUTE_PREFIX_USER}/tin-nhan`,
+
+	ADMIN: "/admin",
+	ADMIN_PRODUCT: `/${ROUTE_PREFIX_ADMIN}/product`,
+	ADMIN_VOUCHER: `/${ROUTE_PREFIX_ADMIN}/voucher`,
+	ADMIN_EXPLORE: `/${ROUTE_PREFIX_ADMIN}/explore`,
+	ADMIN_USER: `/${ROUTE_PREFIX_ADMIN}/user`,
+	ADMIN_USER_DEPOSIT: `/${ROUTE_PREFIX_ADMIN}/user/deposit`,
+	ADMIN_USER_CART: `/${ROUTE_PREFIX_ADMIN}/user/cart`,
 };
 
 export const QUERY_PARAMS = {
