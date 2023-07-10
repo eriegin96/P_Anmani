@@ -8,3 +8,5 @@ export {default as Voucher} from "./common/Voucher";
 export {default as NotificationContent} from "./common/NotificationContent";
 
 export {default as SignUpForm} from "./auth/SignUpForm";
+export {default as SignInForm} from "./auth/SignInForm";
+export {default as ForgotPasswordForm} from "./auth/ForgotPasswordForm";

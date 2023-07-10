@@ -1,6 +1,6 @@
 .wrapper {
-	height: 100vh;
-	width: 100vw;
+	height: $height-main;
+	width: 100%;
 	display: flex;
 }
 
@@ -10,6 +10,7 @@
 	background: url("../../../../public/images/auth-background.jpg");
 	position: relative;
 	background-size: cover;
+	background-position: center;
 }
 
 .loginWrapper {
@@ -20,4 +21,13 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.formWrapper {
+	padding: rem(40);
+	width: rem(500);
+	overflow: auto;
+	background-color: $color-white;
+	border-radius: $round-md;
+	max-height: calc($height-main - rem(30));
 }

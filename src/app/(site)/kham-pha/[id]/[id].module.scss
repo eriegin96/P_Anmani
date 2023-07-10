@@ -6,7 +6,7 @@
 .videoWrapper {
 	position: relative;
 	width: 100vw;
-	height: calc(100vh - $height-navbar - $height-header);
+	height: $height-main;
 
 	video {
 		object-fit: cover;

@@ -1,0 +1,57 @@
+.formTitle {
+	margin-bottom: rem(12);
+	font-size: rem(20);
+	font-weight: 700;
+	color: $color-primary-1;
+}
+
+.backWrapper {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	margin-bottom: rem(16);
+	font-weight: 600;
+	font-size: rem(16);
+	color: $color-gray-1;
+}
+
+.formItem {
+	margin-bottom: rem(20);
+
+	:global(.ant-form-item-label) label {
+		color: $color-primary-1;
+	}
+}
+
+.actionsWrapper {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: rem(20);
+
+	a {
+		color: $color-gray-1;
+		text-decoration: underline;
+	}
+}
+
+.footerWrapper {
+	margin-top: rem(20);
+	text-align: center;
+}
+
+.btn {
+	margin-top: rem(10);
+	height: rem(40);
+	width: 100%;
+	font-size: rem(16);
+	font-weight: 600;
+}
+
+.text {
+	font-size: rem(14);
+
+	a {
+		color: $color-text-primary;
+		text-decoration: underline;
+	}
+}
