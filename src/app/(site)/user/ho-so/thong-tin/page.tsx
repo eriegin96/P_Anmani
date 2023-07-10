@@ -7,7 +7,7 @@ import type {DatePickerProps} from "antd";
 import {DATE_FORMAT} from "@/constants/common";
 import dynamic from "next/dynamic";
 
-const Button = dynamic(() => import("../../../../../components/Button"));
+const Button = dynamic(() => import("../../../../../components/common/Button"));
 
 export default function Page() {
 	const handleChangeDate: DatePickerProps["onChange"] = (date, dateString) => {

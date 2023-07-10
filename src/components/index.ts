@@ -1,9 +1,10 @@
-export {default as Button} from "./Button";
-export {default as Footer} from "./Footer";
-export {default as Header} from "./Header";
-export {default as NavigationBar} from "./NavigationBar";
-export {default as SearchBox} from "./SearchBox";
-export {default as Select} from "./Select";
-export {default as SaveDialogPortal} from "./SaveDialogPortal";
-export {default as Voucher} from "./Voucher";
-export {default as NotificationContent} from "./NotificationContent";
+export {default as Button} from "./common/Button";
+export {default as Footer} from "./common/Footer";
+export {default as Header} from "./common/Header";
+export {default as NavigationBar} from "./common/NavigationBar";
+export {default as SearchBox} from "./common/SearchBox";
+export {default as SaveDialogPortal} from "./common/SaveDialogPortal";
+export {default as Voucher} from "./common/Voucher";
+export {default as NotificationContent} from "./common/NotificationContent";
+
+export {default as SignUpForm} from "./auth/SignUpForm";

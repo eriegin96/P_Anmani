@@ -35,7 +35,8 @@ export default function Voucher({
 						defaultValue={[50]}
 						disabled
 						max={100}
-						step={1}>
+						step={1}
+					>
 						<Slider.Track className={styles.sliderTrack}>
 							<Slider.Range className={styles.sliderRange} />
 						</Slider.Track>

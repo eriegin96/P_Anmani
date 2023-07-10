@@ -20,3 +20,4 @@ export {default as ImageLogoKDI} from "../../public/images/logo-KDI.png";
 export {default as ImageLogoSG} from "../../public/images/logo-SG.png";
 export {default as ImageTikTokReview1} from "../../public/images/tiktok-review-1.png";
 export {default as ImageTikTokReview2} from "../../public/images/tiktok-review-2.png";
+export {default as ImageAuthBackground} from "../../public/images/auth-background.jpg";

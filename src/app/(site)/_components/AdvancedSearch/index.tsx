@@ -6,7 +6,9 @@ import dynamic from "next/dynamic";
 import {socialNetworks} from "./static";
 import {Button} from "antd";
 
-const SearchBox = dynamic(() => import("../../../../components/SearchBox"));
+const SearchBox = dynamic(
+	() => import("../../../../components/common/SearchBox")
+);
 
 export default function AdvancedSearch() {
 	return (
