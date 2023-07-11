@@ -1,7 +1,17 @@
-import React from "react";
+"use client";
 
-type Props = {};
+import {Button} from "antd";
+import ProductTable from "./_components/ProductTable";
+import styles from "./product.module.scss";
 
-export default function AdminProductPage({}: Props) {
-	return <div>Admin Product</div>;
+export default function AdminProductPage() {
+	return (
+		<>
+			<div className={styles.actionWrapper}>
+				<Button type="primary">Tạo BĐS</Button>
+			</div>
+
+			<ProductTable />
+		</>
+	);
 }

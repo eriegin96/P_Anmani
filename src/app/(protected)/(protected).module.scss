@@ -59,6 +59,10 @@
 			background-color: unset !important;
 			color: $color-yellow-1 !important;
 		}
+
+		.active {
+			color: red;
+		}
 	}
 }
 
@@ -66,4 +70,9 @@
 	background-color: unset;
 	font-size: rem(20);
 	font-weight: 600;
+}
+
+.content {
+	border-top: rem(2) solid $color-gray-3;
+	padding: rem(30);
 }

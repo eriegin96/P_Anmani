@@ -11,11 +11,13 @@ import {IconChevronLeft} from "@tabler/icons-react";
 import {ImageLogo} from "@/assets";
 import Image from "next/image";
 import {menuNavList} from "./static";
+import {usePathname} from "next/navigation";
 
 const {Sider, Header, Content} = Layout;
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
 	const [collapsed, setCollapsed] = useState(false);
+	const pathname = usePathname();
 
 	return (
 		<Layout className={styles.layoutWrapper}>
@@ -46,14 +48,16 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				<Menu
 					theme="light"
 					mode="inline"
-					defaultSelectedKeys={["dashboard"]}
+					defaultSelectedKeys={menuNavList
+						.filter((item) => item.url === pathname)
+						.map((item) => item.key)}
 					items={menuNavList}
 					className={styles.menu}
 				/>
 			</Sider>
 			<Layout>
 				<Header className={styles.header}>Anmani Admin Page</Header>
-				<Content>{children}</Content>
+				<Content className={styles.content}>{children}</Content>
 			</Layout>
 		</Layout>
 	);
