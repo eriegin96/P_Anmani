@@ -1,5 +1,10 @@
-import {PRODUCT_TAG, PRODUCT_TYPE} from "@/constants/product";
-import {QUERY_PARAMS} from "@/constants/route";
+import {PRODUCT_STATUS, PRODUCT_TAG, PRODUCT_TYPE} from "./product";
+import {QUERY_PARAMS} from "./route";
+
+export const statusOptions = [
+	{value: "sold", label: PRODUCT_STATUS.IN_STOCK},
+	{value: "in-stock", label: PRODUCT_STATUS.SOLD},
+];
 
 export const tagOptions = [
 	{value: QUERY_PARAMS.TAG.INVESTOR, label: PRODUCT_TAG.INVESTOR},
@@ -14,11 +19,11 @@ export const typeOptions = [
 	{value: QUERY_PARAMS.TYPE.APARTMENT, label: PRODUCT_TYPE.APARTMENT},
 ];
 
-export const areaOptions = [
-	{value: QUERY_PARAMS.AREA.PHU_QUOC, label: "Phú Quốc"},
-	{value: QUERY_PARAMS.AREA.NHA_TRANG, label: "Nha Trang"},
-	{value: QUERY_PARAMS.AREA.DA_NANG, label: "Đà Nẵng"},
-	{value: QUERY_PARAMS.AREA.HCM, label: "TP.Hồ Chí Minh"},
+export const locationOptions = [
+	{value: QUERY_PARAMS.LOCATION.PHU_QUOC, label: "Phú Quốc"},
+	{value: QUERY_PARAMS.LOCATION.NHA_TRANG, label: "Nha Trang"},
+	{value: QUERY_PARAMS.LOCATION.DA_NANG, label: "Đà Nẵng"},
+	{value: QUERY_PARAMS.LOCATION.HCM, label: "TP.Hồ Chí Minh"},
 ];
 
 export const investorOptions = [

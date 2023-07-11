@@ -1,0 +1,43 @@
+.form {
+	label {
+		font-size: rem(16);
+		font-weight: 600;
+	}
+
+	:global(.ant-form-item-label) {
+		label {
+			font-size: rem(14);
+			font-weight: 400;
+		}
+	}
+}
+
+.formTitle {
+	margin-bottom: rem(12);
+	font-size: rem(20);
+	font-weight: 700;
+	color: $color-primary-1;
+}
+
+.inputNumber {
+	width: 100%;
+}
+
+.addLocationBtn {
+	display: flex;
+	align-items: center;
+}
+
+.formListItem {
+	margin-bottom: rem(12);
+
+	:global(.ant-form-item-control-input-content) {
+		display: flex;
+		gap: rem(10);
+	}
+}
+
+.actionWrapper {
+	display: flex;
+	gap: rem(10);
+}

@@ -3,12 +3,16 @@
 import {Button} from "antd";
 import ProductTable from "./_components/ProductTable";
 import styles from "./product.module.scss";
+import Link from "next/link";
+import {ROUTE} from "@/constants/route";
 
 export default function AdminProductPage() {
 	return (
 		<>
 			<div className={styles.actionWrapper}>
-				<Button type="primary">Tạo BĐS</Button>
+				<Link href={ROUTE.ADMIN_PRODUCT_CREATE}>
+					<Button type="primary">Tạo BĐS</Button>
+				</Link>
 			</div>
 
 			<ProductTable />

@@ -47,7 +47,7 @@ export default function CalculationItem({
 					max={max}
 					step={step}
 					formatter={(value) => `${value}`.replace(NUMBER_FORMAT, ".")}
-					parser={(value) => Number(value!.replace(/\$\s?|(,*)/g, ""))}
+					parser={(value) => Number(value!.replace(/(\.*)/g, ""))}
 					value={calculationValue.get(name)}
 					onChange={onChange}
 				/>

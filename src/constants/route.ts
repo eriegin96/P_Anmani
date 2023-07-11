@@ -23,7 +23,9 @@ export const ROUTE = {
 	MESSAGE: `/${ROUTE_PREFIX_USER}/tin-nhan`,
 
 	ADMIN: "/admin",
+	ADMIN_DASHBOARD: `//${ROUTE_PREFIX_ADMIN}/dashboard`,
 	ADMIN_PRODUCT: `/${ROUTE_PREFIX_ADMIN}/product`,
+	ADMIN_PRODUCT_CREATE: `/${ROUTE_PREFIX_ADMIN}/product/create`,
 	ADMIN_VOUCHER: `/${ROUTE_PREFIX_ADMIN}/voucher`,
 	ADMIN_EXPLORE: `/${ROUTE_PREFIX_ADMIN}/explore`,
 	ADMIN_MESSAGE: `/${ROUTE_PREFIX_ADMIN}/message`,
@@ -44,7 +46,7 @@ export const QUERY_PARAMS = {
 		SHOPHOUSE: "shophouse",
 		APARTMENT: "apartment",
 	},
-	AREA: {
+	LOCATION: {
 		HCM: "hcm",
 		NHA_TRANG: "nha-trang",
 		PHU_QUOC: "phu-quoc",

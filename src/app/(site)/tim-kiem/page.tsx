@@ -3,12 +3,12 @@
 import {SearchBox} from "@/components";
 import {Button, Col, Divider, Row, Select, Slider} from "antd";
 import {
-	areaOptions,
+	locationOptions,
 	tagOptions,
 	sortOptions,
 	investorOptions,
 	typeOptions,
-} from "@/mock/selectOptions";
+} from "@/constants/selectOptions";
 import {useSearchParams} from "next/navigation";
 import {useMemo} from "react";
 import {MAX_PRICE, MIN_PRICE} from "@/constants/common";
@@ -43,9 +43,9 @@ export default function Page() {
 			},
 			{
 				placeholder: "Khu vực",
-				value: searchParams.get("area") || null,
+				value: searchParams.get("location") || null,
 				onChange: handleChange,
-				options: areaOptions,
+				options: locationOptions,
 			},
 			{
 				placeholder: "Chủ đầu tư",

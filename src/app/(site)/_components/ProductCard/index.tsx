@@ -36,14 +36,6 @@ export default function ProductCard({
 		location,
 		status,
 	} = info;
-	const bgColor =
-		status === PRODUCT_STATUS.SAVED
-			? color.primary3
-			: status === PRODUCT_STATUS.IN_STOCK
-			? color.green3
-			: status === PRODUCT_STATUS.BOOKED
-			? color.pink2
-			: color.orange2;
 	const [value, setValue] = useState<TProductSaveValue>(
 		PRODUCT_SAVE_VALUE.LATER
 	);

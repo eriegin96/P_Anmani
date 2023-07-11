@@ -8,12 +8,21 @@ import {
 	IconUser,
 } from "@tabler/icons-react";
 import Link from "next/link";
+import {ReactNode} from "react";
 
-export const menuNavList = [
+export interface SidebarNavigationItem {
+	label: ReactNode;
+	key: string;
+	url?: string;
+	children?: SidebarNavigationItem[];
+	icon?: ReactNode;
+}
+
+export const menuNavList: SidebarNavigationItem[] = [
 	{
-		label: <Link href={ROUTE.ADMIN}>Bảng điều khiển</Link>,
+		label: <Link href={ROUTE.ADMIN_DASHBOARD}>Bảng điều khiển</Link>,
 		key: "dashboard",
-		url: ROUTE.ADMIN,
+		url: ROUTE.ADMIN_DASHBOARD,
 		icon: <IconDashboard />,
 	},
 	{
@@ -47,17 +56,17 @@ export const menuNavList = [
 		children: [
 			{
 				label: <Link href={ROUTE.ADMIN_USER}>Quản lý</Link>,
-				key: "main",
+				key: "user.main",
 				url: ROUTE.ADMIN_USER,
 			},
 			{
 				label: <Link href={ROUTE.ADMIN_USER_DEPOSIT}>Ký gửi</Link>,
-				key: "deposit",
+				key: "user.deposit",
 				url: ROUTE.ADMIN_USER_DEPOSIT,
 			},
 			{
 				label: <Link href={ROUTE.ADMIN_USER_CART}>Đơn hàng</Link>,
-				key: "cart",
+				key: "user.cart",
 				url: ROUTE.ADMIN_USER_CART,
 			},
 		],
