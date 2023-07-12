@@ -3,16 +3,20 @@ import {Table} from "antd";
 import {Button, Input, Space, InputRef} from "antd";
 import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
-import {data} from "../../static";
+import Link from "next/link";
+import {ROUTE} from "@/constants/route";
+import {TProduct} from "@/types/product.type";
+import {productList} from "@/mock/data";
 
 export interface DataType {
+	id: string;
 	key: React.Key;
 	name: string;
 	price: number;
 	location: string;
 }
 
-type DataIndex = keyof DataType;
+type DataIndex = keyof TProduct;
 
 export default function ProductTable() {
 	const searchInput = useRef<InputRef>(null);
@@ -31,7 +35,7 @@ export default function ProductTable() {
 	};
 
 	const getColumnSearchProps = useCallback(
-		(dataIndex: DataIndex): ColumnType<DataType> => ({
+		(dataIndex: DataIndex): ColumnType<TProduct> => ({
 			filterDropdown: ({
 				setSelectedKeys,
 				selectedKeys,
@@ -85,7 +89,7 @@ export default function ProductTable() {
 		[]
 	);
 
-	const columns: ColumnsType<DataType> = useMemo(
+	const columns: ColumnsType<TProduct> = useMemo(
 		() => [
 			{
 				title: "Tên BĐS",
@@ -95,6 +99,9 @@ export default function ProductTable() {
 					record.name.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.name.length - b.name.length,
 				sortDirections: ["ascend", "descend"],
+				render: (name, {id}) => (
+					<Link href={`${ROUTE.ADMIN_PRODUCT}/${id}`}>{name}</Link>
+				),
 			},
 			{
 				title: "Giá",
@@ -106,14 +113,15 @@ export default function ProductTable() {
 			{
 				title: "Địa điểm",
 				dataIndex: "location",
-				sorter: (a, b) => a.location.length - b.location.length,
 				...getColumnSearchProps("location"),
+				sorter: (a, b) => a.location.main.length - b.location.main.length,
+				render: (location) => <>{location.main}</>,
 			},
 		],
 		[getColumnSearchProps]
 	);
 
-	const onChange: TableProps<DataType>["onChange"] = (
+	const onChange: TableProps<TProduct>["onChange"] = (
 		pagination,
 		filters,
 		sorter,
@@ -125,7 +133,7 @@ export default function ProductTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={data}
+			dataSource={productList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			onChange={onChange}

@@ -1,9 +1,9 @@
-import CreateProductForm from "../_components/CreateProductForm";
+import ProductForm from "../_components/ProductForm";
 
 export default function AdminProductCreatePage() {
 	return (
 		<div>
-			<CreateProductForm />
+			<ProductForm />
 		</div>
 	);
 }

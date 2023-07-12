@@ -37,6 +37,15 @@
 	}
 }
 
+.formListItemDiv {
+	display: flex;
+	gap: rem(10);
+
+	:global(.ant-form-item) {
+		flex: 1;
+	}
+}
+
 .actionWrapper {
 	display: flex;
 	gap: rem(10);

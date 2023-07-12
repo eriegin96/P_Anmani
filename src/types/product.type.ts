@@ -1,18 +1,17 @@
-import {
-	PRODUCT_ANCHOR,
-	PRODUCT_SAVE_VALUE,
-	PRODUCT_STATUS,
-	PRODUCT_TYPE,
-} from "@/constants/product";
+import {PRODUCT_ANCHOR, PRODUCT_SAVE_VALUE} from "@/constants/product";
+import {QUERY_PARAMS} from "@/constants/route";
 
-export type TProductStatusKey = keyof typeof PRODUCT_STATUS;
-export type TProductStatusValue = (typeof PRODUCT_STATUS)[TProductStatusKey];
+export type TProductStatusKey = keyof typeof QUERY_PARAMS.STATUS;
+export type TProductStatusValue =
+	(typeof QUERY_PARAMS.STATUS)[TProductStatusKey];
 export type TProductSaveKey = keyof typeof PRODUCT_SAVE_VALUE;
 export type TProductSaveValue = (typeof PRODUCT_SAVE_VALUE)[TProductSaveKey];
-export type TProductTypeKey = keyof typeof PRODUCT_TYPE;
-export type TProductTypeValue = (typeof PRODUCT_TYPE)[TProductTypeKey];
+export type TProductTypeKey = keyof typeof QUERY_PARAMS.TYPE;
+export type TProductTypeValue = (typeof QUERY_PARAMS.TYPE)[TProductTypeKey];
 export type TProductAnchorKey = keyof typeof PRODUCT_ANCHOR;
 export type TProductAnchorValue = (typeof PRODUCT_ANCHOR)[TProductAnchorKey];
+export type TProductTagKey = keyof typeof QUERY_PARAMS.TAG;
+export type TProductTagValue = (typeof QUERY_PARAMS.TAG)[TProductTagKey];
 
 export type TProductPlace = {
 	name: string;
@@ -22,9 +21,11 @@ export type TProductPlace = {
 export type TProduct = {
 	id: string;
 	type: TProductTypeValue;
+	tag: TProductTagValue;
+	investor: "1" | "2" | "3";
 	name: string;
-	price?: number;
-	salePrice?: number;
+	price: number;
+	salePrice: number;
 	information: {
 		landArea: string;
 		floor: string;
@@ -43,6 +44,7 @@ export type TProduct = {
 		cons: string;
 	};
 	location: {
+		detail: string;
 		main: string;
 		sub: string;
 		nearby: TProductPlace[];

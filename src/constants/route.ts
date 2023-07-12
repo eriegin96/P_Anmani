@@ -35,6 +35,10 @@ export const ROUTE = {
 };
 
 export const QUERY_PARAMS = {
+	STATUS: {
+		SOLD: "sold",
+		IN_STOCK: "in-stock",
+	},
 	TAG: {
 		INVESTOR: "investor",
 		TRANSFER: "transfer",

@@ -2,11 +2,12 @@ import {TProduct} from "@/types/product.type";
 import {ImageLogoSG} from "../assets";
 import {
 	PRODUCT_SAVE_VALUE,
-	PRODUCT_STATUS,
+	PRODUCT_TAG,
 	PRODUCT_TYPE,
 } from "@/constants/product";
 import {TVoucher} from "@/types/voucher.type";
 import {NOTIFICATION_TYPE} from "@/constants/notification";
+import {QUERY_PARAMS} from "@/constants/route";
 
 export const voucherList: TVoucher[] = [
 	{
@@ -97,13 +98,21 @@ export const productDescription = {
   - Vị trí mặt biển duy nhất còn lại của Vịnh Nha Trang, được sở du lich đánh giá là trung tâm hàng đầu của Nha Trang và khách du lịch quốc tế khi có 4 thương hiệu hàng đầu Gran Meliá, Melia, Newworld, Accor
 	`,
 	cons: ``,
+	juridice: "Sở hữu lâu dài",
+	delivery: {
+		date: "Dự kiến quí IV/2025",
+		info: "Bàn giao thô hoàn thiện ngoài",
+	},
 };
 
 export const productList: TProduct[] = [
 	{
 		id: "1",
-		type: PRODUCT_TYPE.SINGLE_VILLA,
+		type: QUERY_PARAMS.TYPE.SINGLE,
+		tag: QUERY_PARAMS.TAG.INVESTOR,
+		investor: "1",
 		location: {
+			detail: "6 Tân Trào, P.Tân Phú, Q.7",
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
 			nearby: [
@@ -129,12 +138,15 @@ export const productList: TProduct[] = [
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
-		status: PRODUCT_STATUS.SOLD,
+		status: QUERY_PARAMS.STATUS.SOLD,
 	},
 	{
 		id: "2",
-		type: PRODUCT_TYPE.DOUBLE_VILLA,
+		type: QUERY_PARAMS.TYPE.DOUBLE,
+		tag: QUERY_PARAMS.TAG.INVESTOR,
+		investor: "1",
 		location: {
+			detail: "6 Tân Trào, P.Tân Phú, Q.7",
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
 			nearby: [
@@ -160,12 +172,15 @@ export const productList: TProduct[] = [
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
-		status: PRODUCT_STATUS.SAVED,
+		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 	{
 		id: "3",
-		type: PRODUCT_TYPE.SHOPHOUSE,
+		type: QUERY_PARAMS.TYPE.SHOPHOUSE,
+		tag: QUERY_PARAMS.TAG.INVESTOR,
+		investor: "1",
 		location: {
+			detail: "6 Tân Trào, P.Tân Phú, Q.7",
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
 			nearby: [
@@ -191,12 +206,15 @@ export const productList: TProduct[] = [
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
-		status: PRODUCT_STATUS.SAVED,
+		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 	{
 		id: "4",
-		type: PRODUCT_TYPE.APARTMENT,
+		type: QUERY_PARAMS.TYPE.APARTMENT,
+		tag: QUERY_PARAMS.TAG.INVESTOR,
+		investor: "1",
 		location: {
+			detail: "6 Tân Trào, P.Tân Phú, Q.7",
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
 			nearby: [
@@ -222,12 +240,15 @@ export const productList: TProduct[] = [
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
-		status: PRODUCT_STATUS.SOLD,
+		status: QUERY_PARAMS.STATUS.SOLD,
 	},
 	{
 		id: "5",
-		type: PRODUCT_TYPE.SINGLE_VILLA,
+		type: QUERY_PARAMS.TYPE.SINGLE,
+		tag: QUERY_PARAMS.TAG.INVESTOR,
+		investor: "1",
 		location: {
+			detail: "6 Tân Trào, P.Tân Phú, Q.7",
 			main: "Nha Trang",
 			sub: "Phường Bến Nghé",
 			nearby: [
@@ -253,7 +274,7 @@ export const productList: TProduct[] = [
 		logo: ImageLogoSG,
 		price: 13_500_000_000,
 		salePrice: 13_000_000_000,
-		status: PRODUCT_STATUS.SAVED,
+		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 ];
 

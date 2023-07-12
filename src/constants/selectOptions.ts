@@ -2,8 +2,8 @@ import {PRODUCT_STATUS, PRODUCT_TAG, PRODUCT_TYPE} from "./product";
 import {QUERY_PARAMS} from "./route";
 
 export const statusOptions = [
-	{value: "sold", label: PRODUCT_STATUS.IN_STOCK},
-	{value: "in-stock", label: PRODUCT_STATUS.SOLD},
+	{value: QUERY_PARAMS.STATUS.SOLD, label: PRODUCT_STATUS.SOLD},
+	{value: QUERY_PARAMS.STATUS.IN_STOCK, label: PRODUCT_STATUS.IN_STOCK},
 ];
 
 export const tagOptions = [
