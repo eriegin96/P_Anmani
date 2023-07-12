@@ -2,16 +2,16 @@
 
 import {Button, Layout, Menu} from "antd";
 
-import styles from "./(protected).module.scss";
 import {useState} from "react";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import clsx from "clsx";
 import {IconChevronLeft} from "@tabler/icons-react";
 import {ImageLogo} from "@/assets";
 import Image from "next/image";
 import {SidebarNavigationItem, menuNavList} from "./static";
 import {usePathname} from "next/navigation";
+import clsx from "clsx";
+import styles from "./(protected).module.scss";
 
 const {Sider, Header, Content} = Layout;
 const sidebarNavFlat = menuNavList.reduce(

@@ -25,8 +25,12 @@ export default function Page() {
 		...item,
 		label: <CartItem item={item} />,
 	}));
-	const [indeterminate, setIndeterminate] = useState(true);
-	const [checkAll, setCheckAll] = useState(false);
+	const [indeterminate, setIndeterminate] = useState(
+		!!checkedList.length && checkedList.length < checkedListDefault.length
+	);
+	const [checkAll, setCheckAll] = useState(
+		checkedList.length === checkedListDefault.length
+	);
 
 	const onChange = (list: CheckboxValueType[]) => {
 		setCheckedList(list);

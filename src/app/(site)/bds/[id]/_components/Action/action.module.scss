@@ -4,7 +4,6 @@
 	justify-content: space-between;
 	background-color: $color-gray-2;
 	padding: rem(20);
-	margin-bottom: rem(-30);
 
 	@include mobile {
 		padding: rem(20) rem(10);
@@ -33,7 +32,25 @@
 	color: $color-orange-1;
 }
 
+.rightSection {
+	display: flex;
+	gap: rem(10);
+}
+
 .btn {
+	@include btn;
+	border: rem(1) solid $color-orange-1;
+	color: $color-orange-1;
+	padding: rem(10);
+	border-radius: $round-md;
+
+	&:hover {
+		border-color: $color-orange-2;
+		color: $color-orange-2;
+	}
+}
+
+.primaryBtn {
 	@include btn;
 	background-color: $color-orange-1;
 	color: $color-white;

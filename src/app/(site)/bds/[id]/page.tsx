@@ -29,7 +29,7 @@ export default function ProductPage({params}: TProductPageProps) {
 	const anchorList = pageAnchorList(product);
 
 	return (
-		<div>
+		<>
 			<PageNav anchorList={anchorList} />
 
 			{anchorList.map((item) => (
@@ -47,6 +47,6 @@ export default function ProductPage({params}: TProductPageProps) {
 			))}
 
 			<Action product={product} />
-		</div>
+		</>
 	);
 }

@@ -1,0 +1,9 @@
+.drawer {
+	:global(.ant-drawer-content-wrapper) {
+		height: unset !important;
+	}
+
+	:global(.ant-drawer-body) {
+		padding: 0;
+	}
+}

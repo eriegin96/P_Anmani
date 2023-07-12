@@ -8,28 +8,14 @@ import styles from "./tomTat.module.scss";
 import CartItem from "../_components/CartItem";
 import {formatCurrency} from "@/utils/formatCurrency";
 import clsx from "clsx";
-import ConsultForm from "../_components/ConsultForm";
-import {Modal} from "antd";
-import {useState} from "react";
+import {useModalContext} from "@/providers/ModalProvider";
 
 export default function Page() {
 	const router = useRouter();
 	const {cart, checkedList, totalPrice} = useCartContext();
+	const {showBookingModal} = useModalContext();
 	const products = cart.filter((p) => checkedList.includes(p.id));
 	const discountAmount = 500_000_000;
-	const [isModalOpen, setIsModalOpen] = useState(false);
-
-	const showModal = () => {
-		setIsModalOpen(true);
-	};
-
-	const handleOk = () => {
-		setIsModalOpen(false);
-	};
-
-	const handleCancel = () => {
-		setIsModalOpen(false);
-	};
 
 	return (
 		<div className={styles.pageWrapper}>
@@ -64,7 +50,7 @@ export default function Page() {
 				</div>
 			</div>
 
-			<div className={clsx(styles.wrapper, styles.lastSection)}>
+			<div className={styles.wrapper}>
 				<div className={styles.summaryWrapper}>
 					<span>Tổng ({products.length} sản phẩm)</span>
 					<div>
@@ -73,16 +59,8 @@ export default function Page() {
 					</div>
 				</div>
 				<div className={styles.action}>
-					<Button onClick={showModal}>Đặt lịch tư vấn</Button>
+					<Button onClick={showBookingModal}>Đặt lịch tư vấn</Button>
 					<Button>Gọi nhận hỗ trợ</Button>
-					<Modal
-						title="Đặt lịch"
-						open={isModalOpen}
-						onOk={handleOk}
-						onCancel={handleCancel}
-						footer={[]}>
-						<ConsultForm />
-					</Modal>
 				</div>
 			</div>
 		</div>
