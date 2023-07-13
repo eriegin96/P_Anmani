@@ -1,8 +1,8 @@
 export type TVoucher = {
 	id: string;
-	createdAt?: Date;
 	productId: string;
 	condition: string;
+	discountOption: "amount" | "percent";
 	discount: {
 		amount?: number;
 		percent?: number;

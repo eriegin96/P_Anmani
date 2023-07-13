@@ -10,6 +10,11 @@
 			font-weight: 400;
 		}
 	}
+
+	:global(.ant-input-number),
+	:global(.ant-picker) {
+		width: 100%;
+	}
 }
 
 .formTitle {
@@ -19,11 +24,7 @@
 	color: $color-primary-1;
 }
 
-.inputNumber {
-	width: 100%;
-}
-
-.addLocationBtn {
+.addListItemBtn {
 	display: flex;
 	align-items: center;
 }

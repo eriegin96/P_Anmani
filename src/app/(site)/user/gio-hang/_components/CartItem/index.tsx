@@ -31,9 +31,7 @@ export default function CartItem({
 						<div className={styles.name}>{product.name}</div>
 						<div className={styles.type}>{product.type}</div>
 					</div>
-					<div className={styles.price}>
-						{formatCurrency(product.salePrice)}
-					</div>
+					<div className={styles.price}>{formatCurrency(product.price)}</div>
 				</div>
 			</div>
 			{shouldShowVoucher && (

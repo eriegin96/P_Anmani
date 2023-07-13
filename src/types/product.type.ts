@@ -25,7 +25,7 @@ export type TProduct = {
 	investor: "1" | "2" | "3";
 	name: string;
 	price: number;
-	salePrice: number;
+	originalPrice: number;
 	information: {
 		landArea: string;
 		floor: string;

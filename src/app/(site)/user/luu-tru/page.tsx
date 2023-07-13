@@ -51,7 +51,7 @@ export default function Page() {
 										<div className={styles.descriptionWrapper}>
 											<h5>{item.name}</h5>
 											<p className={styles.price}>
-												{formatCurrency(item.salePrice)}
+												{formatCurrency(item.price)}
 											</p>
 											<p className={styles.description}>
 												{item.description.pros}

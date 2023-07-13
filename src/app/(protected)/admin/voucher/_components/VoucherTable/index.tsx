@@ -5,13 +5,14 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {TProduct} from "@/types/product.type";
-import {productList} from "@/mock/data";
+import {productList, voucherList} from "@/mock/data";
+import {TVoucher} from "@/types/voucher.type";
+import {formatCurrency} from "@/utils/formatCurrency";
 import {IconX} from "@tabler/icons-react";
 
-type DataIndex = keyof TProduct;
+type DataIndex = keyof TVoucher;
 
-export default function ProductTable() {
+export default function VoucherTable() {
 	const searchInput = useRef<InputRef>(null);
 	const isLoading = false;
 
@@ -28,7 +29,7 @@ export default function ProductTable() {
 	};
 
 	const getColumnSearchProps = useCallback(
-		(dataIndex: DataIndex): ColumnType<TProduct> => ({
+		(dataIndex: DataIndex): ColumnType<TVoucher> => ({
 			filterDropdown: ({
 				setSelectedKeys,
 				selectedKeys,
@@ -82,33 +83,84 @@ export default function ProductTable() {
 		[]
 	);
 
-	const columns: ColumnsType<TProduct> = useMemo(
+	const columns: ColumnsType<TVoucher> = useMemo(
 		() => [
 			{
-				title: "Tên BĐS",
-				dataIndex: "name",
-				...getColumnSearchProps("name"),
+				title: "Voucher ID",
+				dataIndex: "id",
+				...getColumnSearchProps("id"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.name.indexOf(value.toString()) === 0,
-				sorter: (a, b) => a.name.length - b.name.length,
+					record.id.indexOf(value.toString()) === 0,
+				sorter: (a, b) => a.id.length - b.id.length,
 				sortDirections: ["ascend", "descend"],
-				render: (name, {id}) => (
-					<Link href={`${ROUTE.ADMIN_PRODUCT}/${id}`}>{name}</Link>
+				render: (id) => <Link href={`${ROUTE.ADMIN_VOUCHER}/${id}`}>{id}</Link>,
+			},
+			{
+				title: "Tên BĐS",
+				dataIndex: "productId",
+				...getColumnSearchProps("productId"),
+				onFilter: (value: string | number | boolean, record) =>
+					record.productId.indexOf(value.toString()) === 0,
+				sorter: (a, b) => a.productId.length - b.productId.length,
+				sortDirections: ["ascend", "descend"],
+				render: (productId) => {
+					const name = productList.find(
+						(product) => product.id === productId
+					)?.name;
+					return (
+						<Link href={`${ROUTE.ADMIN_PRODUCT}/${productId}`}>{name}</Link>
+					);
+				},
+			},
+			{
+				title: "Giá BĐS",
+				dataIndex: "productId",
+				...getColumnSearchProps("productId"),
+				onFilter: (value: string | number | boolean, record) =>
+					record.productId.indexOf(value.toString()) === 0,
+				sorter: (a, b) => {
+					const aPrice = productList.find(
+						(product) => product.id === a.productId
+					)?.price as number;
+					const bPrice = productList.find(
+						(product) => product.id === b.productId
+					)?.price as number;
+					return aPrice - bPrice;
+				},
+				sortDirections: ["ascend", "descend"],
+				render: (productId) => {
+					const price = productList.find(
+						(product) => product.id === productId
+					)?.price;
+					return <>{formatCurrency(price, true, true)}</>;
+				},
+			},
+
+			{
+				title: "Giảm giá",
+				dataIndex: "discount",
+				...getColumnSearchProps("discount"),
+				sortDirections: ["ascend", "descend"],
+				render: (discount) => (
+					<>
+						{discount?.amount
+							? formatCurrency(discount?.amount)
+							: `${discount?.percent}%`}
+					</>
 				),
 			},
 			{
-				title: "Giá",
-				dataIndex: "price",
-				...getColumnSearchProps("price"),
-				sorter: (a, b) => a.price - b.price,
+				title: "Điều kiện",
+				dataIndex: "condition",
+				...getColumnSearchProps("condition"),
 				sortDirections: ["ascend", "descend"],
 			},
 			{
-				title: "Địa điểm",
-				dataIndex: "location",
-				...getColumnSearchProps("location"),
-				sorter: (a, b) => a.location.main.length - b.location.main.length,
-				render: (location) => <>{location.main}</>,
+				title: "Hết hạn lúc",
+				dataIndex: "expiredDate",
+				...getColumnSearchProps("expiredDate"),
+				sorter: (a, b) => a.expiredDate.length - b.expiredDate.length,
+				render: (expiredDate) => <>{expiredDate}</>,
 			},
 			{
 				title: "Xóa",
@@ -123,7 +175,7 @@ export default function ProductTable() {
 		[getColumnSearchProps]
 	);
 
-	const onChange: TableProps<TProduct>["onChange"] = (
+	const onChange: TableProps<TVoucher>["onChange"] = (
 		pagination,
 		filters,
 		sorter,
@@ -135,9 +187,10 @@ export default function ProductTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={productList}
+			dataSource={voucherList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
+			scroll={{x: true}}
 			onChange={onChange}
 			bordered
 		/>

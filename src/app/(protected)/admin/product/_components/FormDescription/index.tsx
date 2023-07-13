@@ -1,4 +1,5 @@
 import {Col, Form, Input, Row} from "antd";
+import {defaultFormConfig} from "@/app/(protected)/admin/_shared/config";
 
 export default function FormDescription() {
 	return (
@@ -17,7 +18,7 @@ export default function FormDescription() {
 				<Form.Item
 					name={["description", "juridice"]}
 					label="Pháp lý"
-					rules={[{required: true, message: "Trường này không được để trống"}]}
+					{...defaultFormConfig}
 				>
 					<Input placeholder="Sở hữu lâu dài" />
 				</Form.Item>
@@ -26,7 +27,7 @@ export default function FormDescription() {
 				<Form.Item
 					name={["description", "delivery", "date"]}
 					label="Ngày bàn giao"
-					rules={[{required: true, message: "Trường này không được để trống"}]}
+					{...defaultFormConfig}
 				>
 					<Input placeholder="Dự kiến 2025" />
 				</Form.Item>
@@ -35,7 +36,7 @@ export default function FormDescription() {
 				<Form.Item
 					name={["description", "delivery", "info"]}
 					label="Bàn giao"
-					rules={[{required: true, message: "Trường này không được để trống"}]}
+					{...defaultFormConfig}
 				>
 					<Input placeholder="Bàn giao thô hoàn thiện ngoài" />
 				</Form.Item>

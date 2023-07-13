@@ -28,7 +28,7 @@ export default function ProductCard({
 		id,
 		name,
 		price,
-		salePrice,
+		originalPrice,
 		information,
 		view,
 		thumbnail,
@@ -70,10 +70,10 @@ export default function ProductCard({
 								<span className={styles.name}>{name}</span>
 
 								<div className={styles.priceWrapper}>
-									<div className={styles.price}>{formatCurrency(price)}</div>
-									<div className={styles.salePrice}>
-										{formatCurrency(salePrice)}
+									<div className={styles.originalPrice}>
+										{formatCurrency(originalPrice)}
 									</div>
+									<div className={styles.price}>{formatCurrency(price)}</div>
 								</div>
 							</div>
 							<div className={styles.rightSection}>

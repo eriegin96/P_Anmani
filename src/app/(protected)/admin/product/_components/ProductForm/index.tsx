@@ -11,8 +11,8 @@ import FormInformation from "../FormInformation";
 import FormLocation from "../FormLocation";
 import FormPolicy from "../FormPolicy";
 import FormDescription from "../FormDescription";
-import styles from "./productForm.module.scss";
 import FormImage from "../FormImage";
+import styles from "@/app/(protected)/admin/_shared/form.module.scss";
 
 type TProductFormProps = {
 	id?: string;

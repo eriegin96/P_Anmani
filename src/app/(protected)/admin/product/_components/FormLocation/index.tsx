@@ -1,6 +1,7 @@
 import {Button, Col, Form, Input, Row} from "antd";
 import {IconMinus, IconPlus} from "@tabler/icons-react";
-import styles from "../ProductForm/productForm.module.scss";
+import styles from "@/app/(protected)/admin/_shared/form.module.scss";
+import {defaultFormConfig} from "@/app/(protected)/admin/_shared/config";
 
 export default function FormLocation() {
 	return (
@@ -9,7 +10,7 @@ export default function FormLocation() {
 				<Form.Item
 					name={["location", "detail"]}
 					label="Vị trí"
-					rules={[{required: true, message: "Trường này không được để trống"}]}
+					{...defaultFormConfig}
 				>
 					<Input placeholder="Số nhà, đường, phường" />
 				</Form.Item>
@@ -77,7 +78,7 @@ export default function FormLocation() {
 								type="dashed"
 								onClick={() => add()}
 								icon={<IconPlus />}
-								className={styles.addLocationBtn}
+								className={styles.addListItemBtn}
 							>
 								Thêm địa điểm lân cận
 							</Button>
@@ -149,7 +150,7 @@ export default function FormLocation() {
 								type="dashed"
 								onClick={() => add()}
 								icon={<IconPlus />}
-								className={styles.addLocationBtn}
+								className={styles.addListItemBtn}
 							>
 								Thêm địa điểm phổ biến
 							</Button>

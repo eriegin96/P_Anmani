@@ -1,6 +1,7 @@
 import {Button, Col, Form, Input, Row} from "antd";
 import {IconMinus, IconPlus} from "@tabler/icons-react";
-import styles from "../ProductForm/productForm.module.scss";
+import styles from "@/app/(protected)/admin/_shared/form.module.scss";
+import {defaultFormConfig} from "@/app/(protected)/admin/_shared/config";
 
 export default function FormImage() {
 	return (
@@ -9,7 +10,7 @@ export default function FormImage() {
 				<Form.Item
 					name={["image", "thumbnail"]}
 					label="Hình ảnh chính"
-					rules={[{required: true, message: "Trường này không được để trống"}]}
+					{...defaultFormConfig}
 				>
 					<Input placeholder="https://img.photo.com" />
 				</Form.Item>
@@ -55,7 +56,7 @@ export default function FormImage() {
 								type="dashed"
 								onClick={() => add()}
 								icon={<IconPlus />}
-								className={styles.addLocationBtn}
+								className={styles.addListItemBtn}
 							>
 								Thêm hình ảnh của Chủ đầu tư
 							</Button>
@@ -105,7 +106,7 @@ export default function FormImage() {
 								type="dashed"
 								onClick={() => add()}
 								icon={<IconPlus />}
-								className={styles.addLocationBtn}
+								className={styles.addListItemBtn}
 							>
 								Thêm hình ảnh thực tế
 							</Button>
@@ -144,7 +145,7 @@ export default function FormImage() {
 								type="dashed"
 								onClick={() => add()}
 								icon={<IconPlus />}
-								className={styles.addLocationBtn}
+								className={styles.addListItemBtn}
 							>
 								Thêm hình ảnh mặt bằng và nội thất bàn giao
 							</Button>

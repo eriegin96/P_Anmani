@@ -129,13 +129,13 @@
 	margin-top: rem(10);
 }
 
-.price {
+.originalPrice {
 	color: $color-gray-1;
 	text-decoration: line-through;
 	font-size: rem(12);
 }
 
-.salePrice {
+.price {
 	margin-top: rem(6);
 	color: $color-orange-1;
 	font-weight: 500;

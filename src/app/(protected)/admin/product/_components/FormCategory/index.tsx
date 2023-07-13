@@ -5,6 +5,7 @@ import {
 	typeOptions,
 } from "@/constants/selectOptions";
 import {Col, Form, Row, Select} from "antd";
+import {defaultFormConfig} from "@/app/(protected)/admin/_shared/config";
 
 export default function FormCategory() {
 	const onSelectChange = (value: string) => {
@@ -17,7 +18,7 @@ export default function FormCategory() {
 				<Form.Item
 					name="tag"
 					label="Hình thức bán/cho thuê"
-					rules={[{required: true, message: "Trường này không được để trống"}]}
+					{...defaultFormConfig}
 				>
 					<Select
 						placeholder="Vui lòng chọn hình thức bán/cho thuê"
@@ -28,11 +29,7 @@ export default function FormCategory() {
 				</Form.Item>
 			</Col>
 			<Col span={6}>
-				<Form.Item
-					name="type"
-					label="Loại hình"
-					rules={[{required: true, message: "Trường này không được để trống"}]}
-				>
+				<Form.Item name="type" label="Loại hình" {...defaultFormConfig}>
 					<Select
 						placeholder="Vui lòng chọn loại hình"
 						onChange={onSelectChange}
@@ -42,11 +39,7 @@ export default function FormCategory() {
 				</Form.Item>
 			</Col>
 			<Col span={6}>
-				<Form.Item
-					name="investor"
-					label="Chủ đầu tư"
-					rules={[{required: true, message: "Trường này không được để trống"}]}
-				>
+				<Form.Item name="investor" label="Chủ đầu tư" {...defaultFormConfig}>
 					<Select
 						placeholder="Vui lòng chọn chủ đầu tư"
 						onChange={onSelectChange}
@@ -59,7 +52,7 @@ export default function FormCategory() {
 				<Form.Item
 					name={["location", "main"]}
 					label="Khu vực"
-					rules={[{required: true, message: "Trường này không được để trống"}]}
+					{...defaultFormConfig}
 				>
 					<Select
 						placeholder="Vui lòng chọn khu vực"

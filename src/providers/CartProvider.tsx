@@ -55,7 +55,7 @@ export default function CartProvider({children}: TCartProviderProps) {
 				return (
 					prev +
 					(productList.find(() => checkedList.includes(current.productId))
-						?.salePrice || 0)
+						?.originalPrice || 0)
 				);
 			}, 0)
 		);

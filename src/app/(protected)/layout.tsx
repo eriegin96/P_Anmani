@@ -9,7 +9,7 @@ import {IconChevronLeft} from "@tabler/icons-react";
 import {ImageLogo} from "@/assets";
 import Image from "next/image";
 import {SidebarNavigationItem, menuNavList} from "./static";
-import {usePathname} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 import clsx from "clsx";
 import styles from "./(protected).module.scss";
 
@@ -27,6 +27,7 @@ const sidebarNavFlat = menuNavList.reduce(
 export default function RootLayout({children}: {children: React.ReactNode}) {
 	const [collapsed, setCollapsed] = useState(false);
 	const pathname = usePathname();
+	const router = useRouter();
 	const currentMenuItem = sidebarNavFlat.find(
 		({url}) => url && pathname.includes(url)
 	);
@@ -72,7 +73,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				/>
 			</Sider>
 			<Layout>
-				<Header className={styles.header}>Anmani Admin Page</Header>
+				<Header className={styles.header}>
+					<Button type="link" shape="circle" onClick={() => router.back()}>
+						<IconChevronLeft />
+					</Button>
+					Anmani Admin Page
+				</Header>
 				<Content className={styles.content}>{children}</Content>
 			</Layout>
 		</Layout>

@@ -22,12 +22,12 @@
 	color: $color-text-black;
 }
 
-.price {
+.originalPrice {
 	text-decoration: line-through;
 	font-size: rem(14);
 }
 
-.salePrice {
+.price {
 	font-weight: 600;
 	color: $color-orange-1;
 }

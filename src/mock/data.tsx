@@ -1,10 +1,6 @@
 import {TProduct} from "@/types/product.type";
 import {ImageLogoSG} from "../assets";
-import {
-	PRODUCT_SAVE_VALUE,
-	PRODUCT_TAG,
-	PRODUCT_TYPE,
-} from "@/constants/product";
+import {PRODUCT_SAVE_VALUE} from "@/constants/product";
 import {TVoucher} from "@/types/voucher.type";
 import {NOTIFICATION_TYPE} from "@/constants/notification";
 import {QUERY_PARAMS} from "@/constants/route";
@@ -12,13 +8,15 @@ import {QUERY_PARAMS} from "@/constants/route";
 export const voucherList: TVoucher[] = [
 	{
 		id: "1",
+		discountOption: "amount",
 		discount: {amount: 300_000_000},
 		productId: "1",
-		condition: "",
+		condition: "Alibaba",
 		expiredDate: "31/12/2023",
 	},
 	{
 		id: "2",
+		discountOption: "percent",
 		discount: {percent: 7.5},
 		productId: "2",
 		condition: "không vay",
@@ -26,6 +24,7 @@ export const voucherList: TVoucher[] = [
 	},
 	{
 		id: "3",
+		discountOption: "percent",
 		discount: {percent: 1.5},
 		productId: "3",
 		condition: "ký HĐMB sớm",
@@ -33,6 +32,7 @@ export const voucherList: TVoucher[] = [
 	},
 	{
 		id: "4",
+		discountOption: "percent",
 		discount: {percent: 15},
 		productId: "4",
 		condition: "thanh toán sớm 95% trong vòng 3 tháng",
@@ -40,6 +40,7 @@ export const voucherList: TVoucher[] = [
 	},
 	{
 		id: "5",
+		discountOption: "percent",
 		discount: {percent: 1},
 		productId: "5",
 		condition: "mua 2 căn trở lên",
@@ -47,6 +48,7 @@ export const voucherList: TVoucher[] = [
 	},
 	{
 		id: "6",
+		discountOption: "percent",
 		discount: {percent: 9},
 		productId: "1",
 		condition: "trên số tiền và số ngày thanh toán trước hạn của từng đợt",
@@ -136,8 +138,8 @@ export const productList: TProduct[] = [
 		name: "Mã căn M110",
 		thumbnail: "https://picsum.photos/id/200/1600/900",
 		logo: ImageLogoSG,
-		price: 13_500_000_000,
-		salePrice: 13_000_000_000,
+		originalPrice: 13_500_000_000,
+		price: 13_000_000_000,
 		status: QUERY_PARAMS.STATUS.SOLD,
 	},
 	{
@@ -170,8 +172,8 @@ export const productList: TProduct[] = [
 		name: "Mã căn W616",
 		thumbnail: "https://picsum.photos/id/201/1600/900",
 		logo: ImageLogoSG,
-		price: 13_500_000_000,
-		salePrice: 13_000_000_000,
+		originalPrice: 13_500_000_000,
+		price: 13_000_000_000,
 		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 	{
@@ -204,8 +206,8 @@ export const productList: TProduct[] = [
 		name: "Mã căn Sf30",
 		thumbnail: "https://picsum.photos/id/202/1600/900",
 		logo: ImageLogoSG,
-		price: 13_500_000_000,
-		salePrice: 13_000_000_000,
+		originalPrice: 13_500_000_000,
+		price: 13_000_000_000,
 		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 	{
@@ -238,8 +240,8 @@ export const productList: TProduct[] = [
 		name: "Mã căn ND2",
 		thumbnail: "https://picsum.photos/id/203/1600/900",
 		logo: ImageLogoSG,
-		price: 13_500_000_000,
-		salePrice: 13_000_000_000,
+		originalPrice: 13_500_000_000,
+		price: 13_000_000_000,
 		status: QUERY_PARAMS.STATUS.SOLD,
 	},
 	{
@@ -272,8 +274,8 @@ export const productList: TProduct[] = [
 		name: "Mã căn 2412",
 		thumbnail: "https://picsum.photos/id/204/1600/900",
 		logo: ImageLogoSG,
-		price: 13_500_000_000,
-		salePrice: 13_000_000_000,
+		originalPrice: 13_500_000_000,
+		price: 13_000_000_000,
 		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 ];
