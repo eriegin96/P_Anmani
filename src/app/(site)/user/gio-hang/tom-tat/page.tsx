@@ -14,7 +14,7 @@ export default function Page() {
 	const router = useRouter();
 	const {cart, checkedList, totalPrice} = useCartContext();
 	const {showBookingModal} = useModalContext();
-	const products = cart.filter((p) => checkedList.includes(p.id));
+	const products = cart.filter((p) => checkedList.includes(p.productId));
 	const discountAmount = 500_000_000;
 
 	return (

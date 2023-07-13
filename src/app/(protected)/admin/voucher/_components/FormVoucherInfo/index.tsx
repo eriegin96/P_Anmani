@@ -11,11 +11,6 @@ import {
 import {productList} from "@/mock/data";
 import {defaultFormConfig} from "../../../_shared/config";
 import {DATE_FORMAT, NUMBER_FORMAT} from "@/constants/common";
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-import styles from "@/app/(protected)/admin/_shared/form.module.scss";
-
-dayjs.extend(customParseFormat);
 
 export default function FormVoucherInfo() {
 	const form = Form.useFormInstance();

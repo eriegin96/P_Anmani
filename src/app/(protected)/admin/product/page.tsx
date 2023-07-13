@@ -2,9 +2,9 @@
 
 import {Button} from "antd";
 import ProductTable from "./_components/ProductTable";
-import styles from "./product.module.scss";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
+import styles from "../_shared/page.module.scss";
 
 export default function AdminProductPage() {
 	return (

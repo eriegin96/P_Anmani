@@ -55,9 +55,9 @@ export const menuNavList: SidebarNavigationItem[] = [
 		icon: <IconUser />,
 		children: [
 			{
-				label: <Link href={ROUTE.ADMIN_USER}>Quản lý</Link>,
-				key: "user.main",
-				url: ROUTE.ADMIN_USER,
+				label: <Link href={ROUTE.ADMIN_USER_NOTIFICATION}>Thông báo</Link>,
+				key: "user.noti",
+				url: ROUTE.ADMIN_USER_NOTIFICATION,
 			},
 			{
 				label: <Link href={ROUTE.ADMIN_USER_DEPOSIT}>Ký gửi</Link>,

@@ -1,3 +1,5 @@
+"use client";
+
 import {useCallback, useMemo, useRef} from "react";
 import {Table} from "antd";
 import {Button, Input, Space, InputRef} from "antd";
@@ -5,14 +7,12 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {productList, voucherList} from "@/mock/data";
-import {TVoucher} from "@/types/voucher.type";
-import {formatCurrency} from "@/utils/formatCurrency";
-import {IconX} from "@tabler/icons-react";
+import {userCartList, userList} from "@/mock/data";
+import {TUserCart} from "@/types/user.type";
 
-type DataIndex = keyof TVoucher;
+type DataIndex = keyof TUserCart;
 
-export default function VoucherTable() {
+export default function CartTable() {
 	const searchInput = useRef<InputRef>(null);
 	const isLoading = false;
 
@@ -29,7 +29,7 @@ export default function VoucherTable() {
 	};
 
 	const getColumnSearchProps = useCallback(
-		(dataIndex: DataIndex): ColumnType<TVoucher> => ({
+		(dataIndex: DataIndex): ColumnType<TUserCart> => ({
 			filterDropdown: ({
 				setSelectedKeys,
 				selectedKeys,
@@ -83,98 +83,65 @@ export default function VoucherTable() {
 		[]
 	);
 
-	const columns: ColumnsType<TVoucher> = useMemo(
+	const columns: ColumnsType<TUserCart> = useMemo(
 		() => [
 			{
-				title: "Voucher ID",
+				title: "User cart Id",
 				dataIndex: "id",
 				...getColumnSearchProps("id"),
 				onFilter: (value: string | number | boolean, record) =>
 					record.id.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.id.length - b.id.length,
 				sortDirections: ["ascend", "descend"],
-				render: (id) => <Link href={`${ROUTE.ADMIN_VOUCHER}/${id}`}>{id}</Link>,
-			},
-			{
-				title: "Tên BĐS",
-				dataIndex: "productId",
-				...getColumnSearchProps("productId"),
-				onFilter: (value: string | number | boolean, record) =>
-					record.productId.indexOf(value.toString()) === 0,
-				sorter: (a, b) => a.productId.length - b.productId.length,
-				sortDirections: ["ascend", "descend"],
-				render: (productId) => {
-					const name = productList.find(
-						(product) => product.id === productId
-					)?.name;
-					return (
-						<Link href={`${ROUTE.ADMIN_PRODUCT}/${productId}`}>{name}</Link>
-					);
-				},
-			},
-			{
-				title: "Giá BĐS",
-				dataIndex: "productId",
-				...getColumnSearchProps("productId"),
-				onFilter: (value: string | number | boolean, record) =>
-					record.productId.indexOf(value.toString()) === 0,
-				sorter: (a, b) => {
-					const aPrice = productList.find(
-						(product) => product.id === a.productId
-					)?.price as number;
-					const bPrice = productList.find(
-						(product) => product.id === b.productId
-					)?.price as number;
-					return aPrice - bPrice;
-				},
-				sortDirections: ["ascend", "descend"],
-				render: (productId) => {
-					const price = productList.find(
-						(product) => product.id === productId
-					)?.price;
-					return <>{formatCurrency(price, true, true)}</>;
-				},
-			},
-
-			{
-				title: "Giảm giá",
-				dataIndex: "discount",
-				...getColumnSearchProps("discount"),
-				sortDirections: ["ascend", "descend"],
-				render: (discount) => (
-					<>
-						{discount?.amount
-							? formatCurrency(discount?.amount)
-							: `${discount?.percent}%`}
-					</>
+				render: (userCartId) => (
+					<Link href={`${ROUTE.ADMIN_USER_CART}/${userCartId}`}>
+						{userCartId}
+					</Link>
 				),
 			},
 			{
-				title: "Điều kiện",
-				dataIndex: "condition",
-				...getColumnSearchProps("condition"),
+				title: "Tên khách hàng",
+				dataIndex: "bookingInfo",
+				...getColumnSearchProps("bookingInfo"),
+				onFilter: (value: string | number | boolean, record) =>
+					record.bookingInfo.userId.indexOf(value.toString()) === 0,
+				sorter: (a, b) =>
+					a.bookingInfo.userId.length - b.bookingInfo.userId.length,
 				sortDirections: ["ascend", "descend"],
+				render: ({userId}) => {
+					const userName = userList.find((user) => user.id === userId)?.name;
+					return <Link href={`${ROUTE.ADMIN_USER}/${userId}`}>{userName}</Link>;
+				},
 			},
 			{
-				title: "Hết hạn lúc",
-				dataIndex: "expiredDate",
-				...getColumnSearchProps("expiredDate"),
-				sorter: (a, b) => a.expiredDate.length - b.expiredDate.length,
+				title: "Số điện thoại",
+				dataIndex: ["bookingInfo", "phoneNumber"],
+				...getColumnSearchProps("bookingInfo"),
+				onFilter: (value: string | number | boolean, record) =>
+					record.bookingInfo.phoneNumber.indexOf(value.toString()) === 0,
 			},
 			{
-				title: "Xóa",
-				dataIndex: "action",
-				render: () => (
-					<Button danger shape="circle">
-						<IconX />
-					</Button>
-				),
+				title: "Địa điểm",
+				dataIndex: ["bookingInfo", "place"],
+				...getColumnSearchProps("bookingInfo"),
+				onFilter: (value: string | number | boolean, record) =>
+					record.bookingInfo.place.indexOf(value.toString()) === 0,
+			},
+			{
+				title: "Thời gian",
+				dataIndex: ["bookingInfo", "date"],
+				...getColumnSearchProps("bookingInfo"),
+				onFilter: (value: string | number | boolean, record) =>
+					record.bookingInfo.userId.indexOf(value.toString()) === 0,
+				sorter: (a, b) =>
+					a.bookingInfo.userId.length - b.bookingInfo.userId.length,
+				sortDirections: ["ascend", "descend"],
 			},
 		],
 		[getColumnSearchProps]
 	);
 
-	const onChange: TableProps<TVoucher>["onChange"] = (
+	const onChange: TableProps<TUserCart>["onChange"] = (
 		pagination,
 		filters,
 		sorter,
@@ -186,7 +153,7 @@ export default function VoucherTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={voucherList}
+			dataSource={userCartList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}

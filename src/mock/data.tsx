@@ -4,53 +4,61 @@ import {PRODUCT_SAVE_VALUE} from "@/constants/product";
 import {TVoucher} from "@/types/voucher.type";
 import {NOTIFICATION_TYPE} from "@/constants/notification";
 import {QUERY_PARAMS} from "@/constants/route";
+import {TUser, TUserCart} from "@/types/user.type";
+import {TNotification} from "@/types/notification.type";
 
 export const voucherList: TVoucher[] = [
 	{
-		id: "1",
+		id: "voucher-1",
+		key: "voucher-1",
 		discountOption: "amount",
 		discount: {amount: 300_000_000},
-		productId: "1",
+		productId: "product-1",
 		condition: "Alibaba",
 		expiredDate: "31/12/2023",
 	},
 	{
-		id: "2",
+		id: "voucher-2",
+		key: "voucher-2",
 		discountOption: "percent",
 		discount: {percent: 7.5},
-		productId: "2",
+		productId: "product-2",
 		condition: "không vay",
 		expiredDate: "31/12/2023",
 	},
 	{
-		id: "3",
+		id: "voucher-3",
+		key: "voucher-3",
 		discountOption: "percent",
 		discount: {percent: 1.5},
-		productId: "3",
+		productId: "product-3",
 		condition: "ký HĐMB sớm",
 		expiredDate: "31/12/2023",
 	},
 	{
-		id: "4",
+		id: "voucher-4",
+		key: "voucher-4",
 		discountOption: "percent",
 		discount: {percent: 15},
-		productId: "4",
+		productId: "product-4",
 		condition: "thanh toán sớm 95% trong vòng 3 tháng",
 		expiredDate: "31/12/2023",
 	},
 	{
-		id: "5",
+		id: "voucher-5",
+		key: "voucher-5",
 		discountOption: "percent",
 		discount: {percent: 1},
-		productId: "5",
+		productId: "product-5",
 		condition: "mua 2 căn trở lên",
 		expiredDate: "31/12/2023",
 	},
 	{
-		id: "6",
+		id: "voucher-6",
+		key: "voucher-6",
 		discountOption: "percent",
 		discount: {percent: 9},
-		productId: "1",
+		productId: "product-1",
 		condition: "trên số tiền và số ngày thanh toán trước hạn của từng đợt",
 		expiredDate: "31/12/2023",
 	},
@@ -109,7 +117,7 @@ export const productDescription = {
 
 export const productList: TProduct[] = [
 	{
-		id: "1",
+		id: "product-1",
 		type: QUERY_PARAMS.TYPE.SINGLE,
 		tag: QUERY_PARAMS.TAG.INVESTOR,
 		investor: "1",
@@ -143,7 +151,7 @@ export const productList: TProduct[] = [
 		status: QUERY_PARAMS.STATUS.SOLD,
 	},
 	{
-		id: "2",
+		id: "product-2",
 		type: QUERY_PARAMS.TYPE.DOUBLE,
 		tag: QUERY_PARAMS.TAG.INVESTOR,
 		investor: "1",
@@ -177,7 +185,7 @@ export const productList: TProduct[] = [
 		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 	{
-		id: "3",
+		id: "product-3",
 		type: QUERY_PARAMS.TYPE.SHOPHOUSE,
 		tag: QUERY_PARAMS.TAG.INVESTOR,
 		investor: "1",
@@ -211,7 +219,7 @@ export const productList: TProduct[] = [
 		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 	{
-		id: "4",
+		id: "product-4",
 		type: QUERY_PARAMS.TYPE.APARTMENT,
 		tag: QUERY_PARAMS.TAG.INVESTOR,
 		investor: "1",
@@ -245,7 +253,7 @@ export const productList: TProduct[] = [
 		status: QUERY_PARAMS.STATUS.SOLD,
 	},
 	{
-		id: "5",
+		id: "product-5",
 		type: QUERY_PARAMS.TYPE.SINGLE,
 		tag: QUERY_PARAMS.TAG.INVESTOR,
 		investor: "1",
@@ -290,78 +298,94 @@ export const imagePreviews = [
 	{id: "7", src: "https://picsum.photos/id/32/1600/900"},
 ];
 
-export const notificationList = [
+export const notificationList: TNotification[] = [
 	{
-		id: "1",
+		id: "noti-1",
+		key: "noti-1",
 		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/40/300/300",
 		title: "Title 1",
 		date: "01/07/2023",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+		target: ["user-1", "user-2"],
 	},
 	{
-		id: "2",
+		id: "noti-2",
+		key: "noti-2",
 		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/41/300/300",
 		title: "Title 2",
 		date: "01/07/2023",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+		target: ["user-1"],
 	},
 	{
-		id: "3",
+		id: "noti-3",
+		key: "noti-3",
 		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/42/300/300",
 		title: "Title 3",
 		date: "01/07/2023",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+		target: [],
 	},
 	{
-		id: "4",
+		id: "noti-4",
+		key: "noti-4",
 		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/43/300/300",
 		title: "Title 4",
 		date: "01/07/2023",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+		target: [],
 	},
 	{
-		id: "5",
+		id: "noti-5",
+		key: "noti-5",
 		type: NOTIFICATION_TYPE.UPDATE,
 		avatar: "https://picsum.photos/id/44/300/300",
 		title: "Title 5",
 		date: "01/07/2023",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+		target: [],
 	},
 	{
-		id: "6",
+		id: "noti-6",
+		key: "noti-6",
 		type: NOTIFICATION_TYPE.INFO,
 		avatar: "https://picsum.photos/id/45/300/300",
 		title: "Title 6",
 		date: "01/07/2023",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+		target: [],
 	},
 	{
-		id: "7",
+		id: "noti-7",
+		key: "noti-7",
 		type: NOTIFICATION_TYPE.INFO,
 		avatar: "https://picsum.photos/id/46/300/300",
 		title: "Title 7",
 		date: "01/07/2023",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+		target: [],
 	},
 	{
-		id: "8",
+		id: "noti-8",
+		key: "noti-8",
 		type: NOTIFICATION_TYPE.INFO,
 		avatar: "https://picsum.photos/id/47/300/300",
 		title: "Title 8",
 		date: "01/07/2023",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum id massa vitae blandit. Donec interdum efficitur ex non venenatis. Maecenas mi purus, imperdiet at risus in, ultricies faucibus urna. Aliquam mollis sed enim at pharetra. Pellentesque dui massa, cursus in ullamcorper vel, euismod et odio. Nullam luctus, sem at placerat faucibus, ante lacus aliquet tellus, in porta nisi nulla in eros. Sed rutrum at ante vel malesuada. In vitae libero tristique, commodo turpis vel, pellentesque ante. Etiam suscipit, ex id ornare rhoncus, orci arcu euismod magna, et tincidunt quam nisi fringilla lectus.",
+		target: [],
 	},
 ];
 
@@ -375,27 +399,27 @@ export const saveList = [
 
 export const documentList = [
 	{
-		id: "1",
+		id: "document-1",
 		title: "Title 1",
 		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
 	},
 	{
-		id: "2",
+		id: "document-2",
 		title: "Title 2",
 		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
 	},
 	{
-		id: "3",
+		id: "document-3",
 		title: "Title 3",
 		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
 	},
 	{
-		id: "4",
+		id: "document-4",
 		title: "Title 4",
 		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
 	},
 	{
-		id: "5",
+		id: "document-5",
 		title: "Title 5",
 		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
 	},
@@ -403,63 +427,102 @@ export const documentList = [
 
 export const exploreVideoList = [
 	{
-		id: "1",
+		id: "video-1",
 		title: "Title 1",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4",
 	},
 	{
-		id: "2",
+		id: "video-2",
 		title: "Title 2",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-boyfriends-taking-selfies-3200-large.mp4",
 	},
 	{
-		id: "3",
+		id: "video-3",
 		title: "Title 3",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
 	},
 	{
-		id: "4",
+		id: "video-4",
 		title: "Title 4",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-woman-in-a-pool-1259-large.mp4",
 	},
 	{
-		id: "5",
+		id: "video-5",
 		title: "Title 5",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-girl-looking-proudly-at-a-homemade-valentines-day-card-47441-large.mp4",
 	},
 	{
-		id: "6",
+		id: "video-6",
 		title: "Title 6",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-fashion-model-with-a-cold-and-pale-appearance-39877-large.mp4",
 	},
 	{
-		id: "7",
+		id: "video-7",
 		title: "Title 7",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-girl-with-roller-skates-standing-in-the-middle-of-a-34545-large.mp4",
 	},
 	{
-		id: "8",
+		id: "video-8",
 		title: "Title 8",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-two-avenues-with-many-cars-traveling-at-night-34562-large.mp4",
 	},
 	{
-		id: "9",
+		id: "video-9",
 		title: "Title 9",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-avenue-with-trees-buildings-and-fast-cars-at-dusk-34563-large.mp4",
 	},
 	{
-		id: "10",
+		id: "video-10",
 		title: "Title 10",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-decorated-christmas-tree-in-close-up-shot-39750-large.mp4",
 	},
 	{
-		id: "11",
+		id: "video-11",
 		title: "Title 11",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-friends-chatting-while-sitting-at-a-party-48119-large.mp4",
 	},
 	{
-		id: "12",
+		id: "video-12",
 		title: "Title 12",
 		href: "https://assets.mixkit.co/videos/preview/mixkit-man-runs-past-ground-level-shot-32809-large.mp4",
+	},
+];
+
+export const userList: TUser[] = [
+	{email: "user1@email.com", name: "User 1", role: "user", id: "user-1"},
+	{email: "user2@email.com", name: "User 2", role: "user", id: "user-2"},
+	{
+		email: "admin1@email.com",
+		name: "Admin 1",
+		role: "admin",
+		id: "admin-1",
+	},
+];
+
+export const userCartList: TUserCart[] = [
+	{
+		id: "userCart-1",
+		bookingInfo: {
+			userId: "user-1",
+			date: "31/07/2023",
+			place: "6 Tan Trao, P.Tan Phu",
+			phoneNumber: "0123456789",
+		},
+		cartList: [
+			{
+				id: "cart-1",
+				productId: "product-1",
+				quantity: 1,
+				voucherAdded: ["voucher-1", "voucher-2"],
+				value: "product-1",
+			},
+			{
+				id: "cart-2",
+				productId: "product-2",
+				quantity: 2,
+				voucherAdded: ["voucher-3"],
+				value: "product-2",
+			},
+		],
 	},
 ];

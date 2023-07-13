@@ -1,6 +1,6 @@
 "use client";
 
-import {productList} from "@/mock/data";
+import {productList, userCartList} from "@/mock/data";
 import {TCartItem} from "@/types/user.type";
 import {CheckboxValueType} from "antd/es/checkbox/Group";
 import {
@@ -27,10 +27,7 @@ type TCartProviderProps = {
 	children: ReactNode;
 };
 
-const mockData: TCartItem[] = [
-	{id: "1", productId: "1", quantity: 1, voucherAdded: ["1", "2"], value: "1"},
-	{id: "2", productId: "2", quantity: 2, voucherAdded: ["3"], value: "2"},
-];
+const mockData: TCartItem[] = userCartList[0].cartList;
 
 export const CartContext = createContext<TCartContextDefault>({
 	cart: [],
@@ -55,7 +52,7 @@ export default function CartProvider({children}: TCartProviderProps) {
 				return (
 					prev +
 					(productList.find(() => checkedList.includes(current.productId))
-						?.originalPrice || 0)
+						?.price || 0)
 				);
 			}, 0)
 		);

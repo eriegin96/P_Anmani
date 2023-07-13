@@ -9,7 +9,6 @@ import {TCartItem} from "@/types/user.type";
 import {Checkbox, Divider} from "antd";
 import type {CheckboxChangeEvent} from "antd/es/checkbox";
 import type {CheckboxValueType} from "antd/es/checkbox/Group";
-import {productList} from "@/mock/data";
 import {formatCurrency} from "@/utils/formatCurrency";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";

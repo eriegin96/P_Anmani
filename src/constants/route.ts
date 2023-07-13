@@ -23,7 +23,7 @@ export const ROUTE = {
 	MESSAGE: `/${ROUTE_PREFIX_USER}/tin-nhan`,
 
 	ADMIN: "/admin",
-	ADMIN_DASHBOARD: `//${ROUTE_PREFIX_ADMIN}/dashboard`,
+	ADMIN_DASHBOARD: `/${ROUTE_PREFIX_ADMIN}/dashboard`,
 	ADMIN_PRODUCT: `/${ROUTE_PREFIX_ADMIN}/product`,
 	ADMIN_PRODUCT_CREATE: `/${ROUTE_PREFIX_ADMIN}/product/create`,
 	ADMIN_VOUCHER: `/${ROUTE_PREFIX_ADMIN}/voucher`,
@@ -31,6 +31,8 @@ export const ROUTE = {
 	ADMIN_EXPLORE: `/${ROUTE_PREFIX_ADMIN}/explore`,
 	ADMIN_MESSAGE: `/${ROUTE_PREFIX_ADMIN}/message`,
 	ADMIN_USER: `/${ROUTE_PREFIX_ADMIN}/user`,
+	ADMIN_USER_NOTIFICATION: `/${ROUTE_PREFIX_ADMIN}/user/notification`,
+	ADMIN_USER_NOTIFICATION_CREATE: `/${ROUTE_PREFIX_ADMIN}/user/notification/create`,
 	ADMIN_USER_DEPOSIT: `/${ROUTE_PREFIX_ADMIN}/user/deposit`,
 	ADMIN_USER_CART: `/${ROUTE_PREFIX_ADMIN}/user/cart`,
 };

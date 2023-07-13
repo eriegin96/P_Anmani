@@ -1,12 +1,12 @@
 "use client";
 
 import {Button} from "antd";
-import styles from "./voucher.module.scss";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 import VoucherTable from "./_components/VoucherTable";
+import styles from "../_shared/page.module.scss";
 
-export default function AdminProductPage() {
+export default function AdminVoucherPage() {
 	return (
 		<>
 			<div className={styles.actionWrapper}>

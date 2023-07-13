@@ -4,7 +4,8 @@
 		font-weight: 600;
 	}
 
-	:global(.ant-form-item-label) {
+	:global(.ant-form-item-label),
+	:global(.ant-radio-group) {
 		label {
 			font-size: rem(14);
 			font-weight: 400;
