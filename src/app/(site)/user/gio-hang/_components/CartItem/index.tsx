@@ -1,8 +1,7 @@
 import {productList, voucherList} from "@/mock/data";
 import {TProduct} from "@/types/product.type";
 import {TCartItem} from "@/types/user.type";
-import * as Checkbox from "@radix-ui/react-checkbox";
-import {IconCheck, IconGiftCard} from "@tabler/icons-react";
+import {IconGiftCard} from "@tabler/icons-react";
 import styles from "./cartItem.module.scss";
 import Image from "next/image";
 import {formatCurrency} from "@/utils/formatCurrency";

@@ -3,7 +3,6 @@
 import {exploreVideoList} from "@/mock/data";
 import styles from "./khamPha.module.scss";
 import Masonry from "react-masonry-css";
-import {Button} from "@/components";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 
@@ -17,7 +16,7 @@ export default function Page() {
 			>
 				{exploreVideoList.map((video) => (
 					<Link key={video.id} href={`${ROUTE.EXPLORE}/${video.id}`}>
-						<video src={video.href} autoPlay muted loop />
+						<video src={video.url} autoPlay muted loop />
 					</Link>
 				))}
 			</Masonry>

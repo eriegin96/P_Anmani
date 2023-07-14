@@ -3,12 +3,12 @@
 import {exploreVideoList, productList} from "@/mock/data";
 import styles from "./[id].module.scss";
 import {IconHeart, IconShare, IconShoppingCart} from "@tabler/icons-react";
-import clsx from "clsx";
 import {Badge, Button, Drawer} from "antd";
 import {useState} from "react";
 import {ProductCard} from "../../_components";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
+import Stories from "react-insta-stories";
 
 type TKhamPhaPageProps = {params: {id: string}};
 
@@ -25,9 +25,15 @@ export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 	};
 
 	return (
-		<div className={styles.wrapper}>
-			<div className={styles.videoWrapper}>
-				<video src={video?.href} autoPlay muted loop />
+		<div>
+			<Stories
+				stories={exploreVideoList}
+				width="100%"
+				height="100vh"
+				loop={true}
+				storyStyles={{width: "100vw"}}
+			/>
+			<div className={styles.actionWrapper}>
 				<div className={styles.leftSection}>
 					<Button className={styles.productBtn} onClick={showDrawer}>
 						Xem sản phẩm

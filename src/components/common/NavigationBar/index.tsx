@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {useParams, usePathname} from "next/navigation";
+import {usePathname} from "next/navigation";
 import styles from "./navigationBar.module.scss";
 import clsx from "clsx";
 import {
@@ -12,6 +12,7 @@ import {
 	IconUser,
 } from "@tabler/icons-react";
 import {ROUTE} from "@/constants/route";
+import {useLayoutContext} from "@/providers/LayoutProvider";
 
 const navLinks = [
 	{href: ROUTE.HOME, name: "Trang chủ", icon: <IconPlaneTilt />},
@@ -23,8 +24,7 @@ const navLinks = [
 
 export default function NavigationBar() {
 	const pathname = usePathname();
-	const {id} = useParams();
-	const isAtExplorePage = pathname.includes(ROUTE.EXPLORE) && id;
+	const {isAtExplorePage} = useLayoutContext();
 
 	return (
 		<div className={clsx(styles.wrapper, isAtExplorePage && styles.revert)}>
