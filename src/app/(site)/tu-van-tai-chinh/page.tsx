@@ -9,7 +9,6 @@ import {
 	calculationDefaultValue,
 	calculationRentList,
 } from "./static";
-import {Button} from "@/components";
 import {ComparisonTable, CalculationItem} from "./_components";
 import {useMemo, useState} from "react";
 import {CALCULATION_ITEM, TABLE_ROW_KEY} from "@/constants/calculation";

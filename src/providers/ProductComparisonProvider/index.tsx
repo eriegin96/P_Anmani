@@ -1,14 +1,6 @@
 "use client";
 
-import {
-	Button as AntdButton,
-	Col,
-	Divider,
-	Drawer,
-	Modal,
-	Row,
-	Typography,
-} from "antd";
+import {Button as AntdButton, Col, Drawer, Modal, Row, Typography} from "antd";
 import {ReactNode, createContext, useContext, useState} from "react";
 import styles from "./productComparisonProvider.module.scss";
 import {IconPlus, IconX} from "@tabler/icons-react";
@@ -30,11 +22,6 @@ type TProductComparisonProviderProps = {
 	children: ReactNode;
 };
 
-type TSelectedSlot = {
-	id: string;
-	product: TProduct | null;
-};
-
 export const ProductComparisonContext =
 	createContext<TProductComparisonProviderContextDefault>({
 		showDrawer: () => {},
@@ -49,11 +36,15 @@ export default function ProductComparisonProvider({
 	const [isComparisonModalOpen, setIsComparisonModalOpen] = useState(false);
 	const [slotId, setSlotId] = useState<string>("");
 
-	const [selectedProducts, setSelectedProducts] = useState<TSelectedSlot[]>([
-		{id: "1", product: productList[0]},
-		{id: "2", product: null},
-		{id: "3", product: null},
-	]);
+	const [selectedProducts, setSelectedProducts] = useState<
+		Map<string, TProduct | null>
+	>(
+		new Map([
+			["1", productList[0]],
+			["2", null],
+			["3", null],
+		])
+	);
 
 	const showDrawer = () => {
 		setIsComparisonOpen(true);
@@ -70,24 +61,15 @@ export default function ProductComparisonProvider({
 		setIsComparisonModalOpen(false);
 	};
 	const setComparisonProduct = (productId: string) => {
-		const slot = selectedProducts.find(
-			(product) => product.id === slotId
-		) as TSelectedSlot;
 		const product =
 			productList.find((product) => product.id === productId) ?? null;
-		const newSlot = {id: slot?.id, product};
-		const newSelectedProducts = [...selectedProducts].map((selected) => {
-			if (selected.id === slotId) return newSlot;
-			return selected;
-		});
+		const newSelectedProducts = new Map(selectedProducts);
+		newSelectedProducts.set(slotId, product);
 		setSelectedProducts(newSelectedProducts);
 	};
 	const removeComparisonProduct = (slotId: string) => {
-		const newSelectedProducts = [...selectedProducts];
-		const selectedSlot = newSelectedProducts.find(
-			(p) => p.id === slotId
-		) as TSelectedSlot;
-		selectedSlot.product = null;
+		const newSelectedProducts = new Map(selectedProducts);
+		newSelectedProducts.set(slotId, null);
 		setSelectedProducts(newSelectedProducts);
 	};
 
@@ -109,13 +91,16 @@ export default function ProductComparisonProvider({
 					headerStyle={{display: "none"}}
 				>
 					<Row>
-						{selectedProducts.map(({id, product}, index) => (
+						{Array.from(selectedProducts, ([id, product]) => ({
+							id,
+							product,
+						})).map(({id, product}, index) => (
 							<Col
 								key={id}
 								span={8}
 								className={clsx(
 									styles.col,
-									index !== selectedProducts.length - 1 && styles.colBorder
+									index !== selectedProducts.size - 1 && styles.colBorder
 								)}
 							>
 								{product ? (
