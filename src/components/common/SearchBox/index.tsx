@@ -3,14 +3,19 @@
 import {Select} from "antd";
 import styles from "./searchBox.module.scss";
 import {IconSearch} from "@tabler/icons-react";
-import {useState} from "react";
+import {Dispatch, SetStateAction, useState} from "react";
 import type {SelectProps} from "antd";
+import {productList} from "@/mock/data";
 
-type TSearchBoxProps = {};
+type TSearchBoxProps = {
+	value: string;
+	setValue: Dispatch<SetStateAction<string>>;
+};
 
-export default function SearchBox({}: TSearchBoxProps) {
-	const [data, setData] = useState<SelectProps["options"]>([]);
-	const [value, setValue] = useState<string>();
+export default function SearchBox({value, setValue}: TSearchBoxProps) {
+	const [data, setData] = useState<SelectProps["options"]>(
+		productList.map(({id, name}) => ({value: id, label: name}))
+	);
 
 	const handleSearch = (newValue: string) => {
 		console.log(newValue);
@@ -25,7 +30,7 @@ export default function SearchBox({}: TSearchBoxProps) {
 			suffixIcon={<IconSearch size={20} />}
 			showSearch
 			value={value}
-			placeholder="Nhập tên dự án"
+			placeholder="Nhập tên bất động sản"
 			defaultActiveFirstOption={false}
 			filterOption={false}
 			onSearch={handleSearch}

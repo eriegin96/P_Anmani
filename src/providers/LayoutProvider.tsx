@@ -19,10 +19,10 @@ export const LayoutContext = createContext<TLayoutContextDefault>({
 export default function LayoutProvider({children}: TLayoutProviderProps) {
 	const pathname = usePathname();
 	const {id} = useParams();
-	const [isAtExplorePage, setIsExplorePage] = useState(false);
+	const [isAtExplorePage, setIsAtExplorePage] = useState(false);
 
 	useEffect(() => {
-		setIsExplorePage(Boolean(pathname.includes(ROUTE.EXPLORE) && id));
+		setIsAtExplorePage(Boolean(pathname.includes(ROUTE.EXPLORE) && id));
 	}, [pathname, id]);
 
 	const value = {

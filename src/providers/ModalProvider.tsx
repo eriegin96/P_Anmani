@@ -1,12 +1,12 @@
 "use client";
 
-import ConsultForm from "@/app/(site)/user/gio-hang/_components/ConsultForm";
+import {ConsultForm} from "@/components";
 import {Modal} from "antd";
 import {ReactNode, createContext, useContext, useState} from "react";
 
 type TModalContextDefault = {
-	isBookingModalOpen: boolean;
 	showBookingModal: () => void;
+	hideBookingModal: () => void;
 };
 
 type TModalProviderProps = {
@@ -14,8 +14,8 @@ type TModalProviderProps = {
 };
 
 export const ModalContext = createContext<TModalContextDefault>({
-	isBookingModalOpen: false,
 	showBookingModal: () => {},
+	hideBookingModal: () => {},
 });
 
 export default function ModalProvider({children}: TModalProviderProps) {
@@ -24,18 +24,13 @@ export default function ModalProvider({children}: TModalProviderProps) {
 	const showBookingModal = () => {
 		setIsBookingModalOpen(true);
 	};
-
-	const handleOk = () => {
-		setIsBookingModalOpen(false);
-	};
-
-	const handleCancel = () => {
+	const hideBookingModal = () => {
 		setIsBookingModalOpen(false);
 	};
 
 	const value = {
-		isBookingModalOpen,
 		showBookingModal,
+		hideBookingModal,
 	};
 
 	return (
@@ -45,8 +40,8 @@ export default function ModalProvider({children}: TModalProviderProps) {
 				<Modal
 					title="Đặt lịch"
 					open={isBookingModalOpen}
-					onOk={handleOk}
-					onCancel={handleCancel}
+					onOk={hideBookingModal}
+					onCancel={hideBookingModal}
 					footer={[]}
 				>
 					<ConsultForm />

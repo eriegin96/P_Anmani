@@ -23,7 +23,7 @@ import {useLayoutContext} from "@/providers/LayoutProvider";
 const Button = dynamic(() => import("../Button"));
 
 export default function Header() {
-	const isAtExplorePage = useLayoutContext();
+	const {isAtExplorePage} = useLayoutContext();
 
 	return (
 		<>

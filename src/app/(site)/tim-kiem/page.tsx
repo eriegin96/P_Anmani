@@ -10,7 +10,7 @@ import {
 	typeOptions,
 } from "@/constants/selectOptions";
 import {useSearchParams} from "next/navigation";
-import {useMemo} from "react";
+import {useMemo, useState} from "react";
 import {MAX_PRICE, MIN_PRICE} from "@/constants/common";
 import {productList} from "@/mock/data";
 import {ProductCard} from "../_components";
@@ -19,6 +19,8 @@ import {formatCurrency} from "@/utils/formatCurrency";
 
 export default function Page() {
 	const searchParams = useSearchParams();
+	const [searchBoxValue, setSearchBoxValue] = useState<string>("");
+
 	const formatter = (value?: number) => {
 		return formatCurrency(value, true);
 	};
@@ -65,7 +67,7 @@ export default function Page() {
 
 	return (
 		<div className={styles.wrapper}>
-			<SearchBox />
+			<SearchBox value={searchBoxValue} setValue={setSearchBoxValue} />
 
 			<Row gutter={[16, 16]} className={styles.filterList}>
 				{selectList.map(({placeholder, value, onChange, options}) => (

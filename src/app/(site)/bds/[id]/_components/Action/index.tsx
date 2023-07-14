@@ -3,7 +3,7 @@ import styles from "./action.module.scss";
 import {Button} from "@/components";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {useModalContext} from "@/providers/ModalProvider";
-import {useProductComparisonProviderContext} from "@/providers/ProductComparisonProvider";
+import {useProductComparisonContext} from "@/providers/ProductComparisonProvider";
 
 type TActionProps = {
 	product: TProduct;
@@ -11,7 +11,7 @@ type TActionProps = {
 
 export default function Action({product}: TActionProps) {
 	const {showBookingModal} = useModalContext();
-	const {showDrawer} = useProductComparisonProviderContext();
+	const {showDrawer} = useProductComparisonContext();
 
 	return (
 		<div className={styles.wrapper}>

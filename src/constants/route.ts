@@ -10,6 +10,7 @@ export const ROUTE = {
 	PRODUCT: "/bds",
 	ADVANCED_SEARCH: "/tim-kiem",
 	CONSULT: "/tu-van-tai-chinh",
+	COMPARISON: "/so-sanh",
 
 	CART: `/${ROUTE_PREFIX_USER}/gio-hang`,
 	CART_SUMMARY: `/${ROUTE_PREFIX_USER}/gio-hang/tom-tat`,

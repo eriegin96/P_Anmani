@@ -14,6 +14,7 @@ export type TUserBooking = {
 
 export type TUserCart = {
 	id: string;
+	key: string;
 	bookingInfo: TUserBooking;
 	cartList: TCartItem[];
 };

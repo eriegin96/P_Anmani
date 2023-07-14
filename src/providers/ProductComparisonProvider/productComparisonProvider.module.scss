@@ -7,3 +7,45 @@
 		padding: 0;
 	}
 }
+
+.col {
+	@include center;
+	padding: rem(15);
+	flex-direction: column;
+
+	& > div {
+		position: relative;
+		width: rem(200);
+		aspect-ratio: 16 / 9;
+		margin-bottom: rem(4);
+	}
+
+	button {
+		background-color: $color-white;
+		color: $color-gray-1;
+		border: none;
+
+		span {
+			@include center;
+			padding: rem(6);
+			margin-bottom: rem(8);
+			border: dashed rem(1) $color-gray-1;
+		}
+	}
+}
+
+.removeBtn {
+	position: absolute;
+	top: rem(10);
+	right: rem(10);
+}
+
+.colBorder {
+	border-right: solid rem(1) $color-gray-3;
+}
+
+.btn {
+	width: 100%;
+	height: rem(40);
+	border-radius: 0;
+}
