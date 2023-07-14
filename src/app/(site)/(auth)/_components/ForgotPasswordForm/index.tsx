@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "../auth.module.scss";
 import {useRouter} from "next/navigation";
 import {IconChevronLeft} from "@tabler/icons-react";
+import {PLACEHOLDER_EMAIL} from "@/constants/common";
 
 interface ForgotPasswordFormData {
 	email: string;
@@ -44,7 +45,7 @@ export default function ForgotPasswordForm() {
 				]}
 				className={styles.formItem}
 			>
-				<Input placeholder="nguyenvana@email.com" />
+				<Input placeholder={PLACEHOLDER_EMAIL} />
 			</Form.Item>
 			<Form.Item
 				name="password"

@@ -4,6 +4,7 @@ import {ROUTE} from "@/constants/route";
 import {Button, Form, Input} from "antd";
 import Link from "next/link";
 import styles from "../auth.module.scss";
+import {PLACEHOLDER_EMAIL} from "@/constants/common";
 
 interface SignUpFormData {
 	name: string;
@@ -42,7 +43,7 @@ export default function SignUpForm() {
 				]}
 				className={styles.formItem}
 			>
-				<Input placeholder="nguyenvana@email.com" />
+				<Input placeholder={PLACEHOLDER_EMAIL} />
 			</Form.Item>
 			<Form.Item
 				name="password"

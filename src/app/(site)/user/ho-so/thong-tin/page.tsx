@@ -4,7 +4,7 @@ import {DatePicker, Input, Select} from "antd";
 import styles from "./thongTin.module.scss";
 import {IconCalendar, IconMail, IconPhone, IconUser} from "@tabler/icons-react";
 import type {DatePickerProps} from "antd";
-import {DATE_FORMAT} from "@/constants/common";
+import {DATE_FORMAT, PLACEHOLDER_EMAIL} from "@/constants/common";
 import dynamic from "next/dynamic";
 
 const Button = dynamic(() => import("../../../../../components/common/Button"));
@@ -30,7 +30,10 @@ export default function Page() {
 			</div>
 			<div className={styles.inputWrapper}>
 				<span>Email</span>
-				<Input prefix={<IconMail size={20} />} placeholder="email@email.com" />
+				<Input
+					prefix={<IconMail size={20} />}
+					placeholder={PLACEHOLDER_EMAIL}
+				/>
 			</div>
 			<div className={styles.lastSection}>
 				<div className={styles.inputWrapper}>

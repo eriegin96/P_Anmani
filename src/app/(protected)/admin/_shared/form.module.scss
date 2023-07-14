@@ -41,6 +41,7 @@
 
 .formListItemDiv {
 	display: flex;
+	align-items: center;
 	gap: rem(10);
 
 	:global(.ant-form-item) {

@@ -2,6 +2,7 @@ import {Button, Col, Form, Input, Row} from "antd";
 import {IconMinus, IconPlus} from "@tabler/icons-react";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
 import {defaultFormConfig} from "@/app/(protected)/admin/_shared/config";
+import {PLACEHOLDER_LINK} from "@/constants/common";
 
 export default function FormImage() {
 	return (
@@ -12,7 +13,7 @@ export default function FormImage() {
 					label="Hình ảnh chính"
 					{...defaultFormConfig}
 				>
-					<Input placeholder="https://img.photo.com" />
+					<Input placeholder={PLACEHOLDER_LINK} />
 				</Form.Item>
 			</Col>
 			<Col span={12}>
@@ -44,7 +45,7 @@ export default function FormImage() {
 											},
 										]}
 									>
-										<Input placeholder="https://img.photo.com" />
+										<Input placeholder={PLACEHOLDER_LINK} />
 									</Form.Item>
 									<Button shape="circle" danger onClick={() => remove(name)}>
 										<IconMinus />
@@ -94,7 +95,7 @@ export default function FormImage() {
 											},
 										]}
 									>
-										<Input placeholder="https://img.photo.com" />
+										<Input placeholder={PLACEHOLDER_LINK} />
 									</Form.Item>
 									<Button shape="circle" danger onClick={() => remove(name)}>
 										<IconMinus />
@@ -133,7 +134,7 @@ export default function FormImage() {
 											},
 										]}
 									>
-										<Input placeholder="https://img.photo.com" />
+										<Input placeholder={PLACEHOLDER_LINK} />
 									</Form.Item>
 									<Button shape="circle" danger onClick={() => remove(name)}>
 										<IconMinus />

@@ -9,11 +9,14 @@ import {ProductCard} from "../../_components";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 import Stories from "react-insta-stories";
+import {TExploreVideo} from "@/types/video.type";
 
 type TKhamPhaPageProps = {params: {id: string}};
 
 export default function KhamPhaPage({params}: TKhamPhaPageProps) {
-	const video = exploreVideoList.find((item) => item.id === params.id);
+	const video = exploreVideoList.find(
+		(item) => item.id === params.id
+	) as TExploreVideo;
 	const [open, setOpen] = useState(false);
 
 	const showDrawer = () => {
@@ -27,7 +30,7 @@ export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 	return (
 		<div>
 			<Stories
-				stories={exploreVideoList}
+				stories={video?.stories}
 				width="100%"
 				height="100vh"
 				loop={true}

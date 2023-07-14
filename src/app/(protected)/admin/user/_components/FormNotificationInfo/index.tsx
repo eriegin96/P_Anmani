@@ -5,6 +5,7 @@ import {
 	NOTIFICATION_TYPE,
 } from "@/constants/notification";
 import {userList} from "@/mock/data";
+import {PLACEHOLDER_LINK} from "@/constants/common";
 
 export default function FormNotificationInfo() {
 	const formInstance = Form.useFormInstance();
@@ -18,7 +19,7 @@ export default function FormNotificationInfo() {
 		<Row gutter={20}>
 			<Col span={12}>
 				<Form.Item name="avatar" label="Ảnh avatar" {...defaultFormConfig}>
-					<Input placeholder="http://image.photo.com" />
+					<Input placeholder={PLACEHOLDER_LINK} />
 				</Form.Item>
 			</Col>
 			<Col span={12}>
