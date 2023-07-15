@@ -4,5 +4,9 @@ import {Spin} from "antd";
 import styles from "./page.module.scss";
 
 export default function Loading() {
-	return <Spin className={styles.spin} />;
+	return (
+		<div className={styles.loadingWrapper}>
+			<Spin size="large" />
+		</div>
+	);
 }
