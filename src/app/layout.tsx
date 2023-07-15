@@ -1,4 +1,5 @@
 import "./globals.scss";
+import { Analytics } from '@vercel/analytics/react';
 import AuthProvider from "@/providers/AuthProvider";
 import CartProvider from "@/providers/CartProvider";
 import ConfigProvider from "@/providers/ConfigProvider";
@@ -26,6 +27,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 						</CartProvider>
 					</AuthProvider>
 				</LayoutProvider>
+				<Analytics />
 			</body>
 		</html>
 	);
