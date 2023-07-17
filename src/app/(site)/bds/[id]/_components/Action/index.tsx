@@ -28,7 +28,7 @@ export default function Action({product}: TActionProps) {
 					Đặt lịch tư vấn
 				</Button>
 				<Button className={styles.btn} onClick={showDrawer}>
-					So sánh ngay
+					So sánh
 				</Button>
 				<Button className={styles.primaryBtn}>Thêm vào giỏ hàng</Button>
 			</div>

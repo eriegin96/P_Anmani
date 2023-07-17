@@ -8,14 +8,17 @@ import {Button, ComparisonModalPortal} from "@/components";
 import {productList} from "@/mock/data";
 import Image from "next/image";
 import clsx from "clsx";
-import {TProduct} from "@/types/product.type";
+import {TProduct, TSlotId} from "@/types/product.type";
 import {ROUTE} from "@/constants/route";
 import Link from "next/link";
 
 type TProductComparisonProviderContextDefault = {
 	showDrawer: () => void;
+	showComparisonModal: (slotId: TSlotId) => void;
 	hideComparisonModal: () => void;
-	setComparisonProduct: (id: string) => void;
+	setComparisonProduct: (productId: string) => void;
+	removeComparisonProduct: (slotId: TSlotId) => void;
+	selectedProducts: Map<TSlotId, TProduct | null>;
 };
 
 type TProductComparisonProviderProps = {
@@ -25,8 +28,11 @@ type TProductComparisonProviderProps = {
 export const ProductComparisonContext =
 	createContext<TProductComparisonProviderContextDefault>({
 		showDrawer: () => {},
+		showComparisonModal: () => {},
 		hideComparisonModal: () => {},
 		setComparisonProduct: () => {},
+		removeComparisonProduct: () => {},
+		selectedProducts: new Map([]),
 	});
 
 export default function ProductComparisonProvider({
@@ -34,14 +40,14 @@ export default function ProductComparisonProvider({
 }: TProductComparisonProviderProps) {
 	const [isComparisonOpen, setIsComparisonOpen] = useState(false);
 	const [isComparisonModalOpen, setIsComparisonModalOpen] = useState(false);
-	const [slotId, setSlotId] = useState<string>("");
+	const [slotId, setSlotId] = useState<TSlotId>("1");
 
 	const [selectedProducts, setSelectedProducts] = useState<
-		Map<string, TProduct | null>
+		Map<TSlotId, TProduct | null>
 	>(
 		new Map([
 			["1", productList[0]],
-			["2", null],
+			["2", productList[1]],
 			["3", null],
 		])
 	);
@@ -53,7 +59,7 @@ export default function ProductComparisonProvider({
 		setIsComparisonOpen(false);
 	};
 
-	const showComparisonModal = (slotId: string) => {
+	const showComparisonModal = (slotId: TSlotId) => {
 		setIsComparisonModalOpen(true);
 		setSlotId(slotId);
 	};
@@ -67,7 +73,7 @@ export default function ProductComparisonProvider({
 		newSelectedProducts.set(slotId, product);
 		setSelectedProducts(newSelectedProducts);
 	};
-	const removeComparisonProduct = (slotId: string) => {
+	const removeComparisonProduct = (slotId: TSlotId) => {
 		const newSelectedProducts = new Map(selectedProducts);
 		newSelectedProducts.set(slotId, null);
 		setSelectedProducts(newSelectedProducts);
@@ -75,8 +81,11 @@ export default function ProductComparisonProvider({
 
 	const value = {
 		showDrawer,
+		showComparisonModal,
 		hideComparisonModal,
 		setComparisonProduct,
+		selectedProducts,
+		removeComparisonProduct,
 	};
 
 	return (
@@ -134,13 +143,15 @@ export default function ProductComparisonProvider({
 							</AntdButton>
 						</Col>
 						<Col span={12}>
-							<AntdButton
-								type="primary"
-								className={styles.btn}
-								onClick={hideDrawer}
-							>
-								<Link href={ROUTE.COMPARISON}>So sánh ngay</Link>
-							</AntdButton>
+							<Link href={ROUTE.COMPARISON} className={styles.comparisonLink}>
+								<AntdButton
+									type="primary"
+									className={styles.btn}
+									onClick={hideDrawer}
+								>
+									So sánh ngay
+								</AntdButton>
+							</Link>
 						</Col>
 					</Row>
 				</Drawer>

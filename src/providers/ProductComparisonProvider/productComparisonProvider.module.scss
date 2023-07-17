@@ -16,7 +16,7 @@
 	& > div {
 		position: relative;
 		width: rem(200);
-		aspect-ratio: 16 / 9;
+		aspect-ratio: $ratio-16-9;
 		margin-bottom: rem(4);
 	}
 
@@ -48,4 +48,8 @@
 	width: 100%;
 	height: rem(40);
 	border-radius: 0;
+}
+
+.comparisonLink {
+	display: block;
 }

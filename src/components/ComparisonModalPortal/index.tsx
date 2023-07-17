@@ -14,6 +14,7 @@ export default function ComparisonModalPortal() {
 	const handleAdd = () => {
 		setComparisonProduct(searchBoxValue);
 		hideComparisonModal();
+		setSearchBoxValue("");
 	};
 
 	return (

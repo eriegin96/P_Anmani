@@ -51,3 +51,32 @@ export const PRODUCT_DESCRIPTION = {
 	PROS: "pros",
 	CONS: "cons",
 } as const;
+
+export const PRODUCT_DETAIL_TITLE = {
+	tag: "Hình thức",
+	type: "Loại hình",
+	investor: "Chủ đầu tư",
+	information: {
+		landArea: "Diện tích đất",
+		floor: "Số tầng",
+		bedroom: "Số phòng ngủ",
+		bathroom: "Số phòng tắm",
+		floorArea: "Diện tích sàn",
+		other: "Tiện ích khác",
+	},
+	policy: {
+		main: "Chính sách chung",
+		loan: "Chính sách vay",
+		equity: "Chính sách vốn",
+	},
+	description: {
+		pros: "Ưu điểm",
+		cons: "Nhược điểm",
+	},
+	location: {
+		detail: "Địa chỉ",
+		main: "Khu vực",
+		nearby: "Địa điểm lân cận",
+		popular: "Địa điểm phổ biến",
+	},
+} as const;

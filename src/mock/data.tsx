@@ -97,8 +97,7 @@ export const productPolicy = {
 	equity: `  - Chia 10 lần thanh toán: mỗi lần là 10% cách nhau 3 tháng
   - Ký HĐMB: sau 2 tháng kể từ ngày đặt cọc
   - Thanh toán đủ 45% là nhận nhà 15/2/2024
-  - Theo thông báo nhận sổ hồng thanh toán 5% 
-	`,
+  - Theo thông báo nhận sổ hồng thanh toán 5%`,
 };
 
 export const productDescription = {
@@ -107,8 +106,7 @@ export const productDescription = {
   - Được thiết kế riêng bởi nhà thiết kế Roberto Cavalli 82 tuổi và gần 50 năm kinh nghiệm từ giường ngủ, thảm, sofa, bàn ăn, giấy dán tường, các loại bát đĩa, lọ hoa, đèn bàn đều theo trường phái Avant Garde, ký phiên bản độc quyền 2 căn duy nhất trên toàn thế giới.
   - Đã có sổ đất riêng ra full diện tích đất
   - Đơn giá thấp bằng 1/3 giá đường Trần Phú Nha Trang
-  - Vị trí mặt biển duy nhất còn lại của Vịnh Nha Trang, được sở du lich đánh giá là trung tâm hàng đầu của Nha Trang và khách du lịch quốc tế khi có 4 thương hiệu hàng đầu Gran Meliá, Melia, Newworld, Accor
-	`,
+  - Vị trí mặt biển duy nhất còn lại của Vịnh Nha Trang, được sở du lich đánh giá là trung tâm hàng đầu của Nha Trang và khách du lịch quốc tế khi có 4 thương hiệu hàng đầu Gran Meliá, Melia, Newworld, Accor`,
 	cons: ``,
 	juridice: "Sở hữu lâu dài",
 	delivery: {

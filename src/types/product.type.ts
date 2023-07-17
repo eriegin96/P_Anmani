@@ -18,6 +18,8 @@ export type TProductPlace = {
 	distance: string;
 };
 
+export type TSlotId = "1" | "2" | "3";
+
 export type TProduct = {
 	id: string;
 	type: TProductTypeValue;

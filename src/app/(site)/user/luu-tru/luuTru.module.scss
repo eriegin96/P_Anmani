@@ -48,7 +48,7 @@
 
 .imageWrapper {
 	position: relative;
-	aspect-ratio: 16 / 9;
+	aspect-ratio: $ratio-16-9;
 	width: 100%;
 
 	img {
