@@ -11,18 +11,21 @@ import {
 } from "react";
 
 type TAuthContextDefault = {
-	userInfo?: TUser | undefined;
-	setUserInfo?: Dispatch<SetStateAction<TUser | undefined>>;
+	userInfo: TUser | null;
+	setUserInfo: Dispatch<SetStateAction<TUser | null>>;
 };
 
 type TAuthProviderProps = {
 	children: ReactNode;
 };
 
-export const AuthContext = createContext<TAuthContextDefault>({});
+export const AuthContext = createContext<TAuthContextDefault>({
+	userInfo: null,
+	setUserInfo: () => {},
+});
 
 export default function AuthProvider({children}: TAuthProviderProps) {
-	const [userInfo, setUserInfo] = useState<TUser | undefined>(undefined);
+	const [userInfo, setUserInfo] = useState<TUser | null>(null);
 
 	const value = {
 		userInfo,

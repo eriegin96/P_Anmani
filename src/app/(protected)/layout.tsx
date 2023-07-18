@@ -2,7 +2,7 @@
 
 import {Button, Layout, Menu} from "antd";
 
-import {useState} from "react";
+import {useLayoutEffect, useState} from "react";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 import {IconChevronLeft} from "@tabler/icons-react";
@@ -12,6 +12,8 @@ import {SidebarNavigationItem, menuNavList} from "./static";
 import {usePathname, useRouter} from "next/navigation";
 import clsx from "clsx";
 import styles from "./(protected).module.scss";
+import {useAuthContext} from "@/providers/AuthProvider";
+import Loading from "../(site)/loading";
 
 const {Sider, Header, Content} = Layout;
 const sidebarNavFlat = menuNavList.reduce(
@@ -28,6 +30,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 	const [collapsed, setCollapsed] = useState(false);
 	const pathname = usePathname();
 	const router = useRouter();
+	const {userInfo} = useAuthContext();
 	const currentMenuItem = sidebarNavFlat.find(
 		({url}) => url && pathname.includes(url)
 	);
@@ -37,50 +40,60 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 	);
 	const defaultOpenKeys = openedSubmenu ? [openedSubmenu.key] : [];
 
+	useLayoutEffect(() => {
+		if (userInfo?.role !== "admin") router.push(ROUTE.HOME);
+	}, [userInfo, router]);
+
 	return (
-		<Layout className={styles.layoutWrapper}>
-			<Sider
-				trigger={null}
-				collapsible
-				collapsed={collapsed}
-				collapsedWidth={80}
-				width={260}
-				className={styles.sider}
-			>
-				<div className={styles.siderLogo}>
-					<Link href={ROUTE.ADMIN}>
-						<Image src={ImageLogo} alt="Anmani" width={48} height={48} />
-						<span>Anmani</span>
-					</Link>
-					<Button
-						shape="circle"
-						className={clsx(
-							styles.collapseButton,
-							collapsed && styles.collapsed
-						)}
-						onClick={() => setCollapsed(!collapsed)}
+		<>
+			{userInfo?.role === "admin" ? (
+				<Layout className={styles.layoutWrapper}>
+					<Sider
+						trigger={null}
+						collapsible
+						collapsed={collapsed}
+						collapsedWidth={80}
+						width={260}
+						className={styles.sider}
 					>
-						<IconChevronLeft />
-					</Button>
-				</div>
-				<Menu
-					theme="light"
-					mode="inline"
-					defaultSelectedKeys={defaultSelectedKeys}
-					defaultOpenKeys={defaultOpenKeys}
-					items={menuNavList}
-					className={styles.menu}
-				/>
-			</Sider>
-			<Layout>
-				<Header className={styles.header}>
-					<Button type="link" shape="circle" onClick={() => router.back()}>
-						<IconChevronLeft />
-					</Button>
-					Anmani Admin Page
-				</Header>
-				<Content className={styles.content}>{children}</Content>
-			</Layout>
-		</Layout>
+						<div className={styles.siderLogo}>
+							<Link href={ROUTE.ADMIN}>
+								<Image src={ImageLogo} alt="Anmani" width={48} height={48} />
+								<span>Anmani</span>
+							</Link>
+							<Button
+								shape="circle"
+								className={clsx(
+									styles.collapseButton,
+									collapsed && styles.collapsed
+								)}
+								onClick={() => setCollapsed(!collapsed)}
+							>
+								<IconChevronLeft />
+							</Button>
+						</div>
+						<Menu
+							theme="light"
+							mode="inline"
+							defaultSelectedKeys={defaultSelectedKeys}
+							defaultOpenKeys={defaultOpenKeys}
+							items={menuNavList}
+							className={styles.menu}
+						/>
+					</Sider>
+					<Layout>
+						<Header className={styles.header}>
+							<Button type="link" shape="circle" onClick={() => router.back()}>
+								<IconChevronLeft />
+							</Button>
+							Anmani Admin Page
+						</Header>
+						<Content className={styles.content}>{children}</Content>
+					</Layout>
+				</Layout>
+			) : (
+				<Loading />
+			)}
+		</>
 	);
 }

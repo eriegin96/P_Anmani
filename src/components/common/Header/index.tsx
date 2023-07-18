@@ -19,10 +19,12 @@ import {Badge, Popover} from "antd";
 import {ROUTE} from "@/constants/route";
 import NotificationContent from "../NotificationContent";
 import {useLayoutContext} from "@/providers/LayoutProvider";
+import {useAuthContext} from "@/providers/AuthProvider";
 
 const Button = dynamic(() => import("../Button"));
 
 export default function Header() {
+	const {userInfo} = useAuthContext();
 	const {isAtExplorePage} = useLayoutContext();
 
 	return (
@@ -53,40 +55,31 @@ export default function Header() {
 				<Image src={ImageLogo} alt="" width={50} height={50} />
 			</Link>
 			<div className={styles.rightSection}>
-				{/* {!userInfo ? (
+				{!userInfo ? (
 					<Link href={ROUTE.SIGN_IN} className={styles.triggerBtn}>
 						Login
 					</Link>
 				) : (
 					<>
-						<Button className={styles.triggerBtn}>
-							<IconBell color={color.white} />
-						</Button>
-						{userInfo?.role === "user" && (
-							<Button className={styles.triggerBtn}>Cart</Button>
-						)}
-					</>
-				)} */}
-
-				<>
-					<Popover
-						content={<NotificationContent />}
-						placement="bottomRight"
-						trigger="click"
-						className={styles.popover}
-					>
-						<Button className={styles.triggerBtn}>
+						<Popover
+							content={<NotificationContent />}
+							placement="bottomRight"
+							trigger="click"
+							className={styles.popover}
+						>
+							<Button className={styles.triggerBtn}>
+								<Badge size="small" count={5}>
+									<IconBell color={color.white} />
+								</Badge>
+							</Button>
+						</Popover>
+						<Link href={ROUTE.CART} className={styles.triggerBtn}>
 							<Badge size="small" count={5}>
-								<IconBell color={color.white} />
+								<IconShoppingCart color={color.white} />
 							</Badge>
-						</Button>
-					</Popover>
-					<Link href={ROUTE.CART} className={styles.triggerBtn}>
-						<Badge size="small" count={5}>
-							<IconShoppingCart color={color.white} />
-						</Badge>
-					</Link>
-				</>
+						</Link>
+					</>
+				)}
 			</div>
 		</header>
 	);

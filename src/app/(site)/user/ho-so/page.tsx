@@ -7,8 +7,10 @@ import {profilePageList} from "./static";
 import {IconChevronRight, IconLogout} from "@tabler/icons-react";
 import {Avatar, Button as AntdButton, Modal} from "antd";
 import {useState} from "react";
+import {useAuthContext} from "@/providers/AuthProvider";
 
 export default function Page() {
+	const {userInfo} = useAuthContext();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const showModal = () => {
@@ -27,8 +29,8 @@ export default function Page() {
 		<div>
 			<div className={styles.header}>
 				<div>
-					<p>Ta Hua Luc Nhu</p>
-					<p>tahualucnhu@gmail.com</p>
+					<p>{userInfo?.name}</p>
+					<p>{userInfo?.email}</p>
 				</div>
 				<Avatar src="" size={48} />
 			</div>

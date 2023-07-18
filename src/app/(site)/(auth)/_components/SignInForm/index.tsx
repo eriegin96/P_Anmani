@@ -5,18 +5,17 @@ import {Button, Form, Input} from "antd";
 import Link from "next/link";
 import styles from "../auth.module.scss";
 import {PLACEHOLDER_EMAIL} from "@/constants/common";
-
-interface SignInFormData {
-	email: string;
-	password: string;
-}
+import {useSignIn} from "@/hooks/api/mutation/useSignIn";
+import {TSignInFormData} from "@/types/api.type";
 
 export default function SignInForm() {
 	const [form] = Form.useForm();
-	const isLoading = false;
+	const {trigger, isMutating} = useSignIn();
 
-	const handleSubmit = (values: SignInFormData) => {
+	const handleSubmit = (values: TSignInFormData) => {
 		console.log(values);
+
+		trigger({username: "kminchelle", password: "0lelplR"});
 	};
 
 	return (
@@ -58,7 +57,7 @@ export default function SignInForm() {
 				<Button
 					type="primary"
 					htmlType="submit"
-					loading={isLoading}
+					loading={isMutating}
 					className={styles.btn}
 				>
 					Đăng nhập

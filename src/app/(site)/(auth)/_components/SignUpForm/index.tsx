@@ -5,19 +5,16 @@ import {Button, Form, Input} from "antd";
 import Link from "next/link";
 import styles from "../auth.module.scss";
 import {PLACEHOLDER_EMAIL} from "@/constants/common";
-
-interface SignUpFormData {
-	name: string;
-	email: string;
-	password: string;
-}
+import {TSignUpFormData} from "@/types/api.type";
+import {useSignUp} from "@/hooks/api/mutation/useSignUp";
 
 export default function SignUpForm() {
 	const [form] = Form.useForm();
-	const isLoading = false;
+	const {trigger, isMutating} = useSignUp();
 
-	const handleSubmit = (values: SignUpFormData) => {
+	const handleSubmit = (values: TSignUpFormData) => {
 		console.log(values);
+		trigger({username: "kminchelle", password: "0lelplR"});
 	};
 
 	return (
@@ -78,7 +75,7 @@ export default function SignUpForm() {
 				<Button
 					type="primary"
 					htmlType="submit"
-					loading={isLoading}
+					loading={isMutating}
 					className={styles.btn}
 				>
 					Đăng ký
