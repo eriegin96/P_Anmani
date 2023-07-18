@@ -15,3 +15,10 @@ export type TTokenResponse = {
 	accessToken: string;
 	refreshToken: string;
 };
+
+export type TUserResponse = {
+	id: string;
+	firstName: string;
+	email: string;
+	token: string;
+};

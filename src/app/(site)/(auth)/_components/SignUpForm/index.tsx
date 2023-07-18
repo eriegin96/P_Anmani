@@ -14,7 +14,7 @@ export default function SignUpForm() {
 
 	const handleSubmit = (values: TSignUpFormData) => {
 		console.log(values);
-		trigger({username: "kminchelle", password: "0lelplR"});
+		trigger(values);
 	};
 
 	return (

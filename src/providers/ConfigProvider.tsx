@@ -21,7 +21,7 @@ export default function ConfigProvider({
 			<SWRConfig
 				value={{
 					onSuccess: (data, key, config) => {
-						messageApi.success(MESSAGE[key]);
+						MESSAGE[key] && messageApi.success(MESSAGE[key]);
 					},
 					onError: (error, key) => {
 						console.log({error});

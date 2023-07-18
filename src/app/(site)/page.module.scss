@@ -23,3 +23,10 @@
 	height: calc(100vh - $height-header - $height-navbar);
 	@include center;
 }
+
+.errorWrapper {
+	width: 100vw;
+	height: 100vh;
+	@include center;
+	flex-direction: column;
+}

@@ -2,21 +2,16 @@ import {axiosInstance} from "@/api/axios";
 import {API_ENDPOINT, storagePrefix} from "@/constants/api";
 import {ROUTE} from "@/constants/route";
 import {useAuthContext} from "@/providers/AuthProvider";
-import {TSignInFormData} from "@/types/api.type";
+import {TSignInFormData, TUserResponse} from "@/types/api.type";
 import {TUser} from "@/types/user.type";
 import {useRouter} from "next/navigation";
 import {useEffect} from "react";
 import useSWRMutation from "swr/mutation";
 
-type TResponse = {
-	id: string;
-	firstName: string;
-	email: string;
-	token: string;
-};
-
 const fetcher = (url: string, {arg}: {arg: TSignInFormData}) =>
-	axiosInstance.post<TResponse>(url, JSON.stringify(arg)).then((res) => res);
+	axiosInstance
+		.post<TUserResponse>(url, JSON.stringify(arg))
+		.then((res) => res);
 
 export const useSignIn = () => {
 	const router = useRouter();
@@ -42,7 +37,7 @@ export const useSignIn = () => {
 		router.push(ROUTE.HOME);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [data]);
+	}, [data, router]);
 
 	return {
 		trigger,

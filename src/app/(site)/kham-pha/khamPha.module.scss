@@ -6,17 +6,6 @@
 	}
 }
 
-.container {
-	display: flex;
-	flex-wrap: wrap;
-	gap: rem(10);
-
-	video {
-		width: 40%;
-		border-radius: $round-lg;
-	}
-}
-
 .masonry {
 	display: flex;
 	margin-left: rem(-10); /* gutter size offset */

@@ -10,6 +10,8 @@ import Carousel from "../Carousel";
 import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
 import {productList} from "../../../../mock/data";
+import {useProducts} from "@/hooks/api/query/useProducts";
+import {ItemsSkeleton} from "@/components";
 
 type TCategoryProps = {
 	category: TCategory;
@@ -17,6 +19,7 @@ type TCategoryProps = {
 
 export default function Category({category}: TCategoryProps) {
 	const {title, location, href, icon} = category;
+	const {data, isLoading} = useProducts();
 
 	return (
 		<div className={styles.wrapper}>
@@ -30,34 +33,39 @@ export default function Category({category}: TCategoryProps) {
 				</Link>
 			</div>
 
-			<Tabs.Root defaultValue={location[0]} className={styles.tabsRoot}>
-				<Tabs.List aria-label="Category" className={styles.tabsList}>
+			{isLoading && <ItemsSkeleton />}
+
+			{data && (
+				<Tabs.Root defaultValue={location[0]} className={styles.tabsRoot}>
+					<Tabs.List aria-label="Category" className={styles.tabsList}>
+						{location.map((locationItem) => (
+							<Tabs.Trigger
+								key={locationItem}
+								value={locationItem}
+								className={styles.tabsTrigger}
+							>
+								{locationItem}
+							</Tabs.Trigger>
+						))}
+					</Tabs.List>
+
 					{location.map((locationItem) => (
-						<Tabs.Trigger
+						<Tabs.Content
 							key={locationItem}
 							value={locationItem}
-							className={styles.tabsTrigger}
+							className={styles.tabsContent}
 						>
-							{locationItem}
-						</Tabs.Trigger>
+							<Carousel setting={setting}>
+								{productList.map((saleItem) => (
+									<div key={saleItem.name} className={styles.productWrapper}>
+										<ProductCard info={saleItem} />
+									</div>
+								))}
+							</Carousel>
+						</Tabs.Content>
 					))}
-				</Tabs.List>
-				{location.map((locationItem) => (
-					<Tabs.Content
-						key={locationItem}
-						value={locationItem}
-						className={styles.tabsContent}
-					>
-						<Carousel setting={setting}>
-							{productList.map((saleItem) => (
-								<div key={saleItem.name} className={styles.productWrapper}>
-									<ProductCard info={saleItem} />
-								</div>
-							))}
-						</Carousel>
-					</Tabs.Content>
-				))}
-			</Tabs.Root>
+				</Tabs.Root>
+			)}
 		</div>
 	);
 }

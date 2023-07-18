@@ -10,3 +10,5 @@ export {default as TextEditor} from "./common/TextEditor";
 
 export {default as ConsultForm} from "./ConsultForm";
 export {default as ComparisonModalPortal} from "./ComparisonModalPortal";
+
+export {default as ItemsSkeleton} from "./ItemsSkeleton";

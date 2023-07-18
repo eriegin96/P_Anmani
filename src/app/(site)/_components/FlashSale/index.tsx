@@ -11,6 +11,8 @@ import {CountdownProps, Statistic} from "antd";
 import dayjs from "dayjs";
 import {useState} from "react";
 import duration from "dayjs/plugin/duration";
+import {useProducts} from "@/hooks/api/query/useProducts";
+import {ItemsSkeleton} from "@/components";
 
 dayjs.extend(duration);
 
@@ -19,6 +21,7 @@ const carouselSetting = {...setting, autoplaySpeed: 3500};
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2; // Dayjs is also OK;
 
 export default function FlashSale() {
+	const {data, isLoading} = useProducts();
 	const [countDown, setCountDown] = useState({
 		day: "",
 		hour: "",
@@ -57,13 +60,17 @@ export default function FlashSale() {
 				</div>
 			</div>
 
-			<Carousel setting={carouselSetting}>
-				{productList.map((sale) => (
-					<div key={sale.name} className={styles.productWrapper}>
-						<ProductCard info={sale} isShowView />
-					</div>
-				))}
-			</Carousel>
+			{isLoading && <ItemsSkeleton />}
+
+			{data && (
+				<Carousel setting={carouselSetting}>
+					{productList.map((sale) => (
+						<div key={sale.name} className={styles.productWrapper}>
+							<ProductCard info={sale} isShowView />
+						</div>
+					))}
+				</Carousel>
+			)}
 		</div>
 	);
 }

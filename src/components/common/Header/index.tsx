@@ -57,7 +57,7 @@ export default function Header() {
 			<div className={styles.rightSection}>
 				{!userInfo ? (
 					<Link href={ROUTE.SIGN_IN} className={styles.triggerBtn}>
-						Login
+						Đăng nhập
 					</Link>
 				) : (
 					<>

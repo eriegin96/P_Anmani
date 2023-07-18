@@ -5,8 +5,12 @@ import styles from "./khamPha.module.scss";
 import Masonry from "react-masonry-css";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
+import {useExplores} from "@/hooks/api/query/useExplores";
+import {Skeleton} from "antd";
 
 export default function Page() {
+	const {data, isLoading} = useExplores();
+
 	return (
 		<div className={styles.wrapper}>
 			<Masonry
@@ -14,11 +18,15 @@ export default function Page() {
 				className={styles.masonry}
 				columnClassName={styles.masonryColumn}
 			>
-				{exploreVideoList.map((video) => (
-					<Link key={video.id} href={`${ROUTE.EXPLORE}/${video.id}`}>
-						<video src={video.url} autoPlay muted loop />
-					</Link>
-				))}
+				{isLoading &&
+					[1, 2, 3, 4].map((item) => <Skeleton key={item} active />)}
+
+				{data &&
+					exploreVideoList.map((video) => (
+						<Link key={video.id} href={`${ROUTE.EXPLORE}/${video.id}`}>
+							<video src={video.url} autoPlay muted loop />
+						</Link>
+					))}
 			</Masonry>
 		</div>
 	);
