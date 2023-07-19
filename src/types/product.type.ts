@@ -22,6 +22,7 @@ export type TSlotId = "1" | "2" | "3";
 
 export type TProduct = {
 	id: string;
+	key: string;
 	type: TProductTypeValue;
 	tag: TProductTagValue;
 	investor: "1" | "2" | "3";
@@ -57,3 +58,5 @@ export type TProduct = {
 	logo: any;
 	status: TProductStatusValue;
 };
+
+export type TProductForm = Omit<TProduct, "id" | "key">;

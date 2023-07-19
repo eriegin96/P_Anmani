@@ -40,13 +40,13 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 	);
 	const defaultOpenKeys = openedSubmenu ? [openedSubmenu.key] : [];
 
-	useLayoutEffect(() => {
-		if (userInfo?.role !== "admin") router.push(ROUTE.HOME);
-	}, [userInfo, router]);
+	// useLayoutEffect(() => {
+	// 	if (userInfo?.role !== "admin") router.push(ROUTE.HOME);
+	// }, [userInfo, router]);
 
 	return (
 		<>
-			{userInfo?.role === "admin" ? (
+			{userInfo?.role !== "admin" ? (
 				<Layout className={styles.layoutWrapper}>
 					<Sider
 						trigger={null}

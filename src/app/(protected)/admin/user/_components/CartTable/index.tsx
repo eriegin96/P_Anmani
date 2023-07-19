@@ -9,12 +9,13 @@ import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 import {userCartList, userList} from "@/mock/data";
 import {TUserCart} from "@/types/user.type";
+import {useGetCarts} from "@/hooks/api/cart/query/useGetCarts";
 
 type DataIndex = keyof TUserCart;
 
 export default function CartTable() {
 	const searchInput = useRef<InputRef>(null);
-	const isLoading = false;
+	const {data, isLoading} = useGetCarts();
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -153,7 +154,7 @@ export default function CartTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={userCartList}
+			dataSource={data && userCartList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}

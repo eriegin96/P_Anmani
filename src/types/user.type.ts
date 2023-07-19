@@ -26,3 +26,5 @@ export type TCartItem = {
 	voucherAdded: string[];
 	value: string;
 };
+
+export type TUserCartForm = Omit<TUserCart, "id" | "key">;

@@ -12,3 +12,5 @@ export type TExploreVideoStory = {
 	url: string;
 	type: "video" | "image";
 };
+
+export type TExploreVideoForm = Omit<TExploreVideo, "id" | "key">;

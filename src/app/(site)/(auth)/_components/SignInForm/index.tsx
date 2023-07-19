@@ -5,7 +5,7 @@ import {Button, Form, Input} from "antd";
 import Link from "next/link";
 import styles from "../auth.module.scss";
 import {PLACEHOLDER_EMAIL} from "@/constants/common";
-import {useSignIn} from "@/hooks/api/mutation/useSignIn";
+import {useSignIn} from "@/hooks/api/auth/mutation/useSignIn";
 import {TSignInFormData} from "@/types/api.type";
 
 export default function SignInForm() {

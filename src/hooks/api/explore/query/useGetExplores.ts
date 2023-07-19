@@ -4,8 +4,8 @@ import {TExploreVideo} from "@/types/video.type";
 import useSWR from "swr";
 
 const fetcher = (url: string) =>
-	axiosInstance.get<TExploreVideo>(url).then((res) => res);
+	axiosInstance.get<TExploreVideo[]>(url).then((res) => res);
 
-export const useExplore = (exploreId: string) => {
-	return useSWR(`${API_ENDPOINT.MOCK}/${exploreId}`, fetcher);
+export const useGetExplores = () => {
+	return useSWR(API_ENDPOINT.MOCK, fetcher);
 };

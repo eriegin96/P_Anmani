@@ -1,14 +1,22 @@
 "use client";
 
-import {useParams} from "next/navigation";
+import {useGetExploreById} from "@/hooks/api/explore/query/useGetExploreById";
 import ExploreForm from "../_components/ExploreForm";
+import Loading from "@/app/(site)/loading";
 
-export default function AdminExplorePage() {
-	const {id} = useParams();
+type TAdminExplorePageProps = {
+	params: {id: string};
+};
+
+export default function AdminExplorePage({
+	params: {id},
+}: TAdminExplorePageProps) {
+	const {data, isLoading} = useGetExploreById(id);
 
 	return (
-		<div>
-			<ExploreForm id={id} />
-		</div>
+		<>
+			{isLoading && <Loading />}
+			{data && <ExploreForm isEditing />}
+		</>
 	);
 }

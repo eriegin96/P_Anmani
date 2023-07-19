@@ -1,13 +1,22 @@
 "use client";
 
-import {useParams} from "next/navigation";
+import {useGetNotificationById} from "@/hooks/api/notification/query/useGetNotificationById";
 import NotificationForm from "../../_components/NotificationForm";
+import Loading from "@/app/(site)/loading";
 
-export default function AdminUserNotificationPage() {
-	const {id} = useParams();
+type TAdminUserNotificationPageProps = {
+	params: {id: string};
+};
+
+export default function AdminUserNotificationPage({
+	params: {id},
+}: TAdminUserNotificationPageProps) {
+	const {data, isLoading} = useGetNotificationById(id);
+
 	return (
-		<div>
-			<NotificationForm id={id} />
-		</div>
+		<>
+			{isLoading && <Loading />}
+			{data && <NotificationForm isEditing />}
+		</>
 	);
 }

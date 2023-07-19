@@ -10,12 +10,13 @@ import {ROUTE} from "@/constants/route";
 import {notificationList, userList} from "@/mock/data";
 import {TNotification} from "@/types/notification.type";
 import {NOTIFICATION_TYPE_LABEL} from "@/constants/notification";
+import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
 
 type DataIndex = keyof TNotification;
 
 export default function NotificationTable() {
 	const searchInput = useRef<InputRef>(null);
-	const isLoading = false;
+	const {data, isLoading} = useGetNotifications();
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -165,7 +166,7 @@ export default function NotificationTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={notificationList}
+			dataSource={data && notificationList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}

@@ -1,31 +1,40 @@
 "use client";
 
 import {Button, Form} from "antd";
-import {useRouter} from "next/navigation";
+import {useParams, useRouter} from "next/navigation";
 import {useEffect} from "react";
 import {exploreVideoList} from "@/mock/data";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
 import {TExploreVideo} from "@/types/video.type";
 import FormExploreInfo from "../FormExploreInfo";
+import {
+	useCreateExplore,
+	useGetExploreById,
+	useUpdateExplore,
+} from "@/hooks/api/explore";
 
 type TExploreFormProps = {
-	id?: string;
+	isEditing?: boolean;
 };
 
-export default function ExploreForm({id}: TExploreFormProps) {
+export default function ExploreForm({isEditing = false}: TExploreFormProps) {
 	const [form] = Form.useForm<TExploreVideo>();
 	const router = useRouter();
-	const isLoading = false;
+	const {id} = useParams();
+	const {data} = useGetExploreById(id);
+	const {trigger: createExplore, isMutating: isCreating} = useCreateExplore();
+	const {trigger: updateExplore, isMutating: isUpdating} = useUpdateExplore(id);
 
 	const handleSubmit = (values: TExploreVideo) => {
 		console.log({...values});
+		isEditing ? updateExplore(values) : createExplore(values);
 	};
 
 	useEffect(() => {
-		const fieldsValue = exploreVideoList.find((noti) => noti.id === id);
+		const fieldsValue = data && exploreVideoList.find((noti) => noti.id === id);
 		form.setFieldsValue({...fieldsValue});
 		console.log(fieldsValue);
-	}, [id, form]);
+	}, [data, id, form]);
 
 	return (
 		<Form
@@ -45,8 +54,12 @@ export default function ExploreForm({id}: TExploreFormProps) {
 				<Button danger onClick={() => router.back()}>
 					Hủy
 				</Button>
-				<Button type="primary" htmlType="submit" loading={isLoading}>
-					{id ? "Sửa" : "Tạo"} Khám phá
+				<Button
+					type="primary"
+					htmlType="submit"
+					loading={isEditing ? isUpdating : isCreating}
+				>
+					{isEditing ? "Sửa" : "Tạo"} Khám phá
 				</Button>
 			</div>
 		</Form>

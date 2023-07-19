@@ -1,7 +1,7 @@
 "use client";
 
 import {useCartContext} from "@/providers/CartProvider";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import CartItem from "./_components/CartItem";
 import styles from "./gioHang.module.scss";
 import clsx from "clsx";

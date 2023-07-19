@@ -6,6 +6,6 @@ import useSWR from "swr";
 const fetcher = (url: string) =>
 	axiosInstance.get<TProduct>(url).then((res) => res);
 
-export const useProduct = (productId: string) => {
+export const useGetProductById = (productId: string) => {
 	return useSWR(`${API_ENDPOINT.MOCK}/${productId}`, fetcher);
 };

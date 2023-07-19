@@ -14,3 +14,5 @@ export type TNotification = {
 	content: string;
 	target: string[];
 };
+
+export type TNotificationForm = Omit<TNotification, "id" | "key">;

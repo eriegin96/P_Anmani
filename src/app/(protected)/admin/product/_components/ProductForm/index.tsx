@@ -1,7 +1,7 @@
 "use client";
 
 import {Button, Form} from "antd";
-import {useRouter} from "next/navigation";
+import {useParams, useRouter} from "next/navigation";
 import {useEffect} from "react";
 import {TProduct} from "@/types/product.type";
 import {productList} from "@/mock/data";
@@ -13,26 +13,35 @@ import FormPolicy from "../FormPolicy";
 import FormDescription from "../FormDescription";
 import FormImage from "../FormImage";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
+import {
+	useCreateProduct,
+	useGetProductById,
+	useUpdateProduct,
+} from "@/hooks/api/product";
 
 type TProductFormProps = {
-	id?: string;
+	isEditing?: boolean;
 };
 
-export default function ProductForm({id}: TProductFormProps) {
+export default function ProductForm({isEditing = false}: TProductFormProps) {
 	const [form] = Form.useForm<TProduct>();
 	const router = useRouter();
-	const isLoading = false;
+	const {id} = useParams();
+	const {data} = useGetProductById(id);
+	const {trigger: createProduct, isMutating: isCreating} = useCreateProduct();
+	const {trigger: updateProduct, isMutating: isUpdating} = useUpdateProduct(id);
 
 	const handleSubmit = (values: TProduct) => {
 		console.log(values);
+		isEditing ? updateProduct(values) : createProduct(values);
 	};
 
 	useEffect(() => {
-		const fieldValue = productList.find((product) => product.id === id);
+		const fieldValue = data && productList.find((product) => product.id === id);
 
 		form.setFieldsValue({...fieldValue});
 		console.log(fieldValue);
-	}, [id, form]);
+	}, [id, data, form]);
 
 	return (
 		<Form
@@ -70,8 +79,12 @@ export default function ProductForm({id}: TProductFormProps) {
 				<Button danger onClick={() => router.back()}>
 					Hủy
 				</Button>
-				<Button type="primary" htmlType="submit" loading={isLoading}>
-					{id ? "Sửa" : "Tạo"} bất động sản
+				<Button
+					type="primary"
+					htmlType="submit"
+					loading={isEditing ? isUpdating : isCreating}
+				>
+					{isEditing ? "Sửa" : "Tạo"} bất động sản
 				</Button>
 			</div>
 		</Form>

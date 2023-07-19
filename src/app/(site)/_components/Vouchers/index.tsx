@@ -6,12 +6,12 @@ import Link from "next/link";
 import styles from "./vouchers.module.scss";
 import {ROUTE} from "@/constants/route";
 import {voucherList} from "@/mock/data";
-import {useVouchers} from "@/hooks/api/query/useVouchers";
+import {useGetVouchers} from "@/hooks/api/voucher/query/useGetVouchers";
 
 const Title = dynamic(() => import("../Title"));
 
 export default function Vouchers() {
-	const {data, isLoading} = useVouchers();
+	const {data, isLoading} = useGetVouchers();
 
 	return (
 		<>

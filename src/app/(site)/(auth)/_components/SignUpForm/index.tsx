@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from "../auth.module.scss";
 import {PLACEHOLDER_EMAIL} from "@/constants/common";
 import {TSignUpFormData} from "@/types/api.type";
-import {useSignUp} from "@/hooks/api/mutation/useSignUp";
+import {useSignUp} from "@/hooks/api/auth/mutation/useSignUp";
 
 export default function SignUpForm() {
 	const [form] = Form.useForm();

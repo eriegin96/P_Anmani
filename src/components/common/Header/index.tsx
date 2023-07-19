@@ -20,12 +20,17 @@ import {ROUTE} from "@/constants/route";
 import NotificationContent from "../NotificationContent";
 import {useLayoutContext} from "@/providers/LayoutProvider";
 import {useAuthContext} from "@/providers/AuthProvider";
+import {notificationList} from "@/mock/data";
+import {useCartContext} from "@/providers/CartProvider";
+import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
 
 const Button = dynamic(() => import("../Button"));
 
 export default function Header() {
 	const {userInfo} = useAuthContext();
 	const {isAtExplorePage} = useLayoutContext();
+	const {cart} = useCartContext();
+	const {data} = useGetNotifications();
 
 	return (
 		<header className={clsx(styles.wrapper, isAtExplorePage && styles.hidden)}>
@@ -68,13 +73,13 @@ export default function Header() {
 							className={styles.popover}
 						>
 							<Button className={styles.triggerBtn}>
-								<Badge size="small" count={5}>
+								<Badge size="small" count={data && notificationList.length}>
 									<IconBell color={color.white} />
 								</Badge>
 							</Button>
 						</Popover>
 						<Link href={ROUTE.CART} className={styles.triggerBtn}>
-							<Badge size="small" count={5}>
+							<Badge size="small" count={cart.length}>
 								<IconShoppingCart color={color.white} />
 							</Badge>
 						</Link>

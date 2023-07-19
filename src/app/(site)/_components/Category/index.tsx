@@ -10,7 +10,7 @@ import Carousel from "../Carousel";
 import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
 import {productList} from "../../../../mock/data";
-import {useProducts} from "@/hooks/api/query/useProducts";
+import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 import {ItemsSkeleton} from "@/components";
 
 type TCategoryProps = {
@@ -19,7 +19,7 @@ type TCategoryProps = {
 
 export default function Category({category}: TCategoryProps) {
 	const {title, location, href, icon} = category;
-	const {data, isLoading} = useProducts();
+	const {data, isLoading} = useGetProducts();
 
 	return (
 		<div className={styles.wrapper}>

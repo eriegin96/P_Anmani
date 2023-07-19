@@ -1,14 +1,22 @@
 "use client";
 
-import {useParams} from "next/navigation";
+import {useGetVoucherById} from "@/hooks/api/voucher/query/useGetVoucherById";
 import VoucherForm from "../_components/VoucherForm";
+import Loading from "@/app/(site)/loading";
 
-export default function AdminVoucherPage() {
-	const {id} = useParams();
+type TAdminVoucherPageProps = {
+	params: {id: string};
+};
+
+export default function AdminVoucherPage({
+	params: {id},
+}: TAdminVoucherPageProps) {
+	const {data, isLoading} = useGetVoucherById(id);
 
 	return (
-		<div>
-			<VoucherForm id={id} />
-		</div>
+		<>
+			{isLoading && <Loading />}
+			{data && <VoucherForm isEditing />}
+		</>
 	);
 }

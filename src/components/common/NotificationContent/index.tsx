@@ -4,9 +4,12 @@ import * as Tabs from "@radix-ui/react-tabs";
 import styles from "./notificationContent.module.scss";
 import {notificationTab} from "./static";
 import {notificationList} from "@/mock/data";
-import {Avatar} from "antd";
+import {Avatar, Skeleton} from "antd";
+import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
 
 export default function NotificationContent() {
+	const {data, isLoading} = useGetNotifications();
+
 	return (
 		<div>
 			<Tabs.Root
@@ -36,21 +39,23 @@ export default function NotificationContent() {
 						value={tab.value}
 						className={styles.tabsContent}
 					>
-						{notificationList.map((noti) => {
-							return noti.type === tab.value ? (
-								<div key={noti.id} className={styles.notiWrapper}>
-									<div>
-										<Avatar size={36} src={noti.avatar} alt="" />
+						{isLoading && <Skeleton active style={{padding: "10px"}} />}
+						{data &&
+							notificationList.map((noti) => {
+								return noti.type === tab.value ? (
+									<div key={noti.id} className={styles.notiWrapper}>
+										<div>
+											<Avatar size={36} src={noti.avatar} alt="" />
+										</div>
+										<div className={styles.notiText}>
+											<h5>{noti.title}</h5>
+											<p>{noti.content}</p>
+										</div>
 									</div>
-									<div className={styles.notiText}>
-										<h5>{noti.title}</h5>
-										<p>{noti.content}</p>
-									</div>
-								</div>
-							) : (
-								<></>
-							);
-						})}
+								) : (
+									<></>
+								);
+							})}
 					</Tabs.Content>
 				))}
 			</Tabs.Root>

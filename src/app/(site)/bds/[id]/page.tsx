@@ -8,9 +8,8 @@ import {pageAnchorList} from "./static";
 import {TProduct} from "@/types/product.type";
 import {Element} from "react-scroll";
 import {PRODUCT_ANCHOR} from "@/constants/product";
-import {useProduct} from "@/hooks/api/query/useProduct";
+import {useGetProductById} from "@/hooks/api/product/query/useGetProductById";
 import {Skeleton} from "antd";
-import {useEffect} from "react";
 
 type TProductPageProps = {
 	params: {id: string};
@@ -30,7 +29,7 @@ export type TItemsRef = {[key: string]: HTMLDivElement | null};
 export default function ProductPage({params}: TProductPageProps) {
 	const product = productList.find((item) => item.id === params.id) as TProduct;
 	const anchorList = pageAnchorList(product);
-	const {data, isLoading, error} = useProduct(params.id);
+	const {data, isLoading, error} = useGetProductById(params.id);
 
 	return (
 		<>

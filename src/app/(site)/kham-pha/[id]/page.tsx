@@ -10,13 +10,13 @@ import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 import Stories from "react-insta-stories";
 import {TExploreVideo} from "@/types/video.type";
-import {useExplore} from "@/hooks/api/query/useExplore";
+import {useGetExploreById} from "@/hooks/api/explore/query/useGetExploreById";
 import Loading from "../../loading";
 
 type TKhamPhaPageProps = {params: {id: string}};
 
 export default function KhamPhaPage({params}: TKhamPhaPageProps) {
-	const {data, isLoading, error} = useExplore(params.id);
+	const {data, isLoading, error} = useGetExploreById(params.id);
 	const video = exploreVideoList.find(
 		(item) => item.id === params.id
 	) as TExploreVideo;

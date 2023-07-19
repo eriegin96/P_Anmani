@@ -5,11 +5,11 @@ import styles from "./khamPha.module.scss";
 import Masonry from "react-masonry-css";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {useExplores} from "@/hooks/api/query/useExplores";
+import {useGetExplores} from "@/hooks/api/explore/query/useGetExplores";
 import {Skeleton} from "antd";
 
 export default function Page() {
-	const {data, isLoading} = useExplores();
+	const {data, isLoading} = useGetExplores();
 
 	return (
 		<div className={styles.wrapper}>

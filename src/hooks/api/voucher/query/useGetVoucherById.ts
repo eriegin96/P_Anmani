@@ -4,8 +4,8 @@ import {TVoucher} from "@/types/voucher.type";
 import useSWR from "swr";
 
 const fetcher = (url: string) =>
-	axiosInstance.get<TVoucher[]>(url).then((res) => res);
+	axiosInstance.get<TVoucher>(url).then((res) => res);
 
-export const useVouchers = () => {
-	return useSWR(API_ENDPOINT.MOCK, fetcher);
+export const useGetVoucherById = (voucherId: string) => {
+	return useSWR(`${API_ENDPOINT.MOCK}/${voucherId}`, fetcher);
 };

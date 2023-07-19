@@ -3,7 +3,6 @@ import {API_ENDPOINT, storagePrefix} from "@/constants/api";
 import {ROUTE} from "@/constants/route";
 import {useAuthContext} from "@/providers/AuthProvider";
 import {TSignInFormData, TUserResponse} from "@/types/api.type";
-import {TUser} from "@/types/user.type";
 import {useRouter} from "next/navigation";
 import {useEffect} from "react";
 import useSWRMutation from "swr/mutation";

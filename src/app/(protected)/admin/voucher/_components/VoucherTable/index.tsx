@@ -9,12 +9,13 @@ import {productList, voucherList} from "@/mock/data";
 import {TVoucher} from "@/types/voucher.type";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {IconX} from "@tabler/icons-react";
+import {useGetVouchers} from "@/hooks/api/voucher/query/useGetVouchers";
 
 type DataIndex = keyof TVoucher;
 
 export default function VoucherTable() {
 	const searchInput = useRef<InputRef>(null);
-	const isLoading = false;
+	const {data, isLoading} = useGetVouchers();
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -186,7 +187,7 @@ export default function VoucherTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={voucherList}
+			dataSource={data && voucherList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}

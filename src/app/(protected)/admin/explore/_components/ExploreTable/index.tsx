@@ -1,21 +1,21 @@
 "use client";
 
 import {useCallback, useMemo, useRef} from "react";
-import {Image, Table} from "antd";
+import {Table} from "antd";
 import {Button, Input, Space, InputRef} from "antd";
 import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {exploreVideoList, notificationList, userList} from "@/mock/data";
-import {NOTIFICATION_TYPE_LABEL} from "@/constants/notification";
+import {exploreVideoList} from "@/mock/data";
 import {TExploreVideo} from "@/types/video.type";
+import {useGetExplores} from "@/hooks/api/explore/query/useGetExplores";
 
 type DataIndex = keyof TExploreVideo;
 
 export default function ExploreTable() {
 	const searchInput = useRef<InputRef>(null);
-	const isLoading = false;
+	const {data, isLoading} = useGetExplores();
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -124,7 +124,7 @@ export default function ExploreTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={exploreVideoList}
+			dataSource={data && exploreVideoList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}

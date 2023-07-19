@@ -8,12 +8,13 @@ import {ROUTE} from "@/constants/route";
 import {TProduct} from "@/types/product.type";
 import {productList} from "@/mock/data";
 import {IconX} from "@tabler/icons-react";
+import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 
 type DataIndex = keyof TProduct;
 
 export default function ProductTable() {
 	const searchInput = useRef<InputRef>(null);
-	const isLoading = false;
+	const {data, isLoading} = useGetProducts();
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -135,7 +136,7 @@ export default function ProductTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={productList}
+			dataSource={data && productList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			onChange={onChange}
