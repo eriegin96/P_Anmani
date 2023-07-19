@@ -28,3 +28,4 @@ export type TCartItem = {
 };
 
 export type TUserCartForm = Omit<TUserCart, "id" | "key">;
+export type TCartItemForm = Omit<TCartItem, "id" | "key">;

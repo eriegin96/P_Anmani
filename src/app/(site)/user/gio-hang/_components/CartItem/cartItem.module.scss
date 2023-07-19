@@ -83,6 +83,28 @@
 	font-size: rem(18);
 }
 
+.btn {
+	@include btn;
+	@include center;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	color: $color-red-1;
+	border-radius: 100%;
+	width: rem(30);
+	height: rem(30);
+
+	&:hover {
+		color: $color-red-2;
+	}
+
+	&:active {
+		background-color: $color-pink-1;
+	}
+}
+
 .voucherWrapper {
 	margin-top: rem(20);
 }

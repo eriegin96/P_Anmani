@@ -1,8 +1,10 @@
 "use client";
 
+import {useDeleteCartItem} from "@/hooks/api/cart";
+import {useAddCartItem} from "@/hooks/api/cart/mutation/useAddCartItem";
 import {useGetTempCarts} from "@/hooks/api/cart/query/useGetTempCarts";
 import {productList, userCartList} from "@/mock/data";
-import {TCartItem} from "@/types/user.type";
+import {TCartItem, TCartItemForm} from "@/types/user.type";
 import {CheckboxValueType} from "antd/es/checkbox/Group";
 import {
 	Dispatch,
@@ -10,7 +12,6 @@ import {
 	SetStateAction,
 	createContext,
 	useContext,
-	useEffect,
 	useMemo,
 	useState,
 } from "react";
@@ -22,8 +23,8 @@ type TCartContextDefault = {
 	checkedList: CheckboxValueType[];
 	setCheckedList: Dispatch<SetStateAction<CheckboxValueType[]>>;
 	totalPrice: number;
-	addToCart: () => void;
-	removeFromCart: () => void;
+	addToCart: (item: TCartItemForm) => void;
+	removeFromCart: (productId: string) => void;
 };
 
 type TCartProviderProps = {
@@ -45,6 +46,8 @@ export const CartContext = createContext<TCartContextDefault>({
 
 export default function CartProvider({children}: TCartProviderProps) {
 	const {data} = useGetTempCarts();
+	const {trigger: addCartItem} = useAddCartItem();
+	const {trigger: deleteCartItem} = useDeleteCartItem();
 	const [cart, setCart] = useState<TCartItem[]>(mockData);
 	const checkedListDefault = cart.map((item) => item.value);
 	const [checkedList, setCheckedList] =
@@ -62,8 +65,13 @@ export default function CartProvider({children}: TCartProviderProps) {
 		[cart, checkedList]
 	);
 
-	const addToCart = () => {};
-	const removeFromCart = () => {};
+	const addToCart = (item: TCartItemForm) => {
+		addCartItem(item);
+	};
+
+	const removeFromCart = (productId: string) => {
+		deleteCartItem(productId);
+	};
 
 	const value = {
 		cart,

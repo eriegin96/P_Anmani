@@ -7,16 +7,21 @@ import Image from "next/image";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {Voucher} from "@/components";
 import {TVoucher} from "@/types/voucher.type";
+import {IconX} from "@tabler/icons-react";
+import {useCartContext} from "@/providers/CartProvider";
 
 type TCartItemProps = {
 	item: TCartItem;
+	shouldShowDeleteButton?: boolean;
 	shouldShowVoucher?: boolean;
 };
 
 export default function CartItem({
 	item,
+	shouldShowDeleteButton = false,
 	shouldShowVoucher = false,
 }: TCartItemProps) {
+	const {removeFromCart} = useCartContext();
 	const product = productList.find((p) => p.id === item.productId) as TProduct;
 
 	return (
@@ -32,7 +37,17 @@ export default function CartItem({
 					</div>
 					<div className={styles.price}>{formatCurrency(product.price)}</div>
 				</div>
+
+				{shouldShowDeleteButton && (
+					<button
+						className={styles.btn}
+						onClick={() => removeFromCart(item.productId)}
+					>
+						<IconX />
+					</button>
+				)}
 			</div>
+
 			{shouldShowVoucher && (
 				<div className={styles.voucherWrapper}>
 					<h4 className={styles.voucherTitle}>

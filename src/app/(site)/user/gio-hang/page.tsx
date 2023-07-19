@@ -22,7 +22,7 @@ export default function Page() {
 		useCartContext();
 	const cartList = cart.map((item) => ({
 		...item,
-		label: <CartItem item={item} />,
+		label: <CartItem item={item} shouldShowDeleteButton />,
 	}));
 	const [indeterminate, setIndeterminate] = useState(
 		!!checkedList.length && checkedList.length < checkedListDefault.length
