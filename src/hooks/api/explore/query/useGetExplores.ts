@@ -7,5 +7,5 @@ const fetcher = (url: string) =>
 	axiosInstance.get<TExploreVideo[]>(url).then((res) => res);
 
 export const useGetExplores = () => {
-	return useSWR(API_ENDPOINT.MOCK, fetcher);
+	return useSWR(API_ENDPOINT.EXPLORES, fetcher);
 };

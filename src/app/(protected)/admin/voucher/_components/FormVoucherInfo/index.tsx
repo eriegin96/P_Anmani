@@ -56,7 +56,7 @@ export default function FormVoucherInfo() {
 				</Form.Item>
 			</Col>
 			<Col span={24}>
-				<Form.Item name="condition" label="Điều kiện" {...defaultFormConfig}>
+				<Form.Item name="condition" label="Điều kiện">
 					<Input placeholder="Điều kiện giảm giá" />
 				</Form.Item>
 			</Col>

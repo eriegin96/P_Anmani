@@ -23,14 +23,14 @@ export const configFormData = {
 };
 
 function authRequestInterceptor(config: InternalAxiosRequestConfig) {
-	// const tokenRes = JSON.parse(
-	// 	window.localStorage.getItem(`${storagePrefix}token`) as string
-	// ) as TTokenResponse | null;
+	const tokenRes = JSON.parse(
+		window.localStorage.getItem(`${storagePrefix}token`)as string
+	) as TTokenResponse | null;
 
-	// if (tokenRes?.accessToken) {
-	// 	config.headers.Authorization = `Bearer ${tokenRes.accessToken}`;
-	// }
-	// config.headers.Accept = "application/json";
+	if (tokenRes) {
+		config.headers.Authorization = `Bearer ${tokenRes}`;
+	}
+	config.headers.Accept = "application/json";
 	return config;
 }
 

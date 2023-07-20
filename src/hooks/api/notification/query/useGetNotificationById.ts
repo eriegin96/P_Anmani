@@ -7,5 +7,5 @@ const fetcher = (url: string) =>
 	axiosInstance.get<TNotification>(url).then((res) => res);
 
 export const useGetNotificationById = (notificationId: string) => {
-	return useSWR(`${API_ENDPOINT.MOCK}/${notificationId}`, fetcher);
+	return useSWR(`${API_ENDPOINT.NOTIFICATIONS}/${notificationId}`, fetcher);
 };

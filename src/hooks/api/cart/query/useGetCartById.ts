@@ -7,5 +7,5 @@ const fetcher = (url: string) =>
 	axiosInstance.get<TUserCart>(url).then((res) => res);
 
 export const useGetCartById = (userCartId: string) => {
-	return useSWR(`${API_ENDPOINT.MOCK}/${userCartId}`, fetcher);
+	return useSWR(`${API_ENDPOINT.CARTS}/${userCartId}`, fetcher);
 };

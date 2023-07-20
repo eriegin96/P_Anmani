@@ -78,7 +78,7 @@ export default function FormExploreInfo() {
 											{
 												required: true,
 												whitespace: true,
-												message: "Vui lòng nhập khoảng cách",
+												message: "Vui lòng nhập loại story",
 											},
 										]}
 									>

@@ -7,5 +7,5 @@ const fetcher = (url: string) =>
 	axiosInstance.get<TProduct[]>(url).then((res) => res);
 
 export const useGetProducts = () => {
-	return useSWR(API_ENDPOINT.MOCK, fetcher);
+	return useSWR(API_ENDPOINT.PRODUCTS, fetcher);
 };

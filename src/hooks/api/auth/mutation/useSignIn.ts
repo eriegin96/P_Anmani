@@ -31,9 +31,10 @@ export const useSignIn = () => {
 		});
 
 		data.token &&
-			window.localStorage.setItem(`${storagePrefix}token`, data.token);
-
-		router.push(ROUTE.HOME);
+			window.localStorage.setItem(
+				`${storagePrefix}token`,
+				JSON.stringify(data.token)
+			);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data, router]);

@@ -8,7 +8,7 @@ const fetcher = (url: string, {arg}: {arg: string}) =>
 
 export const useDeleteCartItem = () => {
 	const {data, trigger, isMutating, error} = useSWRMutation(
-		API_ENDPOINT.CARTS,
+		API_ENDPOINT.TEMP_CARTS,
 		fetcher
 	);
 

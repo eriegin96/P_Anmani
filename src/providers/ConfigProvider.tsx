@@ -5,7 +5,8 @@ import {Inter} from "next/font/google";
 import ModalProvider from "./ModalProvider";
 import ProductComparisonProvider from "./ProductComparisonProvider";
 import {SWRConfig} from "swr";
-import {MESSAGE} from "@/constants/message";
+import {useRouter} from "next/navigation";
+import {HANDLER} from "@/constants/handler";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -14,6 +15,7 @@ export default function ConfigProvider({
 }: {
 	children: React.ReactNode;
 }) {
+	const router = useRouter();
 	const [messageApi, contextHolder] = message.useMessage();
 
 	return (
@@ -21,7 +23,10 @@ export default function ConfigProvider({
 			<SWRConfig
 				value={{
 					onSuccess: (data, key, config) => {
-						MESSAGE[key] && messageApi.success(MESSAGE[key]);
+						if (HANDLER[key]) {
+							messageApi.success(HANDLER[key].MESSAGE);
+							router.push(HANDLER[key].ROUTE);
+						}
 					},
 					onError: (error, key) => {
 						console.log({error});

@@ -32,7 +32,7 @@ export default function FormImage() {
 					{(fields, {add, remove}, {errors}) => (
 						<Form.Item label="Hình ảnh của Chủ đầu tư" required>
 							{fields.map(({key, name}) => (
-								<div key={key} className={styles.formListItemDiv}>
+								<Form.Item key={key} className={styles.formListItem}>
 									<Form.Item
 										required={false}
 										name={name}
@@ -44,13 +44,14 @@ export default function FormImage() {
 												message: "Vui lòng nhập link hình ảnh",
 											},
 										]}
+										style={{flex: 1}}
 									>
 										<Input placeholder={PLACEHOLDER_LINK} />
 									</Form.Item>
 									<Button shape="circle" danger onClick={() => remove(name)}>
 										<IconMinus />
 									</Button>
-								</div>
+								</Form.Item>
 							))}
 
 							<Button
@@ -82,7 +83,7 @@ export default function FormImage() {
 					{(fields, {add, remove}, {errors}) => (
 						<Form.Item label="Hình ảnh thực tế">
 							{fields.map(({key, name}) => (
-								<div key={key} className={styles.formListItemDiv}>
+								<Form.Item key={key} className={styles.formListItem}>
 									<Form.Item
 										required={false}
 										name={name}
@@ -94,13 +95,14 @@ export default function FormImage() {
 												message: "Vui lòng nhập link hình ảnh",
 											},
 										]}
+										style={{flex: 1}}
 									>
 										<Input placeholder={PLACEHOLDER_LINK} />
 									</Form.Item>
 									<Button shape="circle" danger onClick={() => remove(name)}>
 										<IconMinus />
 									</Button>
-								</div>
+								</Form.Item>
 							))}
 
 							<Button
@@ -121,7 +123,7 @@ export default function FormImage() {
 					{(fields, {add, remove}, {errors}) => (
 						<Form.Item label="Hình ảnh mặt bằng và nội thất bàn giao" required>
 							{fields.map(({key, name}) => (
-								<div key={key} className={styles.formListItemDiv}>
+								<Form.Item key={key} className={styles.formListItem}>
 									<Form.Item
 										required={false}
 										name={name}
@@ -133,13 +135,14 @@ export default function FormImage() {
 												message: "Vui lòng nhập link hình ảnh",
 											},
 										]}
+										style={{flex: 1}}
 									>
 										<Input placeholder={PLACEHOLDER_LINK} />
 									</Form.Item>
 									<Button shape="circle" danger onClick={() => remove(name)}>
 										<IconMinus />
 									</Button>
-								</div>
+								</Form.Item>
 							))}
 
 							<Button

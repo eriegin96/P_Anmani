@@ -7,5 +7,5 @@ const fetcher = (url: string) =>
 	axiosInstance.get<TUserCart[]>(url).then((res) => res);
 
 export const useGetTempCarts = () => {
-	return useSWR(API_ENDPOINT.MOCK, fetcher);
+	return useSWR(API_ENDPOINT.TEMP_CARTS, fetcher);
 };

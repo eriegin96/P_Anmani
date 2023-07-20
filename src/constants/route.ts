@@ -1,3 +1,5 @@
+import {API_ENDPOINT} from "./api";
+
 export const ROUTE_PREFIX_USER = "user";
 export const ROUTE_PREFIX_ADMIN = "admin";
 
@@ -37,7 +39,7 @@ export const ROUTE = {
 	ADMIN_USER_NOTIFICATION_CREATE: `/${ROUTE_PREFIX_ADMIN}/user/notification/create`,
 	ADMIN_USER_DEPOSIT: `/${ROUTE_PREFIX_ADMIN}/user/deposit`,
 	ADMIN_USER_CART: `/${ROUTE_PREFIX_ADMIN}/user/cart`,
-};
+} as const;
 
 export const QUERY_PARAMS = {
 	STATUS: {
@@ -65,4 +67,4 @@ export const QUERY_PARAMS = {
 		PRICE_ASCENDING: "price-asceding",
 		PRICE_DESCENDING: "price-descending",
 	},
-};
+} as const;

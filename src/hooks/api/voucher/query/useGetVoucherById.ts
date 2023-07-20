@@ -7,5 +7,5 @@ const fetcher = (url: string) =>
 	axiosInstance.get<TVoucher>(url).then((res) => res);
 
 export const useGetVoucherById = (voucherId: string) => {
-	return useSWR(`${API_ENDPOINT.MOCK}/${voucherId}`, fetcher);
+	return useSWR(`${API_ENDPOINT.VOUCHERS}/${voucherId}`, fetcher);
 };

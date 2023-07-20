@@ -7,5 +7,5 @@ const fetcher = (url: string) =>
 	axiosInstance.get<TNotification[]>(url).then((res) => res);
 
 export const useGetNotifications = () => {
-	return useSWR(API_ENDPOINT.MOCK, fetcher);
+	return useSWR(API_ENDPOINT.NOTIFICATIONS, fetcher);
 };
