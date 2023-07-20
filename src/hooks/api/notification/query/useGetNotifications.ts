@@ -7,6 +7,6 @@ import useSWR from "swr";
 const fetcher = (url: string) =>
 	axiosInstance.get<TNotification[]>(url).then((res) => res);
 
-export const useGetNotifications = (userInfo: TUser | null) => {
+export const useGetNotifications = (userInfo?: TUser | null) => {
 	return useSWR(userInfo ? API_ENDPOINT.NOTIFICATIONS : null, fetcher);
 };

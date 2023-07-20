@@ -6,9 +6,11 @@ import {notificationTab} from "./static";
 import {notificationList} from "@/mock/data";
 import {Avatar, Skeleton} from "antd";
 import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
+import {useAuthContext} from "@/providers/AuthProvider";
 
 export default function NotificationContent() {
-	const {data, isLoading} = useGetNotifications();
+	const {userInfo} = useAuthContext();
+	const {data, isLoading} = useGetNotifications(userInfo);
 
 	return (
 		<div>

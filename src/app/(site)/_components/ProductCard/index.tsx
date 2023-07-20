@@ -10,7 +10,7 @@ import {IconBookmark, IconBookmarkFilled} from "@tabler/icons-react";
 import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/product";
 import {useState} from "react";
 import {RadioChangeEvent} from "antd";
-import {ROUTE} from "@/constants/route";
+import {QUERY_PARAMS, ROUTE} from "@/constants/route";
 import {formatCurrency} from "@/utils/formatCurrency";
 
 type TProductCardProps = {
@@ -84,7 +84,7 @@ export default function ProductCard({
 						</div>
 					</div>
 				</Link>
-				{info.status === PRODUCT_STATUS.SOLD && (
+				{info.status === QUERY_PARAMS.STATUS.SOLD && (
 					<div className={styles.overlay}>- Đã bán -</div>
 				)}
 			</div>
@@ -92,11 +92,11 @@ export default function ProductCard({
 
 			<Dialog.Root>
 				<Dialog.Trigger className={styles.save}>
-					{status === PRODUCT_STATUS.SAVED ? (
+					{/* {status === PRODUCT_STATUS.SAVED ? (
 						<IconBookmarkFilled size={30} />
-					) : (
-						<IconBookmark size={30} />
-					)}
+					) : ( */}
+					<IconBookmark size={30} />
+					{/* )} */}
 				</Dialog.Trigger>
 				<SaveDialogPortal value={value} onChange={handleSave} />
 			</Dialog.Root>
