@@ -15,6 +15,7 @@ import {
 	useMemo,
 	useState,
 } from "react";
+import {useAuthContext} from "./AuthProvider";
 
 type TCartContextDefault = {
 	cart: TCartItem[];
@@ -45,7 +46,8 @@ export const CartContext = createContext<TCartContextDefault>({
 });
 
 export default function CartProvider({children}: TCartProviderProps) {
-	const {data} = useGetTempCarts();
+	const {userInfo} = useAuthContext();
+	const {data} = useGetTempCarts(userInfo);
 	const {trigger: addCartItem} = useAddCartItem();
 	const {trigger: deleteCartItem} = useDeleteCartItem();
 	const [cart, setCart] = useState<TCartItem[]>(mockData);

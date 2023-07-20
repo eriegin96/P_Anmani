@@ -10,12 +10,21 @@ import {ROUTE} from "@/constants/route";
 import {exploreVideoList} from "@/mock/data";
 import {TExploreVideo} from "@/types/video.type";
 import {useGetExplores} from "@/hooks/api/explore/query/useGetExplores";
+import {useDeleteExplore} from "@/hooks/api/explore";
+import {useModalContext} from "@/providers/ModalProvider";
+import {IconX} from "@tabler/icons-react";
 
 type DataIndex = keyof TExploreVideo;
 
 export default function ExploreTable() {
 	const searchInput = useRef<InputRef>(null);
 	const {data, isLoading} = useGetExplores();
+	const {trigger} = useDeleteExplore();
+	const {showMDeleteConfirmationModal} = useModalContext();
+
+	const handleDelete = (exploreId: string) => {
+		showMDeleteConfirmationModal({trigger, id: exploreId});
+	};
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -108,7 +117,17 @@ export default function ExploreTable() {
 					</a>
 				),
 			},
+			{
+				title: "Xóa",
+				dataIndex: "action",
+				render: (_, {id}) => (
+					<Button danger shape="circle" onClick={() => handleDelete(id)}>
+						<IconX />
+					</Button>
+				),
+			},
 		],
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[getColumnSearchProps]
 	);
 

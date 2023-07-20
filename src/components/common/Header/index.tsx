@@ -30,7 +30,7 @@ export default function Header() {
 	const {userInfo} = useAuthContext();
 	const {isAtExplorePage} = useLayoutContext();
 	const {cart} = useCartContext();
-	const {data} = useGetNotifications();
+	const {data} = useGetNotifications(userInfo);
 
 	return (
 		<header className={clsx(styles.wrapper, isAtExplorePage && styles.hidden)}>

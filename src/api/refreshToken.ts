@@ -7,12 +7,13 @@ export const refreshToken = async () => {
 		window.localStorage.getItem(`${storagePrefix}token`) as string
 	) as TTokenResponse | null;
 	try {
-		const response = await axiosInstance.post<TTokenResponse>(
-			`/${API_ENDPOINT.REFRESH_TOKEN}`,
-			{
-				refresh_token: tokenRes?.refreshToken,
-			}
-		);
+		const response =
+			(await axiosInstance.post<TTokenResponse>(
+				`${API_ENDPOINT.REFRESH_TOKEN}`,
+				{
+					refresh_token: tokenRes?.refreshToken,
+				}
+			)) ?? null;
 
 		window.localStorage.setItem(
 			`${storagePrefix}token`,

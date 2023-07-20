@@ -24,7 +24,7 @@ export const configFormData = {
 
 function authRequestInterceptor(config: InternalAxiosRequestConfig) {
 	const tokenRes = JSON.parse(
-		window.localStorage.getItem(`${storagePrefix}token`)as string
+		window.localStorage.getItem(`${storagePrefix}token`) as string
 	) as TTokenResponse | null;
 
 	if (tokenRes) {
@@ -42,17 +42,17 @@ const onErrorResponse = async (error: AxiosError | Error) => {
 
 		if (status === HttpStatusCode.Unauthorized) {
 			// remove starting slash of URL
-			if (config.url?.substring(1) === API_ENDPOINT.REFRESH_TOKEN) {
-				// hardLogout();
-				return;
-			}
-
-			const token = await refreshToken();
-
-			if (token?.accessToken && headers) {
-				headers.Authorization = `Bearer ${token.accessToken}`;
-			}
-			return axiosInstance(config);
+			// if (config.url?.substring(1) === API_ENDPOINT.REFRESH_TOKEN) {
+			// 	hardLogout();
+			return;
+			// }
+			// const token = await refreshToken();
+			// if (token?.accessToken && headers) {
+			// 	headers.Authorization = `Bearer ${token.accessToken}`;
+			// }
+			// return axiosInstance(config);
+			// window.localStorage.removeItem(`${storagePrefix}token`);
+			// window.location.reload();
 		}
 
 		return Promise.reject(error);

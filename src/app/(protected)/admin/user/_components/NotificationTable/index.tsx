@@ -11,12 +11,23 @@ import {notificationList, userList} from "@/mock/data";
 import {TNotification} from "@/types/notification.type";
 import {NOTIFICATION_TYPE_LABEL} from "@/constants/notification";
 import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
+import {useAuthContext} from "@/providers/AuthProvider";
+import {useDeleteNotification} from "@/hooks/api/notification";
+import {useModalContext} from "@/providers/ModalProvider";
+import {IconX} from "@tabler/icons-react";
 
 type DataIndex = keyof TNotification;
 
 export default function NotificationTable() {
 	const searchInput = useRef<InputRef>(null);
-	const {data, isLoading} = useGetNotifications();
+	const {userInfo} = useAuthContext();
+	const {data, isLoading} = useGetNotifications(userInfo);
+	const {trigger} = useDeleteNotification();
+	const {showMDeleteConfirmationModal} = useModalContext();
+
+	const handleDelete = (voucherId: string) => {
+		showMDeleteConfirmationModal({trigger, id: voucherId});
+	};
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -150,7 +161,17 @@ export default function NotificationTable() {
 					);
 				},
 			},
+			{
+				title: "Xóa",
+				dataIndex: "action",
+				render: (_, {id}) => (
+					<Button danger shape="circle" onClick={() => handleDelete(id)}>
+						<IconX />
+					</Button>
+				),
+			},
 		],
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[getColumnSearchProps]
 	);
 

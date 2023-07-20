@@ -9,12 +9,20 @@ import {TProduct} from "@/types/product.type";
 import {productList} from "@/mock/data";
 import {IconX} from "@tabler/icons-react";
 import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
+import {useDeleteProduct} from "@/hooks/api/product";
+import {useModalContext} from "@/providers/ModalProvider";
 
 type DataIndex = keyof TProduct;
 
 export default function ProductTable() {
 	const searchInput = useRef<InputRef>(null);
 	const {data, isLoading} = useGetProducts();
+	const {trigger} = useDeleteProduct();
+	const {showMDeleteConfirmationModal} = useModalContext();
+
+	const handleDelete = (productId: string) => {
+		showMDeleteConfirmationModal({trigger, id: productId});
+	};
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -114,13 +122,14 @@ export default function ProductTable() {
 			{
 				title: "Xóa",
 				dataIndex: "action",
-				render: () => (
-					<Button danger shape="circle">
+				render: (_, {id}) => (
+					<Button danger shape="circle" onClick={() => handleDelete(id)}>
 						<IconX />
 					</Button>
 				),
 			},
 		],
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[getColumnSearchProps]
 	);
 

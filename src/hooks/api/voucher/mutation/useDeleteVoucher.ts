@@ -3,12 +3,12 @@ import {API_ENDPOINT} from "@/constants/api";
 import {TVoucher} from "@/types/voucher.type";
 import useSWRMutation from "swr/mutation";
 
-const fetcher = (url: string) =>
-	axiosInstance.delete<TVoucher>(url).then((res) => res);
+const fetcher = (url: string, {arg}: {arg: string}) =>
+	axiosInstance.delete<TVoucher>(`${url}/${arg}`).then((res) => res);
 
-export const useDeleteVoucher = (voucherId: string) => {
+export const useDeleteVoucher = () => {
 	const {data, trigger, isMutating, error} = useSWRMutation(
-		`${API_ENDPOINT.VOUCHERS}/${voucherId}`,
+		API_ENDPOINT.DELETE_VOUCHER,
 		fetcher
 	);
 

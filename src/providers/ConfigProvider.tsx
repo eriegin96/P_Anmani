@@ -25,7 +25,7 @@ export default function ConfigProvider({
 					onSuccess: (data, key, config) => {
 						if (HANDLER[key]) {
 							messageApi.success(HANDLER[key].MESSAGE);
-							router.push(HANDLER[key].ROUTE);
+							HANDLER[key]?.ROUTE && router.push(HANDLER[key]?.ROUTE as string);
 						}
 					},
 					onError: (error, key) => {

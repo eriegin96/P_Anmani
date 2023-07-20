@@ -10,12 +10,20 @@ import {TVoucher} from "@/types/voucher.type";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {IconX} from "@tabler/icons-react";
 import {useGetVouchers} from "@/hooks/api/voucher/query/useGetVouchers";
+import {useDeleteVoucher} from "@/hooks/api/voucher";
+import {useModalContext} from "@/providers/ModalProvider";
 
 type DataIndex = keyof TVoucher;
 
 export default function VoucherTable() {
 	const searchInput = useRef<InputRef>(null);
 	const {data, isLoading} = useGetVouchers();
+	const {trigger} = useDeleteVoucher();
+	const {showMDeleteConfirmationModal} = useModalContext();
+
+	const handleDelete = (voucherId: string) => {
+		showMDeleteConfirmationModal({trigger, id: voucherId});
+	};
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -165,13 +173,14 @@ export default function VoucherTable() {
 			{
 				title: "Xóa",
 				dataIndex: "action",
-				render: () => (
-					<Button danger shape="circle">
+				render: (_, {id}) => (
+					<Button danger shape="circle" onClick={() => handleDelete(id)}>
 						<IconX />
 					</Button>
 				),
 			},
 		],
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[getColumnSearchProps]
 	);
 

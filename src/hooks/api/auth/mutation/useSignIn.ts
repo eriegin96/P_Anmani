@@ -36,6 +36,8 @@ export const useSignIn = () => {
 				JSON.stringify(data.token)
 			);
 
+		router.push(ROUTE.HOME);
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data, router]);
 
