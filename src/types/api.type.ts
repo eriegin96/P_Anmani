@@ -19,6 +19,7 @@ export type TTokenResponse = {
 export type TUserResponse = {
 	id: string;
 	firstName: string;
+	gender: "male" | "female";
 	email: string;
 	token: string;
 };

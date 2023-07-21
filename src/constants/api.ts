@@ -4,6 +4,8 @@ export const storagePrefix = "anmani_";
 // TODO: change endpoint
 export const API_ENDPOINT = {
 	MOCK: "http/200",
+	GET_ME_USER: "users/1",
+	GET_ME_ADMIN: "users/6",
 	TEMP_CARTS: "auth/http/200/temp-carts",
 	CARTS: "auth/http/200/carts",
 	EXPLORES: "http/200/explores",

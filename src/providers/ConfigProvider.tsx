@@ -1,12 +1,14 @@
 "use client";
 
-import {ConfigProvider as AntdConfig, message} from "antd";
+import {ConfigProvider as AntdConfig, Spin, message} from "antd";
 import {Inter} from "next/font/google";
 import ModalProvider from "./ModalProvider";
 import ProductComparisonProvider from "./ProductComparisonProvider";
 import {SWRConfig} from "swr";
 import {useRouter} from "next/navigation";
 import {HANDLER} from "@/constants/handler";
+import {useGetMe} from "@/hooks/api/auth/query/useGetMe";
+import Loading from "@/app/(site)/loading";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -17,6 +19,9 @@ export default function ConfigProvider({
 }) {
 	const router = useRouter();
 	const [messageApi, contextHolder] = message.useMessage();
+	const {isLoading} = useGetMe();
+
+	if (isLoading) return <Loading />;
 
 	return (
 		<AntdConfig theme={{token: {fontFamily: inter.style.fontFamily}}}>
