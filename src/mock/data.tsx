@@ -545,13 +545,32 @@ export const exploreVideoList: TExploreVideo[] = [
 ];
 
 export const userList: TUser[] = [
-	{email: "user1@email.com", name: "User 1", role: "user", id: "user-1"},
-	{email: "user2@email.com", name: "User 2", role: "user", id: "user-2"},
+	{
+		email: "user1@email.com",
+		name: "User 1",
+		role: "user",
+		id: "user-1",
+		gender: "male",
+		dob: "",
+		phoneNumber: "",
+	},
+	{
+		email: "user2@email.com",
+		name: "User 2",
+		role: "user",
+		id: "user-2",
+		gender: "female",
+		dob: "",
+		phoneNumber: "",
+	},
 	{
 		email: "admin1@email.com",
 		name: "Admin 1",
 		role: "admin",
 		id: "admin-1",
+		gender: "male",
+		dob: "",
+		phoneNumber: "",
 	},
 ];
 

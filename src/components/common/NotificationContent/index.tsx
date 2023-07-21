@@ -26,12 +26,14 @@ export default function NotificationContent() {
 							className={styles.tabsTrigger}
 						>
 							{tab.title}
-							<span className={styles.notiAmount}>
-								{
-									notificationList.filter((noti) => noti.type === tab.value)
-										.length
-								}
-							</span>
+							{data && (
+								<span className={styles.notiAmount}>
+									{
+										notificationList.filter((noti) => noti.type === tab.value)
+											.length
+									}
+								</span>
+							)}
 						</Tabs.Trigger>
 					))}
 				</Tabs.List>
@@ -42,7 +44,8 @@ export default function NotificationContent() {
 						className={styles.tabsContent}
 					>
 						{isLoading && <Skeleton active style={{padding: "10px"}} />}
-						{data &&
+						{!isLoading &&
+							data &&
 							notificationList.map((noti) => {
 								return noti.type === tab.value ? (
 									<div key={noti.id} className={styles.notiWrapper}>
@@ -58,6 +61,9 @@ export default function NotificationContent() {
 									<></>
 								);
 							})}
+						{!isLoading && !data && (
+							<p className={styles.noNoti}>Chưa có thông báo</p>
+						)}
 					</Tabs.Content>
 				))}
 			</Tabs.Root>

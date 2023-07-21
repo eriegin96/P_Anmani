@@ -18,7 +18,6 @@ export default function Page() {
 
 	useEffect(() => {
 		form.setFieldsValue({...userInfo});
-		console.log(userInfo);
 	}, [userInfo, form]);
 
 	return (
