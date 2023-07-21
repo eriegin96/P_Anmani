@@ -19,8 +19,11 @@ export const useGetMe = () => {
 		setUserInfo({
 			email: data.email,
 			name: data.firstName,
+			gender: data.gender,
 			role: data.gender === "male" ? "user" : "admin",
 			id: data.id,
+			phoneNumber: data.phoneNumber,
+			dob: data.dob,
 		});
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps

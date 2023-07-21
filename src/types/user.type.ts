@@ -1,8 +1,11 @@
 export type TUser = {
-	email: string;
-	name: string;
-	role: string;
 	id: string;
+	name: string;
+	gender: "male" | "female";
+	phoneNumber: string;
+	role: string;
+	dob: string;
+	email: string;
 };
 
 export type TUserBooking = {

@@ -1,3 +1,5 @@
+import {TUser} from "./user.type";
+
 export type TSignUpFormData = {
 	email?: string;
 	name?: string;
@@ -16,10 +18,9 @@ export type TTokenResponse = {
 	refreshToken: string;
 };
 
-export type TUserResponse = {
-	id: string;
-	firstName: string;
-	gender: "male" | "female";
-	email: string;
+export type TUserResponse = Omit<TUser, "role"> & {
 	token: string;
+	firstName: string;
 };
+
+export type TUserInfoFormData = Omit<TUserResponse, "id" | "token">;
