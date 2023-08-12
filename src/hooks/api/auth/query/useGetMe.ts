@@ -9,8 +9,11 @@ const fetcher = (url: string) =>
 	axiosInstance.get<TUserResponse>(url).then((res) => res);
 
 export const useGetMe = () => {
-	const {data, isLoading, error} = useSWR(API_ENDPOINT.GET_ME_ADMIN, fetcher);
-	// const {data, isLoading, error} = useSWR(API_ENDPOINT.GET_ME_USER, fetcher);
+	const {data, isLoading, error} = useSWR(API_ENDPOINT.GET_ME, fetcher, {
+		revalidateIfStale: false,
+		revalidateOnFocus: false,
+		revalidateOnReconnect: false,
+	});
 	const {setUserInfo} = useAuthContext();
 
 	useEffect(() => {

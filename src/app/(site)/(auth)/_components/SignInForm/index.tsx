@@ -14,9 +14,7 @@ export default function SignInForm() {
 
 	const handleSubmit = (values: TSignInFormData) => {
 		console.log(values);
-
-		trigger({username: "kminchelle", password: "0lelplR"});
-		// trigger({username: "atuny0", password: "9uQFF1Lh"});
+		trigger(values);
 	};
 
 	return (

@@ -21,10 +21,10 @@ export const useSignIn = () => {
 	useEffect(() => {
 		if (!data) return;
 
-		data.token &&
+		data.access_token &&
 			window.localStorage.setItem(
 				`${storagePrefix}token`,
-				JSON.stringify(data.token)
+				JSON.stringify(data.access_token)
 			);
 
 		router.push(ROUTE.HOME);

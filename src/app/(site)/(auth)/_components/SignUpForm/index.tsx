@@ -14,7 +14,13 @@ export default function SignUpForm() {
 
 	const handleSubmit = (values: TSignUpFormData) => {
 		console.log(values);
-		trigger(values);
+		trigger({
+			...values,
+			phoneNumber: "0123456788",
+			gender: "male",
+			dateOfBirth: new Date().toISOString(),
+			roleId: "ad7d8071-b7b4-44a6-aeed-9568e6e38249",
+		});
 	};
 
 	return (

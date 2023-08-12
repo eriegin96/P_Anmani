@@ -10,7 +10,7 @@ import axios, {
 import {refreshToken} from "./refreshToken";
 
 export const axiosInstance = axios.create({
-	baseURL: `${BASE_URL}`,
+	baseURL: process.env.NEXT_PUBLIC_BASE_URL ?? `${BASE_URL}`,
 	headers: {
 		"Content-Type": "application/json",
 	},
@@ -36,25 +36,24 @@ function authRequestInterceptor(config: InternalAxiosRequestConfig) {
 
 const onErrorResponse = async (error: AxiosError | Error) => {
 	if (axios.isAxiosError(error)) {
-		const config = error.config as InternalAxiosRequestConfig;
-		const {headers} = config as AxiosRequestConfig;
-		const {status} = error.response as AxiosResponse;
-
-		if (status === HttpStatusCode.Unauthorized) {
-			// remove starting slash of URL
-			// if (config.url?.substring(1) === API_ENDPOINT.REFRESH_TOKEN) {
-			// 	hardLogout();
-			return;
-			// }
-			// const token = await refreshToken();
-			// if (token?.accessToken && headers) {
-			// 	headers.Authorization = `Bearer ${token.accessToken}`;
-			// }
-			// return axiosInstance(config);
-			// window.localStorage.removeItem(`${storagePrefix}token`);
-			// window.location.reload();
-		}
-
+		// 	const config = error.config as InternalAxiosRequestConfig;
+		// 	const {headers} = config as AxiosRequestConfig;
+		// 	console.log(error);
+		// 	const {status} = error.response as AxiosResponse;
+		// 	if (status === HttpStatusCode.Unauthorized) {
+		// 		// remove starting slash of URL
+		// 		// if (config.url?.substring(1) === API_ENDPOINT.REFRESH_TOKEN) {
+		// 		// 	hardLogout();
+		// 		return Promise.reject(error);
+		// 		// }
+		// 		// const token = await refreshToken();
+		// 		// if (token?.accessToken && headers) {
+		// 		// 	headers.Authorization = `Bearer ${token.accessToken}`;
+		// 		// }
+		// 		// return axiosInstance(config);
+		// 		// window.localStorage.removeItem(`${storagePrefix}token`);
+		// 		// window.location.reload();
+		// 	}
 		return Promise.reject(error);
 	}
 };

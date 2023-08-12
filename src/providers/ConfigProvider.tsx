@@ -19,9 +19,9 @@ export default function ConfigProvider({
 }) {
 	const router = useRouter();
 	const [messageApi, contextHolder] = message.useMessage();
-	const {isLoading} = useGetMe();
+	// const {isLoading} = useGetMe();
 
-	if (isLoading) return <Loading />;
+	// if (isLoading) return <Loading />;
 
 	return (
 		<AntdConfig theme={{token: {fontFamily: inter.style.fontFamily}}}>
@@ -30,7 +30,7 @@ export default function ConfigProvider({
 					onSuccess: (data, key, config) => {
 						if (HANDLER[key]) {
 							messageApi.success(HANDLER[key].MESSAGE);
-							HANDLER[key]?.ROUTE && router.push(HANDLER[key]?.ROUTE as string);
+							// HANDLER[key]?.ROUTE && router.push(HANDLER[key]?.ROUTE as string);
 						}
 					},
 					onError: (error, key) => {

@@ -14,13 +14,12 @@ export type TSignInFormData = {
 };
 
 export type TTokenResponse = {
-	accessToken: string;
-	refreshToken: string;
+	access_token: string;
 };
 
 export type TUserResponse = Omit<TUser, "role"> & {
-	token: string;
+	access_token: string;
 	firstName: string;
 };
 
-export type TUserInfoFormData = Omit<TUserResponse, "id" | "token">;
+export type TUserInfoFormData = Omit<TUserResponse, "id" | "access_token">;
