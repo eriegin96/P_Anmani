@@ -8,7 +8,7 @@ const fetcher = (url: string, {arg}: {arg: string}) =>
 		.patch<TUserCartForm>(API_ENDPOINT.CARTS, arg)
 		.then((res) => res);
 
-export const useDeleteCartItem = () => {
+export const useDeleteCart = () => {
 	const {data, trigger, isMutating, error} = useSWRMutation(
 		API_KEY.DELETE_CART,
 		fetcher

@@ -9,7 +9,7 @@ const fetcher = (url: string) =>
 
 export const useGetCartByUser = (userInfo: TUser | null) => {
 	return useSWR(
-		userInfo ? concatHref(API_ENDPOINT.TEMP_CARTS, userInfo.id) : null,
+		userInfo ? concatHref(API_ENDPOINT.USER_CARTS, userInfo.id) : null,
 		fetcher
 	);
 };

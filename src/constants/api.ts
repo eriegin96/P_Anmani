@@ -5,7 +5,7 @@ export const storagePrefix = "anmani_";
 export const API_ENDPOINT = {
 	MOCK: "",
 	GET_ME: "auth/me",
-	TEMP_CARTS: "carts/user",
+	USER_CARTS: "carts/user",
 	CARTS: "carts",
 	EXPLORES: "videos",
 	NOTIFICATIONS: "notifications",
@@ -19,7 +19,7 @@ export const API_ENDPOINT = {
 export const API_KEY = {
 	MOCK: "",
 	GET_ME: "auth/me",
-	TEMP_CARTS: "carts/user",
+	USER_CARTS: "carts/user",
 	CARTS: "carts",
 	EXPLORES: "videos",
 	NOTIFICATIONS: "notifications",

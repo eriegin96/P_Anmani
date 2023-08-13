@@ -1,8 +1,6 @@
 "use client";
 
-import {useDeleteCartItem} from "@/hooks/api/cart";
-import {useAddCartItem} from "@/hooks/api/cart/mutation/useAddCartItem";
-import {useGetCartByUser} from "@/hooks/api/cart/query/useGetCartByUser";
+import {useDeleteCart, useUpdateCart, useGetCartByUser} from "@/hooks/api/cart";
 import {productList, userCartList} from "@/mock/data";
 import {TCartItem, TCartItemForm} from "@/types/user.type";
 import {CheckboxValueType} from "antd/es/checkbox/Group";
@@ -48,8 +46,8 @@ export const CartContext = createContext<TCartContextDefault>({
 export default function CartProvider({children}: TCartProviderProps) {
 	const {userInfo} = useAuthContext();
 	const {data: cartData} = useGetCartByUser(userInfo);
-	const {trigger: addCartItem} = useAddCartItem();
-	const {trigger: deleteCartItem} = useDeleteCartItem();
+	const {trigger: addCartItem} = useUpdateCart();
+	const {trigger: deleteCartItem} = useDeleteCart();
 	const [cart, setCart] = useState<TCartItem[]>(cartData ?? []);
 	const checkedListDefault = cart.map((item) => item.value);
 	const [checkedList, setCheckedList] =
