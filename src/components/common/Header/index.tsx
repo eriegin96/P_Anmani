@@ -22,7 +22,7 @@ import {useLayoutContext} from "@/providers/LayoutProvider";
 import {useAuthContext} from "@/providers/AuthProvider";
 import {notificationList} from "@/mock/data";
 import {useCartContext} from "@/providers/CartProvider";
-import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
+import { useGetNotificationsByUser } from "@/hooks/api/notification";
 
 const Button = dynamic(() => import("../Button"));
 
@@ -30,7 +30,7 @@ export default function Header() {
 	const {userInfo} = useAuthContext();
 	const {isAtExplorePage} = useLayoutContext();
 	const {cart} = useCartContext();
-	const {data} = useGetNotifications(userInfo);
+	const {data} = useGetNotificationsByUser(userInfo);
 
 	return (
 		<header className={clsx(styles.wrapper, isAtExplorePage && styles.hidden)}>

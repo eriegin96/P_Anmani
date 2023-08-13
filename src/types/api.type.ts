@@ -17,9 +17,6 @@ export type TTokenResponse = {
 	access_token: string;
 };
 
-export type TUserResponse = Omit<TUser, "role"> & {
-	access_token: string;
-	firstName: string;
-};
+export type TUserResponse = Omit<TUser, "id"> & {key: string};
 
-export type TUserInfoFormData = Omit<TUserResponse, "id" | "access_token">;
+export type TUserInfoFormData = Omit<TUserResponse, "id">;

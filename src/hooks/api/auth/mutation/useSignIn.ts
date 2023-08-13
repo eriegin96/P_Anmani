@@ -21,12 +21,6 @@ export const useSignIn = () => {
 	useEffect(() => {
 		if (!data) return;
 
-		data.access_token &&
-			window.localStorage.setItem(
-				`${storagePrefix}token`,
-				JSON.stringify(data.access_token)
-			);
-
 		router.push(ROUTE.HOME);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps

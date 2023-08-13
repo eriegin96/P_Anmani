@@ -3,8 +3,8 @@ export type TUser = {
 	name: string;
 	gender: "male" | "female";
 	phoneNumber: string;
-	role: string;
-	dob: string;
+	role: {key: string; name: string};
+	dateOfBirth: string;
 	email: string;
 };
 

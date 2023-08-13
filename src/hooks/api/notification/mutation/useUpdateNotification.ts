@@ -1,6 +1,7 @@
 import {axiosInstance} from "@/api/axios";
 import {API_ENDPOINT} from "@/constants/api";
 import {TNotification} from "@/types/notification.type";
+import {concatHref} from "@/utils/concatHref";
 import useSWRMutation from "swr/mutation";
 
 const fetcher = (url: string, {arg}: {arg: TNotification}) =>
@@ -10,7 +11,7 @@ const fetcher = (url: string, {arg}: {arg: TNotification}) =>
 
 export const useUpdateNotification = (notificationId: string) => {
 	const {data, trigger, isMutating, error} = useSWRMutation(
-		`${API_ENDPOINT.NOTIFICATIONS}/${notificationId}`,
+		concatHref(API_ENDPOINT.NOTIFICATIONS, notificationId),
 		fetcher
 	);
 

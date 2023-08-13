@@ -14,6 +14,7 @@ export const axiosInstance = axios.create({
 	headers: {
 		"Content-Type": "application/json",
 	},
+	withCredentials: true,
 });
 
 export const configFormData = {
@@ -23,37 +24,11 @@ export const configFormData = {
 };
 
 function authRequestInterceptor(config: InternalAxiosRequestConfig) {
-	const tokenRes = JSON.parse(
-		window.localStorage.getItem(`${storagePrefix}token`) as string
-	) as TTokenResponse | null;
-
-	if (tokenRes) {
-		config.headers.Authorization = `Bearer ${tokenRes}`;
-	}
-	config.headers.Accept = "application/json";
 	return config;
 }
 
 const onErrorResponse = async (error: AxiosError | Error) => {
 	if (axios.isAxiosError(error)) {
-		// 	const config = error.config as InternalAxiosRequestConfig;
-		// 	const {headers} = config as AxiosRequestConfig;
-		// 	console.log(error);
-		// 	const {status} = error.response as AxiosResponse;
-		// 	if (status === HttpStatusCode.Unauthorized) {
-		// 		// remove starting slash of URL
-		// 		// if (config.url?.substring(1) === API_ENDPOINT.REFRESH_TOKEN) {
-		// 		// 	hardLogout();
-		// 		return Promise.reject(error);
-		// 		// }
-		// 		// const token = await refreshToken();
-		// 		// if (token?.accessToken && headers) {
-		// 		// 	headers.Authorization = `Bearer ${token.accessToken}`;
-		// 		// }
-		// 		// return axiosInstance(config);
-		// 		// window.localStorage.removeItem(`${storagePrefix}token`);
-		// 		// window.location.reload();
-		// 	}
 		return Promise.reject(error);
 	}
 };

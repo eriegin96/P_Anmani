@@ -5,12 +5,12 @@ import styles from "./notificationContent.module.scss";
 import {notificationTab} from "./static";
 import {notificationList} from "@/mock/data";
 import {Avatar, Skeleton} from "antd";
-import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
 import {useAuthContext} from "@/providers/AuthProvider";
+import {useGetNotificationsByUser} from "@/hooks/api/notification";
 
 export default function NotificationContent() {
 	const {userInfo} = useAuthContext();
-	const {data, isLoading} = useGetNotifications(userInfo);
+	const {data, isLoading} = useGetNotificationsByUser(userInfo);
 
 	return (
 		<div>
