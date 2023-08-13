@@ -6,13 +6,40 @@ import {defaultFormConfig} from "@/app/(protected)/admin/_shared/config";
 export default function FormLocation() {
 	return (
 		<Row gutter={20}>
-			<Col span={24}>
+			<Col span={12}>
+				<Form.Item
+					name={["location", "sub"]}
+					label="Phường / Quận"
+					{...defaultFormConfig}
+				>
+					<Input placeholder="Phường Vĩnh Hải / Quận 1" />
+				</Form.Item>
+			</Col>
+			<Col span={12}>
 				<Form.Item
 					name={["location", "detail"]}
 					label="Vị trí"
 					{...defaultFormConfig}
 				>
 					<Input placeholder="Số nhà, đường, phường" />
+				</Form.Item>
+			</Col>
+			<Col span={12}>
+				<Form.Item
+					name={["location", "lng"]}
+					label="Kinh độ"
+					{...defaultFormConfig}
+				>
+					<Input placeholder="106.724992" />
+				</Form.Item>
+			</Col>
+			<Col span={12}>
+				<Form.Item
+					name={["location", "lat"]}
+					label="Vĩ độ"
+					{...defaultFormConfig}
+				>
+					<Input placeholder="10.729886" />
 				</Form.Item>
 			</Col>
 			<Col span={12}>

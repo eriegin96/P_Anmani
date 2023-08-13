@@ -2,7 +2,7 @@
 
 import {Button, Layout, Menu} from "antd";
 
-import {useEffect, useLayoutEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 import {IconChevronLeft} from "@tabler/icons-react";
@@ -14,7 +14,6 @@ import clsx from "clsx";
 import styles from "./(protected).module.scss";
 import {useAuthContext} from "@/providers/AuthProvider";
 import Loading from "../(site)/loading";
-import {useGetMe} from "@/hooks/api/auth/query/useGetMe";
 
 const {Sider, Header, Content} = Layout;
 const sidebarNavFlat = menuNavList.reduce(
@@ -43,12 +42,13 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 	const defaultOpenKeys = openedSubmenu ? [openedSubmenu.key] : [];
 
 	useEffect(() => {
-		if (userInfo?.role && userInfo?.role !== "admin") router.push(ROUTE.HOME);
+		if (userInfo?.role && userInfo?.role.name !== "admin")
+			router.push(ROUTE.HOME);
 	}, [userInfo, router]);
 
 	return (
 		<>
-			{userInfo?.role === "admin" ? (
+			{userInfo?.role.name === "admin" ? (
 				<Layout className={styles.layoutWrapper}>
 					<Sider
 						trigger={null}

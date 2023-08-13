@@ -32,16 +32,20 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 	const {trigger: updateProduct, isMutating: isUpdating} = useUpdateProduct(id);
 
 	const handleSubmit = (values: TProduct) => {
-		console.log(values);
-		isEditing ? updateProduct(values) : createProduct(values);
+		const lat = Number(values.location.lat);
+		const lng = Number(values.location.lng);
+		const newValues = {
+			...values,
+			location: {...values.location, lat, lng},
+		};
+		console.log(newValues);
+
+		isEditing ? updateProduct(newValues) : createProduct(newValues);
 	};
 
 	useEffect(() => {
-		const fieldValue = data && productList.find((product) => product.id === id);
-
-		form.setFieldsValue({...fieldValue});
-		console.log(fieldValue);
-	}, [id, data, form]);
+		form.setFieldsValue({...data});
+	}, [data]);
 
 	return (
 		<Form

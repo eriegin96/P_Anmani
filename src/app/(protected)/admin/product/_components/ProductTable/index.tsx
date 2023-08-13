@@ -6,7 +6,6 @@ import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 import {TProduct} from "@/types/product.type";
-import {productList} from "@/mock/data";
 import {IconX} from "@tabler/icons-react";
 import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 import {useDeleteProduct} from "@/hooks/api/product";
@@ -101,8 +100,8 @@ export default function ProductTable() {
 					record.name.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.name.length - b.name.length,
 				sortDirections: ["ascend", "descend"],
-				render: (name, {id}) => (
-					<Link href={`${ROUTE.ADMIN_PRODUCT}/${id}`}>{name}</Link>
+				render: (name, {key}) => (
+					<Link href={`${ROUTE.ADMIN_PRODUCT}/${key}`}>{name}</Link>
 				),
 			},
 			{
@@ -145,7 +144,7 @@ export default function ProductTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={data && productList}
+			dataSource={data}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			onChange={onChange}

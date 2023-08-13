@@ -20,9 +20,6 @@ import Image from "next/image";
 import {carouselList, categoryList, investorList} from "./static";
 
 export default async function Page() {
-	// const categoryList = await getCategories();
-	// console.log(categories[0]);
-
 	return (
 		<>
 			<AdvancedSearch />

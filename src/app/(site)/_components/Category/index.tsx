@@ -9,7 +9,6 @@ import * as Tabs from "@radix-ui/react-tabs";
 import Carousel from "../Carousel";
 import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
-import {productList} from "../../../../mock/data";
 import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 import {ItemsSkeleton} from "@/components";
 
@@ -18,8 +17,9 @@ type TCategoryProps = {
 };
 
 export default function Category({category}: TCategoryProps) {
-	const {title, location, href, icon} = category;
+	const {title, location, href, icon, type} = category;
 	const {data, isLoading} = useGetProducts();
+	const categoryList = data?.filter((product) => product.type === type);
 
 	return (
 		<div className={styles.wrapper}>
@@ -35,32 +35,34 @@ export default function Category({category}: TCategoryProps) {
 
 			{isLoading && <ItemsSkeleton />}
 
-			{data && (
-				<Tabs.Root defaultValue={location[0]} className={styles.tabsRoot}>
+			{categoryList && (
+				<Tabs.Root defaultValue={location[0].value} className={styles.tabsRoot}>
 					<Tabs.List aria-label="Category" className={styles.tabsList}>
-						{location.map((locationItem) => (
+						{location.map(({value, name}) => (
 							<Tabs.Trigger
-								key={locationItem}
-								value={locationItem}
+								key={value}
+								value={value}
 								className={styles.tabsTrigger}
 							>
-								{locationItem}
+								{name}
 							</Tabs.Trigger>
 						))}
 					</Tabs.List>
 
-					{location.map((locationItem) => (
+					{location.map(({value, name}) => (
 						<Tabs.Content
-							key={locationItem}
-							value={locationItem}
+							key={value}
+							value={value}
 							className={styles.tabsContent}
 						>
 							<Carousel setting={setting}>
-								{productList.map((saleItem) => (
-									<div key={saleItem.name} className={styles.productWrapper}>
-										<ProductCard info={saleItem} />
-									</div>
-								))}
+								{categoryList
+									.filter((product) => product.location.main === value)
+									.map((saleItem) => (
+										<div key={saleItem.name} className={styles.productWrapper}>
+											<ProductCard info={saleItem} />
+										</div>
+									))}
 							</Carousel>
 						</Tabs.Content>
 					))}

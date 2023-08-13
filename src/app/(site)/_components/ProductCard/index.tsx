@@ -23,7 +23,7 @@ export default function ProductCard({
 	isShowView = false,
 }: TProductCardProps) {
 	const {
-		id,
+		key,
 		name,
 		price,
 		originalPrice,
@@ -46,7 +46,7 @@ export default function ProductCard({
 	return (
 		<div className={styles.itemWrapper}>
 			<div className={styles.linkWrapper}>
-				<Link href={`${ROUTE.PRODUCT}/${id}`} key={name}>
+				<Link href={`${ROUTE.PRODUCT}/${key}`} key={name}>
 					<div className={styles.cardContent}>
 						<div className={styles.imageWrapper}>
 							<Image src={thumbnail} alt="" fill className={styles.thumbnail} />

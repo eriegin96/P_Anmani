@@ -4,7 +4,6 @@ import styles from "./flashSale.module.scss";
 import Carousel from "../Carousel";
 import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
-import {productList} from "../../../../mock/data";
 import {IconFlashSale} from "@/assets";
 import Image from "next/image";
 import {CountdownProps, Statistic} from "antd";
@@ -64,7 +63,7 @@ export default function FlashSale() {
 
 			{data && (
 				<Carousel setting={carouselSetting}>
-					{productList.map((sale) => (
+					{data.map((sale) => (
 						<div key={sale.name} className={styles.productWrapper}>
 							<ProductCard info={sale} isShowView />
 						</div>

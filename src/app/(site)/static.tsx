@@ -7,6 +7,7 @@ import {
 	IconTrendingUp,
 } from "../../assets";
 import {PRODUCT_TAG, PRODUCT_TYPE} from "@/constants/product";
+import {TCategory} from "@/types/category.type";
 
 export const carouselList = [
 	{
@@ -19,12 +20,17 @@ export const carouselList = [
 	},
 ];
 
-const locationList = ["Hồ Chí Minh", "Nha Trang", "Phú Quốc", "Đà Nẵng"];
+const locationList = [
+	{value: QUERY_PARAMS.LOCATION.HCM, name: "Hồ Chí Minh"},
+	{value: QUERY_PARAMS.LOCATION.NHA_TRANG, name: "Nha Trang"},
+	{value: QUERY_PARAMS.LOCATION.PHU_QUOC, name: "Phú Quốc"},
+	{value: QUERY_PARAMS.LOCATION.DA_NANG, name: "Đà Nẵng"},
+];
 
-export const categoryList = [
+export const categoryList: TCategory[] = [
 	{
 		id: "1",
-		value: 1,
+		type: QUERY_PARAMS.TYPE.SINGLE,
 		title: PRODUCT_TYPE.SINGLE_VILLA,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.SINGLE}`,
@@ -32,7 +38,7 @@ export const categoryList = [
 	},
 	{
 		id: "2",
-		value: 2,
+		type: QUERY_PARAMS.TYPE.DOUBLE,
 		title: PRODUCT_TYPE.DOUBLE_VILLA,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.DOUBLE}`,
@@ -40,7 +46,7 @@ export const categoryList = [
 	},
 	{
 		id: "3",
-		value: 3,
+		type: QUERY_PARAMS.TYPE.SHOPHOUSE,
 		title: PRODUCT_TYPE.SHOPHOUSE,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.SHOPHOUSE}`,
@@ -48,7 +54,7 @@ export const categoryList = [
 	},
 	{
 		id: "4",
-		value: 4,
+		type: QUERY_PARAMS.TYPE.APARTMENT,
 		title: PRODUCT_TYPE.APARTMENT,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.APARTMENT}`,
@@ -56,7 +62,7 @@ export const categoryList = [
 	},
 	{
 		id: "5",
-		value: 5,
+		type: QUERY_PARAMS.TAG.TRANSFER,
 		title: PRODUCT_TAG.TRANSFER,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TAG.TRANSFER}`,

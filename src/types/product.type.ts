@@ -25,10 +25,16 @@ export type TProduct = {
 	key: string;
 	type: TProductTypeValue;
 	tag: TProductTagValue;
-	investor: "1" | "2" | "3";
+	investor: {name: string; logo: string};
 	name: string;
 	price: number;
 	originalPrice: number;
+	image: {
+		thumbnail: string;
+		main: string[];
+		reality: string[];
+		area: string[];
+	};
 	information: {
 		landArea: string;
 		floor: string;
@@ -52,6 +58,8 @@ export type TProduct = {
 		sub: string;
 		nearby: TProductPlace[];
 		popular: TProductPlace[];
+		lat: number;
+		lng: number;
 	};
 	view: number;
 	thumbnail: string;
