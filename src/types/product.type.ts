@@ -62,7 +62,6 @@ export type TProduct = {
 		lng: number;
 	};
 	view: number;
-	thumbnail: string;
 	logo: any;
 	status: TProductStatusValue;
 };

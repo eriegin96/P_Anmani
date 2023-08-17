@@ -121,7 +121,7 @@ export default function ProductComparisonProvider({
 											<IconX size={20} />
 										</Button>
 										<div>
-											<Image src={product.thumbnail} alt="" fill />
+											<Image src={product.image.thumbnail} alt="" fill />
 										</div>
 										<Typography.Text>{product.name}</Typography.Text>
 									</>

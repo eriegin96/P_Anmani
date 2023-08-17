@@ -12,7 +12,12 @@ type TComparisonSlotProps = {
 
 export default function ComparisonSlot({
 	slotId,
-	product: {thumbnail, name, originalPrice, price},
+	product: {
+		image: {thumbnail},
+		name,
+		originalPrice,
+		price,
+	},
 }: TComparisonSlotProps) {
 	const {removeComparisonProduct} = useProductComparisonContext();
 

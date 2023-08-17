@@ -29,7 +29,7 @@ export default function ProductCard({
 		originalPrice,
 		information,
 		view,
-		thumbnail,
+		image: {thumbnail},
 		logo,
 		location,
 		status,

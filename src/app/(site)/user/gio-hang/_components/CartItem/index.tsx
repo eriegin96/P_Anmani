@@ -28,7 +28,7 @@ export default function CartItem({
 		<div className={styles.wrapper}>
 			<div className={styles.checkboxLabel}>
 				<div className={styles.imageWrapper}>
-					<Image src={product.thumbnail} alt="" fill />
+					<Image src={product.image.thumbnail} alt="" fill />
 				</div>
 				<div className={styles.info}>
 					<div>

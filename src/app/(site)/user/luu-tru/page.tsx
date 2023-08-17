@@ -46,7 +46,7 @@ export default function Page() {
 								<div key={item.id} className={styles.itemWrapper}>
 									<div className={styles.itemInfo}>
 										<div className={styles.imageWrapper}>
-											<Image src={item.thumbnail} alt="" fill />
+											<Image src={item.image.thumbnail} alt="" fill />
 										</div>
 										<div className={styles.descriptionWrapper}>
 											<h5>{item.name}</h5>

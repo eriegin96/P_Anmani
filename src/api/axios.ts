@@ -1,13 +1,5 @@
-import {API_ENDPOINT, BASE_URL, storagePrefix} from "@/constants/api";
-import {TTokenResponse} from "@/types/api.type";
-import axios, {
-	AxiosError,
-	AxiosRequestConfig,
-	AxiosResponse,
-	HttpStatusCode,
-	InternalAxiosRequestConfig,
-} from "axios";
-import {refreshToken} from "./refreshToken";
+import {BASE_URL} from "@/constants/api";
+import axios, {AxiosError, InternalAxiosRequestConfig} from "axios";
 
 export const axiosInstance = axios.create({
 	baseURL: process.env.NEXT_PUBLIC_BASE_URL ?? `${BASE_URL}`,
