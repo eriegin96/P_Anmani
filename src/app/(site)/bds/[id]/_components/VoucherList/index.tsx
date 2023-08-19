@@ -2,12 +2,13 @@ import {Voucher} from "@/components";
 import {TVoucher} from "@/types/voucher.type";
 import {useParams} from "next/navigation";
 import styles from "./voucherList.module.scss";
-import {voucherList} from "@/mock/data";
+import {useGetVouchers} from "@/hooks/api/voucher";
 
 export default function VoucherList() {
 	const {id} = useParams();
-	const vouchers = voucherList.filter(
-		(voucher) => voucher.id !== id
+	const {data: voucherList} = useGetVouchers();
+	const vouchers = voucherList?.filter(
+		(voucher) => voucher.key !== id
 	) as TVoucher[];
 
 	return (
@@ -17,7 +18,7 @@ export default function VoucherList() {
 			</p>
 			<div className={styles.list}>
 				{vouchers?.map((voucher) => (
-					<Voucher key={voucher.id} voucher={voucher} shouldShowBtn />
+					<Voucher key={voucher.key} voucher={voucher} shouldShowBtn />
 				))}
 			</div>
 		</>

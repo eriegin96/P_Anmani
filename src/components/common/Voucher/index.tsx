@@ -16,10 +16,10 @@ export default function Voucher({
 	voucher,
 	shouldShowBtn = false,
 }: TVoucherProps) {
-	const {discount, condition, expiredDate} = voucher;
-	const discountAmount = discount.amount
-		? discount.amount.toString().replace(NUMBER_FORMAT, ".")
-		: `${discount.percent}%`;
+	const {amount, percentage, condition, expiredDate} = voucher;
+	const discountAmount = amount
+		? amount.toString().replace(NUMBER_FORMAT, ".")
+		: `${percentage}%`;
 
 	return (
 		<div className={styles.voucherWrapper}>

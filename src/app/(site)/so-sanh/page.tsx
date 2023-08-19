@@ -10,11 +10,12 @@ import {useProductComparisonContext} from "@/providers/ProductComparisonProvider
 import ComparisonSlot from "./_components/ComparisonSlot";
 import {getDataFromKey} from "@/utils/getDataFromKey";
 import {PRODUCT_DETAIL_TITLE} from "@/constants/product";
-import {voucherList} from "@/mock/data";
 import {formatCurrency} from "@/utils/formatCurrency";
+import {useGetVouchers} from "@/hooks/api/voucher";
 
 export default function SoSanhPage() {
 	const {selectedProducts, showComparisonModal} = useProductComparisonContext();
+	const {data: voucherList} = useGetVouchers();
 
 	const onChange = (key: string | string[]) => {
 		console.log(key);
@@ -40,13 +41,11 @@ export default function SoSanhPage() {
 							{product1 && (
 								<Col span={colSpan}>
 									{voucherList
-										.filter((voucher) => voucher.productId === product1.key)
-										.map(({id, discount}) => (
-											<div key={id}>
+										?.filter((voucher) => voucher.productId === product1.key)
+										?.map(({key, amount, percentage}) => (
+											<div key={key}>
 												Giảm{" "}
-												{discount?.amount
-													? formatCurrency(discount.amount)
-													: `${discount.percent}%`}
+												{amount ? formatCurrency(amount) : `${percentage}%`}
 											</div>
 										))}
 								</Col>
@@ -54,13 +53,11 @@ export default function SoSanhPage() {
 							{product2 && (
 								<Col span={colSpan}>
 									{voucherList
-										.filter((voucher) => voucher.productId === product2.key)
-										.map(({id, discount}) => (
-											<div key={id}>
+										?.filter((voucher) => voucher.productId === product2.key)
+										?.map(({key, amount, percentage}) => (
+											<div key={key}>
 												Giảm{" "}
-												{discount?.amount
-													? formatCurrency(discount.amount)
-													: `${discount.percent}%`}
+												{amount ? formatCurrency(amount) : `${percentage}%`}
 											</div>
 										))}
 								</Col>
@@ -68,13 +65,11 @@ export default function SoSanhPage() {
 							{product3 && (
 								<Col span={colSpan}>
 									{voucherList
-										.filter((voucher) => voucher.productId === product3.key)
-										.map(({id, discount}) => (
-											<div key={id}>
+										?.filter((voucher) => voucher.productId === product3.key)
+										?.map(({key, amount, percentage}) => (
+											<div key={key}>
 												Giảm{" "}
-												{discount?.amount
-													? formatCurrency(discount.amount)
-													: `${discount.percent}%`}
+												{amount ? formatCurrency(amount) : `${percentage}%`}
 											</div>
 										))}
 								</Col>

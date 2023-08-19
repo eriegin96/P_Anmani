@@ -4,12 +4,6 @@ import {useGetCarts} from "@/hooks/api/cart";
 import {useGetExplores} from "@/hooks/api/explore";
 import {useGetProducts} from "@/hooks/api/product";
 import {useGetVouchers} from "@/hooks/api/voucher";
-import {
-	exploreVideoList,
-	productList,
-	userCartList,
-	voucherList,
-} from "@/mock/data";
 import {Card, Col, Row, Statistic} from "antd";
 
 export default function AdminPage() {

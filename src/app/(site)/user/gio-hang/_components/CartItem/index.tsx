@@ -56,7 +56,7 @@ export default function CartItem({
 					</h4>
 					{item.voucherAdded.map((voucherId) => {
 						const voucher = voucherList.find(
-							(item) => item.id === voucherId
+							(item) => item.key === voucherId
 						) as TVoucher;
 
 						return <Voucher key={voucherId} voucher={voucher} />;

@@ -18,6 +18,7 @@ import {
 	useGetProductById,
 	useUpdateProduct,
 } from "@/hooks/api/product";
+import {ROUTE} from "@/constants/route";
 
 type TProductFormProps = {
 	isEditing?: boolean;
@@ -44,6 +45,7 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 		const lng = Number(values.location.lng);
 		const newValues = {
 			...values,
+			location: {...values.location, lat, lng},
 			investor: {name: values.investor.name, logo: "http://google.com"},
 		};
 		console.log(newValues);
@@ -56,7 +58,7 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 	}, [data]);
 
 	useEffect(() => {
-		if (dataCreate || dataUpdate) form.resetFields();
+		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_PRODUCT);
 	}, [dataCreate, dataUpdate]);
 
 	return (

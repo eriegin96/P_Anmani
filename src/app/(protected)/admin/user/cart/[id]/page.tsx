@@ -30,7 +30,7 @@ export default function AdminUserCartPage({
 			(product) => product.key === cartItem.productId
 		) as TProduct,
 		voucherList: voucherList.filter((voucher) =>
-			cartItem.voucherAdded.includes(voucher.id)
+			cartItem.voucherAdded.includes(voucher.key)
 		),
 	}));
 
@@ -83,12 +83,12 @@ export default function AdminUserCartPage({
 								<Descriptions.Item label="Vị trí">{detail}</Descriptions.Item>
 								<Descriptions.Item label="Voucher áp dụng">
 									{voucherList.map(
-										({id, discount, discountOption, condition}) => (
-											<li key={id}>
+										({key, amount, percentage, option, condition}) => (
+											<li key={key}>
 												<span>
-													{discountOption === "amount"
-														? formatCurrency(discount.amount)
-														: `${discount.percent}%`}
+													{option === "amount"
+														? formatCurrency(amount)
+														: `${percentage}%`}
 												</span>{" "}
 												- <span>{condition}</span>
 											</li>

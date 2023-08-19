@@ -5,24 +5,31 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {productList, voucherList} from "@/mock/data";
 import {TVoucher} from "@/types/voucher.type";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {IconX} from "@tabler/icons-react";
 import {useGetVouchers} from "@/hooks/api/voucher/query/useGetVouchers";
 import {useDeleteVoucher} from "@/hooks/api/voucher";
 import {useModalContext} from "@/providers/ModalProvider";
+import {useGetProducts} from "@/hooks/api/product";
+import {API_ENDPOINT} from "@/constants/api";
 
 type DataIndex = keyof TVoucher;
 
 export default function VoucherTable() {
 	const searchInput = useRef<InputRef>(null);
-	const {data, isLoading} = useGetVouchers();
+	const {data: voucherList, isLoading} = useGetVouchers();
+	const {data: productList} = useGetProducts();
 	const {trigger} = useDeleteVoucher();
 	const {showMDeleteConfirmationModal} = useModalContext();
 
-	const handleDelete = (voucherId: string) => {
-		showMDeleteConfirmationModal({trigger, id: voucherId});
+	const handleDelete = ({key}: {key: string}) => {
+		showMDeleteConfirmationModal({
+			trigger,
+			id: key,
+			name: key,
+			keyRevalidate: API_ENDPOINT.VOUCHERS,
+		});
 	};
 
 	const handleSearch = (
@@ -96,11 +103,11 @@ export default function VoucherTable() {
 		() => [
 			{
 				title: "Voucher ID",
-				dataIndex: "id",
-				...getColumnSearchProps("id"),
+				dataIndex: "key",
+				...getColumnSearchProps("key"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.id.indexOf(value.toString()) === 0,
-				sorter: (a, b) => a.id.length - b.id.length,
+					record.key.indexOf(value.toString()) === 0,
+				sorter: (a, b) => a.key.length - b.key.length,
 				sortDirections: ["ascend", "descend"],
 				render: (id) => <Link href={`${ROUTE.ADMIN_VOUCHER}/${id}`}>{id}</Link>,
 			},
@@ -113,7 +120,7 @@ export default function VoucherTable() {
 				sorter: (a, b) => a.productId.length - b.productId.length,
 				sortDirections: ["ascend", "descend"],
 				render: (productId) => {
-					const name = productList.find(
+					const name = productList?.find(
 						(product) => product.key === productId
 					)?.name;
 					return (
@@ -128,17 +135,17 @@ export default function VoucherTable() {
 				onFilter: (value: string | number | boolean, record) =>
 					record.productId.indexOf(value.toString()) === 0,
 				sorter: (a, b) => {
-					const aPrice = productList.find(
+					const aPrice = productList?.find(
 						(product) => product.key === a.productId
 					)?.price as number;
-					const bPrice = productList.find(
+					const bPrice = productList?.find(
 						(product) => product.key === b.productId
 					)?.price as number;
 					return aPrice - bPrice;
 				},
 				sortDirections: ["ascend", "descend"],
 				render: (productId) => {
-					const price = productList.find(
+					const price = productList?.find(
 						(product) => product.key === productId
 					)?.price;
 					return <>{formatCurrency(price, true, true)}</>;
@@ -148,14 +155,10 @@ export default function VoucherTable() {
 			{
 				title: "Giảm giá",
 				dataIndex: "discount",
-				...getColumnSearchProps("discount"),
+				...getColumnSearchProps("option"),
 				sortDirections: ["ascend", "descend"],
-				render: (discount) => (
-					<>
-						{discount?.amount
-							? formatCurrency(discount?.amount)
-							: `${discount?.percent}%`}
-					</>
+				render: (_, {amount, percentage}) => (
+					<>{amount ? formatCurrency(amount) : `${percentage}%`}</>
 				),
 			},
 			{
@@ -173,8 +176,8 @@ export default function VoucherTable() {
 			{
 				title: "Xóa",
 				dataIndex: "action",
-				render: (_, {id}) => (
-					<Button danger shape="circle" onClick={() => handleDelete(id)}>
+				render: (_, {key}) => (
+					<Button danger shape="circle" onClick={() => handleDelete({key})}>
 						<IconX />
 					</Button>
 				),
@@ -196,7 +199,7 @@ export default function VoucherTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={data && voucherList}
+			dataSource={voucherList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}

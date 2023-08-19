@@ -14,6 +14,7 @@ import {
 	useGetVoucherById,
 	useUpdateVoucher,
 } from "@/hooks/api/voucher";
+import {ROUTE} from "@/constants/route";
 
 type TVoucherFormProps = {
 	isEditing?: boolean;
@@ -25,9 +26,17 @@ export default function VoucherForm({isEditing = false}: TVoucherFormProps) {
 	const [form] = Form.useForm<TVoucherForm>();
 	const router = useRouter();
 	const {id} = useParams();
-	const {data} = useGetVoucherById(id);
-	const {trigger: createVoucher, isMutating: isCreating} = useCreateVoucher();
-	const {trigger: updateVoucher, isMutating: isUpdating} = useUpdateVoucher(id);
+	const {data: voucher} = useGetVoucherById(id);
+	const {
+		trigger: createVoucher,
+		isMutating: isCreating,
+		data: dataCreate,
+	} = useCreateVoucher();
+	const {
+		trigger: updateVoucher,
+		isMutating: isUpdating,
+		data: dataUpdate,
+	} = useUpdateVoucher(id);
 
 	const handleSubmit = (values: TVoucherForm) => {
 		const expiredDate = (values.expiredDate as dayjs.Dayjs).format(DATE_FORMAT);
@@ -38,17 +47,19 @@ export default function VoucherForm({isEditing = false}: TVoucherFormProps) {
 	};
 
 	useEffect(() => {
-		const fieldsValue =
-			data && voucherList.find((voucher) => voucher.id === id);
 		form.setFieldsValue({
-			...fieldsValue,
-			discountOption: fieldsValue?.discountOption ?? "amount",
-			expiredDate: fieldsValue?.["expiredDate"]
-				? dayjs(fieldsValue?.["expiredDate"], DATE_FORMAT)
+			...voucher,
+			option: voucher?.option ?? "amount",
+			expiredDate: voucher?.["expiredDate"]
+				? dayjs(voucher?.["expiredDate"], DATE_FORMAT)
 				: dayjs(new Date()),
 		});
-		console.log(fieldsValue);
-	}, [data, id, form]);
+		console.log(voucher);
+	}, [voucher, id, form]);
+
+	useEffect(() => {
+		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_VOUCHER);
+	}, [dataCreate, dataUpdate]);
 
 	return (
 		<Form
