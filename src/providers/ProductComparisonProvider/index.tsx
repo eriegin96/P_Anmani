@@ -68,7 +68,7 @@ export default function ProductComparisonProvider({
 	};
 	const setComparisonProduct = (productId: string) => {
 		const product =
-			productList.find((product) => product.id === productId) ?? null;
+			productList.find((product) => product.key === productId) ?? null;
 		const newSelectedProducts = new Map(selectedProducts);
 		newSelectedProducts.set(slotId, product);
 		setSelectedProducts(newSelectedProducts);

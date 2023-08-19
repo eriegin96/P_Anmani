@@ -78,7 +78,7 @@ export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 						rootClassName={styles.drawer}
 					>
 						{productList.slice(0, 2).map((product) => (
-							<ProductCard key={product.id} info={product} />
+							<ProductCard key={product.key} info={product} />
 						))}
 					</Drawer>
 				</div>

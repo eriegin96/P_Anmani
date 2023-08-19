@@ -26,7 +26,7 @@ export const pageAnchorList = (
 	{
 		anchor: "location",
 		title: "Vị trí",
-		component: <Location product={product} />,
+		component: <Location location={product.location} />,
 	},
 	{
 		anchor: "policy",
@@ -36,6 +36,6 @@ export const pageAnchorList = (
 	{
 		anchor: "description",
 		title: "Mô tả",
-		component: <Description product={product} />,
+		component: <Description description={product.description} />,
 	},
 ];

@@ -118,11 +118,13 @@
 .rightSection {
 	width: 30%;
 	font-size: rem(12);
+	@include line-clamp(4);
 }
 
 .name {
 	font-size: rem(18);
 	font-weight: 600;
+	@include line-clamp(3);
 }
 
 .priceWrapper {

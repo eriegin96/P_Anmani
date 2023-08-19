@@ -13,10 +13,10 @@ export const tagOptions = [
 ];
 
 export const typeOptions = [
-	{value: QUERY_PARAMS.TYPE.SINGLE, label: PRODUCT_TYPE.SINGLE_VILLA},
-	{value: QUERY_PARAMS.TYPE.DOUBLE, label: PRODUCT_TYPE.DOUBLE_VILLA},
-	{value: QUERY_PARAMS.TYPE.SHOPHOUSE, label: PRODUCT_TYPE.SHOPHOUSE},
-	{value: QUERY_PARAMS.TYPE.APARTMENT, label: PRODUCT_TYPE.APARTMENT},
+	{value: QUERY_PARAMS.TYPE.SINGLE, label: PRODUCT_TYPE.single},
+	{value: QUERY_PARAMS.TYPE.DOUBLE, label: PRODUCT_TYPE.double},
+	{value: QUERY_PARAMS.TYPE.SHOPHOUSE, label: PRODUCT_TYPE.shophouse},
+	{value: QUERY_PARAMS.TYPE.APARTMENT, label: PRODUCT_TYPE.apartment},
 ];
 
 export const locationOptions = [

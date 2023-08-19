@@ -16,7 +16,7 @@ export default function FormVoucherInfo() {
 	const form = Form.useFormInstance();
 	const discountOption = Form.useWatch("discountOption", form);
 	const productOptions = productList.map((product) => ({
-		value: product.id,
+		value: product.key,
 		label: product.name,
 	}));
 

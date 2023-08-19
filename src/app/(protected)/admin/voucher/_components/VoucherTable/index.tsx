@@ -114,7 +114,7 @@ export default function VoucherTable() {
 				sortDirections: ["ascend", "descend"],
 				render: (productId) => {
 					const name = productList.find(
-						(product) => product.id === productId
+						(product) => product.key === productId
 					)?.name;
 					return (
 						<Link href={`${ROUTE.ADMIN_PRODUCT}/${productId}`}>{name}</Link>
@@ -129,17 +129,17 @@ export default function VoucherTable() {
 					record.productId.indexOf(value.toString()) === 0,
 				sorter: (a, b) => {
 					const aPrice = productList.find(
-						(product) => product.id === a.productId
+						(product) => product.key === a.productId
 					)?.price as number;
 					const bPrice = productList.find(
-						(product) => product.id === b.productId
+						(product) => product.key === b.productId
 					)?.price as number;
 					return aPrice - bPrice;
 				},
 				sortDirections: ["ascend", "descend"],
 				render: (productId) => {
 					const price = productList.find(
-						(product) => product.id === productId
+						(product) => product.key === productId
 					)?.price;
 					return <>{formatCurrency(price, true, true)}</>;
 				},

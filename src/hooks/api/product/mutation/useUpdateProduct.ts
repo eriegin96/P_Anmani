@@ -8,14 +8,5 @@ const fetcher = (url: string, {arg}: {arg: TProduct}) =>
 	axiosInstance.patch<TProduct>(url, JSON.stringify(arg)).then((res) => res);
 
 export const useUpdateProduct = (productId: string) => {
-	const {data, trigger, isMutating, error} = useSWRMutation(
-		concatHref(API_ENDPOINT.PRODUCTS, productId),
-		fetcher
-	);
-
-	return {
-		trigger,
-		isMutating,
-		error,
-	};
+	return useSWRMutation(concatHref(API_ENDPOINT.PRODUCTS, productId), fetcher);
 };

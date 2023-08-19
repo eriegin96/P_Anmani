@@ -43,7 +43,7 @@ export default function Page() {
 						{saveList
 							.filter((item) => item.type === tab.value)
 							.map((item) => (
-								<div key={item.id} className={styles.itemWrapper}>
+								<div key={item.key} className={styles.itemWrapper}>
 									<div className={styles.itemInfo}>
 										<div className={styles.imageWrapper}>
 											<Image src={item.image.thumbnail} alt="" fill />

@@ -3,13 +3,13 @@
 import {GoogleMap, Marker, useJsApiLoader} from "@react-google-maps/api";
 import * as Tabs from "@radix-ui/react-tabs";
 import styles from "./location.module.scss";
-import {TProduct} from "@/types/product.type";
+import {TLocation} from "@/types/product.type";
 import {PRODUCT_LOCATION} from "@/constants/product";
 import {locationTabList} from "./static";
 import {useCallback, useState} from "react";
 
 type TLocationProps = {
-	product: TProduct;
+	location: TLocation;
 };
 
 const CENTER = {
@@ -18,7 +18,9 @@ const CENTER = {
 };
 const ZOOM = 11;
 
-export default function Location({product}: TLocationProps) {
+export default function Location({
+	location: {lat, lng, sub, main, nearby, popular},
+}: TLocationProps) {
 	const {isLoaded} = useJsApiLoader({
 		id: "google-map-script",
 		googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY as string,
@@ -26,7 +28,7 @@ export default function Location({product}: TLocationProps) {
 	const [map, setMap] = useState<google.maps.Map | null>(null);
 
 	const onLoad = useCallback(function callback(map: google.maps.Map) {
-		map.setCenter(CENTER);
+		map.setCenter({lat, lng});
 		map.setZoom(ZOOM);
 
 		setMap(map);
@@ -49,25 +51,28 @@ export default function Location({product}: TLocationProps) {
 					center={CENTER}
 					zoom={ZOOM}
 					onLoad={onLoad}
-					onUnmount={onUnmount}>
+					onUnmount={onUnmount}
+				>
 					<Marker position={CENTER} />
 				</GoogleMap>
 			) : (
 				<></>
 			)}
 			<span className={styles.location}>
-				{product.location.sub}, {product.location.main}
+				{sub}, {main}
 			</span>
 			<div>
 				<Tabs.Root
 					defaultValue={PRODUCT_LOCATION.NEARBY}
-					className={styles.tabsRoot}>
+					className={styles.tabsRoot}
+				>
 					<Tabs.List aria-label="Location" className={styles.tabsList}>
 						{locationTabList.map((tab) => (
 							<Tabs.Trigger
 								key={tab.value}
 								value={tab.value}
-								className={styles.tabsTrigger}>
+								className={styles.tabsTrigger}
+							>
 								{tab.icon}
 								<span>{tab.title}</span>
 							</Tabs.Trigger>
@@ -76,14 +81,13 @@ export default function Location({product}: TLocationProps) {
 
 					{locationTabList.map((tab) => {
 						const tabsContent =
-							tab.value === PRODUCT_LOCATION.NEARBY
-								? product.location.nearby
-								: product.location.popular;
+							tab.value === PRODUCT_LOCATION.NEARBY ? nearby : popular;
 						return (
 							<Tabs.Content
 								key={tab.value}
 								value={tab.value}
-								className={styles.tabsContent}>
+								className={styles.tabsContent}
+							>
 								<ul className={styles.tabContentList}>
 									{tabsContent.map((item) => (
 										<li key={item.name} className={styles.tabContentLi}>

@@ -1,8 +1,17 @@
 "use client";
 
 import {ConsultForm} from "@/components";
+import {API_ENDPOINT} from "@/constants/api";
 import {Modal} from "antd";
 import {ReactNode, createContext, useContext, useState} from "react";
+import {useSWRConfig} from "swr";
+
+type TDeleteConfirmationModalInfo = {
+	trigger: Function;
+	id: string;
+	name?: string;
+	keyRevalidate?: string;
+};
 
 type TModalContextDefault = {
 	showBookingModal: () => void;
@@ -10,10 +19,9 @@ type TModalContextDefault = {
 	showMDeleteConfirmationModal: ({
 		trigger,
 		id,
-	}: {
-		trigger: Function;
-		id: string;
-	}) => void;
+		name,
+		keyRevalidate,
+	}: TDeleteConfirmationModalInfo) => void;
 	hideDeleteConfirmationModal: () => void;
 };
 
@@ -32,10 +40,13 @@ export default function ModalProvider({children}: TModalProviderProps) {
 	const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 	const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] =
 		useState(false);
-	const [handler, setHandler] = useState<{trigger: Function; id: string}>({
+	const [handler, setHandler] = useState<TDeleteConfirmationModalInfo>({
 		trigger: () => {},
 		id: "",
+		name: "",
+		keyRevalidate: "",
 	});
+	const {mutate} = useSWRConfig();
 
 	// Booking Modal
 	const showBookingModal = () => {
@@ -46,21 +57,20 @@ export default function ModalProvider({children}: TModalProviderProps) {
 	};
 
 	// Delete Confirmation Modal
-	const showMDeleteConfirmationModal = ({
-		trigger,
-		id,
-	}: {
-		trigger: Function;
-		id: string;
-	}) => {
+	const showMDeleteConfirmationModal = (
+		handler: TDeleteConfirmationModalInfo
+	) => {
 		setIsDeleteConfirmationModalOpen(true);
-		setHandler({trigger, id});
+		setHandler(handler);
 	};
 	const hideDeleteConfirmationModal = () => {
 		setIsDeleteConfirmationModalOpen(false);
 	};
 	const confirmDeleteConfirmationModal = () => {
 		handler.trigger?.(handler.id);
+		setTimeout(() => {
+			mutate(handler.keyRevalidate);
+		}, 100);
 		hideDeleteConfirmationModal();
 	};
 
@@ -90,7 +100,7 @@ export default function ModalProvider({children}: TModalProviderProps) {
 					onOk={confirmDeleteConfirmationModal}
 					onCancel={hideDeleteConfirmationModal}
 				>
-					<p>Bạn có muốn xóa {handler.id}?</p>
+					<p>Bạn có muốn xóa {handler.name}?</p>
 				</Modal>
 			</>
 		</ModalContext.Provider>

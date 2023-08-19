@@ -117,7 +117,6 @@ export const productDescription = {
 
 export const productList: TProduct[] = [
 	{
-		id: "product-1",
 		key: "product-1",
 		type: QUERY_PARAMS.TYPE.SINGLE,
 		tag: QUERY_PARAMS.TAG.INVESTOR,
@@ -159,7 +158,6 @@ export const productList: TProduct[] = [
 		status: QUERY_PARAMS.STATUS.SOLD,
 	},
 	{
-		id: "product-2",
 		key: "product-2",
 		type: QUERY_PARAMS.TYPE.DOUBLE,
 		tag: QUERY_PARAMS.TAG.INVESTOR,
@@ -201,7 +199,6 @@ export const productList: TProduct[] = [
 		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 	{
-		id: "product-3",
 		key: "product-3",
 		type: QUERY_PARAMS.TYPE.SHOPHOUSE,
 		tag: QUERY_PARAMS.TAG.INVESTOR,
@@ -243,7 +240,6 @@ export const productList: TProduct[] = [
 		status: QUERY_PARAMS.STATUS.IN_STOCK,
 	},
 	{
-		id: "product-4",
 		key: "product-4",
 		type: QUERY_PARAMS.TYPE.APARTMENT,
 		tag: QUERY_PARAMS.TAG.INVESTOR,
@@ -285,7 +281,6 @@ export const productList: TProduct[] = [
 		status: QUERY_PARAMS.STATUS.SOLD,
 	},
 	{
-		id: "product-5",
 		key: "product-5",
 		type: QUERY_PARAMS.TYPE.SINGLE,
 		tag: QUERY_PARAMS.TAG.INVESTOR,

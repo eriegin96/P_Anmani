@@ -10,6 +10,7 @@ import {IconX} from "@tabler/icons-react";
 import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 import {useDeleteProduct} from "@/hooks/api/product";
 import {useModalContext} from "@/providers/ModalProvider";
+import {API_ENDPOINT} from "@/constants/api";
 
 type DataIndex = keyof TProduct;
 
@@ -19,8 +20,13 @@ export default function ProductTable() {
 	const {trigger} = useDeleteProduct();
 	const {showMDeleteConfirmationModal} = useModalContext();
 
-	const handleDelete = (productId: string) => {
-		showMDeleteConfirmationModal({trigger, id: productId});
+	const handleDelete = ({key, name}: {key: string; name: string}) => {
+		showMDeleteConfirmationModal({
+			trigger,
+			id: key,
+			name,
+			keyRevalidate: API_ENDPOINT.PRODUCTS,
+		});
 	};
 
 	const handleSearch = (
@@ -121,8 +127,12 @@ export default function ProductTable() {
 			{
 				title: "Xóa",
 				dataIndex: "action",
-				render: (_, {id}) => (
-					<Button danger shape="circle" onClick={() => handleDelete(id)}>
+				render: (_, {key, name}) => (
+					<Button
+						danger
+						shape="circle"
+						onClick={() => handleDelete({key, name})}
+					>
 						<IconX />
 					</Button>
 				),

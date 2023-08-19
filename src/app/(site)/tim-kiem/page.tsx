@@ -105,7 +105,7 @@ export default function Page() {
 			<Divider className={styles.divider} />
 			<Row gutter={[16, 16]}>
 				{productList.map((product) => (
-					<Col xs={24} sm={12} md={8} lg={6} xxl={4} key={product.id}>
+					<Col xs={24} sm={12} md={8} lg={6} xxl={4} key={product.key}>
 						<ProductCard info={product} />
 					</Col>
 				))}

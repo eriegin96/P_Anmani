@@ -14,7 +14,7 @@ type TSearchBoxProps = {
 
 export default function SearchBox({value, setValue}: TSearchBoxProps) {
 	const [data, setData] = useState<SelectProps["options"]>(
-		productList.map(({id, name}) => ({value: id, label: name}))
+		productList.map(({key, name}) => ({value: key, label: name}))
 	);
 
 	const handleSearch = (newValue: string) => {

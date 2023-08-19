@@ -27,9 +27,8 @@ export type TItemsRef = {[key: string]: HTMLDivElement | null};
 // }
 
 export default function ProductPage({params}: TProductPageProps) {
-	const product = productList.find((item) => item.id === params.id) as TProduct;
-	const anchorList = pageAnchorList(product);
 	const {data, isLoading, error} = useGetProductById(params.id);
+	const anchorList = data ? pageAnchorList(data) : [];
 
 	return (
 		<>
@@ -57,7 +56,7 @@ export default function ProductPage({params}: TProductPageProps) {
 						</Element>
 					))}
 
-					<Action product={product} />
+					<Action product={data} />
 				</>
 			)}
 		</>

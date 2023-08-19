@@ -31,7 +31,7 @@ export const categoryList: TCategory[] = [
 	{
 		id: "1",
 		type: QUERY_PARAMS.TYPE.SINGLE,
-		title: PRODUCT_TYPE.SINGLE_VILLA,
+		title: PRODUCT_TYPE.single,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.SINGLE}`,
 		icon: IconDonLap,
@@ -39,7 +39,7 @@ export const categoryList: TCategory[] = [
 	{
 		id: "2",
 		type: QUERY_PARAMS.TYPE.DOUBLE,
-		title: PRODUCT_TYPE.DOUBLE_VILLA,
+		title: PRODUCT_TYPE.double,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.DOUBLE}`,
 		icon: IconSongLap,
@@ -47,7 +47,7 @@ export const categoryList: TCategory[] = [
 	{
 		id: "3",
 		type: QUERY_PARAMS.TYPE.SHOPHOUSE,
-		title: PRODUCT_TYPE.SHOPHOUSE,
+		title: PRODUCT_TYPE.shophouse,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.SHOPHOUSE}`,
 		icon: IconCanHo,
@@ -55,7 +55,7 @@ export const categoryList: TCategory[] = [
 	{
 		id: "4",
 		type: QUERY_PARAMS.TYPE.APARTMENT,
-		title: PRODUCT_TYPE.APARTMENT,
+		title: PRODUCT_TYPE.apartment,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.APARTMENT}`,
 		icon: IconShopHouse,

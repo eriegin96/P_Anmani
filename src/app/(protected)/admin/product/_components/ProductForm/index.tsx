@@ -28,15 +28,23 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 	const router = useRouter();
 	const {id} = useParams();
 	const {data} = useGetProductById(id);
-	const {trigger: createProduct, isMutating: isCreating} = useCreateProduct();
-	const {trigger: updateProduct, isMutating: isUpdating} = useUpdateProduct(id);
+	const {
+		trigger: createProduct,
+		isMutating: isCreating,
+		data: dataCreate,
+	} = useCreateProduct();
+	const {
+		trigger: updateProduct,
+		isMutating: isUpdating,
+		data: dataUpdate,
+	} = useUpdateProduct(id);
 
 	const handleSubmit = (values: TProduct) => {
 		const lat = Number(values.location.lat);
 		const lng = Number(values.location.lng);
 		const newValues = {
 			...values,
-			location: {...values.location, lat, lng},
+			investor: {name: values.investor.name, logo: "http://google.com"},
 		};
 		console.log(newValues);
 
@@ -46,6 +54,10 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 	useEffect(() => {
 		form.setFieldsValue({...data});
 	}, [data]);
+
+	useEffect(() => {
+		if (dataCreate || dataUpdate) form.resetFields();
+	}, [dataCreate, dataUpdate]);
 
 	return (
 		<Form

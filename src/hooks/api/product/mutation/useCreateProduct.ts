@@ -9,14 +9,5 @@ const fetcher = (url: string, {arg}: {arg: TProductForm}) =>
 		.then((res) => res);
 
 export const useCreateProduct = () => {
-	const {data, trigger, isMutating, error} = useSWRMutation(
-		API_KEY.CREATE_PRODUCT,
-		fetcher
-	);
-
-	return {
-		trigger,
-		isMutating,
-		error,
-	};
+	return useSWRMutation(API_KEY.CREATE_PRODUCT, fetcher);
 };

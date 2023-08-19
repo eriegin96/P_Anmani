@@ -22,7 +22,7 @@ export default function CartItem({
 	shouldShowVoucher = false,
 }: TCartItemProps) {
 	const {removeFromCart} = useCartContext();
-	const product = productList.find((p) => p.id === item.productId) as TProduct;
+	const product = productList.find((p) => p.key === item.productId) as TProduct;
 
 	return (
 		<div className={styles.wrapper}>

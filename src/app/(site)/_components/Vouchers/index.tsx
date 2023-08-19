@@ -15,21 +15,23 @@ export default function Vouchers() {
 
 	return (
 		<>
-			<Title>Trung tâm voucher</Title>
-			{isLoading && <ItemsSkeleton />}
+			{data?.length !== 0 && (
+				<>
+					<Title>Trung tâm voucher</Title>
+					{isLoading && <ItemsSkeleton />}
 
-			{data && (
-				<Carousel setting={setting}>
-					{voucherList.map((voucher) => (
-						<Link
-							key={voucher.id}
-							href={`${ROUTE.PRODUCT}/${voucher.productId}`}
-							className={styles.link}
-						>
-							<Voucher voucher={voucher} shouldShowBtn />
-						</Link>
-					))}
-				</Carousel>
+					<Carousel setting={setting}>
+						{voucherList.map((voucher) => (
+							<Link
+								key={voucher.id}
+								href={`${ROUTE.PRODUCT}/${voucher.productId}`}
+								className={styles.link}
+							>
+								<Voucher voucher={voucher} shouldShowBtn />
+							</Link>
+						))}
+					</Carousel>
+				</>
 			)}
 		</>
 	);

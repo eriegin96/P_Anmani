@@ -20,8 +20,49 @@ export type TProductPlace = {
 
 export type TSlotId = "1" | "2" | "3";
 
+export type TImage = {
+	thumbnail: string;
+	main: string[];
+	reality: string[];
+	area: string[];
+};
+
+export type TInformation = {
+	landArea: string;
+	floor: string;
+	bedroom: string;
+	bathroom: string;
+	floorArea: string;
+	other: string;
+};
+
+export type TPolicy = {
+	main: string;
+	loan: string;
+	equity: string;
+};
+
+export type TDescription = {
+	pros: string;
+	cons: string;
+	juridice: string;
+	delivery: {
+		date: string;
+		info: string;
+	};
+};
+
+export type TLocation = {
+	detail: string;
+	main: string;
+	sub: string;
+	nearby: TProductPlace[];
+	popular: TProductPlace[];
+	lat: number;
+	lng: number;
+};
+
 export type TProduct = {
-	id: string;
 	key: string;
 	type: TProductTypeValue;
 	tag: TProductTagValue;
@@ -29,38 +70,11 @@ export type TProduct = {
 	name: string;
 	price: number;
 	originalPrice: number;
-	image: {
-		thumbnail: string;
-		main: string[];
-		reality: string[];
-		area: string[];
-	};
-	information: {
-		landArea: string;
-		floor: string;
-		bedroom: string;
-		bathroom: string;
-		floorArea: string;
-		other: string;
-	};
-	policy: {
-		main: string;
-		loan: string;
-		equity: string;
-	};
-	description: {
-		pros: string;
-		cons: string;
-	};
-	location: {
-		detail: string;
-		main: string;
-		sub: string;
-		nearby: TProductPlace[];
-		popular: TProductPlace[];
-		lat: number;
-		lng: number;
-	};
+	image: TImage;
+	information: TInformation;
+	policy: TPolicy;
+	description: TDescription;
+	location: TLocation;
 	view: number;
 	logo: any;
 	status: TProductStatusValue;

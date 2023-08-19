@@ -27,7 +27,7 @@ export default function AdminUserCartPage({
 	const cartProductList = cartList.map((cartItem) => ({
 		key: cartItem.id,
 		product: productList.find(
-			(product) => product.id === cartItem.productId
+			(product) => product.key === cartItem.productId
 		) as TProduct,
 		voucherList: voucherList.filter((voucher) =>
 			cartItem.voucherAdded.includes(voucher.id)

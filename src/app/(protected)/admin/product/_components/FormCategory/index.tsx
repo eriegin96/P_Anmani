@@ -39,7 +39,11 @@ export default function FormCategory() {
 				</Form.Item>
 			</Col>
 			<Col span={6}>
-				<Form.Item name="investor" label="Chủ đầu tư" {...defaultFormConfig}>
+				<Form.Item
+					name={["investor", "name"]}
+					label="Chủ đầu tư"
+					{...defaultFormConfig}
+				>
 					<Select
 						placeholder="Vui lòng chọn chủ đầu tư"
 						onChange={onSelectChange}

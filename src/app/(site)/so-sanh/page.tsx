@@ -40,7 +40,7 @@ export default function SoSanhPage() {
 							{product1 && (
 								<Col span={colSpan}>
 									{voucherList
-										.filter((voucher) => voucher.productId === product1.id)
+										.filter((voucher) => voucher.productId === product1.key)
 										.map(({id, discount}) => (
 											<div key={id}>
 												Giảm{" "}
@@ -54,7 +54,7 @@ export default function SoSanhPage() {
 							{product2 && (
 								<Col span={colSpan}>
 									{voucherList
-										.filter((voucher) => voucher.productId === product2.id)
+										.filter((voucher) => voucher.productId === product2.key)
 										.map(({id, discount}) => (
 											<div key={id}>
 												Giảm{" "}
@@ -68,7 +68,7 @@ export default function SoSanhPage() {
 							{product3 && (
 								<Col span={colSpan}>
 									{voucherList
-										.filter((voucher) => voucher.productId === product3.id)
+										.filter((voucher) => voucher.productId === product3.key)
 										.map(({id, discount}) => (
 											<div key={id}>
 												Giảm{" "}

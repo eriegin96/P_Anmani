@@ -18,22 +18,22 @@ import {PRODUCT_TAG, PRODUCT_TYPE} from "@/constants/product";
 export const navLinks = [
 	{
 		href: `${ROUTE.ADVANCED_SEARCH}/?type=${QUERY_PARAMS.TYPE.SINGLE}`,
-		name: PRODUCT_TYPE.SINGLE_VILLA,
+		name: PRODUCT_TYPE.single,
 		icon: <IconHome color={color.primary1} />,
 	},
 	{
 		href: `${ROUTE.ADVANCED_SEARCH}/?type=${QUERY_PARAMS.TYPE.DOUBLE}`,
-		name: PRODUCT_TYPE.DOUBLE_VILLA,
+		name: PRODUCT_TYPE.double,
 		icon: <IconBuildingFortress color={color.primary2} />,
 	},
 	{
 		href: `${ROUTE.ADVANCED_SEARCH}/?type=${QUERY_PARAMS.TYPE.SHOPHOUSE}`,
-		name: PRODUCT_TYPE.SHOPHOUSE,
+		name: PRODUCT_TYPE.shophouse,
 		icon: <IconBuildingStore color={color.primary3} />,
 	},
 	{
 		href: `${ROUTE.ADVANCED_SEARCH}/?type=${QUERY_PARAMS.TYPE.APARTMENT}`,
-		name: PRODUCT_TYPE.APARTMENT,
+		name: PRODUCT_TYPE.apartment,
 		icon: <IconBuilding color={color.red1} />,
 	},
 	{

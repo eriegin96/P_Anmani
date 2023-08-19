@@ -1,11 +1,16 @@
 import clsx from "clsx";
 import {Image} from "antd";
-import {imagePreviews} from "@/mock/data";
 import styles from "./imagePreviewGroup.module.scss";
+import {TImage} from "@/types/product.type";
 
-type TImagePreviewGroupProps = {};
+type TImagePreviewGroupProps = {
+	image: TImage;
+};
 
-export default function ImagePreviewGroup({}: TImagePreviewGroupProps) {
+export default function ImagePreviewGroup({
+	image: {area, main, reality},
+}: TImagePreviewGroupProps) {
+	const imagePreviews = [...main, ...area, ...reality];
 	const lastIndex = imagePreviews.length >= 5 ? 4 : imagePreviews.length - 1;
 
 	return (
@@ -14,13 +19,14 @@ export default function ImagePreviewGroup({}: TImagePreviewGroupProps) {
 				<Image.PreviewGroup>
 					{imagePreviews.map((img, index) => (
 						<div
-							key={img.id}
+							key={index}
 							className={clsx(
 								styles.imageItem,
 								index > lastIndex && styles.itemHidden
-							)}>
+							)}
+						>
 							<Image
-								src={img.src}
+								src={img}
 								alt=""
 								rootClassName={styles.image}
 								preview={{mask: <></>}}

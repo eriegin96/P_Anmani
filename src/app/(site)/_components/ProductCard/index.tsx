@@ -75,11 +75,9 @@ export default function ProductCard({
 								</div>
 							</div>
 							<div className={styles.rightSection}>
-								<div>
-									<span>{information.landArea}</span>
-									<span>{information.floorArea}</span>
-									<span>{information.floor}</span>
-								</div>
+								<span>{information.landArea}</span>
+								<span>{information.floorArea}</span>
+								<span>{information.floor}</span>
 							</div>
 						</div>
 					</div>

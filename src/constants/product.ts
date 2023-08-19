@@ -12,10 +12,10 @@ export const PRODUCT_SAVE_VALUE = {
 } as const;
 
 export const PRODUCT_TYPE = {
-	SINGLE_VILLA: "Dinh thự & Biệt thự đơn lập",
-	DOUBLE_VILLA: "Dinh thự & Biệt thự song lập",
-	SHOPHOUSE: "Shophouse nhà phố thương mại",
-	APARTMENT: "Căn hộ",
+	single: "Dinh thự & Biệt thự đơn lập",
+	double: "Dinh thự & Biệt thự song lập",
+	shophouse: "Shophouse nhà phố thương mại",
+	apartment: "Căn hộ",
 } as const;
 
 export const PRODUCT_TAG = {

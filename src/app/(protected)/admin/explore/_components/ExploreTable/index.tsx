@@ -13,6 +13,7 @@ import {useGetExplores} from "@/hooks/api/explore/query/useGetExplores";
 import {useDeleteExplore} from "@/hooks/api/explore";
 import {useModalContext} from "@/providers/ModalProvider";
 import {IconX} from "@tabler/icons-react";
+import {API_ENDPOINT} from "@/constants/api";
 
 type DataIndex = keyof TExploreVideo;
 
@@ -22,8 +23,13 @@ export default function ExploreTable() {
 	const {trigger} = useDeleteExplore();
 	const {showMDeleteConfirmationModal} = useModalContext();
 
-	const handleDelete = (exploreId: string) => {
-		showMDeleteConfirmationModal({trigger, id: exploreId});
+	const handleDelete = ({key, title}: {key: string; title: string}) => {
+		showMDeleteConfirmationModal({
+			trigger,
+			id: key,
+			name: title,
+			keyRevalidate: API_ENDPOINT.EXPLORES,
+		});
 	};
 
 	const handleSearch = (
@@ -120,8 +126,12 @@ export default function ExploreTable() {
 			{
 				title: "Xóa",
 				dataIndex: "action",
-				render: (_, {id}) => (
-					<Button danger shape="circle" onClick={() => handleDelete(id)}>
+				render: (_, {key, title}) => (
+					<Button
+						danger
+						shape="circle"
+						onClick={() => handleDelete({key, title})}
+					>
 						<IconX />
 					</Button>
 				),
