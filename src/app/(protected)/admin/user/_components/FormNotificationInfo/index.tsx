@@ -60,13 +60,13 @@ export default function FormNotificationInfo() {
 						label="Tên người dùng"
 						{...defaultFormConfig}
 					>
-						<Select
+						{/* <Select
 							mode="multiple"
 							placeholder="Vui lòng chọn người dùng nhận thông báo"
 							allowClear
 							onChange={onSelectChange}
 							options={userList.map(({id, name}) => ({label: name, value: id}))}
-						/>
+						/> */}
 					</Form.Item>
 				)}
 			</Col>

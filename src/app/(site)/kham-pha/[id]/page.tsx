@@ -18,7 +18,7 @@ type TKhamPhaPageProps = {params: {id: string}};
 export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 	const {data, isLoading, error} = useGetExploreById(params.id);
 	const video = exploreVideoList.find(
-		(item) => item.id === params.id
+		(item) => item.key === params.id
 	) as TExploreVideo;
 	const [open, setOpen] = useState(false);
 

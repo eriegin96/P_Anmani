@@ -80,4 +80,4 @@ export type TProduct = {
 	status: TProductStatusValue;
 };
 
-export type TProductForm = Omit<TProduct, "id" | "key">;
+export type TProductForm = Omit<TProduct, "key">;

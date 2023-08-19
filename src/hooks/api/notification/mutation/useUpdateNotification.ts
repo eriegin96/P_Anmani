@@ -10,14 +10,8 @@ const fetcher = (url: string, {arg}: {arg: TNotification}) =>
 		.then((res) => res);
 
 export const useUpdateNotification = (notificationId: string) => {
-	const {data, trigger, isMutating, error} = useSWRMutation(
+	return useSWRMutation(
 		concatHref(API_ENDPOINT.NOTIFICATIONS, notificationId),
 		fetcher
 	);
-
-	return {
-		trigger,
-		isMutating,
-		error,
-	};
 };

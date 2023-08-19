@@ -1,5 +1,4 @@
 export type TExploreVideo = {
-	id: string;
 	key: string;
 	title: string;
 	url: string;
@@ -13,4 +12,4 @@ export type TExploreVideoStory = {
 	type: "video" | "image";
 };
 
-export type TExploreVideoForm = Omit<TExploreVideo, "id" | "key">;
+export type TExploreVideoForm = Omit<TExploreVideo, "key">;

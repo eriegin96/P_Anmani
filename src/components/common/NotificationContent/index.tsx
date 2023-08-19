@@ -3,14 +3,14 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import styles from "./notificationContent.module.scss";
 import {notificationTab} from "./static";
-import {notificationList} from "@/mock/data";
 import {Avatar, Skeleton} from "antd";
 import {useAuthContext} from "@/providers/AuthProvider";
 import {useGetNotificationsByUser} from "@/hooks/api/notification";
 
 export default function NotificationContent() {
 	const {userInfo} = useAuthContext();
-	const {data, isLoading} = useGetNotificationsByUser(userInfo);
+	const {data: notificationList, isLoading} =
+		useGetNotificationsByUser(userInfo);
 
 	return (
 		<div>
@@ -26,7 +26,7 @@ export default function NotificationContent() {
 							className={styles.tabsTrigger}
 						>
 							{tab.title}
-							{data && (
+							{notificationList && (
 								<span className={styles.notiAmount}>
 									{
 										notificationList.filter((noti) => noti.type === tab.value)
@@ -45,10 +45,9 @@ export default function NotificationContent() {
 					>
 						{isLoading && <Skeleton active style={{padding: "10px"}} />}
 						{!isLoading &&
-							data &&
-							notificationList.map((noti) => {
+							notificationList?.map((noti) => {
 								return noti.type === tab.value ? (
-									<div key={noti.id} className={styles.notiWrapper}>
+									<div key={noti.key} className={styles.notiWrapper}>
 										<div>
 											<Avatar size={36} src={noti.avatar} alt="" />
 										</div>
@@ -61,7 +60,7 @@ export default function NotificationContent() {
 									<></>
 								);
 							})}
-						{!isLoading && !data && (
+						{!isLoading && !notificationList && (
 							<p className={styles.noNoti}>Chưa có thông báo</p>
 						)}
 					</Tabs.Content>

@@ -5,7 +5,6 @@ export type TNotificationTypeValue =
 	(typeof NOTIFICATION_TYPE)[TNotificationTypeKey];
 
 export type TNotification = {
-	id: string;
 	key: string;
 	type: TNotificationTypeValue;
 	avatar: string;
@@ -15,4 +14,4 @@ export type TNotification = {
 	target: string[];
 };
 
-export type TNotificationForm = Omit<TNotification, "id" | "key">;
+export type TNotificationForm = Omit<TNotification, "key">;

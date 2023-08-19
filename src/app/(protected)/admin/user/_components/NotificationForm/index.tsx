@@ -13,6 +13,7 @@ import {
 	useGetNotificationById,
 	useUpdateNotification,
 } from "@/hooks/api/notification";
+import {ROUTE} from "@/constants/route";
 
 type TNotificationFormProps = {
 	isEditing?: boolean;
@@ -25,11 +26,17 @@ export default function NotificationForm({
 	const [form] = Form.useForm<TNotificationForm>();
 	const router = useRouter();
 	const {id} = useParams();
-	const {data} = useGetNotificationById(id);
-	const {trigger: createNotification, isMutating: isCreating} =
-		useCreateNotification();
-	const {trigger: updateNotification, isMutating: isUpdating} =
-		useUpdateNotification(id);
+	const {data: notification} = useGetNotificationById(id);
+	const {
+		trigger: createNotification,
+		isMutating: isCreating,
+		data: dataCreate,
+	} = useCreateNotification();
+	const {
+		trigger: updateNotification,
+		isMutating: isUpdating,
+		data: dataUpdate,
+	} = useUpdateNotification(id);
 
 	const handleSubmit = (values: TNotificationForm) => {
 		const {targetType, ...rest} = values;
@@ -42,13 +49,16 @@ export default function NotificationForm({
 	};
 
 	useEffect(() => {
-		const fieldsValue = data && notificationList.find((noti) => noti.id === id);
 		form.setFieldsValue({
-			...fieldsValue,
-			targetType: fieldsValue?.target.length ? "individual" : "all",
+			...notification,
+			targetType: notification?.target?.length ? "individual" : "all",
 		});
-		console.log(fieldsValue);
-	}, [data, id, form]);
+		console.log(notification);
+	}, [notification, id, form]);
+
+	useEffect(() => {
+		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_USER_NOTIFICATION);
+	}, [dataCreate, dataUpdate]);
 
 	return (
 		<Form

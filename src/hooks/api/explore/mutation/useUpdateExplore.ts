@@ -10,14 +10,5 @@ const fetcher = (url: string, {arg}: {arg: TExploreVideo}) =>
 		.then((res) => res);
 
 export const useUpdateExplore = (exploreId: string) => {
-	const {data, trigger, isMutating, error} = useSWRMutation(
-		concatHref(API_ENDPOINT.EXPLORES, exploreId),
-		fetcher
-	);
-
-	return {
-		trigger,
-		isMutating,
-		error,
-	};
+	return useSWRMutation(concatHref(API_ENDPOINT.EXPLORES, exploreId), fetcher);
 };

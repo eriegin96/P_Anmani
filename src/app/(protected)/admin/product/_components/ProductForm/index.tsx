@@ -28,7 +28,7 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 	const [form] = Form.useForm<TProduct>();
 	const router = useRouter();
 	const {id} = useParams();
-	const {data} = useGetProductById(id);
+	const {data: product} = useGetProductById(id);
 	const {
 		trigger: createProduct,
 		isMutating: isCreating,
@@ -54,8 +54,8 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 	};
 
 	useEffect(() => {
-		form.setFieldsValue({...data});
-	}, [data]);
+		form.setFieldsValue({...product});
+	}, [product]);
 
 	useEffect(() => {
 		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_PRODUCT);

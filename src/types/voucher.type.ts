@@ -8,4 +8,4 @@ export type TVoucher = {
 	expiredDate: string;
 };
 
-export type TVoucherForm = Omit<TVoucher, "id" | "key">;
+export type TVoucherForm = Omit<TVoucher, "key">;

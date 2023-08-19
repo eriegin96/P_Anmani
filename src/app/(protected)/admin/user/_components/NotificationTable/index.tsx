@@ -7,7 +7,7 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {notificationList, userList} from "@/mock/data";
+import {userList} from "@/mock/data";
 import {TNotification} from "@/types/notification.type";
 import {NOTIFICATION_TYPE_LABEL} from "@/constants/notification";
 import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
@@ -15,6 +15,8 @@ import {useAuthContext} from "@/providers/AuthProvider";
 import {useDeleteNotification} from "@/hooks/api/notification";
 import {useModalContext} from "@/providers/ModalProvider";
 import {IconX} from "@tabler/icons-react";
+import {API_ENDPOINT} from "@/constants/api";
+import {concatHref} from "@/utils/concatHref";
 
 type DataIndex = keyof TNotification;
 
@@ -25,8 +27,13 @@ export default function NotificationTable() {
 	const {trigger} = useDeleteNotification();
 	const {showMDeleteConfirmationModal} = useModalContext();
 
-	const handleDelete = (voucherId: string) => {
-		showMDeleteConfirmationModal({trigger, id: voucherId});
+	const handleDelete = ({key, title}: {key: string; title: string}) => {
+		showMDeleteConfirmationModal({
+			trigger,
+			id: key,
+			name: title,
+			keyRevalidate: API_ENDPOINT.NOTIFICATIONS,
+		});
 	};
 
 	const handleSearch = (
@@ -109,11 +116,13 @@ export default function NotificationTable() {
 				dataIndex: "title",
 				...getColumnSearchProps("title"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.id.indexOf(value.toString()) === 0,
+					record.key.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.title.length - b.title.length,
 				sortDirections: ["ascend", "descend"],
-				render: (title, {id}) => (
-					<Link href={`${ROUTE.ADMIN_USER_NOTIFICATION}/${id}`}>{title}</Link>
+				render: (title, {key}) => (
+					<Link href={concatHref(ROUTE.ADMIN_USER_NOTIFICATION, key)}>
+						{title}
+					</Link>
 				),
 			},
 			{
@@ -121,7 +130,7 @@ export default function NotificationTable() {
 				dataIndex: "type",
 				...getColumnSearchProps("type"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.id.indexOf(value.toString()) === 0,
+					record.key.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.type.length - b.type.length,
 				sortDirections: ["ascend", "descend"],
 				render: (type) => {
@@ -134,7 +143,7 @@ export default function NotificationTable() {
 				dataIndex: "content",
 				...getColumnSearchProps("content"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.id.indexOf(value.toString()) === 0,
+					record.key.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.content.length - b.content.length,
 				sortDirections: ["ascend", "descend"],
 			},
@@ -149,12 +158,12 @@ export default function NotificationTable() {
 					const newTarget = target as string[];
 					return (
 						<>
-							{newTarget.length === 0
+							{newTarget?.length === 0
 								? "Tất cả mọi người"
-								: newTarget.map((userId, index) => (
+								: newTarget?.map((userId, index) => (
 										<span key={userId}>
 											{userList.find((user) => user.id === userId)?.name}
-											{index === target.length - 1 ? "" : ", "}
+											{index === target?.length - 1 ? "" : ", "}
 										</span>
 								  ))}
 						</>
@@ -164,8 +173,12 @@ export default function NotificationTable() {
 			{
 				title: "Xóa",
 				dataIndex: "action",
-				render: (_, {id}) => (
-					<Button danger shape="circle" onClick={() => handleDelete(id)}>
+				render: (_, {key, title}) => (
+					<Button
+						danger
+						shape="circle"
+						onClick={() => handleDelete({key, title})}
+					>
 						<IconX />
 					</Button>
 				),
@@ -187,7 +200,7 @@ export default function NotificationTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={data && notificationList}
+			dataSource={data}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}

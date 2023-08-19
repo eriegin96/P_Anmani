@@ -23,7 +23,7 @@ export default function Page() {
 
 				{data &&
 					exploreVideoList.map((video) => (
-						<Link key={video.id} href={`${ROUTE.EXPLORE}/${video.id}`}>
+						<Link key={video.key} href={`${ROUTE.EXPLORE}/${video.key}`}>
 							<video src={video.url} autoPlay muted loop />
 						</Link>
 					))}

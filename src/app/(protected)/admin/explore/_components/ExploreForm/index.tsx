@@ -3,7 +3,6 @@
 import {Button, Form} from "antd";
 import {useParams, useRouter} from "next/navigation";
 import {useEffect} from "react";
-import {exploreVideoList} from "@/mock/data";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
 import {TExploreVideo} from "@/types/video.type";
 import FormExploreInfo from "../FormExploreInfo";
@@ -12,6 +11,7 @@ import {
 	useGetExploreById,
 	useUpdateExplore,
 } from "@/hooks/api/explore";
+import {ROUTE} from "@/constants/route";
 
 type TExploreFormProps = {
 	isEditing?: boolean;
@@ -21,9 +21,17 @@ export default function ExploreForm({isEditing = false}: TExploreFormProps) {
 	const [form] = Form.useForm<TExploreVideo>();
 	const router = useRouter();
 	const {id} = useParams();
-	const {data} = useGetExploreById(id);
-	const {trigger: createExplore, isMutating: isCreating} = useCreateExplore();
-	const {trigger: updateExplore, isMutating: isUpdating} = useUpdateExplore(id);
+	const {data: exploreVideo} = useGetExploreById(id);
+	const {
+		trigger: createExplore,
+		isMutating: isCreating,
+		data: dataCreate,
+	} = useCreateExplore();
+	const {
+		trigger: updateExplore,
+		isMutating: isUpdating,
+		data: dataUpdate,
+	} = useUpdateExplore(id);
 
 	const handleSubmit = (values: TExploreVideo) => {
 		console.log({...values});
@@ -31,10 +39,14 @@ export default function ExploreForm({isEditing = false}: TExploreFormProps) {
 	};
 
 	useEffect(() => {
-		const fieldsValue = data && exploreVideoList.find((noti) => noti.id === id);
-		form.setFieldsValue({...fieldsValue});
+		const fieldsValue = exploreVideo;
+		form.setFieldsValue({...exploreVideo});
 		console.log(fieldsValue);
-	}, [data, id, form]);
+	}, [exploreVideo, id, form]);
+
+	useEffect(() => {
+		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_EXPLORE);
+	}, [dataCreate, dataUpdate]);
 
 	return (
 		<Form

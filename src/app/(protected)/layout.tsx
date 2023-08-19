@@ -42,7 +42,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 	const defaultOpenKeys = openedSubmenu ? [openedSubmenu.key] : [];
 
 	useEffect(() => {
-		if (userInfo?.role && userInfo?.role.name !== "admin")
+		if (!userInfo?.role || userInfo?.role.name !== "admin")
 			router.push(ROUTE.HOME);
 	}, [userInfo, router]);
 
