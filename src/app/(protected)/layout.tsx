@@ -30,7 +30,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 	const [collapsed, setCollapsed] = useState(false);
 	const pathname = usePathname();
 	const router = useRouter();
-	const {userInfo} = useAuthContext();
+	const {userInfo, isChecked} = useAuthContext();
 
 	const currentMenuItem = sidebarNavFlat.find(
 		({url}) => url && pathname.includes(url)
@@ -42,9 +42,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 	const defaultOpenKeys = openedSubmenu ? [openedSubmenu.key] : [];
 
 	useEffect(() => {
-		if (!userInfo?.role || userInfo?.role.name !== "admin")
-			router.push(ROUTE.HOME);
-	}, [userInfo, router]);
+		if (isChecked && userInfo?.role.name !== "admin") router.push(ROUTE.HOME);
+	}, [isChecked, userInfo, router]);
 
 	return (
 		<>

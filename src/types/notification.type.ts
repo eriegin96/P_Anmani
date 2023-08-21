@@ -11,7 +11,7 @@ export type TNotification = {
 	title: string;
 	date: string;
 	content: string;
-	target: string[];
+	productIds: string[];
 };
 
 export type TNotificationForm = Omit<TNotification, "key">;

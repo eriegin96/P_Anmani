@@ -13,6 +13,8 @@ import {
 type TAuthContextDefault = {
 	userInfo: TUser | null;
 	setUserInfo: Dispatch<SetStateAction<TUser | null>>;
+	isChecked: boolean;
+	setIsChecked: Dispatch<SetStateAction<boolean>>;
 };
 
 type TAuthProviderProps = {
@@ -22,14 +24,19 @@ type TAuthProviderProps = {
 export const AuthContext = createContext<TAuthContextDefault>({
 	userInfo: null,
 	setUserInfo: () => {},
+	isChecked: false,
+	setIsChecked: () => {},
 });
 
 export default function AuthProvider({children}: TAuthProviderProps) {
 	const [userInfo, setUserInfo] = useState<TUser | null>(null);
+	const [isChecked, setIsChecked] = useState(false);
 
 	const value = {
 		userInfo,
 		setUserInfo,
+		isChecked,
+		setIsChecked,
 	};
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

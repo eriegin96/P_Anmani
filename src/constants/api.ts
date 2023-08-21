@@ -13,6 +13,7 @@ export const API_ENDPOINT = {
 	VOUCHERS: "vouchers",
 	SIGN_UP: "auth/register",
 	SIGN_IN: "auth/login",
+	LOGOUT: "auth/logout",
 	REFRESH_TOKEN: "auth/refresh",
 };
 
@@ -37,5 +38,6 @@ export const API_KEY = {
 	DELETE_VOUCHER: "delete-vouchers",
 	SIGN_UP: "auth/register",
 	SIGN_IN: "auth/login",
+	LOGOUT: "auth/logout",
 	REFRESH_TOKEN: "auth/refresh",
 };

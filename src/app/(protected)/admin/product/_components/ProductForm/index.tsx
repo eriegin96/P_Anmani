@@ -55,11 +55,11 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 
 	useEffect(() => {
 		form.setFieldsValue({...product});
-	}, [product]);
+	}, [product, form]);
 
 	useEffect(() => {
 		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_PRODUCT);
-	}, [dataCreate, dataUpdate]);
+	}, [dataCreate, dataUpdate, router]);
 
 	return (
 		<Form

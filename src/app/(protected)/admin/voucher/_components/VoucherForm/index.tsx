@@ -59,7 +59,7 @@ export default function VoucherForm({isEditing = false}: TVoucherFormProps) {
 
 	useEffect(() => {
 		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_VOUCHER);
-	}, [dataCreate, dataUpdate]);
+	}, [dataCreate, dataUpdate, router]);
 
 	return (
 		<Form

@@ -2,9 +2,21 @@
 	"title": "Title 1",
 	"url": "https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4",
 	"stories": [
-		"https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4",
-		"https://picsum.photos/id/100/900/1600",
-		"https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
-		"https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-woman-in-a-pool-1259-large.mp4"
+		{
+			"url": "https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4",
+			"type": "video"
+		},
+		{
+			"url": "https://picsum.photos/id/100/900/1600",
+			"type": "image"
+		},
+		{
+			"url": "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
+			"type": "video"
+		},
+		{
+			"url": "https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-woman-in-a-pool-1259-large.mp4",
+			"type": "video"
+		}
 	]
 }

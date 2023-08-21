@@ -40,25 +40,25 @@ export default function NotificationForm({
 
 	const handleSubmit = (values: TNotificationForm) => {
 		const {targetType, ...rest} = values;
-		const target =
-			targetType === NOTIFICATION_TARGET_TYPE.ALL ? [] : values.target;
-		console.log({...rest, target});
+		const productIds =
+			targetType === NOTIFICATION_TARGET_TYPE.ALL ? [] : values.productIds;
+		console.log({...rest, productIds});
 		isEditing
-			? updateNotification({...rest, target})
-			: createNotification({...rest, target});
+			? updateNotification({...rest, productIds})
+			: createNotification({...rest, productIds});
 	};
 
 	useEffect(() => {
 		form.setFieldsValue({
 			...notification,
-			targetType: notification?.target?.length ? "individual" : "all",
+			targetType: notification?.productIds?.length ? "individual" : "all",
 		});
 		console.log(notification);
 	}, [notification, id, form]);
 
 	useEffect(() => {
 		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_USER_NOTIFICATION);
-	}, [dataCreate, dataUpdate]);
+	}, [dataCreate, dataUpdate, router]);
 
 	return (
 		<Form

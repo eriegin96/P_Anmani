@@ -206,7 +206,7 @@ export default function SoSanhPage() {
 				),
 			},
 		];
-	}, [product1, product2, product3, colSpan]);
+	}, [product1, product2, product3, colSpan, voucherList]);
 
 	return (
 		<div className={styles.wrapper}>

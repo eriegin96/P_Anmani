@@ -46,7 +46,7 @@ export default function ExploreForm({isEditing = false}: TExploreFormProps) {
 
 	useEffect(() => {
 		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_EXPLORE);
-	}, [dataCreate, dataUpdate]);
+	}, [dataCreate, dataUpdate, router]);
 
 	return (
 		<Form

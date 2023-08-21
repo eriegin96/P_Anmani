@@ -46,7 +46,6 @@ export default function FormExploreInfo() {
 										validateTrigger={["onChange", "onBlur"]}
 										rules={[
 											{
-												required: true,
 												whitespace: true,
 												message: "Vui lòng nhập tiêu đề story",
 											},

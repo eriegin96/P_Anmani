@@ -8,16 +8,19 @@ import {IconChevronRight, IconLogout} from "@tabler/icons-react";
 import {Avatar, Button as AntdButton, Modal} from "antd";
 import {useState} from "react";
 import {useAuthContext} from "@/providers/AuthProvider";
+import {useLogout} from "@/hooks/api/auth/mutation/useLogout";
 
 export default function Page() {
 	const {userInfo} = useAuthContext();
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const {trigger} = useLogout();
 
 	const showModal = () => {
 		setIsModalOpen(true);
 	};
 
 	const handleOk = () => {
+		trigger();
 		setIsModalOpen(false);
 	};
 

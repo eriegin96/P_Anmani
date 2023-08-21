@@ -148,14 +148,14 @@ export default function NotificationTable() {
 				sortDirections: ["ascend", "descend"],
 			},
 			{
-				title: "Đối tượng nhận",
-				dataIndex: "target",
-				...getColumnSearchProps("target"),
+				title: "Sản phẩm nhận thông báo",
+				dataIndex: "productIds",
+				...getColumnSearchProps("productIds"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.target.indexOf(value.toString()) === 0,
+					record.productIds.indexOf(value.toString()) === 0,
 				sortDirections: ["ascend", "descend"],
-				render: (target) => {
-					const newTarget = target as string[];
+				render: (productIds) => {
+					const newTarget = productIds as string[];
 					return (
 						<>
 							{newTarget?.length === 0
@@ -163,7 +163,7 @@ export default function NotificationTable() {
 								: newTarget?.map((userId, index) => (
 										<span key={userId}>
 											{userList.find((user) => user.id === userId)?.name}
-											{index === target?.length - 1 ? "" : ", "}
+											{index === productIds?.length - 1 ? "" : ", "}
 										</span>
 								  ))}
 						</>

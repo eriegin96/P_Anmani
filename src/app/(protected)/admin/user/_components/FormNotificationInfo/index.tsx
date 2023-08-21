@@ -4,7 +4,7 @@ import {
 	NOTIFICATION_TARGET_TYPE,
 	NOTIFICATION_TYPE,
 } from "@/constants/notification";
-import {userList} from "@/mock/data";
+import {productList} from "@/mock/data";
 import {PLACEHOLDER_LINK} from "@/constants/common";
 
 export default function FormNotificationInfo() {
@@ -50,23 +50,26 @@ export default function FormNotificationInfo() {
 					<Radio.Group>
 						<Radio value={NOTIFICATION_TARGET_TYPE.ALL}>Tất cả</Radio>
 						<Radio value={NOTIFICATION_TARGET_TYPE.INDIVIDUAL}>
-							Lựa chọn khách
+							Lựa chọn sản phẩm
 						</Radio>
 					</Radio.Group>
 				</Form.Item>
 				{targetType === NOTIFICATION_TARGET_TYPE.INDIVIDUAL && (
 					<Form.Item
-						name="target"
-						label="Tên người dùng"
+						name="productId"
+						label="Tên sản phẩm"
 						{...defaultFormConfig}
 					>
-						{/* <Select
+						<Select
 							mode="multiple"
-							placeholder="Vui lòng chọn người dùng nhận thông báo"
+							placeholder="Vui lòng chọn sản phẩm nhận thông báo"
 							allowClear
 							onChange={onSelectChange}
-							options={userList.map(({id, name}) => ({label: name, value: id}))}
-						/> */}
+							options={productList.map(({key, name}) => ({
+								label: name,
+								value: key,
+							}))}
+						/>
 					</Form.Item>
 				)}
 			</Col>
