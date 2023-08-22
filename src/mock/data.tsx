@@ -417,11 +417,12 @@ export const notificationList: TNotification[] = [
 ];
 
 export const saveList = [
-	{...productList[0], type: PRODUCT_SAVE_VALUE.LATER},
-	{...productList[1], type: PRODUCT_SAVE_VALUE.BUY},
-	{...productList[2], type: PRODUCT_SAVE_VALUE.BUY},
-	{...productList[3], type: PRODUCT_SAVE_VALUE.LATER},
-	{...productList[4], type: PRODUCT_SAVE_VALUE.LATER},
+	{...productList[0], type: ""},
+	// {...productList[0], type: PRODUCT_SAVE_VALUE.LATER},
+	// {...productList[1], type: PRODUCT_SAVE_VALUE.BUY},
+	// {...productList[2], type: PRODUCT_SAVE_VALUE.BUY},
+	// {...productList[3], type: PRODUCT_SAVE_VALUE.LATER},
+	// {...productList[4], type: PRODUCT_SAVE_VALUE.LATER},
 ];
 
 export const documentList = [

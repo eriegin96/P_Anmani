@@ -22,7 +22,7 @@ import {useLayoutContext} from "@/providers/LayoutProvider";
 import {useAuthContext} from "@/providers/AuthProvider";
 import {notificationList} from "@/mock/data";
 import {useCartContext} from "@/providers/CartProvider";
-import { useGetNotificationsByUser } from "@/hooks/api/notification";
+import {useGetNotificationsByUser} from "@/hooks/api/notification";
 
 const Button = dynamic(() => import("../Button"));
 
@@ -73,7 +73,7 @@ export default function Header() {
 							className={styles.popover}
 						>
 							<Button className={styles.triggerBtn}>
-								<Badge size="small" count={data && notificationList.length}>
+								<Badge size="small" count={data?.length}>
 									<IconBell color={color.white} />
 								</Badge>
 							</Button>

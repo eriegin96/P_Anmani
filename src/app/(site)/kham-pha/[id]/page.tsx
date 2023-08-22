@@ -1,25 +1,24 @@
 "use client";
 
-import {exploreVideoList, productList} from "@/mock/data";
 import styles from "./[id].module.scss";
 import {IconHeart, IconShare, IconShoppingCart} from "@tabler/icons-react";
-import {Badge, Button, Drawer, Skeleton} from "antd";
+import {Badge, Button, Drawer} from "antd";
 import {useState} from "react";
 import {ProductCard} from "../../_components";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 import Stories from "react-insta-stories";
-import {TExploreVideo} from "@/types/video.type";
 import {useGetExploreById} from "@/hooks/api/explore/query/useGetExploreById";
 import Loading from "../../loading";
+import {useGetProducts} from "@/hooks/api/product";
+import {useCartContext} from "@/providers/CartProvider";
 
 type TKhamPhaPageProps = {params: {id: string}};
 
 export default function KhamPhaPage({params}: TKhamPhaPageProps) {
-	const {data, isLoading, error} = useGetExploreById(params.id);
-	const video = exploreVideoList.find(
-		(item) => item.key === params.id
-	) as TExploreVideo;
+	const {data: video, isLoading, error} = useGetExploreById(params.id);
+	const {data: productList} = useGetProducts();
+	const {cart} = useCartContext();
 	const [open, setOpen] = useState(false);
 
 	const showDrawer = () => {
@@ -36,7 +35,7 @@ export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 		<>
 			{isLoading && <Loading />}
 
-			{data && (
+			{video && (
 				<div>
 					<Stories
 						stories={video?.stories}
@@ -66,7 +65,7 @@ export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 							<>
 								<h4>Liên kết</h4>
 								<Link href={ROUTE.CART} className={styles.cartBtn}>
-									<Badge size="small" count={5}>
+									<Badge size="small" count={cart.length}>
 										<IconShoppingCart size={20} />
 									</Badge>
 								</Link>
@@ -77,7 +76,7 @@ export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 						open={open}
 						rootClassName={styles.drawer}
 					>
-						{productList.slice(0, 2).map((product) => (
+						{productList?.slice(0, 2).map((product) => (
 							<ProductCard key={product.key} info={product} />
 						))}
 					</Drawer>

@@ -58,14 +58,18 @@ export default function Page() {
 
 			<div className={styles.layout}>
 				<div className={styles.cartAction}>
-					<Checkbox
-						indeterminate={indeterminate}
-						onChange={onCheckAllChange}
-						checked={checkAll}
-						className={styles.checkboxAll}
-					>
-						Chọn tất cả
-					</Checkbox>
+					{cart.length > 0 ? (
+						<Checkbox
+							indeterminate={indeterminate}
+							onChange={onCheckAllChange}
+							checked={checkAll}
+							className={styles.checkboxAll}
+						>
+							Chọn tất cả
+						</Checkbox>
+					) : (
+						<div></div>
+					)}
 					<div>
 						<span className={styles.totalPrice}>
 							{formatCurrency(totalPrice)}

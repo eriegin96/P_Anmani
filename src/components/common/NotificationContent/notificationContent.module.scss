@@ -14,7 +14,7 @@
 	background-color: $color-white;
 	border: none;
 	flex: 1;
-	padding: rem(10) 0;
+	padding: rem(10) rem(4);
 	font-weight: 500;
 	border-bottom: solid rem(2) transparent;
 	@include center;

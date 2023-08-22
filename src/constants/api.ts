@@ -1,4 +1,4 @@
-export const BASE_URL = "https://dummyjson.com";
+export const BASE_URL = "https://anmani-server.onrender.com";
 export const storagePrefix = "anmani_";
 
 // TODO: change endpoint
@@ -9,6 +9,7 @@ export const API_ENDPOINT = {
 	CARTS: "carts",
 	EXPLORES: "videos",
 	NOTIFICATIONS: "notifications",
+	NOTIFICATIONS_USER: "notifications/user",
 	PRODUCTS: "products",
 	VOUCHERS: "vouchers",
 	SIGN_UP: "auth/register",
@@ -24,6 +25,7 @@ export const API_KEY = {
 	CARTS: "carts",
 	EXPLORES: "videos",
 	NOTIFICATIONS: "notifications",
+	NOTIFICATIONS_USER: "notifications/user",
 	PRODUCTS: "products",
 	VOUCHERS: "vouchers",
 	CREATE_CART: "create-carts",
