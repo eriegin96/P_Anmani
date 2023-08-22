@@ -76,7 +76,6 @@ export type TProduct = {
 	description: TDescription;
 	location: TLocation;
 	view: number;
-	logo: any;
 	status: TProductStatusValue;
 };
 

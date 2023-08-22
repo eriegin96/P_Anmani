@@ -19,6 +19,7 @@ import {
 	useUpdateProduct,
 } from "@/hooks/api/product";
 import {ROUTE} from "@/constants/route";
+import {getInvestorLogo, getInvestorName} from "@/utils/getInvestor";
 
 type TProductFormProps = {
 	isEditing?: boolean;
@@ -43,12 +44,18 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 	const handleSubmit = (values: TProduct) => {
 		const lat = Number(values.location.lat);
 		const lng = Number(values.location.lng);
+		const price = Number(values.price);
+		const originalPrice = Number(values.originalPrice);
 		const newValues = {
 			...values,
 			location: {...values.location, lat, lng},
-			investor: {name: values.investor.name, logo: "http://google.com"},
+			investor: {
+				name: getInvestorName(values.investor.name),
+				logo: getInvestorLogo(values.investor.name),
+			},
+			price,
+			originalPrice,
 		};
-		console.log(newValues);
 
 		isEditing ? updateProduct(newValues) : createProduct(newValues);
 	};

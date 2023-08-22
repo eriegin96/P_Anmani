@@ -85,7 +85,6 @@ export default function FormImage() {
 							{fields.map(({key, name}) => (
 								<Form.Item key={key} className={styles.formListItem}>
 									<Form.Item
-										required={false}
 										name={name}
 										validateTrigger={["onChange", "onBlur"]}
 										rules={[
@@ -125,7 +124,6 @@ export default function FormImage() {
 							{fields.map(({key, name}) => (
 								<Form.Item key={key} className={styles.formListItem}>
 									<Form.Item
-										required={false}
 										name={name}
 										validateTrigger={["onChange", "onBlur"]}
 										rules={[

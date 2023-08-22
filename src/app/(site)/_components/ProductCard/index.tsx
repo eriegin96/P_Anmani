@@ -12,6 +12,7 @@ import {useState} from "react";
 import {RadioChangeEvent} from "antd";
 import {QUERY_PARAMS, ROUTE} from "@/constants/route";
 import {formatCurrency} from "@/utils/formatCurrency";
+import {concatHref} from "@/utils/concatHref";
 
 type TProductCardProps = {
 	info: TProduct;
@@ -30,7 +31,7 @@ export default function ProductCard({
 		information,
 		view,
 		image: {thumbnail},
-		logo,
+		investor: {logo},
 		location,
 		status,
 	} = info;
@@ -46,7 +47,7 @@ export default function ProductCard({
 	return (
 		<div className={styles.itemWrapper}>
 			<div className={styles.linkWrapper}>
-				<Link href={`${ROUTE.PRODUCT}/${key}`} key={name}>
+				<Link href={concatHref(ROUTE.PRODUCT, key)} key={name}>
 					<div className={styles.cardContent}>
 						<div className={styles.imageWrapper}>
 							<Image src={thumbnail} alt="" fill className={styles.thumbnail} />

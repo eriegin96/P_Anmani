@@ -57,7 +57,7 @@ export const categoryList: TCategory[] = [
 	},
 	{
 		id: "4",
-		tag: QUERY_PARAMS.TAG.TRANSFER,
+		tag: QUERY_PARAMS.TAG.INVESTOR,
 		type: QUERY_PARAMS.TYPE.APARTMENT,
 		title: PRODUCT_TYPE.apartment,
 		location: locationList,

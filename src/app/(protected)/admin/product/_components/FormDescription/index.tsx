@@ -5,7 +5,11 @@ export default function FormDescription() {
 	return (
 		<Row gutter={20}>
 			<Col span={12}>
-				<Form.Item name={["description", "pros"]} label="Ưu điểm">
+				<Form.Item
+					name={["description", "pros"]}
+					label="Ưu điểm"
+					{...defaultFormConfig}
+				>
 					<Input.TextArea autoSize={{minRows: 3}} />
 				</Form.Item>
 			</Col>
