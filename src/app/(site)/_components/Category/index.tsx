@@ -11,15 +11,20 @@ import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
 import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 import {ItemsSkeleton} from "@/components";
+import {QUERY_PARAMS} from "@/constants/route";
 
 type TCategoryProps = {
 	category: TCategory;
 };
 
 export default function Category({category}: TCategoryProps) {
-	const {title, location, href, icon, type} = category;
+	const {title, location, href, icon, tag, type} = category;
 	const {data, isLoading} = useGetProducts();
-	const categoryList = data?.filter((product) => product.type === type);
+	const categoryList = data?.filter((product) => {
+		if (tag !== QUERY_PARAMS.TAG.TRANSFER)
+			return product.tag === tag && product.type === type;
+		return product.tag === QUERY_PARAMS.TAG.TRANSFER;
+	});
 
 	return (
 		<div className={styles.wrapper}>

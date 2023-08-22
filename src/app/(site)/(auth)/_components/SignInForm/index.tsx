@@ -47,11 +47,11 @@ export default function SignInForm() {
 			>
 				<Input.Password placeholder="Mật khẩu" />
 			</Form.Item>
-			<div className={styles.actionsWrapper}>
+			{/* <div className={styles.actionsWrapper}>
 				<Link href={ROUTE.CHANGE_PASSWORD}>
 					<span>Quên mật khẩu</span>
 				</Link>
-			</div>
+			</div> */}
 			<Form.Item>
 				<Button
 					type="primary"

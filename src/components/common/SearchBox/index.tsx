@@ -5,7 +5,7 @@ import styles from "./searchBox.module.scss";
 import {IconSearch} from "@tabler/icons-react";
 import {Dispatch, SetStateAction, useState} from "react";
 import type {SelectProps} from "antd";
-import {productList} from "@/mock/data";
+import {useGetProducts} from "@/hooks/api/product";
 
 type TSearchBoxProps = {
 	value: string;
@@ -13,8 +13,9 @@ type TSearchBoxProps = {
 };
 
 export default function SearchBox({value, setValue}: TSearchBoxProps) {
+	const {data: productList} = useGetProducts();
 	const [data, setData] = useState<SelectProps["options"]>(
-		productList.map(({key, name}) => ({value: key, label: name}))
+		productList?.map(({key, name}) => ({value: key, label: name}))
 	);
 
 	const handleSearch = (newValue: string) => {

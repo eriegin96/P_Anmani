@@ -1,5 +1,12 @@
-import {BASE_URL} from "@/constants/api";
-import axios, {AxiosError, InternalAxiosRequestConfig} from "axios";
+import {API_ENDPOINT, BASE_URL} from "@/constants/api";
+import {ROUTE} from "@/constants/route";
+import axios, {
+	AxiosError,
+	AxiosRequestConfig,
+	AxiosResponse,
+	HttpStatusCode,
+	InternalAxiosRequestConfig,
+} from "axios";
 
 export const axiosInstance = axios.create({
 	baseURL: process.env.NEXT_PUBLIC_BASE_URL ?? `${BASE_URL}`,
@@ -21,6 +28,12 @@ function authRequestInterceptor(config: InternalAxiosRequestConfig) {
 
 const onErrorResponse = async (error: AxiosError | Error) => {
 	if (axios.isAxiosError(error)) {
+		// const {status} = error.response as AxiosResponse;
+		// if (status === HttpStatusCode.Unauthorized) {
+		// await axiosInstance.get(API_ENDPOINT.LOGOUT);
+		// 	return Promise.reject(error);
+		// }
+
 		return Promise.reject(error);
 	}
 };

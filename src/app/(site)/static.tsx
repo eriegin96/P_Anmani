@@ -30,6 +30,7 @@ const locationList = [
 export const categoryList: TCategory[] = [
 	{
 		id: "1",
+		tag: QUERY_PARAMS.TAG.INVESTOR,
 		type: QUERY_PARAMS.TYPE.SINGLE,
 		title: PRODUCT_TYPE.single,
 		location: locationList,
@@ -38,6 +39,7 @@ export const categoryList: TCategory[] = [
 	},
 	{
 		id: "2",
+		tag: QUERY_PARAMS.TAG.INVESTOR,
 		type: QUERY_PARAMS.TYPE.DOUBLE,
 		title: PRODUCT_TYPE.double,
 		location: locationList,
@@ -46,6 +48,7 @@ export const categoryList: TCategory[] = [
 	},
 	{
 		id: "3",
+		tag: QUERY_PARAMS.TAG.INVESTOR,
 		type: QUERY_PARAMS.TYPE.SHOPHOUSE,
 		title: PRODUCT_TYPE.shophouse,
 		location: locationList,
@@ -54,6 +57,7 @@ export const categoryList: TCategory[] = [
 	},
 	{
 		id: "4",
+		tag: QUERY_PARAMS.TAG.TRANSFER,
 		type: QUERY_PARAMS.TYPE.APARTMENT,
 		title: PRODUCT_TYPE.apartment,
 		location: locationList,
@@ -62,7 +66,7 @@ export const categoryList: TCategory[] = [
 	},
 	{
 		id: "5",
-		type: QUERY_PARAMS.TAG.TRANSFER,
+		tag: QUERY_PARAMS.TAG.TRANSFER,
 		title: PRODUCT_TAG.TRANSFER,
 		location: locationList,
 		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TAG.TRANSFER}`,

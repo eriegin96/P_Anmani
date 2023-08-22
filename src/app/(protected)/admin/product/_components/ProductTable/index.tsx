@@ -11,6 +11,7 @@ import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 import {useDeleteProduct} from "@/hooks/api/product";
 import {useModalContext} from "@/providers/ModalProvider";
 import {API_ENDPOINT} from "@/constants/api";
+import {formatCurrency} from "@/utils/formatCurrency";
 
 type DataIndex = keyof TProduct;
 
@@ -116,6 +117,7 @@ export default function ProductTable() {
 				...getColumnSearchProps("price"),
 				sorter: (a, b) => a.price - b.price,
 				sortDirections: ["ascend", "descend"],
+				render: (price: number) => <>{formatCurrency(price)}</>,
 			},
 			{
 				title: "Địa điểm",

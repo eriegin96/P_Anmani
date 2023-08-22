@@ -122,6 +122,7 @@
 }
 
 .name {
+	height: rem(54);
 	font-size: rem(18);
 	font-weight: 600;
 	@include line-clamp(3);

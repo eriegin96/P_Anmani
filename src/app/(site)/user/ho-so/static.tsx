@@ -28,9 +28,9 @@ export const profilePageList = [
 		title: "Góp ý",
 		icon: <IconHelpSquareRounded />,
 	},
-	{
-		href: ROUTE.CHANGE_PASSWORD,
-		title: "Đổi mật khẩu",
-		icon: <IconKey />,
-	},
+	// {
+	// 	href: ROUTE.CHANGE_PASSWORD,
+	// 	title: "Đổi mật khẩu",
+	// 	icon: <IconKey />,
+	// },
 ];

@@ -11,6 +11,7 @@ import clsx from "clsx";
 import {TProduct, TSlotId} from "@/types/product.type";
 import {ROUTE} from "@/constants/route";
 import Link from "next/link";
+import {useGetProducts} from "@/hooks/api/product";
 
 type TProductComparisonProviderContextDefault = {
 	showDrawer: () => void;
@@ -41,13 +42,14 @@ export default function ProductComparisonProvider({
 	const [isComparisonOpen, setIsComparisonOpen] = useState(false);
 	const [isComparisonModalOpen, setIsComparisonModalOpen] = useState(false);
 	const [slotId, setSlotId] = useState<TSlotId>("1");
+	const {data: productList} = useGetProducts();
 
 	const [selectedProducts, setSelectedProducts] = useState<
 		Map<TSlotId, TProduct | null>
 	>(
 		new Map([
-			["1", productList[0]],
-			["2", productList[1]],
+			["1", null],
+			["2", null],
 			["3", null],
 		])
 	);
@@ -68,7 +70,7 @@ export default function ProductComparisonProvider({
 	};
 	const setComparisonProduct = (productId: string) => {
 		const product =
-			productList.find((product) => product.key === productId) ?? null;
+			productList?.find((product) => product.key === productId) ?? null;
 		const newSelectedProducts = new Map(selectedProducts);
 		newSelectedProducts.set(slotId, product);
 		setSelectedProducts(newSelectedProducts);
@@ -138,7 +140,11 @@ export default function ProductComparisonProvider({
 					</Row>
 					<Row>
 						<Col span={12}>
-							<AntdButton type="default" className={styles.btn}>
+							<AntdButton
+								type="default"
+								className={styles.btn}
+								onClick={hideDrawer}
+							>
 								Thu gọn
 							</AntdButton>
 						</Col>
