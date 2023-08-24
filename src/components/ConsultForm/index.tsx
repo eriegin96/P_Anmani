@@ -4,21 +4,44 @@ import {Button} from "@/components";
 import type {DatePickerProps} from "antd/es/date-picker";
 import {useCreateCart} from "@/hooks/api/cart/mutation/useCreateCart";
 import {useState} from "react";
+import {useAuthContext} from "@/providers/AuthProvider";
+import {CART_STATUS} from "@/constants/cart";
+import {useParams} from "next/navigation";
 import {useCartContext} from "@/providers/CartProvider";
+import {TRequestCart} from "@/types/user.type";
 
 export default function ConsultForm() {
+	const {id: productId} = useParams();
+	const {checkedList} = useCartContext();
+	const {userInfo} = useAuthContext();
 	const {trigger} = useCreateCart();
-	const {cart} = useCartContext();
 	const [date, setDate] = useState("");
-	const [place, setPlace] = useState("");
+	const [meetingLocation, setMeetingLocation] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
 
 	const handleSubmit = () => {
-		console.log({place, phoneNumber, date});
+		const products = productId
+			? {
+					productId,
+					status: CART_STATUS.PROCESSING,
+					date,
+					meetingLocation,
+					phoneNumber,
+					price: 0,
+			  }
+			: checkedList.map((id) => ({
+					productId: id,
+					status: CART_STATUS.PROCESSING,
+					date,
+					meetingLocation,
+					phoneNumber,
+					price: 0,
+			  }));
+
 		trigger({
-			cartList: cart,
-			bookingInfo: {userId: "user-1", date, place, phoneNumber},
-		});
+			userId: userInfo?.key,
+			products,
+		} as TRequestCart);
 	};
 
 	const onDateChange = (
@@ -27,7 +50,7 @@ export default function ConsultForm() {
 	) => {
 		console.log("Selected Time: ", value);
 		console.log("Formatted Selected Time: ", dateString);
-		setDate(dateString);
+		setDate(new Date(dateString).toISOString());
 	};
 
 	const onDateOk = (value: DatePickerProps["value"]) => {
@@ -49,8 +72,8 @@ export default function ConsultForm() {
 				<span>Địa điểm gặp mặt</span>
 				<Input
 					className={styles.input}
-					value={place}
-					onChange={(e) => setPlace(e.target.value)}
+					value={meetingLocation}
+					onChange={(e) => setMeetingLocation(e.target.value)}
 				/>
 			</div>
 			<div className={styles.section}>

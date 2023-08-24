@@ -10,7 +10,7 @@ const fetcher = (url: string) =>
 
 export const useGetNotificationsByUser = (userInfo?: TUser | null) => {
 	return useSWR(
-		userInfo ? concatHref(API_ENDPOINT.NOTIFICATIONS_USER, userInfo.id) : null,
+		userInfo ? concatHref(API_ENDPOINT.NOTIFICATIONS_USER, userInfo.key) : null,
 		fetcher
 	);
 };

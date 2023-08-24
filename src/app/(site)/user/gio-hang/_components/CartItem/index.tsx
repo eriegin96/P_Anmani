@@ -1,17 +1,19 @@
-import {productList, voucherList} from "@/mock/data";
-import {TProduct} from "@/types/product.type";
-import {TCartItem} from "@/types/user.type";
+import {TResponseCart} from "@/types/user.type";
 import {IconGiftCard} from "@tabler/icons-react";
 import styles from "./cartItem.module.scss";
 import Image from "next/image";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {Voucher} from "@/components";
-import {TVoucher} from "@/types/voucher.type";
 import {IconX} from "@tabler/icons-react";
 import {useCartContext} from "@/providers/CartProvider";
+import {useDeleteCart} from "@/hooks/api/cart";
+import {useEffect} from "react";
+import {mutate} from "swr";
+import {API_ENDPOINT} from "@/constants/api";
+import {useAuthContext} from "@/providers/AuthProvider";
 
 type TCartItemProps = {
-	item: TCartItem;
+	item: TResponseCart;
 	shouldShowDeleteButton?: boolean;
 	shouldShowVoucher?: boolean;
 };
@@ -21,14 +23,23 @@ export default function CartItem({
 	shouldShowDeleteButton = false,
 	shouldShowVoucher = false,
 }: TCartItemProps) {
-	const {removeFromCart} = useCartContext();
-	const product = productList.find((p) => p.key === item.productId) as TProduct;
+	const {product} = item;
+	const {userInfo} = useAuthContext();
+	const {trigger, data} = useDeleteCart();
+	const handleDeleteCart = () => {
+		trigger(item.key);
+	};
+
+	useEffect(() => {
+		if (data)
+			mutate(`${API_ENDPOINT.CARTS}?userId=${userInfo?.key}&status=pending`);
+	}, [data, userInfo]);
 
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.checkboxLabel}>
 				<div className={styles.imageWrapper}>
-					<Image src={product.image.thumbnail} alt="" fill />
+					<Image src={product.image.thumbnail} alt={product.name} fill />
 				</div>
 				<div className={styles.info}>
 					<div>
@@ -39,10 +50,7 @@ export default function CartItem({
 				</div>
 
 				{shouldShowDeleteButton && (
-					<button
-						className={styles.btn}
-						onClick={() => removeFromCart(item.productId)}
-					>
+					<button className={styles.btn} onClick={handleDeleteCart}>
 						<IconX />
 					</button>
 				)}
@@ -54,12 +62,8 @@ export default function CartItem({
 						<IconGiftCard size={30} />
 						Chiết khấu của sản phẩm
 					</h4>
-					{item.voucherAdded.map((voucherId) => {
-						const voucher = voucherList.find(
-							(item) => item.key === voucherId
-						) as TVoucher;
-
-						return <Voucher key={voucherId} voucher={voucher} />;
+					{item.vouchers.map((voucher) => {
+						return <Voucher key={voucher.key} voucher={voucher} />;
 					})}
 				</div>
 			)}

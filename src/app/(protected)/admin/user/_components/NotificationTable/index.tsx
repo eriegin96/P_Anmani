@@ -162,7 +162,7 @@ export default function NotificationTable() {
 								? "Tất cả mọi người"
 								: newTarget?.map((userId, index) => (
 										<span key={userId}>
-											{userList.find((user) => user.id === userId)?.name}
+											{userList.find((user) => user.key === userId)?.name}
 											{index === productIds?.length - 1 ? "" : ", "}
 										</span>
 								  ))}

@@ -14,7 +14,7 @@ export default function Page() {
 	const router = useRouter();
 	const {cart, checkedList, totalPrice} = useCartContext();
 	const {showBookingModal} = useModalContext();
-	const products = cart.filter((p) => checkedList.includes(p.productId));
+	const products = cart.filter((p) => checkedList.includes(p.key));
 	const discountAmount = 500_000_000;
 
 	return (
@@ -28,7 +28,7 @@ export default function Page() {
 
 			<div className={clsx(styles.wrapper, styles.productList)}>
 				{products.map((item) => (
-					<CartItem key={item.id} item={item} shouldShowVoucher={true} />
+					<CartItem key={item.key} item={item} shouldShowVoucher={true} />
 				))}
 			</div>
 

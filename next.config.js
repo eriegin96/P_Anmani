@@ -5,8 +5,19 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
-				protocol: "https",
-				hostname: "*.previews.dropboxusercontent.com",
+				hostname: "**.vn",
+				port: "",
+			},
+			{
+				hostname: "**.com",
+				port: "",
+			},
+			{
+				hostname: "**.co",
+				port: "",
+			},
+			{
+				hostname: "**.net",
 				port: "",
 			},
 			{

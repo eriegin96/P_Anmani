@@ -1,5 +1,3 @@
-import {API_ENDPOINT} from "./api";
-
 export const ROUTE_PREFIX_USER = "user";
 export const ROUTE_PREFIX_ADMIN = "admin";
 
@@ -64,7 +62,7 @@ export const QUERY_PARAMS = {
 		DA_NANG: "da-nang",
 	},
 	SORT: {
-		PRICE_ASCENDING: "price-asceding",
+		PRICE_ASCENDING: "price-ascending",
 		PRICE_DESCENDING: "price-descending",
 	},
 } as const;

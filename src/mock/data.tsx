@@ -1,10 +1,8 @@
 import {TProduct} from "@/types/product.type";
-import {ImageLogoSG} from "../assets";
-import {PRODUCT_SAVE_VALUE} from "@/constants/product";
 import {TVoucher} from "@/types/voucher.type";
 import {NOTIFICATION_TYPE} from "@/constants/notification";
 import {QUERY_PARAMS} from "@/constants/route";
-import {TUser, TUserCart} from "@/types/user.type";
+import {TUser} from "@/types/user.type";
 import {TNotification} from "@/types/notification.type";
 import {TExploreVideo, TExploreVideoStory} from "@/types/video.type";
 import {EXPLORE_TYPE} from "@/constants/explore";
@@ -555,7 +553,7 @@ export const userList: TUser[] = [
 		email: "user1@email.com",
 		name: "User 1",
 		role: {key: "user-1", name: "user"},
-		id: "user-1",
+		key: "user-1",
 		gender: "male",
 		dateOfBirth: "",
 		phoneNumber: "",
@@ -564,7 +562,7 @@ export const userList: TUser[] = [
 		email: "user2@email.com",
 		name: "User 2",
 		role: {key: "user-2", name: "user"},
-		id: "user-2",
+		key: "user-2",
 		gender: "female",
 		dateOfBirth: "",
 		phoneNumber: "",
@@ -573,38 +571,9 @@ export const userList: TUser[] = [
 		email: "admin1@email.com",
 		name: "Admin 1",
 		role: {key: "admin-1", name: "admin"},
-		id: "admin-1",
+		key: "admin-1",
 		gender: "male",
 		dateOfBirth: "",
 		phoneNumber: "",
-	},
-];
-
-export const userCartList: TUserCart[] = [
-	{
-		id: "userCart-1",
-		key: "userCart-1",
-		bookingInfo: {
-			userId: "user-1",
-			date: "31/07/2023",
-			place: "6 Tan Trao, P.Tan Phu",
-			phoneNumber: "0123456789",
-		},
-		cartList: [
-			{
-				id: "cart-1",
-				productId: "product-1",
-				quantity: 1,
-				voucherAdded: ["voucher-1", "voucher-2"],
-				value: "product-1",
-			},
-			{
-				id: "cart-2",
-				productId: "product-2",
-				quantity: 2,
-				voucherAdded: ["voucher-3"],
-				value: "product-2",
-			},
-		],
 	},
 ];

@@ -32,9 +32,8 @@ export const useGetMe = () => {
 		}
 		if (!data) return;
 
-		const {email, name, gender, role, key, phoneNumber, dateOfBirth} = data;
 		setIsChecked(true);
-		setUserInfo({email, name, gender, role, id: key, phoneNumber, dateOfBirth});
+		setUserInfo(data);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data, error, isChecked]);

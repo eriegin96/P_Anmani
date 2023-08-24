@@ -1,7 +1,6 @@
 "use client";
 
 import {ConsultForm} from "@/components";
-import {API_ENDPOINT} from "@/constants/api";
 import {Modal} from "antd";
 import {ReactNode, createContext, useContext, useState} from "react";
 import {useSWRConfig} from "swr";

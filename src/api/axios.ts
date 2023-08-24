@@ -40,6 +40,6 @@ const onErrorResponse = async (error: AxiosError | Error) => {
 
 axiosInstance.interceptors.request.use(authRequestInterceptor);
 axiosInstance.interceptors.response.use(
-	(response) => response.data,
+	(response) => response.data?.data,
 	onErrorResponse
 );

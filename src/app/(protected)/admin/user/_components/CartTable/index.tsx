@@ -7,15 +7,32 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {userCartList, userList} from "@/mock/data";
-import {TUserCart} from "@/types/user.type";
+import {TResponseCart} from "@/types/user.type";
 import {useGetCarts} from "@/hooks/api/cart/query/useGetCarts";
+import {concatHref} from "@/utils/concatHref";
+import {useGetUsers} from "@/hooks/api/user";
+import {IconX} from "@tabler/icons-react";
+import {useModalContext} from "@/providers/ModalProvider";
+import {useDeleteCart} from "@/hooks/api/cart";
+import {API_ENDPOINT} from "@/constants/api";
 
-type DataIndex = keyof TUserCart;
+type DataIndex = keyof TResponseCart;
 
 export default function CartTable() {
 	const searchInput = useRef<InputRef>(null);
-	const {data, isLoading} = useGetCarts();
+	const {data: cartList, isLoading} = useGetCarts();
+	const {data: userList} = useGetUsers();
+	const {trigger} = useDeleteCart();
+	const {showMDeleteConfirmationModal} = useModalContext();
+
+	const handleDelete = ({key}: {key: string}) => {
+		showMDeleteConfirmationModal({
+			trigger,
+			id: key,
+			name: key,
+			keyRevalidate: API_ENDPOINT.CARTS,
+		});
+	};
 
 	const handleSearch = (
 		confirm: (param?: FilterConfirmProps) => void,
@@ -30,7 +47,7 @@ export default function CartTable() {
 	};
 
 	const getColumnSearchProps = useCallback(
-		(dataIndex: DataIndex): ColumnType<TUserCart> => ({
+		(dataIndex: DataIndex): ColumnType<TResponseCart> => ({
 			filterDropdown: ({
 				setSelectedKeys,
 				selectedKeys,
@@ -84,65 +101,72 @@ export default function CartTable() {
 		[]
 	);
 
-	const columns: ColumnsType<TUserCart> = useMemo(
+	const columns: ColumnsType<TResponseCart> = useMemo(
 		() => [
 			{
 				title: "User cart Id",
-				dataIndex: "id",
-				...getColumnSearchProps("id"),
+				dataIndex: "key",
+				...getColumnSearchProps("key"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.id.indexOf(value.toString()) === 0,
-				sorter: (a, b) => a.id.length - b.id.length,
+					record.key.indexOf(value.toString()) === 0,
+				sorter: (a, b) => a.key.length - b.key.length,
 				sortDirections: ["ascend", "descend"],
 				render: (userCartId) => (
-					<Link href={`${ROUTE.ADMIN_USER_CART}/${userCartId}`}>
+					<Link href={concatHref(ROUTE.ADMIN_USER_CART, userCartId)}>
 						{userCartId}
 					</Link>
 				),
 			},
 			{
 				title: "Tên khách hàng",
-				dataIndex: "bookingInfo",
-				...getColumnSearchProps("bookingInfo"),
+				dataIndex: "user",
+				...getColumnSearchProps("user"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.bookingInfo.userId.indexOf(value.toString()) === 0,
-				sorter: (a, b) =>
-					a.bookingInfo.userId.length - b.bookingInfo.userId.length,
+					record.userId.indexOf(value.toString()) === 0,
+				sorter: (a, b) => a.userId.length - b.userId.length,
 				sortDirections: ["ascend", "descend"],
-				render: ({userId}) => {
-					const userName = userList.find((user) => user.id === userId)?.name;
-					return <Link href={`${ROUTE.ADMIN_USER}/${userId}`}>{userName}</Link>;
+				render: ({name, key}) => {
+					return <Link href={concatHref(ROUTE.ADMIN_USER, key)}>{name}</Link>;
 				},
 			},
 			{
 				title: "Số điện thoại",
-				dataIndex: ["bookingInfo", "phoneNumber"],
-				...getColumnSearchProps("bookingInfo"),
+				dataIndex: "phoneNumber",
+				...getColumnSearchProps("phoneNumber"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.bookingInfo.phoneNumber.indexOf(value.toString()) === 0,
+					record.phoneNumber.indexOf(value.toString()) === 0,
 			},
 			{
 				title: "Địa điểm",
-				dataIndex: ["bookingInfo", "place"],
-				...getColumnSearchProps("bookingInfo"),
+				dataIndex: "meetingLocation",
+				...getColumnSearchProps("meetingLocation"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.bookingInfo.place.indexOf(value.toString()) === 0,
+					record.meetingLocation.indexOf(value.toString()) === 0,
 			},
 			{
 				title: "Thời gian",
-				dataIndex: ["bookingInfo", "date"],
-				...getColumnSearchProps("bookingInfo"),
+				dataIndex: "date",
+				...getColumnSearchProps("date"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.bookingInfo.userId.indexOf(value.toString()) === 0,
-				sorter: (a, b) =>
-					a.bookingInfo.userId.length - b.bookingInfo.userId.length,
+					record.date.indexOf(value.toString()) === 0,
+				sorter: (a, b) => a.date.length - b.date.length,
 				sortDirections: ["ascend", "descend"],
 			},
+			{
+				title: "Xóa",
+				dataIndex: "action",
+				render: (_, {key}) => (
+					<Button danger shape="circle" onClick={() => handleDelete({key})}>
+						<IconX />
+					</Button>
+				),
+			},
 		],
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[getColumnSearchProps]
 	);
 
-	const onChange: TableProps<TUserCart>["onChange"] = (
+	const onChange: TableProps<TResponseCart>["onChange"] = (
 		pagination,
 		filters,
 		sorter,
@@ -154,7 +178,7 @@ export default function CartTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={data && userCartList}
+			dataSource={cartList}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}
