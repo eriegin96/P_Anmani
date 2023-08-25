@@ -35,10 +35,7 @@ export const CartContext = createContext<TCartContextDefault>({
 
 export default function CartProvider({children}: TCartProviderProps) {
 	const {data: cart} = useGetCartByUser();
-	const {trigger: addCartItem} = useUpdateCart();
-	const {trigger: deleteCartItem} = useDeleteCart();
 	const checkedListDefault = cart?.map((item) => item.key) ?? [];
-
 	const [checkedList, setCheckedList] =
 		useState<CheckboxValueType[]>(checkedListDefault);
 

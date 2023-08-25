@@ -6,6 +6,9 @@ import styles from "./voucher.module.scss";
 import {TVoucher} from "@/types/voucher.type";
 import {NUMBER_FORMAT} from "@/constants/common";
 import Button from "../Button";
+import Link from "next/link";
+import {concatHref} from "@/utils/concatHref";
+import {ROUTE} from "@/constants/route";
 
 type TVoucherProps = {
 	voucher: TVoucher;
@@ -16,7 +19,7 @@ export default function Voucher({
 	voucher,
 	shouldShowBtn = false,
 }: TVoucherProps) {
-	const {amount, percentage, condition, expiredDate} = voucher;
+	const {amount, percentage, condition, expiredDate, productId} = voucher;
 	const discountAmount = amount
 		? amount.toString().replace(NUMBER_FORMAT, ".")
 		: `${percentage}%`;
@@ -47,7 +50,12 @@ export default function Voucher({
 			</div>
 			{shouldShowBtn && (
 				<div>
-					<Button className={styles.useBtn}>Sử dụng</Button>
+					<Link
+						href={concatHref(ROUTE.PRODUCT, productId)}
+						className={styles.useBtn}
+					>
+						Sử dụng
+					</Link>
 				</div>
 			)}
 		</div>

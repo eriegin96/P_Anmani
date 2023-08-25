@@ -15,7 +15,17 @@ export default function Page() {
 	const {cart, checkedList, totalPrice} = useCartContext();
 	const {showBookingModal} = useModalContext();
 	const products = cart.filter((p) => checkedList.includes(p.key));
-	const discountAmount = 500_000_000;
+	const discountAmount = products.reduce((prevAmount, currentProduct) => {
+		const totalVoucherDiscount = currentProduct.vouchers.reduce(
+			(voucherDiscount, voucher) => {
+				const amount =
+					voucher?.amount ?? (currentProduct.price * voucher.percentage) / 100;
+				return voucherDiscount + amount;
+			},
+			0
+		);
+		return prevAmount + totalVoucherDiscount;
+	}, 0);
 
 	return (
 		<div className={styles.pageWrapper}>

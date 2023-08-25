@@ -7,5 +7,5 @@ const fetcher = (url: string) =>
 	axiosInstance.get<TResponseCart[]>(url).then((res) => res);
 
 export const useGetCarts = () => {
-	return useSWR(API_ENDPOINT.CARTS, fetcher);
+	return useSWR(`${API_ENDPOINT.CARTS}?status=processing`, fetcher);
 };

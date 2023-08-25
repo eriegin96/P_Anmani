@@ -23,7 +23,7 @@ export default function Page() {
 
 	const cartList = cart?.map((item) => ({
 		...item,
-		value: item.productId,
+		value: item.key,
 		label: <CartItem item={item} shouldShowDeleteButton />,
 	}));
 	const [indeterminate, setIndeterminate] = useState(

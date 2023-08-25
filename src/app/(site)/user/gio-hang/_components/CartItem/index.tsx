@@ -5,10 +5,10 @@ import Image from "next/image";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {Voucher} from "@/components";
 import {IconX} from "@tabler/icons-react";
-import {useCartContext} from "@/providers/CartProvider";
 import {useDeleteCart} from "@/hooks/api/cart";
 import {useEffect} from "react";
-import {mutate} from "swr";
+import {useSWRConfig} from "swr";
+
 import {API_ENDPOINT} from "@/constants/api";
 import {useAuthContext} from "@/providers/AuthProvider";
 
@@ -25,6 +25,7 @@ export default function CartItem({
 }: TCartItemProps) {
 	const {product} = item;
 	const {userInfo} = useAuthContext();
+	const {mutate} = useSWRConfig();
 	const {trigger, data} = useDeleteCart();
 	const handleDeleteCart = () => {
 		trigger(item.key);
@@ -33,7 +34,7 @@ export default function CartItem({
 	useEffect(() => {
 		if (data)
 			mutate(`${API_ENDPOINT.CARTS}?userId=${userInfo?.key}&status=pending`);
-	}, [data, userInfo]);
+	}, [data, userInfo, mutate]);
 
 	return (
 		<div className={styles.wrapper}>

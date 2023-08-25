@@ -13,6 +13,7 @@ export const API_ENDPOINT = {
 	PRODUCTS: "products",
 	USERS: "users",
 	VOUCHERS: "vouchers",
+	VOUCHERS_PRODUCT: "vouchers/product",
 	SIGN_UP: "auth/register",
 	SIGN_IN: "auth/login",
 	LOGOUT: "auth/logout",
@@ -20,15 +21,7 @@ export const API_ENDPOINT = {
 };
 
 export const API_KEY = {
-	MOCK: "",
 	GET_ME: "auth/me",
-	CARTS: "carts",
-	EXPLORES: "videos",
-	NOTIFICATIONS: "notifications",
-	NOTIFICATIONS_USER: "notifications/user",
-	PRODUCTS: "products",
-	VOUCHERS: "vouchers",
-	USERS: "users",
 	CREATE_CART: "create-carts",
 	CREATE_EXPLORE: "create-videos",
 	CREATE_NOTIFICATION: "create-notifications",

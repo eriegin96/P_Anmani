@@ -11,12 +11,14 @@ import {useCartContext} from "@/providers/CartProvider";
 import {TUpdateCart, useUpdateCart} from "@/hooks/api/cart";
 import {useGetProductById} from "@/hooks/api/product";
 import {useModalContext} from "@/providers/ModalProvider";
+import {useGetVouchersByProductId} from "@/hooks/api/voucher";
 
 export default function ConsultForm() {
 	const {id: productId} = useParams();
-	const {checkedList, totalPrice} = useCartContext();
+	const {cart, checkedList, totalPrice} = useCartContext();
 	const {userInfo} = useAuthContext();
 	const {data: product} = useGetProductById(productId);
+	const {data: vouchers} = useGetVouchersByProductId(productId);
 	const {hideBookingModal} = useModalContext();
 	const {trigger: createCart, data: dataCreateCart} = useCreateCart();
 	const {trigger: updateCart, data: dataUpdateCart} = useUpdateCart();
@@ -29,6 +31,7 @@ export default function ConsultForm() {
 			? createCart({
 					userId: userInfo?.key,
 					productId,
+					voucherIds: vouchers?.map((voucher) => voucher.key),
 					status: CART_STATUS.PROCESSING,
 					date,
 					meetingLocation,
@@ -38,7 +41,7 @@ export default function ConsultForm() {
 			: updateCart({
 					userId: userInfo?.key,
 					products: checkedList.map((id) => ({
-						productId: id,
+						productId: cart.find((item) => item.key === id)?.productId,
 						status: CART_STATUS.PROCESSING,
 						date,
 						meetingLocation,
