@@ -1,11 +1,13 @@
 import {axiosInstance} from "@/api/axios";
 import {API_ENDPOINT, API_KEY} from "@/constants/api";
-import {TRequestCart} from "@/types/user.type";
+import {TCartProduct, TResponseCart} from "@/types/user.type";
 import useSWRMutation from "swr/mutation";
 
-const fetcher = (url: string, {arg}: {arg: TRequestCart}) =>
+type TCreateCart = TCartProduct & {userId?: string};
+
+const fetcher = (url: string, {arg}: {arg: TCreateCart}) =>
 	axiosInstance
-		.post<TRequestCart>(API_ENDPOINT.CARTS, JSON.stringify(arg))
+		.post<TCreateCart, TResponseCart>(API_ENDPOINT.CARTS, JSON.stringify(arg))
 		.then((res) => res);
 
 export const useCreateCart = () => {

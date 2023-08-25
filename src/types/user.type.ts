@@ -1,4 +1,4 @@
-import {CART_STATUS} from "@/constants/cart";
+import {TCartStatusValue} from "@/constants/cart";
 import {TProduct} from "./product.type";
 import {TVoucher} from "./voucher.type";
 
@@ -12,7 +12,7 @@ export type TUser = {
 	email: string;
 };
 
-type TCartProducts = {
+export type TCartProduct = {
 	productId: string;
 	voucherIds?: string[];
 	status: TCartStatusValue;
@@ -20,11 +20,6 @@ type TCartProducts = {
 	meetingLocation?: string;
 	phoneNumber?: string;
 	price: number;
-};
-
-export type TRequestCart = {
-	userId?: string;
-	products: TCartProducts[];
 };
 
 export type TResponseCart = {
@@ -41,6 +36,3 @@ export type TResponseCart = {
 	userId: string;
 	vouchers: TVoucher[];
 };
-
-export type TCartStatusKey = keyof typeof CART_STATUS;
-export type TCartStatusValue = (typeof CART_STATUS)[TCartStatusKey];

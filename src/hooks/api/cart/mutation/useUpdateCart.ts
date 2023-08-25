@@ -1,11 +1,13 @@
 import {axiosInstance} from "@/api/axios";
 import {API_ENDPOINT, API_KEY} from "@/constants/api";
-import {TRequestCart, TResponseCart} from "@/types/user.type";
+import {TCartProduct, TResponseCart} from "@/types/user.type";
 import useSWRMutation from "swr/mutation";
 
-const fetcher = (url: string, {arg}: {arg: TRequestCart}) =>
+export type TUpdateCart = {userId?: string; products: TCartProduct[]};
+
+const fetcher = (url: string, {arg}: {arg: TUpdateCart}) =>
 	axiosInstance
-		.patch<TRequestCart, TResponseCart>(
+		.patch<TUpdateCart, TResponseCart>(
 			API_ENDPOINT.CARTS_MANY,
 			JSON.stringify(arg)
 		)

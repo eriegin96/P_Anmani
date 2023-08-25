@@ -1,4 +1,4 @@
-import {TProduct, TProductAnchorValue} from "@/types/product.type";
+import {TProduct} from "@/types/product.type";
 import {
 	Description,
 	Facility,
@@ -8,6 +8,7 @@ import {
 	VoucherList,
 } from "./_components";
 import {ReactElement} from "react";
+import {TProductAnchorValue} from "@/constants/product";
 
 export const pageAnchorList = (
 	product: TProduct

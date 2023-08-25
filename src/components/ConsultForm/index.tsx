@@ -3,45 +3,49 @@ import styles from "./consultForm.module.scss";
 import {Button} from "@/components";
 import type {DatePickerProps} from "antd/es/date-picker";
 import {useCreateCart} from "@/hooks/api/cart/mutation/useCreateCart";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useAuthContext} from "@/providers/AuthProvider";
 import {CART_STATUS} from "@/constants/cart";
 import {useParams} from "next/navigation";
 import {useCartContext} from "@/providers/CartProvider";
-import {TRequestCart} from "@/types/user.type";
+import {TUpdateCart, useUpdateCart} from "@/hooks/api/cart";
+import {useGetProductById} from "@/hooks/api/product";
+import {useModalContext} from "@/providers/ModalProvider";
 
 export default function ConsultForm() {
 	const {id: productId} = useParams();
-	const {checkedList} = useCartContext();
+	const {checkedList, totalPrice} = useCartContext();
 	const {userInfo} = useAuthContext();
-	const {trigger} = useCreateCart();
+	const {data: product} = useGetProductById(productId);
+	const {hideBookingModal} = useModalContext();
+	const {trigger: createCart, data: dataCreateCart} = useCreateCart();
+	const {trigger: updateCart, data: dataUpdateCart} = useUpdateCart();
 	const [date, setDate] = useState("");
 	const [meetingLocation, setMeetingLocation] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
 
 	const handleSubmit = () => {
-		const products = productId
-			? {
+		productId
+			? createCart({
+					userId: userInfo?.key,
 					productId,
 					status: CART_STATUS.PROCESSING,
 					date,
 					meetingLocation,
 					phoneNumber,
-					price: 0,
-			  }
-			: checkedList.map((id) => ({
-					productId: id,
-					status: CART_STATUS.PROCESSING,
-					date,
-					meetingLocation,
-					phoneNumber,
-					price: 0,
-			  }));
-
-		trigger({
-			userId: userInfo?.key,
-			products,
-		} as TRequestCart);
+					price: product?.price ?? 1,
+			  })
+			: updateCart({
+					userId: userInfo?.key,
+					products: checkedList.map((id) => ({
+						productId: id,
+						status: CART_STATUS.PROCESSING,
+						date,
+						meetingLocation,
+						phoneNumber,
+						price: totalPrice,
+					})),
+			  } as TUpdateCart);
 	};
 
 	const onDateChange = (
@@ -56,6 +60,10 @@ export default function ConsultForm() {
 	const onDateOk = (value: DatePickerProps["value"]) => {
 		console.log("onOk: ", value);
 	};
+
+	useEffect(() => {
+		if (dataCreateCart || dataUpdateCart) hideBookingModal();
+	}, [dataCreateCart, dataUpdateCart, hideBookingModal]);
 
 	return (
 		<div className={styles.wrapper}>

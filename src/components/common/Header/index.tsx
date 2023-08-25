@@ -20,7 +20,6 @@ import {ROUTE} from "@/constants/route";
 import NotificationContent from "../NotificationContent";
 import {useLayoutContext} from "@/providers/LayoutProvider";
 import {useAuthContext} from "@/providers/AuthProvider";
-import {notificationList} from "@/mock/data";
 import {useCartContext} from "@/providers/CartProvider";
 import {useGetNotificationsByUser} from "@/hooks/api/notification";
 
@@ -47,9 +46,9 @@ export default function Header() {
 						</Dialog.Description>
 						<div className={styles.links}>
 							{navLinks.map((link) => (
-								<Link key={link.name} href={link.href} className={styles.link}>
+								<Link key={link.label} href={link.href} className={styles.link}>
 									{link.icon}
-									{link.name}
+									{link.label}
 								</Link>
 							))}
 						</div>

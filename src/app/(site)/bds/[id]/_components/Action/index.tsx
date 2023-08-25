@@ -21,13 +21,9 @@ export default function Action({product}: TActionProps) {
 	const handleAddCart = () => {
 		trigger({
 			userId: userInfo?.key,
-			products: [
-				{
-					productId: product.key,
-					status: CART_STATUS.PENDING,
-					price: product.price,
-				},
-			],
+			productId: product.key,
+			status: CART_STATUS.PENDING,
+			price: product.price,
 		});
 	};
 

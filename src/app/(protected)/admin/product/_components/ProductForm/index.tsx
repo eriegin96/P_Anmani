@@ -4,7 +4,6 @@ import {Button, Form} from "antd";
 import {useParams, useRouter} from "next/navigation";
 import {useEffect} from "react";
 import {TProduct} from "@/types/product.type";
-import {productList} from "@/mock/data";
 import FormBasicInfo from "../FormBasicInfo";
 import FormCategory from "../FormCategory";
 import FormInformation from "../FormInformation";
@@ -19,7 +18,7 @@ import {
 	useUpdateProduct,
 } from "@/hooks/api/product";
 import {ROUTE} from "@/constants/route";
-import {getInvestorLogo, getInvestorName} from "@/utils/getInvestor";
+import {INVESTOR} from "@/constants/investor";
 
 type TProductFormProps = {
 	isEditing?: boolean;
@@ -50,8 +49,8 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 			...values,
 			location: {...values.location, lat, lng},
 			investor: {
-				name: getInvestorName(values.investor.name),
-				logo: getInvestorLogo(values.investor.name),
+				name: values.investor.name,
+				logo: INVESTOR[values.investor.name].logo,
 			},
 			price,
 			originalPrice,

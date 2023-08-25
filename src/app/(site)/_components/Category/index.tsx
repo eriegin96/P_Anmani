@@ -11,7 +11,7 @@ import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
 import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 import {ItemsSkeleton} from "@/components";
-import {QUERY_PARAMS} from "@/constants/route";
+import {PRODUCT_TAG} from "@/constants/product";
 
 type TCategoryProps = {
 	category: TCategory;
@@ -21,9 +21,9 @@ export default function Category({category}: TCategoryProps) {
 	const {title, location, href, icon, tag, type} = category;
 	const {data, isLoading} = useGetProducts();
 	const categoryList = data?.filter((product) => {
-		if (tag !== QUERY_PARAMS.TAG.TRANSFER)
+		if (tag !== PRODUCT_TAG.transfer.value)
 			return product.tag === tag && product.type === type;
-		return product.tag === QUERY_PARAMS.TAG.TRANSFER;
+		return product.tag === PRODUCT_TAG.transfer.value;
 	});
 
 	return (
@@ -43,18 +43,18 @@ export default function Category({category}: TCategoryProps) {
 			{categoryList && (
 				<Tabs.Root defaultValue={location[0].value} className={styles.tabsRoot}>
 					<Tabs.List aria-label="Category" className={styles.tabsList}>
-						{location.map(({value, name}) => (
+						{location.map(({value, label}) => (
 							<Tabs.Trigger
 								key={value}
 								value={value}
 								className={styles.tabsTrigger}
 							>
-								{name}
+								{label}
 							</Tabs.Trigger>
 						))}
 					</Tabs.List>
 
-					{location.map(({value, name}) => (
+					{location.map(({value, label}) => (
 						<Tabs.Content
 							key={value}
 							value={value}

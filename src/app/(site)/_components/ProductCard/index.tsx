@@ -3,14 +3,18 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import Link from "next/link";
 import styles from "./productCard.module.scss";
-import {TProduct, TProductSaveValue} from "@/types/product.type";
+import {TProduct} from "@/types/product.type";
 import Image from "next/image";
 import {SaveDialogPortal} from "@/components";
 import {IconBookmark, IconBookmarkFilled} from "@tabler/icons-react";
-import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/product";
+import {
+	PRODUCT_SAVE_VALUE,
+	PRODUCT_STATUS,
+	TProductSaveValue,
+} from "@/constants/product";
 import {useState} from "react";
 import {RadioChangeEvent} from "antd";
-import {QUERY_PARAMS, ROUTE} from "@/constants/route";
+import {ROUTE} from "@/constants/route";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {concatHref} from "@/utils/concatHref";
 
@@ -83,7 +87,7 @@ export default function ProductCard({
 						</div>
 					</div>
 				</Link>
-				{info.status === QUERY_PARAMS.STATUS.SOLD && (
+				{info.status === PRODUCT_STATUS.sold.value && (
 					<div className={styles.overlay}>- Đã bán -</div>
 				)}
 			</div>

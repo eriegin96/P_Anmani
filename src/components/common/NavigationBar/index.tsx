@@ -15,11 +15,11 @@ import {ROUTE} from "@/constants/route";
 import {useLayoutContext} from "@/providers/LayoutProvider";
 
 const navLinks = [
-	{href: ROUTE.HOME, name: "Trang chủ", icon: <IconPlaneTilt />},
-	{href: ROUTE.MESSAGE, name: "Tin nhắn", icon: <IconMail />},
-	{href: ROUTE.EXPLORE, name: "Khám phá", icon: <IconMovie />},
-	{href: ROUTE.SAVE, name: "Đã lưu", icon: <IconClipboardText />},
-	{href: ROUTE.PROFILE, name: "Hồ sơ", icon: <IconUser />},
+	{href: ROUTE.HOME, label: "Trang chủ", icon: <IconPlaneTilt />},
+	{href: ROUTE.MESSAGE, label: "Tin nhắn", icon: <IconMail />},
+	{href: ROUTE.EXPLORE, label: "Khám phá", icon: <IconMovie />},
+	{href: ROUTE.SAVE, label: "Đã lưu", icon: <IconClipboardText />},
+	{href: ROUTE.PROFILE, label: "Hồ sơ", icon: <IconUser />},
 ];
 
 export default function NavigationBar() {
@@ -41,7 +41,7 @@ export default function NavigationBar() {
 						className={clsx(styles.item, isActive && styles.isActive)}
 					>
 						{link.icon}
-						{link.name}
+						{link.label}
 					</Link>
 				);
 			})}

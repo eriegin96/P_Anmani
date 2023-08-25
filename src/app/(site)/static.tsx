@@ -1,4 +1,4 @@
-import {QUERY_PARAMS, ROUTE} from "@/constants/route";
+import {ROUTE} from "@/constants/route";
 import {
 	IconCanHo,
 	IconDonLap,
@@ -8,6 +8,7 @@ import {
 } from "../../assets";
 import {PRODUCT_TAG, PRODUCT_TYPE} from "@/constants/product";
 import {TCategory} from "@/types/category.type";
+import {locationOptions} from "@/constants/selectOptions";
 
 export const carouselList = [
 	{
@@ -20,56 +21,49 @@ export const carouselList = [
 	},
 ];
 
-const locationList = [
-	{value: QUERY_PARAMS.LOCATION.HCM, name: "Hồ Chí Minh"},
-	{value: QUERY_PARAMS.LOCATION.NHA_TRANG, name: "Nha Trang"},
-	{value: QUERY_PARAMS.LOCATION.PHU_QUOC, name: "Phú Quốc"},
-	{value: QUERY_PARAMS.LOCATION.DA_NANG, name: "Đà Nẵng"},
-];
-
 export const categoryList: TCategory[] = [
 	{
 		id: "1",
-		tag: QUERY_PARAMS.TAG.INVESTOR,
-		type: QUERY_PARAMS.TYPE.SINGLE,
-		title: PRODUCT_TYPE.single,
-		location: locationList,
-		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.SINGLE}`,
+		tag: PRODUCT_TAG.investor.value,
+		type: PRODUCT_TYPE.single.value,
+		title: PRODUCT_TYPE.single.label,
+		location: locationOptions,
+		href: `${ROUTE.ADVANCED_SEARCH}?type=${PRODUCT_TYPE.single.value}`,
 		icon: IconDonLap,
 	},
 	{
 		id: "2",
-		tag: QUERY_PARAMS.TAG.INVESTOR,
-		type: QUERY_PARAMS.TYPE.DOUBLE,
-		title: PRODUCT_TYPE.double,
-		location: locationList,
-		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.DOUBLE}`,
+		tag: PRODUCT_TAG.investor.value,
+		type: PRODUCT_TYPE.double.value,
+		title: PRODUCT_TYPE.double.label,
+		location: locationOptions,
+		href: `${ROUTE.ADVANCED_SEARCH}?type=${PRODUCT_TYPE.double.value}`,
 		icon: IconSongLap,
 	},
 	{
 		id: "3",
-		tag: QUERY_PARAMS.TAG.INVESTOR,
-		type: QUERY_PARAMS.TYPE.SHOPHOUSE,
-		title: PRODUCT_TYPE.shophouse,
-		location: locationList,
-		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.SHOPHOUSE}`,
+		tag: PRODUCT_TAG.investor.value,
+		type: PRODUCT_TYPE.shophouse.value,
+		title: PRODUCT_TYPE.shophouse.label,
+		location: locationOptions,
+		href: `${ROUTE.ADVANCED_SEARCH}?type=${PRODUCT_TYPE.shophouse.value}`,
 		icon: IconCanHo,
 	},
 	{
 		id: "4",
-		tag: QUERY_PARAMS.TAG.INVESTOR,
-		type: QUERY_PARAMS.TYPE.APARTMENT,
-		title: PRODUCT_TYPE.apartment,
-		location: locationList,
-		href: `${ROUTE.ADVANCED_SEARCH}?type=${QUERY_PARAMS.TYPE.APARTMENT}`,
+		tag: PRODUCT_TAG.investor.value,
+		type: PRODUCT_TYPE.apartment.value,
+		title: PRODUCT_TYPE.apartment.label,
+		location: locationOptions,
+		href: `${ROUTE.ADVANCED_SEARCH}?type=${PRODUCT_TYPE.apartment.value}`,
 		icon: IconShopHouse,
 	},
 	{
 		id: "5",
-		tag: QUERY_PARAMS.TAG.TRANSFER,
-		title: PRODUCT_TAG.TRANSFER,
-		location: locationList,
-		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TAG.TRANSFER}`,
+		tag: PRODUCT_TAG.transfer.value,
+		title: PRODUCT_TAG.transfer.label,
+		location: locationOptions,
+		href: `${ROUTE.ADVANCED_SEARCH}?tag=${PRODUCT_TAG.transfer.value}`,
 		icon: IconTrendingUp,
 	},
 ];

@@ -1,11 +1,11 @@
 import {TProduct} from "@/types/product.type";
 import {TVoucher} from "@/types/voucher.type";
 import {NOTIFICATION_TYPE} from "@/constants/notification";
-import {QUERY_PARAMS} from "@/constants/route";
 import {TUser} from "@/types/user.type";
 import {TNotification} from "@/types/notification.type";
 import {TExploreVideo, TExploreVideoStory} from "@/types/video.type";
 import {EXPLORE_TYPE} from "@/constants/explore";
+import {PRODUCT_STATUS, PRODUCT_TAG, PRODUCT_TYPE} from "@/constants/product";
 
 export const voucherList: TVoucher[] = [
 	{
@@ -116,12 +116,12 @@ export const productDescription = {
 export const productList: TProduct[] = [
 	{
 		key: "product-1",
-		type: QUERY_PARAMS.TYPE.SINGLE,
-		tag: QUERY_PARAMS.TAG.INVESTOR,
+		type: PRODUCT_TYPE.single.value,
+		tag: PRODUCT_TAG.investor.value,
 		investor: {name: "1", logo: "http://google.com"},
 		location: {
 			detail: "6 Tân Trào, P.Tân Phú, Q.7",
-			main: "Nha Trang",
+			main: "nha-trang",
 			sub: "Phường Bến Nghé",
 			lng: 106,
 			lat: 10,
@@ -152,16 +152,16 @@ export const productList: TProduct[] = [
 		},
 		originalPrice: 13_500_000_000,
 		price: 13_000_000_000,
-		status: QUERY_PARAMS.STATUS.SOLD,
+		status: PRODUCT_STATUS.sold.value,
 	},
 	{
 		key: "product-2",
-		type: QUERY_PARAMS.TYPE.DOUBLE,
-		tag: QUERY_PARAMS.TAG.INVESTOR,
+		type: PRODUCT_TYPE.double.value,
+		tag: PRODUCT_TAG.investor.value,
 		investor: {name: "1", logo: "http://google.com"},
 		location: {
 			detail: "6 Tân Trào, P.Tân Phú, Q.7",
-			main: "Nha Trang",
+			main: "phu-quoc",
 			sub: "Phường Bến Nghé",
 			lng: 106,
 			lat: 10,
@@ -192,16 +192,16 @@ export const productList: TProduct[] = [
 		},
 		originalPrice: 13_500_000_000,
 		price: 13_000_000_000,
-		status: QUERY_PARAMS.STATUS.IN_STOCK,
+		status: PRODUCT_STATUS.in_stock.value,
 	},
 	{
 		key: "product-3",
-		type: QUERY_PARAMS.TYPE.SHOPHOUSE,
-		tag: QUERY_PARAMS.TAG.INVESTOR,
+		type: PRODUCT_TYPE.shophouse.value,
+		tag: PRODUCT_TAG.investor.value,
 		investor: {name: "1", logo: "http://google.com"},
 		location: {
 			detail: "6 Tân Trào, P.Tân Phú, Q.7",
-			main: "Nha Trang",
+			main: "da-nang",
 			sub: "Phường Bến Nghé",
 			lng: 106,
 			lat: 10,
@@ -232,16 +232,16 @@ export const productList: TProduct[] = [
 		},
 		originalPrice: 13_500_000_000,
 		price: 13_000_000_000,
-		status: QUERY_PARAMS.STATUS.IN_STOCK,
+		status: PRODUCT_STATUS.in_stock.value,
 	},
 	{
 		key: "product-4",
-		type: QUERY_PARAMS.TYPE.APARTMENT,
-		tag: QUERY_PARAMS.TAG.INVESTOR,
+		type: PRODUCT_TYPE.apartment.value,
+		tag: PRODUCT_TAG.investor.value,
 		investor: {name: "1", logo: "http://google.com"},
 		location: {
 			detail: "6 Tân Trào, P.Tân Phú, Q.7",
-			main: "Nha Trang",
+			main: "hcm",
 			sub: "Phường Bến Nghé",
 			lng: 106,
 			lat: 10,
@@ -272,16 +272,16 @@ export const productList: TProduct[] = [
 		},
 		originalPrice: 13_500_000_000,
 		price: 13_000_000_000,
-		status: QUERY_PARAMS.STATUS.SOLD,
+		status: PRODUCT_STATUS.sold.value,
 	},
 	{
 		key: "product-5",
-		type: QUERY_PARAMS.TYPE.SINGLE,
-		tag: QUERY_PARAMS.TAG.INVESTOR,
+		type: PRODUCT_TYPE.single.value,
+		tag: PRODUCT_TAG.investor.value,
 		investor: {name: "1", logo: "http://google.com"},
 		location: {
 			detail: "6 Tân Trào, P.Tân Phú, Q.7",
-			main: "Nha Trang",
+			main: "nha-trang",
 			sub: "Phường Bến Nghé",
 			lng: 106,
 			lat: 10,
@@ -312,7 +312,7 @@ export const productList: TProduct[] = [
 		},
 		originalPrice: 13_500_000_000,
 		price: 13_000_000_000,
-		status: QUERY_PARAMS.STATUS.IN_STOCK,
+		status: PRODUCT_STATUS.in_stock.value,
 	},
 ];
 

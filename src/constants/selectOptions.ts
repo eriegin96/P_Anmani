@@ -1,35 +1,37 @@
+import {INVESTOR} from "./investor";
+import {LOCATION, TLocationObject} from "./location";
 import {PRODUCT_STATUS, PRODUCT_TAG, PRODUCT_TYPE} from "./product";
 import {QUERY_PARAMS} from "./route";
 
 export const statusOptions = [
-	{value: QUERY_PARAMS.STATUS.SOLD, label: PRODUCT_STATUS.SOLD},
-	{value: QUERY_PARAMS.STATUS.IN_STOCK, label: PRODUCT_STATUS.IN_STOCK},
+	{value: PRODUCT_STATUS.sold.value, label: PRODUCT_STATUS.sold.label},
+	{value: PRODUCT_STATUS.in_stock.value, label: PRODUCT_STATUS.in_stock.label},
 ];
 
 export const tagOptions = [
-	{value: QUERY_PARAMS.TAG.INVESTOR, label: PRODUCT_TAG.INVESTOR},
-	{value: QUERY_PARAMS.TAG.TRANSFER, label: PRODUCT_TAG.TRANSFER},
-	{value: QUERY_PARAMS.TAG.RENT, label: PRODUCT_TAG.RENT},
+	{value: PRODUCT_TAG.investor.value, label: PRODUCT_TAG.investor.value},
+	{value: PRODUCT_TAG.transfer.value, label: PRODUCT_TAG.transfer.value},
+	{value: PRODUCT_TAG.rent.value, label: PRODUCT_TAG.rent.value},
 ];
 
 export const typeOptions = [
-	{value: QUERY_PARAMS.TYPE.SINGLE, label: PRODUCT_TYPE.single},
-	{value: QUERY_PARAMS.TYPE.DOUBLE, label: PRODUCT_TYPE.double},
-	{value: QUERY_PARAMS.TYPE.SHOPHOUSE, label: PRODUCT_TYPE.shophouse},
-	{value: QUERY_PARAMS.TYPE.APARTMENT, label: PRODUCT_TYPE.apartment},
+	{value: PRODUCT_TYPE.single.value, label: PRODUCT_TYPE.single.label},
+	{value: PRODUCT_TYPE.double.value, label: PRODUCT_TYPE.double.label},
+	{value: PRODUCT_TYPE.shophouse.value, label: PRODUCT_TYPE.shophouse.label},
+	{value: PRODUCT_TYPE.apartment.value, label: PRODUCT_TYPE.apartment.label},
 ];
 
-export const locationOptions = [
-	{value: QUERY_PARAMS.LOCATION.PHU_QUOC, label: "Phú Quốc"},
-	{value: QUERY_PARAMS.LOCATION.NHA_TRANG, label: "Nha Trang"},
-	{value: QUERY_PARAMS.LOCATION.DA_NANG, label: "Đà Nẵng"},
-	{value: QUERY_PARAMS.LOCATION.HCM, label: "TP.Hồ Chí Minh"},
+export const locationOptions: TLocationObject[] = [
+	{value: LOCATION["phu-quoc"].value, label: LOCATION["phu-quoc"].label},
+	{value: LOCATION["nha-trang"].value, label: LOCATION["nha-trang"].label},
+	{value: LOCATION["da-nang"].value, label: LOCATION["da-nang"].label},
+	{value: LOCATION["hcm"].value, label: LOCATION["hcm"].label},
 ];
 
 export const investorOptions = [
-	{value: "1", label: "Sun Property - Sun Group"},
-	{value: "2", label: "Vega City - KDI Holdings"},
-	{value: "3", label: "Masterise Home"},
+	{value: INVESTOR["1"].value, label: INVESTOR["1"].label},
+	{value: INVESTOR["2"].value, label: INVESTOR["2"].label},
+	{value: INVESTOR["3"].value, label: INVESTOR["3"].label},
 ];
 
 export const sortOptions = [

@@ -1,7 +1,7 @@
 "use client";
 
 import {useDeleteCart, useUpdateCart, useGetCartByUser} from "@/hooks/api/cart";
-import {TRequestCart, TResponseCart} from "@/types/user.type";
+import {TResponseCart} from "@/types/user.type";
 import {CheckboxValueType} from "antd/es/checkbox/Group";
 import {
 	Dispatch,
@@ -19,8 +19,6 @@ type TCartContextDefault = {
 	checkedList: CheckboxValueType[];
 	setCheckedList: Dispatch<SetStateAction<CheckboxValueType[]>>;
 	totalPrice: number;
-	addToCart: (item: TRequestCart) => void;
-	removeFromCart: (productId: string) => void;
 };
 
 type TCartProviderProps = {
@@ -33,8 +31,6 @@ export const CartContext = createContext<TCartContextDefault>({
 	checkedList: [],
 	setCheckedList: () => {},
 	totalPrice: 0,
-	addToCart: () => {},
-	removeFromCart: () => {},
 });
 
 export default function CartProvider({children}: TCartProviderProps) {
@@ -57,22 +53,12 @@ export default function CartProvider({children}: TCartProviderProps) {
 		[cart, checkedList]
 	);
 
-	const addToCart = (item: TRequestCart) => {
-		// addCartItem(item);
-	};
-
-	const removeFromCart = (productId: string) => {
-		// deleteCartItem(productId);
-	};
-
 	const value = {
 		cart: cart ?? [],
 		checkedListDefault,
 		checkedList,
 		setCheckedList,
 		totalPrice,
-		addToCart,
-		removeFromCart,
 	};
 
 	return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

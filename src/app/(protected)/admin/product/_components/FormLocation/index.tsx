@@ -60,11 +60,7 @@ export default function FormLocation() {
 					{(fields, {add, remove}, {errors}) => (
 						<Form.Item label="Địa điểm lân cận">
 							{fields.map(({key, name, ...restField}) => (
-								<Form.Item
-									required={false}
-									key={key}
-									className={styles.formListItem}
-								>
+								<Form.Item key={key} className={styles.formListItem}>
 									<Form.Item
 										{...restField}
 										name={[name, "name"]}
@@ -132,11 +128,7 @@ export default function FormLocation() {
 					{(fields, {add, remove}, {errors}) => (
 						<Form.Item label="Địa điểm phổ biến">
 							{fields.map(({key, name, ...restField}) => (
-								<Form.Item
-									required={false}
-									key={key}
-									className={styles.formListItem}
-								>
+								<Form.Item key={key} className={styles.formListItem}>
 									<Form.Item
 										{...restField}
 										name={[name, "name"]}

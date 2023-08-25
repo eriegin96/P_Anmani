@@ -1,5 +1,5 @@
 import {PRODUCT_TAG} from "@/constants/product";
-import {QUERY_PARAMS, ROUTE} from "@/constants/route";
+import {ROUTE} from "@/constants/route";
 import {
 	IconBuilding,
 	IconHome2,
@@ -16,17 +16,17 @@ export const navLinkList = [
 	},
 	{
 		icon: <IconBuilding />,
-		title: PRODUCT_TAG.INVESTOR,
-		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TAG.INVESTOR}`,
+		title: PRODUCT_TAG.investor.label,
+		href: `${ROUTE.ADVANCED_SEARCH}?tag=${PRODUCT_TAG.investor.value}`,
 	},
 	{
 		icon: <IconHome2 />,
-		title: PRODUCT_TAG.TRANSFER,
-		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TAG.TRANSFER}`,
+		title: PRODUCT_TAG.transfer.label,
+		href: `${ROUTE.ADVANCED_SEARCH}?tag=${PRODUCT_TAG.transfer.value}`,
 	},
 	{
 		icon: <IconTopologyComplex />,
-		title: PRODUCT_TAG.RENT,
-		href: `${ROUTE.ADVANCED_SEARCH}?tag=${QUERY_PARAMS.TAG.RENT}`,
+		title: PRODUCT_TAG.rent.label,
+		href: `${ROUTE.ADVANCED_SEARCH}?tag=${PRODUCT_TAG.rent.value}`,
 	},
 ];

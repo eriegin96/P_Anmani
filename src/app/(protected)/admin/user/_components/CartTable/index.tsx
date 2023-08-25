@@ -10,18 +10,18 @@ import {ROUTE} from "@/constants/route";
 import {TResponseCart} from "@/types/user.type";
 import {useGetCarts} from "@/hooks/api/cart/query/useGetCarts";
 import {concatHref} from "@/utils/concatHref";
-import {useGetUsers} from "@/hooks/api/user";
 import {IconX} from "@tabler/icons-react";
 import {useModalContext} from "@/providers/ModalProvider";
 import {useDeleteCart} from "@/hooks/api/cart";
 import {API_ENDPOINT} from "@/constants/api";
+import {DATE_FORMAT} from "@/constants/common";
+import dayjs from "dayjs";
 
 type DataIndex = keyof TResponseCart;
 
 export default function CartTable() {
 	const searchInput = useRef<InputRef>(null);
 	const {data: cartList, isLoading} = useGetCarts();
-	const {data: userList} = useGetUsers();
 	const {trigger} = useDeleteCart();
 	const {showMDeleteConfirmationModal} = useModalContext();
 
@@ -151,6 +151,7 @@ export default function CartTable() {
 					record.date.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.date.length - b.date.length,
 				sortDirections: ["ascend", "descend"],
+				render: (value) => <>{dayjs(value).format(DATE_FORMAT)}</>,
 			},
 			{
 				title: "Xóa",
