@@ -1,7 +1,10 @@
 import {Button, Col, Form, Input, Row} from "antd";
 import {IconMinus, IconPlus} from "@tabler/icons-react";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
-import {defaultFormConfig} from "@/app/(protected)/admin/_shared/config";
+import {
+	defaultFormConfig,
+	urlFormValidation,
+} from "@/app/(protected)/admin/_shared/config";
 import {PLACEHOLDER_LINK} from "@/constants/common";
 
 export default function FormImage() {
@@ -11,7 +14,7 @@ export default function FormImage() {
 				<Form.Item
 					name={["image", "thumbnail"]}
 					label="Hình ảnh chính"
-					{...defaultFormConfig}
+					{...urlFormValidation}
 				>
 					<Input placeholder={PLACEHOLDER_LINK} />
 				</Form.Item>
@@ -42,6 +45,10 @@ export default function FormImage() {
 												required: true,
 												whitespace: true,
 												message: "Vui lòng nhập link hình ảnh",
+											},
+											{
+												type: "url",
+												message: "Trường này phải có định dạng https://...",
 											},
 										]}
 										style={{flex: 1}}
@@ -93,6 +100,10 @@ export default function FormImage() {
 												whitespace: true,
 												message: "Vui lòng nhập link hình ảnh",
 											},
+											{
+												type: "url",
+												message: "Trường này phải có định dạng https://...",
+											},
 										]}
 										style={{flex: 1}}
 									>
@@ -131,6 +142,10 @@ export default function FormImage() {
 												required: true,
 												whitespace: true,
 												message: "Vui lòng nhập link hình ảnh",
+											},
+											{
+												type: "url",
+												message: "Trường này phải có định dạng https://...",
 											},
 										]}
 										style={{flex: 1}}

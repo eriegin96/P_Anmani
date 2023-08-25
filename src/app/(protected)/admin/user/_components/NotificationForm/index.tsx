@@ -3,11 +3,9 @@
 import {Button, Form} from "antd";
 import {useParams, useRouter} from "next/navigation";
 import {useEffect} from "react";
-import {notificationList} from "@/mock/data";
 import {TNotification} from "@/types/notification.type";
 import FormNotificationInfo from "../FormNotificationInfo";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
-import {NOTIFICATION_TARGET_TYPE} from "@/constants/notification";
 import {
 	useCreateNotification,
 	useGetNotificationById,
@@ -39,13 +37,7 @@ export default function NotificationForm({
 	} = useUpdateNotification(id);
 
 	const handleSubmit = (values: TNotificationForm) => {
-		const {targetType, ...rest} = values;
-		const productIds =
-			targetType === NOTIFICATION_TARGET_TYPE.ALL ? [] : values.productIds;
-		console.log({...rest, productIds});
-		isEditing
-			? updateNotification({...rest, productIds})
-			: createNotification({...rest, productIds});
+		isEditing ? updateNotification(values) : createNotification(values);
 	};
 
 	useEffect(() => {
@@ -53,7 +45,6 @@ export default function NotificationForm({
 			...notification,
 			targetType: notification?.productIds?.length ? "individual" : "all",
 		});
-		console.log(notification);
 	}, [notification, id, form]);
 
 	useEffect(() => {

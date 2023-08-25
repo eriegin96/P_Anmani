@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import CartItem from "./_components/CartItem";
 import styles from "./gioHang.module.scss";
 import clsx from "clsx";
-import {TResponseCart} from "@/types/user.type";
+import {TCartResponse} from "@/types/user.type";
 import {Checkbox, Divider} from "antd";
 import type {CheckboxChangeEvent} from "antd/es/checkbox";
 import type {CheckboxValueType} from "antd/es/checkbox/Group";
@@ -15,7 +15,7 @@ import {ROUTE} from "@/constants/route";
 
 const CheckboxGroup = Checkbox.Group;
 
-export type TIem = TResponseCart & {checked: boolean | "indeterminate"};
+export type TIem = TCartResponse & {checked: boolean | "indeterminate"};
 
 export default function Page() {
 	const {cart, checkedListDefault, checkedList, setCheckedList, totalPrice} =

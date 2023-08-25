@@ -1,12 +1,12 @@
 import {axiosInstance} from "@/api/axios";
 import {API_ENDPOINT} from "@/constants/api";
 import {useAuthContext} from "@/providers/AuthProvider";
-import {TResponseCart} from "@/types/user.type";
+import {TCartResponse} from "@/types/user.type";
 import {usePathname} from "next/navigation";
 import useSWR from "swr";
 
 const fetcher = (url: string) =>
-	axiosInstance.get<TResponseCart[]>(url).then((res) => res);
+	axiosInstance.get<TCartResponse[]>(url).then((res) => res);
 
 export const useGetCartByUser = () => {
 	const {userInfo} = useAuthContext();

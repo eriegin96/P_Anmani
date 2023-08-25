@@ -65,7 +65,9 @@ export default function ConsultForm() {
 	};
 
 	useEffect(() => {
-		if (dataCreateCart || dataUpdateCart) hideBookingModal();
+		if (dataCreateCart || dataUpdateCart) {
+			hideBookingModal();
+		}
 	}, [dataCreateCart, dataUpdateCart, hideBookingModal]);
 
 	return (

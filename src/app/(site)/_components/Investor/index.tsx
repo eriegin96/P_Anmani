@@ -12,7 +12,7 @@ export default function Investor({investor}: TCategoryProps) {
 		<div>
 			<h3 className={styles.title}>Đối tác chủ đầu tư {title}</h3>
 			<div className={styles.wrapper}>
-				<Image src={src} alt="" fill />
+				<Image src={src} alt={title} fill />
 			</div>
 		</div>
 	);

@@ -5,7 +5,6 @@ import {ReactNode, createContext, useContext, useState} from "react";
 import styles from "./productComparisonProvider.module.scss";
 import {IconPlus, IconX} from "@tabler/icons-react";
 import {Button, ComparisonModalPortal} from "@/components";
-import {productList} from "@/mock/data";
 import Image from "next/image";
 import clsx from "clsx";
 import {TProduct, TSlotId} from "@/types/product.type";
@@ -123,7 +122,11 @@ export default function ProductComparisonProvider({
 											<IconX size={20} />
 										</Button>
 										<div>
-											<Image src={product.image.thumbnail} alt="" fill />
+											<Image
+												src={product.image.thumbnail}
+												alt={product.name}
+												fill
+											/>
 										</div>
 										<Typography.Text>{product.name}</Typography.Text>
 									</>

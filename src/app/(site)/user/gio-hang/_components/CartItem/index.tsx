@@ -1,4 +1,4 @@
-import {TResponseCart} from "@/types/user.type";
+import {TCartResponse} from "@/types/user.type";
 import {IconGiftCard} from "@tabler/icons-react";
 import styles from "./cartItem.module.scss";
 import Image from "next/image";
@@ -13,7 +13,7 @@ import {API_ENDPOINT} from "@/constants/api";
 import {useAuthContext} from "@/providers/AuthProvider";
 
 type TCartItemProps = {
-	item: TResponseCart;
+	item: TCartResponse;
 	shouldShowDeleteButton?: boolean;
 	shouldShowVoucher?: boolean;
 };

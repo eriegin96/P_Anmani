@@ -6,6 +6,7 @@ import {notificationTab} from "./static";
 import {Avatar, Skeleton} from "antd";
 import {useAuthContext} from "@/providers/AuthProvider";
 import {useGetNotificationsByUser} from "@/hooks/api/notification";
+import {Fragment} from "react";
 
 export default function NotificationContent() {
 	const {userInfo} = useAuthContext();
@@ -49,7 +50,7 @@ export default function NotificationContent() {
 								return noti.type === tab.value ? (
 									<div key={noti.key} className={styles.notiWrapper}>
 										<div>
-											<Avatar size={36} src={noti.avatar} alt="" />
+											<Avatar size={36} src={noti.avatar} alt={noti.title} />
 										</div>
 										<div className={styles.notiText}>
 											<h5>{noti.title}</h5>
@@ -57,7 +58,7 @@ export default function NotificationContent() {
 										</div>
 									</div>
 								) : (
-									<></>
+									<Fragment key={noti.key}></Fragment>
 								);
 							})}
 						{!isLoading && !notificationList && (

@@ -7,8 +7,7 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {userList} from "@/mock/data";
-import {TNotification} from "@/types/notification.type";
+import {TNotificationResponse} from "@/types/notification.type";
 import {NOTIFICATION_TYPE_LABEL} from "@/constants/notification";
 import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
 import {useAuthContext} from "@/providers/AuthProvider";
@@ -17,8 +16,9 @@ import {useModalContext} from "@/providers/ModalProvider";
 import {IconX} from "@tabler/icons-react";
 import {API_ENDPOINT} from "@/constants/api";
 import {concatHref} from "@/utils/concatHref";
+import {TProduct} from "@/types/product.type";
 
-type DataIndex = keyof TNotification;
+type DataIndex = keyof TNotificationResponse;
 
 export default function NotificationTable() {
 	const searchInput = useRef<InputRef>(null);
@@ -49,7 +49,7 @@ export default function NotificationTable() {
 	};
 
 	const getColumnSearchProps = useCallback(
-		(dataIndex: DataIndex): ColumnType<TNotification> => ({
+		(dataIndex: DataIndex): ColumnType<TNotificationResponse> => ({
 			filterDropdown: ({
 				setSelectedKeys,
 				selectedKeys,
@@ -93,7 +93,7 @@ export default function NotificationTable() {
 				record[dataIndex]
 					.toString()
 					.toLowerCase()
-					.includes((value as string).toLowerCase()),
+					.includes((value as string).toLowerCase()) ?? "",
 			onFilterDropdownOpenChange: (visible) => {
 				if (visible) {
 					setTimeout(() => searchInput.current?.select(), 100);
@@ -103,13 +103,13 @@ export default function NotificationTable() {
 		[]
 	);
 
-	const columns: ColumnsType<TNotification> = useMemo(
+	const columns: ColumnsType<TNotificationResponse> = useMemo(
 		() => [
 			{
 				title: "Avatar",
 				dataIndex: "avatar",
 				...getColumnSearchProps("avatar"),
-				render: (avatar) => <Image src={avatar} alt="" />,
+				render: (avatar, {title}) => <Image src={avatar} alt={title} />,
 			},
 			{
 				title: "Tiêu đề",
@@ -149,23 +149,17 @@ export default function NotificationTable() {
 			},
 			{
 				title: "Sản phẩm nhận thông báo",
-				dataIndex: "productIds",
-				...getColumnSearchProps("productIds"),
+				dataIndex: "products",
+				...getColumnSearchProps("products"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.productIds.indexOf(value.toString()) === 0,
+					record.products.some((product) =>
+						product.name.includes(value.toString())
+					),
 				sortDirections: ["ascend", "descend"],
-				render: (productIds) => {
-					const newTarget = productIds as string[];
+				render: (products) => {
 					return (
 						<>
-							{newTarget?.length === 0
-								? "Tất cả mọi người"
-								: newTarget?.map((userId, index) => (
-										<span key={userId}>
-											{userList.find((user) => user.key === userId)?.name}
-											{index === productIds?.length - 1 ? "" : ", "}
-										</span>
-								  ))}
+							{products?.length === 0 ? "Tất cả mọi người" : products[0]?.name}
 						</>
 					);
 				},
@@ -188,7 +182,7 @@ export default function NotificationTable() {
 		[getColumnSearchProps]
 	);
 
-	const onChange: TableProps<TNotification>["onChange"] = (
+	const onChange: TableProps<TNotificationResponse>["onChange"] = (
 		pagination,
 		filters,
 		sorter,

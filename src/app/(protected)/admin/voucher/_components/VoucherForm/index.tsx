@@ -4,7 +4,6 @@ import {Button, Form} from "antd";
 import {useParams, useRouter} from "next/navigation";
 import {useEffect} from "react";
 import FormVoucherInfo from "../FormVoucherInfo";
-import {voucherList} from "@/mock/data";
 import {TVoucher} from "@/types/voucher.type";
 import dayjs from "dayjs";
 import {DATE_FORMAT} from "@/constants/common";

@@ -1,7 +1,7 @@
 "use client";
 
 import {useDeleteCart, useUpdateCart, useGetCartByUser} from "@/hooks/api/cart";
-import {TResponseCart} from "@/types/user.type";
+import {TCartResponse} from "@/types/user.type";
 import {CheckboxValueType} from "antd/es/checkbox/Group";
 import {
 	Dispatch,
@@ -14,11 +14,13 @@ import {
 } from "react";
 
 type TCartContextDefault = {
-	cart: TResponseCart[];
+	cart: TCartResponse[];
 	checkedListDefault: CheckboxValueType[];
 	checkedList: CheckboxValueType[];
 	setCheckedList: Dispatch<SetStateAction<CheckboxValueType[]>>;
 	totalPrice: number;
+	discountAmount: number;
+	selectedProducts: TCartResponse[];
 };
 
 type TCartProviderProps = {
@@ -31,6 +33,8 @@ export const CartContext = createContext<TCartContextDefault>({
 	checkedList: [],
 	setCheckedList: () => {},
 	totalPrice: 0,
+	discountAmount: 0,
+	selectedProducts: [],
 });
 
 export default function CartProvider({children}: TCartProviderProps) {
@@ -50,12 +54,36 @@ export default function CartProvider({children}: TCartProviderProps) {
 		[cart, checkedList]
 	);
 
+	const selectedProducts = useMemo(
+		() => cart?.filter((p) => checkedList.includes(p.key)) ?? [],
+		[cart, checkedList]
+	);
+
+	const discountAmount = useMemo(
+		() =>
+			selectedProducts.reduce((prevAmount, currentProduct) => {
+				const totalVoucherDiscount = currentProduct.vouchers.reduce(
+					(voucherDiscount, voucher) => {
+						const amount =
+							voucher?.amount ??
+							(currentProduct.price * voucher.percentage) / 100;
+						return voucherDiscount + amount;
+					},
+					0
+				);
+				return prevAmount + totalVoucherDiscount;
+			}, 0),
+		[selectedProducts]
+	);
+
 	const value = {
 		cart: cart ?? [],
 		checkedListDefault,
 		checkedList,
 		setCheckedList,
+		selectedProducts,
 		totalPrice,
+		discountAmount,
 	};
 
 	return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

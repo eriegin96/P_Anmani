@@ -30,7 +30,7 @@ export default function ComparisonSlot({
 				<IconX />
 			</button>
 			<div className={styles.imageWrapper}>
-				<Image src={thumbnail} alt="" fill />
+				<Image src={thumbnail} alt="Thumbnail" fill />
 			</div>
 			<div className={styles.infoWrapper}>
 				<span>{name}</span>

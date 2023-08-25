@@ -13,6 +13,9 @@ import {useDeleteVoucher} from "@/hooks/api/voucher";
 import {useModalContext} from "@/providers/ModalProvider";
 import {useGetProducts} from "@/hooks/api/product";
 import {API_ENDPOINT} from "@/constants/api";
+import {concatHref} from "@/utils/concatHref";
+import dayjs from "dayjs";
+import {DATE_FORMAT} from "@/constants/common";
 
 type DataIndex = keyof TVoucher;
 
@@ -109,7 +112,9 @@ export default function VoucherTable() {
 					record.key.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.key.length - b.key.length,
 				sortDirections: ["ascend", "descend"],
-				render: (id) => <Link href={`${ROUTE.ADMIN_VOUCHER}/${id}`}>{id}</Link>,
+				render: (id) => (
+					<Link href={concatHref(ROUTE.ADMIN_VOUCHER, id)}>{id}</Link>
+				),
 			},
 			{
 				title: "Tên BĐS",
@@ -124,7 +129,9 @@ export default function VoucherTable() {
 						(product) => product.key === productId
 					)?.name;
 					return (
-						<Link href={`${ROUTE.ADMIN_PRODUCT}/${productId}`}>{name}</Link>
+						<Link href={concatHref(ROUTE.ADMIN_PRODUCT, productId)}>
+							{name}
+						</Link>
 					);
 				},
 			},
@@ -172,6 +179,7 @@ export default function VoucherTable() {
 				dataIndex: "expiredDate",
 				...getColumnSearchProps("expiredDate"),
 				sorter: (a, b) => a.expiredDate.length - b.expiredDate.length,
+				render: (value) => <>{dayjs(value).format(DATE_FORMAT)}</>,
 			},
 			{
 				title: "Xóa",

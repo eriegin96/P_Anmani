@@ -11,14 +11,24 @@ export default function TiktokReview() {
 				<a
 					href="https://www.tiktok.com/@tahualucnhu"
 					target="_blank"
-					rel="noreferer">
-					<Image src={ImageTikTokReview1} alt="" fill />
+					rel="noreferer"
+				>
+					<Image
+						src={ImageTikTokReview1}
+						alt="https://www.tiktok.com/@tahualucnhu"
+						fill
+					/>
 				</a>
 				<a
 					href="https://www.tiktok.com/@tahualucnhu"
 					target="_blank"
-					rel="noreferer">
-					<Image src={ImageTikTokReview2} alt="" fill />
+					rel="noreferer"
+				>
+					<Image
+						src={ImageTikTokReview2}
+						alt="https://www.tiktok.com/@tahualucnhu"
+						fill
+					/>
 				</a>
 			</div>
 		</div>

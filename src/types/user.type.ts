@@ -22,7 +22,7 @@ export type TCartProduct = {
 	price: number;
 };
 
-export type TResponseCart = {
+export type TCartResponse = {
 	key: string;
 	createdAt: string;
 	date: string;

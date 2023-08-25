@@ -56,7 +56,7 @@ export default function Header() {
 				</Dialog.Portal>
 			</Dialog.Root>
 			<Link href={ROUTE.HOME}>
-				<Image src={ImageLogo} alt="" width={50} height={50} />
+				<Image src={ImageLogo} alt="Anmani" width={50} height={50} />
 			</Link>
 			<div className={styles.rightSection}>
 				{!userInfo ? (

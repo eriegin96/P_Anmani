@@ -27,7 +27,7 @@ export default function ImagePreviewGroup({
 						>
 							<Image
 								src={img}
-								alt=""
+								alt="Thumbnail"
 								rootClassName={styles.image}
 								preview={{mask: <></>}}
 								placeholder={true}

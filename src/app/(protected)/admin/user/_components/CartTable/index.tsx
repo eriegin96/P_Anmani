@@ -7,7 +7,7 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {TResponseCart} from "@/types/user.type";
+import {TCartResponse} from "@/types/user.type";
 import {useGetCarts} from "@/hooks/api/cart/query/useGetCarts";
 import {concatHref} from "@/utils/concatHref";
 import {IconX} from "@tabler/icons-react";
@@ -17,7 +17,7 @@ import {API_ENDPOINT} from "@/constants/api";
 import {DATE_FORMAT} from "@/constants/common";
 import dayjs from "dayjs";
 
-type DataIndex = keyof TResponseCart;
+type DataIndex = keyof TCartResponse;
 
 export default function CartTable() {
 	const searchInput = useRef<InputRef>(null);
@@ -47,7 +47,7 @@ export default function CartTable() {
 	};
 
 	const getColumnSearchProps = useCallback(
-		(dataIndex: DataIndex): ColumnType<TResponseCart> => ({
+		(dataIndex: DataIndex): ColumnType<TCartResponse> => ({
 			filterDropdown: ({
 				setSelectedKeys,
 				selectedKeys,
@@ -101,7 +101,7 @@ export default function CartTable() {
 		[]
 	);
 
-	const columns: ColumnsType<TResponseCart> = useMemo(
+	const columns: ColumnsType<TCartResponse> = useMemo(
 		() => [
 			{
 				title: "User cart Id",
@@ -167,7 +167,7 @@ export default function CartTable() {
 		[getColumnSearchProps]
 	);
 
-	const onChange: TableProps<TResponseCart>["onChange"] = (
+	const onChange: TableProps<TCartResponse>["onChange"] = (
 		pagination,
 		filters,
 		sorter,

@@ -44,7 +44,7 @@ export default function FlashSale() {
 			<div className={styles.title}>
 				<div className={styles.flashSale}>
 					<span>F</span>
-					<Image src={IconFlashSale} alt="" width={20} height={24} />
+					<Image src={IconFlashSale} alt="l" width={20} height={24} />
 					<span className={styles.afterIcon}>ash sale</span>
 				</div>
 				<div className={styles.clock}>

@@ -35,7 +35,7 @@ export default function Page() {
 						{saveList.filter((item) => item.type === tab.value).length ===
 							0 && (
 							<div className={styles.noSave}>
-								<Image src={IconBookmark} alt="" />
+								<Image src={IconBookmark} alt="bookmark" />
 								Bạn chưa lưu bất động sản nào
 							</div>
 						)}
@@ -46,7 +46,7 @@ export default function Page() {
 								<div key={item.key} className={styles.itemWrapper}>
 									<div className={styles.itemInfo}>
 										<div className={styles.imageWrapper}>
-											<Image src={item.image.thumbnail} alt="" fill />
+											<Image src={item.image.thumbnail} alt={item.name} fill />
 										</div>
 										<div className={styles.descriptionWrapper}>
 											<h5>{item.name}</h5>

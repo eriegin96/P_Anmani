@@ -17,6 +17,7 @@ import {RadioChangeEvent} from "antd";
 import {ROUTE} from "@/constants/route";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {concatHref} from "@/utils/concatHref";
+import {INVESTOR} from "@/constants/investor";
 
 type TProductCardProps = {
 	info: TProduct;
@@ -35,7 +36,7 @@ export default function ProductCard({
 		information,
 		view,
 		image: {thumbnail},
-		investor: {logo},
+		investor: {logo, name: investorName},
 		location,
 		status,
 	} = info;
@@ -54,12 +55,17 @@ export default function ProductCard({
 				<Link href={concatHref(ROUTE.PRODUCT, key)} key={name}>
 					<div className={styles.cardContent}>
 						<div className={styles.imageWrapper}>
-							<Image src={thumbnail} alt="" fill className={styles.thumbnail} />
+							<Image
+								src={thumbnail}
+								alt={name}
+								fill
+								className={styles.thumbnail}
+							/>
 							<span className={styles.location}>{location.sub}</span>
 							<div className={styles.logoWrapper}>
 								<Image
 									src={logo}
-									alt=""
+									alt={INVESTOR[investorName]?.label}
 									width={24}
 									height={24}
 									className={styles.logo}

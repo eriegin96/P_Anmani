@@ -1,15 +1,11 @@
 import {Col, Form, Input, Row, Button, Radio} from "antd";
-import {defaultFormConfig} from "../../../_shared/config";
+import {defaultFormConfig, urlFormValidation} from "../../../_shared/config";
 import {PLACEHOLDER_LINK} from "@/constants/common";
 import {IconMinus, IconPlus} from "@tabler/icons-react";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
 import {EXPLORE_TYPE} from "@/constants/explore";
 
 export default function FormExploreInfo() {
-	const onSelectChange = (value: string[]) => {
-		console.log(`status ${value}`);
-	};
-
 	return (
 		<Row gutter={20}>
 			<Col span={12}>
@@ -18,7 +14,7 @@ export default function FormExploreInfo() {
 				</Form.Item>
 			</Col>
 			<Col span={12}>
-				<Form.Item name="url" label="Link thumbnail" {...defaultFormConfig}>
+				<Form.Item name="url" label="Link thumbnail" {...urlFormValidation}>
 					<Input placeholder={PLACEHOLDER_LINK} />
 				</Form.Item>
 			</Col>
@@ -63,6 +59,10 @@ export default function FormExploreInfo() {
 												required: true,
 												whitespace: true,
 												message: "Vui lòng nhập link story",
+											},
+											{
+												type: "url",
+												message: "Trường này phải có định dạng https://...",
 											},
 										]}
 									>

@@ -30,7 +30,7 @@ export default function Category({category}: TCategoryProps) {
 		<div className={styles.wrapper}>
 			<div className={styles.titleWrapper}>
 				<h2 className={styles.title}>
-					<Image src={icon} alt="" width={36} height={36} />
+					<Image src={icon} alt={title} width={36} height={36} />
 					{title}
 				</h2>
 				<Link href={href} className={styles.more}>
