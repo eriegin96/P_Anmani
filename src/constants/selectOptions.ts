@@ -9,9 +9,9 @@ export const statusOptions = [
 ];
 
 export const tagOptions = [
-	{value: PRODUCT_TAG.investor.value, label: PRODUCT_TAG.investor.value},
-	{value: PRODUCT_TAG.transfer.value, label: PRODUCT_TAG.transfer.value},
-	{value: PRODUCT_TAG.rent.value, label: PRODUCT_TAG.rent.value},
+	{value: PRODUCT_TAG.investor.value, label: PRODUCT_TAG.investor.label},
+	{value: PRODUCT_TAG.transfer.value, label: PRODUCT_TAG.transfer.label},
+	{value: PRODUCT_TAG.rent.value, label: PRODUCT_TAG.rent.label},
 ];
 
 export const typeOptions = [
