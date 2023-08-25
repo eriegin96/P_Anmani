@@ -10,6 +10,7 @@ import clsx from "clsx";
 import {TProduct, TSlotId} from "@/types/product.type";
 import {ROUTE} from "@/constants/route";
 import Link from "next/link";
+import {useGetProducts} from "@/hooks/api/product";
 
 type TProductComparisonProviderContextDefault = {
 	showDrawer: () => void;
@@ -40,6 +41,7 @@ export default function ProductComparisonProvider({
 	const [isComparisonOpen, setIsComparisonOpen] = useState(false);
 	const [isComparisonModalOpen, setIsComparisonModalOpen] = useState(false);
 	const [slotId, setSlotId] = useState<TSlotId>("1");
+	const {data: productList} = useGetProducts();
 
 	const [selectedProducts, setSelectedProducts] = useState<
 		Map<TSlotId, TProduct | null>
