@@ -3,16 +3,15 @@
 import {Button, Form} from "antd";
 import {useParams, useRouter} from "next/navigation";
 import {useEffect} from "react";
-import {notificationList} from "@/mock/data";
 import {TNotification} from "@/types/notification.type";
 import FormNotificationInfo from "../FormNotificationInfo";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
-import {NOTIFICATION_TARGET_TYPE} from "@/constants/notification";
 import {
 	useCreateNotification,
 	useGetNotificationById,
 	useUpdateNotification,
 } from "@/hooks/api/notification";
+import {ROUTE} from "@/constants/route";
 
 type TNotificationFormProps = {
 	isEditing?: boolean;
@@ -25,30 +24,32 @@ export default function NotificationForm({
 	const [form] = Form.useForm<TNotificationForm>();
 	const router = useRouter();
 	const {id} = useParams();
-	const {data} = useGetNotificationById(id);
-	const {trigger: createNotification, isMutating: isCreating} =
-		useCreateNotification();
-	const {trigger: updateNotification, isMutating: isUpdating} =
-		useUpdateNotification(id);
+	const {data: notification} = useGetNotificationById(id);
+	const {
+		trigger: createNotification,
+		isMutating: isCreating,
+		data: dataCreate,
+	} = useCreateNotification();
+	const {
+		trigger: updateNotification,
+		isMutating: isUpdating,
+		data: dataUpdate,
+	} = useUpdateNotification(id);
 
 	const handleSubmit = (values: TNotificationForm) => {
-		const {targetType, ...rest} = values;
-		const target =
-			targetType === NOTIFICATION_TARGET_TYPE.ALL ? [] : values.target;
-		console.log({...rest, target});
-		isEditing
-			? updateNotification({...rest, target})
-			: createNotification({...rest, target});
+		isEditing ? updateNotification(values) : createNotification(values);
 	};
 
 	useEffect(() => {
-		const fieldsValue = data && notificationList.find((noti) => noti.id === id);
 		form.setFieldsValue({
-			...fieldsValue,
-			targetType: fieldsValue?.target.length ? "individual" : "all",
+			...notification,
+			targetType: notification?.productIds?.length ? "individual" : "all",
 		});
-		console.log(fieldsValue);
-	}, [data, id, form]);
+	}, [notification, id, form]);
+
+	useEffect(() => {
+		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_USER_NOTIFICATION);
+	}, [dataCreate, dataUpdate, router]);
 
 	return (
 		<Form

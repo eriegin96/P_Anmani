@@ -1,8 +1,8 @@
 export const PRODUCT_STATUS = {
-	SOLD: "Đã bán",
-	SAVED: "Đang quan tâm",
-	IN_STOCK: "Còn hàng",
-	BOOKED: "Hàng đặt",
+	sold: {value: "sold", label: "Đã bán"},
+	saved: {value: "saved", label: "Đang quan tâm"},
+	in_stock: {value: "in_stock", label: "Còn hàng"},
+	booked: {value: "booked", label: "Hàng đặt"},
 } as const;
 
 export const PRODUCT_SAVE_VALUE = {
@@ -12,16 +12,16 @@ export const PRODUCT_SAVE_VALUE = {
 } as const;
 
 export const PRODUCT_TYPE = {
-	single: "Dinh thự & Biệt thự đơn lập",
-	double: "Dinh thự & Biệt thự song lập",
-	shophouse: "Shophouse nhà phố thương mại",
-	apartment: "Căn hộ",
+	single: {value: "single", label: "Dinh thự & Biệt thự đơn lập"},
+	double: {value: "double", label: "Dinh thự & Biệt thự song lập"},
+	shophouse: {value: "shophouse", label: "Shophouse nhà phố thương mại"},
+	apartment: {value: "apartment", label: "Căn hộ"},
 } as const;
 
 export const PRODUCT_TAG = {
-	INVESTOR: "BĐS Giá Chủ đầu tư",
-	TRANSFER: "BĐS Giá Chuyển nhượng",
-	RENT: "Cho thuê",
+	investor: {value: "investor", label: "BĐS Giá Chủ đầu tư"},
+	transfer: {value: "transfer", label: "BĐS Giá Chuyển nhượng"},
+	rent: {value: "rent", label: "Cho thuê"},
 } as const;
 
 export const PRODUCT_ANCHOR = {
@@ -80,3 +80,12 @@ export const PRODUCT_DETAIL_TITLE = {
 		popular: "Địa điểm phổ biến",
 	},
 } as const;
+
+export type TProductTypeValue = keyof typeof PRODUCT_TYPE;
+export type TProductTagValue = keyof typeof PRODUCT_TAG;
+export type TProductStatusValue = keyof typeof PRODUCT_STATUS;
+
+export type TProductSaveKey = keyof typeof PRODUCT_SAVE_VALUE;
+export type TProductSaveValue = (typeof PRODUCT_SAVE_VALUE)[TProductSaveKey];
+export type TProductAnchorKey = keyof typeof PRODUCT_ANCHOR;
+export type TProductAnchorValue = (typeof PRODUCT_ANCHOR)[TProductAnchorKey];

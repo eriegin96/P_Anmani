@@ -40,4 +40,8 @@ export const HANDLER = {
 		MESSAGE: "Xóa thông báo thành công",
 		ROUTE: ROUTE.ADMIN_USER_NOTIFICATION,
 	},
+	[API_KEY.UPDATE_CART]: {
+		MESSAGE: "Tạo tư vấn đơn hàng thành công ",
+		ROUTE: ROUTE.CART,
+	},
 } as const;

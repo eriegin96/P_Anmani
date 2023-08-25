@@ -20,9 +20,8 @@ import {ROUTE} from "@/constants/route";
 import NotificationContent from "../NotificationContent";
 import {useLayoutContext} from "@/providers/LayoutProvider";
 import {useAuthContext} from "@/providers/AuthProvider";
-import {notificationList} from "@/mock/data";
 import {useCartContext} from "@/providers/CartProvider";
-import { useGetNotificationsByUser } from "@/hooks/api/notification";
+import {useGetNotificationsByUser} from "@/hooks/api/notification";
 
 const Button = dynamic(() => import("../Button"));
 
@@ -47,9 +46,9 @@ export default function Header() {
 						</Dialog.Description>
 						<div className={styles.links}>
 							{navLinks.map((link) => (
-								<Link key={link.name} href={link.href} className={styles.link}>
+								<Link key={link.label} href={link.href} className={styles.link}>
 									{link.icon}
-									{link.name}
+									{link.label}
 								</Link>
 							))}
 						</div>
@@ -57,7 +56,7 @@ export default function Header() {
 				</Dialog.Portal>
 			</Dialog.Root>
 			<Link href={ROUTE.HOME}>
-				<Image src={ImageLogo} alt="" width={50} height={50} />
+				<Image src={ImageLogo} alt="Anmani" width={50} height={50} />
 			</Link>
 			<div className={styles.rightSection}>
 				{!userInfo ? (
@@ -73,7 +72,7 @@ export default function Header() {
 							className={styles.popover}
 						>
 							<Button className={styles.triggerBtn}>
-								<Badge size="small" count={data && notificationList.length}>
+								<Badge size="small" count={data?.length}>
 									<IconBell color={color.white} />
 								</Badge>
 							</Button>

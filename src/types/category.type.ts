@@ -1,12 +1,13 @@
 import {StaticImageData} from "next/image";
-import {TProductTypeValue} from "./product.type";
-import {QUERY_PARAMS} from "@/constants/route";
+import {TProductTagValue, TProductTypeValue} from "@/constants/product";
+import {TLocationObject} from "@/constants/location";
 
 export type TCategory = {
 	id: string;
-	type: TProductTypeValue | typeof QUERY_PARAMS.TAG.TRANSFER;
+	tag: TProductTagValue;
+	type?: TProductTypeValue;
 	title: string;
-	location: {name: string; value: string}[];
+	location: TLocationObject[];
 	href: string;
 	icon: StaticImageData;
 };

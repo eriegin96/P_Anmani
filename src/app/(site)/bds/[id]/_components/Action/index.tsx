@@ -4,14 +4,42 @@ import {Button} from "@/components";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {useModalContext} from "@/providers/ModalProvider";
 import {useProductComparisonContext} from "@/providers/ProductComparisonProvider";
+import {useCreateCart} from "@/hooks/api/cart";
+import {useAuthContext} from "@/providers/AuthProvider";
+import {CART_STATUS} from "@/constants/cart";
+import {useSWRConfig} from "swr";
+import {useEffect} from "react";
+import {API_ENDPOINT} from "@/constants/api";
+import {useGetVouchersByProductId} from "@/hooks/api/voucher";
+import {useParams} from "next/navigation";
 
 type TActionProps = {
 	product: TProduct;
 };
 
 export default function Action({product}: TActionProps) {
+	const {id: productId} = useParams();
+	const {userInfo} = useAuthContext();
+	const {data: vouchers} = useGetVouchersByProductId(productId);
 	const {showBookingModal} = useModalContext();
 	const {showDrawer} = useProductComparisonContext();
+	const {trigger, data} = useCreateCart();
+	const {mutate} = useSWRConfig();
+
+	const handleAddCart = () => {
+		trigger({
+			userId: userInfo?.key,
+			voucherIds: vouchers?.map((voucher) => voucher.key),
+			productId: product.key,
+			status: CART_STATUS.PENDING,
+			price: product.price,
+		});
+	};
+
+	useEffect(() => {
+		if (data)
+			mutate(`${API_ENDPOINT.CARTS}?userId=${userInfo?.key}&status=pending`);
+	}, [data, userInfo, mutate]);
 
 	return (
 		<div className={styles.wrapper}>
@@ -30,7 +58,9 @@ export default function Action({product}: TActionProps) {
 				<Button className={styles.btn} onClick={showDrawer}>
 					So sánh
 				</Button>
-				<Button className={styles.primaryBtn}>Thêm vào giỏ hàng</Button>
+				<Button className={styles.primaryBtn} onClick={handleAddCart}>
+					Thêm vào giỏ hàng
+				</Button>
 			</div>
 		</div>
 	);

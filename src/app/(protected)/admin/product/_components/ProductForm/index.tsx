@@ -4,7 +4,6 @@ import {Button, Form} from "antd";
 import {useParams, useRouter} from "next/navigation";
 import {useEffect} from "react";
 import {TProduct} from "@/types/product.type";
-import {productList} from "@/mock/data";
 import FormBasicInfo from "../FormBasicInfo";
 import FormCategory from "../FormCategory";
 import FormInformation from "../FormInformation";
@@ -18,6 +17,8 @@ import {
 	useGetProductById,
 	useUpdateProduct,
 } from "@/hooks/api/product";
+import {ROUTE} from "@/constants/route";
+import {INVESTOR} from "@/constants/investor";
 
 type TProductFormProps = {
 	isEditing?: boolean;
@@ -27,7 +28,7 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 	const [form] = Form.useForm<TProduct>();
 	const router = useRouter();
 	const {id} = useParams();
-	const {data} = useGetProductById(id);
+	const {data: product} = useGetProductById(id);
 	const {
 		trigger: createProduct,
 		isMutating: isCreating,
@@ -42,22 +43,29 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 	const handleSubmit = (values: TProduct) => {
 		const lat = Number(values.location.lat);
 		const lng = Number(values.location.lng);
+		const price = Number(values.price);
+		const originalPrice = Number(values.originalPrice);
 		const newValues = {
 			...values,
-			investor: {name: values.investor.name, logo: "http://google.com"},
+			location: {...values.location, lat, lng},
+			investor: {
+				name: values.investor.name,
+				logo: INVESTOR[values.investor.name].logo,
+			},
+			price,
+			originalPrice,
 		};
-		console.log(newValues);
 
 		isEditing ? updateProduct(newValues) : createProduct(newValues);
 	};
 
 	useEffect(() => {
-		form.setFieldsValue({...data});
-	}, [data]);
+		form.setFieldsValue({...product});
+	}, [product, form]);
 
 	useEffect(() => {
-		if (dataCreate || dataUpdate) form.resetFields();
-	}, [dataCreate, dataUpdate]);
+		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_PRODUCT);
+	}, [dataCreate, dataUpdate, router]);
 
 	return (
 		<Form

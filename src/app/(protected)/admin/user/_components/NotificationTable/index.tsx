@@ -7,16 +7,18 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {notificationList, userList} from "@/mock/data";
-import {TNotification} from "@/types/notification.type";
+import {TNotificationResponse} from "@/types/notification.type";
 import {NOTIFICATION_TYPE_LABEL} from "@/constants/notification";
 import {useGetNotifications} from "@/hooks/api/notification/query/useGetNotifications";
 import {useAuthContext} from "@/providers/AuthProvider";
 import {useDeleteNotification} from "@/hooks/api/notification";
 import {useModalContext} from "@/providers/ModalProvider";
 import {IconX} from "@tabler/icons-react";
+import {API_ENDPOINT} from "@/constants/api";
+import {concatHref} from "@/utils/concatHref";
+import {TProduct} from "@/types/product.type";
 
-type DataIndex = keyof TNotification;
+type DataIndex = keyof TNotificationResponse;
 
 export default function NotificationTable() {
 	const searchInput = useRef<InputRef>(null);
@@ -25,8 +27,13 @@ export default function NotificationTable() {
 	const {trigger} = useDeleteNotification();
 	const {showMDeleteConfirmationModal} = useModalContext();
 
-	const handleDelete = (voucherId: string) => {
-		showMDeleteConfirmationModal({trigger, id: voucherId});
+	const handleDelete = ({key, title}: {key: string; title: string}) => {
+		showMDeleteConfirmationModal({
+			trigger,
+			id: key,
+			name: title,
+			keyRevalidate: API_ENDPOINT.NOTIFICATIONS,
+		});
 	};
 
 	const handleSearch = (
@@ -42,7 +49,7 @@ export default function NotificationTable() {
 	};
 
 	const getColumnSearchProps = useCallback(
-		(dataIndex: DataIndex): ColumnType<TNotification> => ({
+		(dataIndex: DataIndex): ColumnType<TNotificationResponse> => ({
 			filterDropdown: ({
 				setSelectedKeys,
 				selectedKeys,
@@ -86,7 +93,7 @@ export default function NotificationTable() {
 				record[dataIndex]
 					.toString()
 					.toLowerCase()
-					.includes((value as string).toLowerCase()),
+					.includes((value as string).toLowerCase()) ?? "",
 			onFilterDropdownOpenChange: (visible) => {
 				if (visible) {
 					setTimeout(() => searchInput.current?.select(), 100);
@@ -96,24 +103,26 @@ export default function NotificationTable() {
 		[]
 	);
 
-	const columns: ColumnsType<TNotification> = useMemo(
+	const columns: ColumnsType<TNotificationResponse> = useMemo(
 		() => [
 			{
 				title: "Avatar",
 				dataIndex: "avatar",
 				...getColumnSearchProps("avatar"),
-				render: (avatar) => <Image src={avatar} alt="" />,
+				render: (avatar, {title}) => <Image src={avatar} alt={title} />,
 			},
 			{
 				title: "Tiêu đề",
 				dataIndex: "title",
 				...getColumnSearchProps("title"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.id.indexOf(value.toString()) === 0,
+					record.key.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.title.length - b.title.length,
 				sortDirections: ["ascend", "descend"],
-				render: (title, {id}) => (
-					<Link href={`${ROUTE.ADMIN_USER_NOTIFICATION}/${id}`}>{title}</Link>
+				render: (title, {key}) => (
+					<Link href={concatHref(ROUTE.ADMIN_USER_NOTIFICATION, key)}>
+						{title}
+					</Link>
 				),
 			},
 			{
@@ -121,7 +130,7 @@ export default function NotificationTable() {
 				dataIndex: "type",
 				...getColumnSearchProps("type"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.id.indexOf(value.toString()) === 0,
+					record.key.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.type.length - b.type.length,
 				sortDirections: ["ascend", "descend"],
 				render: (type) => {
@@ -134,29 +143,23 @@ export default function NotificationTable() {
 				dataIndex: "content",
 				...getColumnSearchProps("content"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.id.indexOf(value.toString()) === 0,
+					record.key.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.content.length - b.content.length,
 				sortDirections: ["ascend", "descend"],
 			},
 			{
-				title: "Đối tượng nhận",
-				dataIndex: "target",
-				...getColumnSearchProps("target"),
+				title: "Sản phẩm nhận thông báo",
+				dataIndex: "products",
+				...getColumnSearchProps("products"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.target.indexOf(value.toString()) === 0,
+					record.products.some((product) =>
+						product.name.includes(value.toString())
+					),
 				sortDirections: ["ascend", "descend"],
-				render: (target) => {
-					const newTarget = target as string[];
+				render: (products) => {
 					return (
 						<>
-							{newTarget.length === 0
-								? "Tất cả mọi người"
-								: newTarget.map((userId, index) => (
-										<span key={userId}>
-											{userList.find((user) => user.id === userId)?.name}
-											{index === target.length - 1 ? "" : ", "}
-										</span>
-								  ))}
+							{products?.length === 0 ? "Tất cả mọi người" : products[0]?.name}
 						</>
 					);
 				},
@@ -164,8 +167,12 @@ export default function NotificationTable() {
 			{
 				title: "Xóa",
 				dataIndex: "action",
-				render: (_, {id}) => (
-					<Button danger shape="circle" onClick={() => handleDelete(id)}>
+				render: (_, {key, title}) => (
+					<Button
+						danger
+						shape="circle"
+						onClick={() => handleDelete({key, title})}
+					>
 						<IconX />
 					</Button>
 				),
@@ -175,7 +182,7 @@ export default function NotificationTable() {
 		[getColumnSearchProps]
 	);
 
-	const onChange: TableProps<TNotification>["onChange"] = (
+	const onChange: TableProps<TNotificationResponse>["onChange"] = (
 		pagination,
 		filters,
 		sorter,
@@ -187,7 +194,7 @@ export default function NotificationTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={data && notificationList}
+			dataSource={data}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}

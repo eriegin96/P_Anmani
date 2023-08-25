@@ -3,22 +3,52 @@ import styles from "./consultForm.module.scss";
 import {Button} from "@/components";
 import type {DatePickerProps} from "antd/es/date-picker";
 import {useCreateCart} from "@/hooks/api/cart/mutation/useCreateCart";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useAuthContext} from "@/providers/AuthProvider";
+import {CART_STATUS} from "@/constants/cart";
+import {useParams} from "next/navigation";
 import {useCartContext} from "@/providers/CartProvider";
+import {TUpdateCart, useUpdateCart} from "@/hooks/api/cart";
+import {useGetProductById} from "@/hooks/api/product";
+import {useModalContext} from "@/providers/ModalProvider";
+import {useGetVouchersByProductId} from "@/hooks/api/voucher";
 
 export default function ConsultForm() {
-	const {trigger} = useCreateCart();
-	const {cart} = useCartContext();
+	const {id: productId} = useParams();
+	const {cart, checkedList, totalPrice} = useCartContext();
+	const {userInfo} = useAuthContext();
+	const {data: product} = useGetProductById(productId);
+	const {data: vouchers} = useGetVouchersByProductId(productId);
+	const {hideBookingModal} = useModalContext();
+	const {trigger: createCart, data: dataCreateCart} = useCreateCart();
+	const {trigger: updateCart, data: dataUpdateCart} = useUpdateCart();
 	const [date, setDate] = useState("");
-	const [place, setPlace] = useState("");
+	const [meetingLocation, setMeetingLocation] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
 
 	const handleSubmit = () => {
-		console.log({place, phoneNumber, date});
-		trigger({
-			cartList: cart,
-			bookingInfo: {userId: "user-1", date, place, phoneNumber},
-		});
+		productId
+			? createCart({
+					userId: userInfo?.key,
+					productId,
+					voucherIds: vouchers?.map((voucher) => voucher.key),
+					status: CART_STATUS.PROCESSING,
+					date,
+					meetingLocation,
+					phoneNumber,
+					price: product?.price ?? 1,
+			  })
+			: updateCart({
+					userId: userInfo?.key,
+					products: checkedList.map((id) => ({
+						productId: cart.find((item) => item.key === id)?.productId,
+						status: CART_STATUS.PROCESSING,
+						date,
+						meetingLocation,
+						phoneNumber,
+						price: totalPrice,
+					})),
+			  } as TUpdateCart);
 	};
 
 	const onDateChange = (
@@ -27,12 +57,18 @@ export default function ConsultForm() {
 	) => {
 		console.log("Selected Time: ", value);
 		console.log("Formatted Selected Time: ", dateString);
-		setDate(dateString);
+		setDate(new Date(dateString).toISOString());
 	};
 
 	const onDateOk = (value: DatePickerProps["value"]) => {
 		console.log("onOk: ", value);
 	};
+
+	useEffect(() => {
+		if (dataCreateCart || dataUpdateCart) {
+			hideBookingModal();
+		}
+	}, [dataCreateCart, dataUpdateCart, hideBookingModal]);
 
 	return (
 		<div className={styles.wrapper}>
@@ -49,8 +85,8 @@ export default function ConsultForm() {
 				<span>Địa điểm gặp mặt</span>
 				<Input
 					className={styles.input}
-					value={place}
-					onChange={(e) => setPlace(e.target.value)}
+					value={meetingLocation}
+					onChange={(e) => setMeetingLocation(e.target.value)}
 				/>
 			</div>
 			<div className={styles.section}>

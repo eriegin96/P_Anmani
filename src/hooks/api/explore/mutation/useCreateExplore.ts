@@ -9,14 +9,5 @@ const fetcher = (url: string, {arg}: {arg: TExploreVideo}) =>
 		.then((res) => res);
 
 export const useCreateExplore = () => {
-	const {data, trigger, isMutating, error} = useSWRMutation(
-		API_KEY.CREATE_EXPLORE,
-		fetcher
-	);
-
-	return {
-		trigger,
-		isMutating,
-		error,
-	};
+	return useSWRMutation(API_KEY.CREATE_EXPLORE, fetcher);
 };

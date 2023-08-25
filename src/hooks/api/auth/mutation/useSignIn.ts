@@ -1,5 +1,5 @@
 import {axiosInstance} from "@/api/axios";
-import {API_ENDPOINT, storagePrefix} from "@/constants/api";
+import {API_ENDPOINT} from "@/constants/api";
 import {ROUTE} from "@/constants/route";
 import {TSignInFormData, TUserResponse} from "@/types/api.type";
 import {useRouter} from "next/navigation";
@@ -21,7 +21,7 @@ export const useSignIn = () => {
 	useEffect(() => {
 		if (!data) return;
 
-		router.push(ROUTE.HOME);
+		window.location.href = ROUTE.HOME;
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data, router]);

@@ -1,5 +1,3 @@
-import {API_ENDPOINT} from "./api";
-
 export const ROUTE_PREFIX_USER = "user";
 export const ROUTE_PREFIX_ADMIN = "admin";
 
@@ -42,29 +40,8 @@ export const ROUTE = {
 } as const;
 
 export const QUERY_PARAMS = {
-	STATUS: {
-		SOLD: "sold",
-		IN_STOCK: "in-stock",
-	},
-	TAG: {
-		INVESTOR: "investor",
-		TRANSFER: "transfer",
-		RENT: "rent",
-	},
-	TYPE: {
-		SINGLE: "single",
-		DOUBLE: "double",
-		SHOPHOUSE: "shophouse",
-		APARTMENT: "apartment",
-	},
-	LOCATION: {
-		HCM: "hcm",
-		NHA_TRANG: "nha-trang",
-		PHU_QUOC: "phu-quoc",
-		DA_NANG: "da-nang",
-	},
 	SORT: {
-		PRICE_ASCENDING: "price-asceding",
+		PRICE_ASCENDING: "price-ascending",
 		PRICE_DESCENDING: "price-descending",
 	},
 } as const;

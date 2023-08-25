@@ -27,12 +27,15 @@ export default function Location({
 	});
 	const [map, setMap] = useState<google.maps.Map | null>(null);
 
-	const onLoad = useCallback(function callback(map: google.maps.Map) {
-		map.setCenter({lat, lng});
-		map.setZoom(ZOOM);
+	const onLoad = useCallback(
+		function callback(map: google.maps.Map) {
+			map.setCenter({lat, lng});
+			map.setZoom(ZOOM);
 
-		setMap(map);
-	}, []);
+			setMap(map);
+		},
+		[lat, lng]
+	);
 
 	const onUnmount = useCallback(function callback(map: google.maps.Map) {
 		setMap(null);

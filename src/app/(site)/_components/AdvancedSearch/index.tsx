@@ -24,7 +24,12 @@ export default function AdvancedSearch() {
 					{socialNetworks.map((network) => (
 						<li key={network.href}>
 							<a href={network.href} target="_blank" rel="noreferrer">
-								<Image src={network.icon} alt="" width={30} height={30} />
+								<Image
+									src={network.icon}
+									alt={network.href}
+									width={30}
+									height={30}
+								/>
 							</a>
 						</li>
 					))}

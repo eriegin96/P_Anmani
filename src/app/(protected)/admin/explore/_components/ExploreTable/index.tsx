@@ -7,13 +7,13 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {exploreVideoList} from "@/mock/data";
 import {TExploreVideo} from "@/types/video.type";
 import {useGetExplores} from "@/hooks/api/explore/query/useGetExplores";
 import {useDeleteExplore} from "@/hooks/api/explore";
 import {useModalContext} from "@/providers/ModalProvider";
 import {IconX} from "@tabler/icons-react";
 import {API_ENDPOINT} from "@/constants/api";
+import {concatHref} from "@/utils/concatHref";
 
 type DataIndex = keyof TExploreVideo;
 
@@ -106,11 +106,11 @@ export default function ExploreTable() {
 				dataIndex: "title",
 				...getColumnSearchProps("title"),
 				onFilter: (value: string | number | boolean, record) =>
-					record.id.indexOf(value.toString()) === 0,
+					record.key.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.title.length - b.title.length,
 				sortDirections: ["ascend", "descend"],
-				render: (title, {id}) => (
-					<Link href={`${ROUTE.ADMIN_EXPLORE}/${id}`}>{title}</Link>
+				render: (title, {key}) => (
+					<Link href={concatHref(ROUTE.ADMIN_EXPLORE, key)}>{title}</Link>
 				),
 			},
 			{
@@ -153,7 +153,7 @@ export default function ExploreTable() {
 	return (
 		<Table
 			columns={columns}
-			dataSource={data && exploreVideoList}
+			dataSource={data}
 			pagination={{current: 1, pageSize: 10}}
 			loading={isLoading}
 			scroll={{x: true}}

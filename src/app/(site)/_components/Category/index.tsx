@@ -11,21 +11,26 @@ import ProductCard from "../ProductCard";
 import {setting} from "@/constants/carouselSetting";
 import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 import {ItemsSkeleton} from "@/components";
+import {PRODUCT_TAG} from "@/constants/product";
 
 type TCategoryProps = {
 	category: TCategory;
 };
 
 export default function Category({category}: TCategoryProps) {
-	const {title, location, href, icon, type} = category;
+	const {title, location, href, icon, tag, type} = category;
 	const {data, isLoading} = useGetProducts();
-	const categoryList = data?.filter((product) => product.type === type);
+	const categoryList = data?.filter((product) => {
+		if (tag !== PRODUCT_TAG.transfer.value)
+			return product.tag === tag && product.type === type;
+		return product.tag === PRODUCT_TAG.transfer.value;
+	});
 
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.titleWrapper}>
 				<h2 className={styles.title}>
-					<Image src={icon} alt="" width={36} height={36} />
+					<Image src={icon} alt={title} width={36} height={36} />
 					{title}
 				</h2>
 				<Link href={href} className={styles.more}>
@@ -38,18 +43,18 @@ export default function Category({category}: TCategoryProps) {
 			{categoryList && (
 				<Tabs.Root defaultValue={location[0].value} className={styles.tabsRoot}>
 					<Tabs.List aria-label="Category" className={styles.tabsList}>
-						{location.map(({value, name}) => (
+						{location.map(({value, label}) => (
 							<Tabs.Trigger
 								key={value}
 								value={value}
 								className={styles.tabsTrigger}
 							>
-								{name}
+								{label}
 							</Tabs.Trigger>
 						))}
 					</Tabs.List>
 
-					{location.map(({value, name}) => (
+					{location.map(({value, label}) => (
 						<Tabs.Content
 							key={value}
 							value={value}

@@ -1,5 +1,9 @@
+import {TCartStatusValue} from "@/constants/cart";
+import {TProduct} from "./product.type";
+import {TVoucher} from "./voucher.type";
+
 export type TUser = {
-	id: string;
+	key: string;
 	name: string;
 	gender: "male" | "female";
 	phoneNumber: string;
@@ -8,27 +12,27 @@ export type TUser = {
 	email: string;
 };
 
-export type TUserBooking = {
-	userId: string;
-	date: string;
-	place: string;
-	phoneNumber: string;
-};
-
-export type TUserCart = {
-	id: string;
-	key: string;
-	bookingInfo: TUserBooking;
-	cartList: TCartItem[];
-};
-
-export type TCartItem = {
-	id: string;
+export type TCartProduct = {
 	productId: string;
-	quantity: number;
-	voucherAdded: string[];
-	value: string;
+	voucherIds?: string[];
+	status: TCartStatusValue;
+	date?: string;
+	meetingLocation?: string;
+	phoneNumber?: string;
+	price: number;
 };
 
-export type TUserCartForm = Omit<TUserCart, "id" | "key">;
-export type TCartItemForm = Omit<TCartItem, "id" | "key">;
+export type TCartResponse = {
+	key: string;
+	createdAt: string;
+	date: string;
+	meetingLocation: string;
+	phoneNumber: string;
+	price: number;
+	product: TProduct;
+	productId: string;
+	status: TCartStatusValue;
+	user: TUser;
+	userId: string;
+	vouchers: TVoucher[];
+};

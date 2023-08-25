@@ -8,21 +8,18 @@ import {
 	Radio,
 	InputNumber,
 } from "antd";
-import {productList} from "@/mock/data";
 import {defaultFormConfig} from "../../../_shared/config";
 import {DATE_FORMAT, NUMBER_FORMAT} from "@/constants/common";
+import {useGetProducts} from "@/hooks/api/product";
 
 export default function FormVoucherInfo() {
 	const form = Form.useFormInstance();
-	const discountOption = Form.useWatch("discountOption", form);
-	const productOptions = productList.map((product) => ({
+	const option = Form.useWatch("option", form);
+	const {data: productList} = useGetProducts();
+	const productOptions = productList?.map((product) => ({
 		value: product.key,
 		label: product.name,
 	}));
-
-	const onSelectChange = (value: string) => {
-		console.log(`status ${value}`);
-	};
 
 	return (
 		<Row gutter={20}>
@@ -34,7 +31,6 @@ export default function FormVoucherInfo() {
 				>
 					<Select
 						placeholder="Vui lòng chọn sản phẩm"
-						onChange={onSelectChange}
 						allowClear
 						options={productOptions}
 					/>
@@ -61,21 +57,17 @@ export default function FormVoucherInfo() {
 				</Form.Item>
 			</Col>
 			<Col span={12}>
-				<Form.Item
-					name="discountOption"
-					label="Giảm giá"
-					{...defaultFormConfig}
-				>
+				<Form.Item name="option" label="Giảm giá" {...defaultFormConfig}>
 					<Radio.Group>
 						<Radio value="amount">Số tiền</Radio>
-						<Radio value="percent">Phần trăm</Radio>
+						<Radio value="percentage">Phần trăm</Radio>
 					</Radio.Group>
 				</Form.Item>
 			</Col>
 			<Col span={12}>
-				{discountOption === "amount" ? (
+				{option === "amount" ? (
 					<Form.Item
-						name={["discount", "amount"]}
+						name="amount"
 						label="Số tiền giảm giá"
 						{...defaultFormConfig}
 					>
@@ -87,7 +79,7 @@ export default function FormVoucherInfo() {
 					</Form.Item>
 				) : (
 					<Form.Item
-						name={["discount", "percent"]}
+						name="percentage"
 						label="Phần trăm giảm giá"
 						{...defaultFormConfig}
 					>

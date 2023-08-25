@@ -10,14 +10,5 @@ const fetcher = (url: string, {arg}: {arg: string}) =>
 		.then((res) => res);
 
 export const useDeleteVoucher = () => {
-	const {data, trigger, isMutating, error} = useSWRMutation(
-		API_KEY.DELETE_VOUCHER,
-		fetcher
-	);
-
-	return {
-		trigger,
-		isMutating,
-		error,
-	};
+	return useSWRMutation(API_KEY.DELETE_VOUCHER, fetcher);
 };

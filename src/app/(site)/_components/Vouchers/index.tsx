@@ -5,26 +5,26 @@ import {ItemsSkeleton, Voucher} from "@/components";
 import Link from "next/link";
 import styles from "./vouchers.module.scss";
 import {ROUTE} from "@/constants/route";
-import {voucherList} from "@/mock/data";
 import {useGetVouchers} from "@/hooks/api/voucher/query/useGetVouchers";
+import {concatHref} from "@/utils/concatHref";
 
 const Title = dynamic(() => import("../Title"));
 
 export default function Vouchers() {
-	const {data, isLoading} = useGetVouchers();
+	const {data: voucherList, isLoading} = useGetVouchers();
 
 	return (
 		<>
-			{data?.length !== 0 && (
+			{voucherList?.length !== 0 && (
 				<>
 					<Title>Trung tâm voucher</Title>
 					{isLoading && <ItemsSkeleton />}
 
 					<Carousel setting={setting}>
-						{voucherList.map((voucher) => (
+						{voucherList?.map((voucher) => (
 							<Link
-								key={voucher.id}
-								href={`${ROUTE.PRODUCT}/${voucher.productId}`}
+								key={voucher.key}
+								href={concatHref(ROUTE.PRODUCT, voucher.productId)}
 								className={styles.link}
 							>
 								<Voucher voucher={voucher} shouldShowBtn />

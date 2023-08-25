@@ -1,11 +1,11 @@
 "use client";
 
 import {useCartContext} from "@/providers/CartProvider";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import CartItem from "./_components/CartItem";
 import styles from "./gioHang.module.scss";
 import clsx from "clsx";
-import {TCartItem} from "@/types/user.type";
+import {TCartResponse} from "@/types/user.type";
 import {Checkbox, Divider} from "antd";
 import type {CheckboxChangeEvent} from "antd/es/checkbox";
 import type {CheckboxValueType} from "antd/es/checkbox/Group";
@@ -15,13 +15,15 @@ import {ROUTE} from "@/constants/route";
 
 const CheckboxGroup = Checkbox.Group;
 
-export type TIem = TCartItem & {checked: boolean | "indeterminate"};
+export type TIem = TCartResponse & {checked: boolean | "indeterminate"};
 
 export default function Page() {
 	const {cart, checkedListDefault, checkedList, setCheckedList, totalPrice} =
 		useCartContext();
-	const cartList = cart.map((item) => ({
+
+	const cartList = cart?.map((item) => ({
 		...item,
+		value: item.key,
 		label: <CartItem item={item} shouldShowDeleteButton />,
 	}));
 	const [indeterminate, setIndeterminate] = useState(
@@ -43,6 +45,10 @@ export default function Page() {
 		setCheckAll(e.target.checked);
 	};
 
+	useEffect(() => {
+		setCheckAll(checkedList.length === checkedListDefault.length);
+	}, [checkedListDefault, checkedList]);
+
 	return (
 		<div className={styles.wrapper}>
 			<h3 className={styles.title}>Giỏ hàng ({cart?.length})</h3>
@@ -58,14 +64,18 @@ export default function Page() {
 
 			<div className={styles.layout}>
 				<div className={styles.cartAction}>
-					<Checkbox
-						indeterminate={indeterminate}
-						onChange={onCheckAllChange}
-						checked={checkAll}
-						className={styles.checkboxAll}
-					>
-						Chọn tất cả
-					</Checkbox>
+					{cart?.length ? (
+						<Checkbox
+							indeterminate={indeterminate}
+							onChange={onCheckAllChange}
+							checked={checkAll}
+							className={styles.checkboxAll}
+						>
+							Chọn tất cả
+						</Checkbox>
+					) : (
+						<div></div>
+					)}
 					<div>
 						<span className={styles.totalPrice}>
 							{formatCurrency(totalPrice)}

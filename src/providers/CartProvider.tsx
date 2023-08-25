@@ -1,8 +1,7 @@
 "use client";
 
 import {useDeleteCart, useUpdateCart, useGetCartByUser} from "@/hooks/api/cart";
-import {productList, userCartList} from "@/mock/data";
-import {TCartItem, TCartItemForm} from "@/types/user.type";
+import {TCartResponse} from "@/types/user.type";
 import {CheckboxValueType} from "antd/es/checkbox/Group";
 import {
 	Dispatch,
@@ -13,75 +12,78 @@ import {
 	useMemo,
 	useState,
 } from "react";
-import {useAuthContext} from "./AuthProvider";
 
 type TCartContextDefault = {
-	cart: TCartItem[];
-	setCart: Dispatch<SetStateAction<TCartItem[]>>;
+	cart: TCartResponse[];
 	checkedListDefault: CheckboxValueType[];
 	checkedList: CheckboxValueType[];
 	setCheckedList: Dispatch<SetStateAction<CheckboxValueType[]>>;
 	totalPrice: number;
-	addToCart: (item: TCartItemForm) => void;
-	removeFromCart: (productId: string) => void;
+	discountAmount: number;
+	selectedProducts: TCartResponse[];
 };
 
 type TCartProviderProps = {
 	children: ReactNode;
 };
 
-const mockData: TCartItem[] = userCartList[0].cartList;
-
 export const CartContext = createContext<TCartContextDefault>({
 	cart: [],
-	setCart: () => {},
 	checkedListDefault: [],
 	checkedList: [],
 	setCheckedList: () => {},
 	totalPrice: 0,
-	addToCart: () => {},
-	removeFromCart: () => {},
+	discountAmount: 0,
+	selectedProducts: [],
 });
 
 export default function CartProvider({children}: TCartProviderProps) {
-	const {userInfo} = useAuthContext();
-	const {data: cartData} = useGetCartByUser(userInfo);
-	const {trigger: addCartItem} = useUpdateCart();
-	const {trigger: deleteCartItem} = useDeleteCart();
-	const [cart, setCart] = useState<TCartItem[]>(cartData ?? []);
-	const checkedListDefault = cart.map((item) => item.value);
+	const {data: cart} = useGetCartByUser();
+	const checkedListDefault = cart?.map((item) => item.key) ?? [];
 	const [checkedList, setCheckedList] =
 		useState<CheckboxValueType[]>(checkedListDefault);
 
 	const totalPrice = useMemo(
 		() =>
-			cart.reduce((prev, current) => {
-				return (
-					prev +
-					(productList.find(() => checkedList.includes(current.productId))
-						?.price || 0)
-				);
-			}, 0),
+			cart?.reduce((prev, current) => {
+				const checkedPrice = checkedList.includes(current.key)
+					? current.product.price
+					: 0;
+				return prev + checkedPrice;
+			}, 0) ?? 0,
 		[cart, checkedList]
 	);
 
-	const addToCart = (item: TCartItemForm) => {
-		addCartItem(item);
-	};
+	const selectedProducts = useMemo(
+		() => cart?.filter((p) => checkedList.includes(p.key)) ?? [],
+		[cart, checkedList]
+	);
 
-	const removeFromCart = (productId: string) => {
-		deleteCartItem(productId);
-	};
+	const discountAmount = useMemo(
+		() =>
+			selectedProducts.reduce((prevAmount, currentProduct) => {
+				const totalVoucherDiscount = currentProduct.vouchers.reduce(
+					(voucherDiscount, voucher) => {
+						const amount =
+							voucher?.amount ??
+							(currentProduct.price * voucher.percentage) / 100;
+						return voucherDiscount + amount;
+					},
+					0
+				);
+				return prevAmount + totalVoucherDiscount;
+			}, 0),
+		[selectedProducts]
+	);
 
 	const value = {
-		cart,
-		setCart,
+		cart: cart ?? [],
 		checkedListDefault,
 		checkedList,
 		setCheckedList,
+		selectedProducts,
 		totalPrice,
-		addToCart,
-		removeFromCart,
+		discountAmount,
 	};
 
 	return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

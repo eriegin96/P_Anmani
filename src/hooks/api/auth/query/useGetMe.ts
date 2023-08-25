@@ -1,34 +1,42 @@
 import {axiosInstance} from "@/api/axios";
 import {API_ENDPOINT} from "@/constants/api";
+import {ROUTE} from "@/constants/route";
 import {useAuthContext} from "@/providers/AuthProvider";
 import {TUserResponse} from "@/types/api.type";
+import {useRouter} from "next/navigation";
 import {useEffect} from "react";
-// import useSWRImmutable from "swr/immutable";
 import useSWR from "swr";
 
 const fetcher = (url: string) =>
 	axiosInstance.get<TUserResponse>(url).then((res) => res);
 
 export const useGetMe = () => {
-	// const {data, isLoading, error} = useSWRImmutable(
-	// 	API_ENDPOINT.GET_ME,
-	// 	fetcher
-	// );
-	const {data, isLoading, error} = useSWR(API_ENDPOINT.GET_ME, fetcher, {
-		revalidateIfStale: false,
-		revalidateOnFocus: false,
-		revalidateOnReconnect: false,
-	});
-	const {setUserInfo} = useAuthContext();
+	const router = useRouter();
+	const {setUserInfo, isChecked, setIsChecked} = useAuthContext();
+
+	const {data, isLoading, error} = useSWR(
+		isChecked ? null : API_ENDPOINT.GET_ME,
+		fetcher,
+		{
+			revalidateIfStale: false,
+			revalidateOnFocus: false,
+			revalidateOnReconnect: false,
+		}
+	);
 
 	useEffect(() => {
+		if (isChecked) return;
+		if (error) {
+			setIsChecked(true);
+			return router.push(ROUTE.HOME);
+		}
 		if (!data) return;
 
-		const {email, name, gender, role, key, phoneNumber, dateOfBirth} = data;
-		setUserInfo({email, name, gender, role, id: key, phoneNumber, dateOfBirth});
+		setIsChecked(true);
+		setUserInfo(data);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [data]);
+	}, [data, error, isChecked]);
 
 	return {data, isLoading, error};
 };

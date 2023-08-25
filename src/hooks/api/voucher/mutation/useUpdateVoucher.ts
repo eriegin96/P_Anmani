@@ -8,14 +8,5 @@ const fetcher = (url: string, {arg}: {arg: TVoucher}) =>
 	axiosInstance.patch<TVoucher>(url, JSON.stringify(arg)).then((res) => res);
 
 export const useUpdateVoucher = (voucherId: string) => {
-	const {data, trigger, isMutating, error} = useSWRMutation(
-		concatHref(API_ENDPOINT.VOUCHERS, voucherId),
-		fetcher
-	);
-
-	return {
-		trigger,
-		isMutating,
-		error,
-	};
+	return useSWRMutation(concatHref(API_ENDPOINT.VOUCHERS, voucherId), fetcher);
 };

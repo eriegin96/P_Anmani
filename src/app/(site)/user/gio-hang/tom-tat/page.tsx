@@ -12,10 +12,8 @@ import {useModalContext} from "@/providers/ModalProvider";
 
 export default function Page() {
 	const router = useRouter();
-	const {cart, checkedList, totalPrice} = useCartContext();
+	const {totalPrice, discountAmount, selectedProducts} = useCartContext();
 	const {showBookingModal} = useModalContext();
-	const products = cart.filter((p) => checkedList.includes(p.productId));
-	const discountAmount = 500_000_000;
 
 	return (
 		<div className={styles.pageWrapper}>
@@ -27,8 +25,8 @@ export default function Page() {
 			</div>
 
 			<div className={clsx(styles.wrapper, styles.productList)}>
-				{products.map((item) => (
-					<CartItem key={item.id} item={item} shouldShowVoucher={true} />
+				{selectedProducts.map((item) => (
+					<CartItem key={item.key} item={item} shouldShowVoucher={true} />
 				))}
 			</div>
 
@@ -52,7 +50,7 @@ export default function Page() {
 
 			<div className={styles.wrapper}>
 				<div className={styles.summaryWrapper}>
-					<span>Tổng ({products.length} sản phẩm)</span>
+					<span>Tổng ({selectedProducts.length} sản phẩm)</span>
 					<div>
 						<span>{formatCurrency(totalPrice - discountAmount)}</span>
 						<span>Bạn đã tiết kiệm được {formatCurrency(discountAmount)}</span>

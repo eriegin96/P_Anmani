@@ -3,15 +3,21 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import Link from "next/link";
 import styles from "./productCard.module.scss";
-import {TProduct, TProductSaveValue} from "@/types/product.type";
+import {TProduct} from "@/types/product.type";
 import Image from "next/image";
 import {SaveDialogPortal} from "@/components";
 import {IconBookmark, IconBookmarkFilled} from "@tabler/icons-react";
-import {PRODUCT_SAVE_VALUE, PRODUCT_STATUS} from "@/constants/product";
+import {
+	PRODUCT_SAVE_VALUE,
+	PRODUCT_STATUS,
+	TProductSaveValue,
+} from "@/constants/product";
 import {useState} from "react";
 import {RadioChangeEvent} from "antd";
-import {QUERY_PARAMS, ROUTE} from "@/constants/route";
+import {ROUTE} from "@/constants/route";
 import {formatCurrency} from "@/utils/formatCurrency";
+import {concatHref} from "@/utils/concatHref";
+import {INVESTOR} from "@/constants/investor";
 
 type TProductCardProps = {
 	info: TProduct;
@@ -30,7 +36,7 @@ export default function ProductCard({
 		information,
 		view,
 		image: {thumbnail},
-		logo,
+		investor: {logo, name: investorName},
 		location,
 		status,
 	} = info;
@@ -46,15 +52,20 @@ export default function ProductCard({
 	return (
 		<div className={styles.itemWrapper}>
 			<div className={styles.linkWrapper}>
-				<Link href={`${ROUTE.PRODUCT}/${key}`} key={name}>
+				<Link href={concatHref(ROUTE.PRODUCT, key)} key={name}>
 					<div className={styles.cardContent}>
 						<div className={styles.imageWrapper}>
-							<Image src={thumbnail} alt="" fill className={styles.thumbnail} />
+							<Image
+								src={thumbnail}
+								alt={name}
+								fill
+								className={styles.thumbnail}
+							/>
 							<span className={styles.location}>{location.sub}</span>
 							<div className={styles.logoWrapper}>
 								<Image
 									src={logo}
-									alt=""
+									alt={INVESTOR[investorName]?.label}
 									width={24}
 									height={24}
 									className={styles.logo}
@@ -82,7 +93,7 @@ export default function ProductCard({
 						</div>
 					</div>
 				</Link>
-				{info.status === QUERY_PARAMS.STATUS.SOLD && (
+				{info.status === PRODUCT_STATUS.sold.value && (
 					<div className={styles.overlay}>- Đã bán -</div>
 				)}
 			</div>

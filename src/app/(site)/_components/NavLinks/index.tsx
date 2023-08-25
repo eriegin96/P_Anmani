@@ -15,7 +15,12 @@ export default function NavLinks() {
 					</Link>
 					{link.tag && (
 						<span className={styles.tag}>
-							<Image src={IconCollision} alt="" width={36} height={36} />
+							<Image
+								src={IconCollision}
+								alt={link.title}
+								width={36}
+								height={36}
+							/>
 							<span>{link.tag}</span>
 						</span>
 					)}

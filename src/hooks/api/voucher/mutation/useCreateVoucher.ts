@@ -9,14 +9,5 @@ const fetcher = (url: string, {arg}: {arg: TVoucher}) =>
 		.then((res) => res);
 
 export const useCreateVoucher = () => {
-	const {data, trigger, isMutating, error} = useSWRMutation(
-		API_KEY.CREATE_VOUCHER,
-		fetcher
-	);
-
-	return {
-		trigger,
-		isMutating,
-		error,
-	};
+	return useSWRMutation(API_KEY.CREATE_VOUCHER, fetcher);
 };

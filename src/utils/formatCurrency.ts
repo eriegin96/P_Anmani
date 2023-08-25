@@ -8,14 +8,14 @@ export const formatCurrency = (
 	const result =
 		// Nine Zeroes for Billions
 		Math.abs(price) >= 1.0e9
-			? (Math.abs(price) / 1.0e9).toFixed(toFixed ? 2 : 0) + " tỷ"
+			? (price / 1.0e9).toFixed(toFixed ? 2 : 0) + " tỷ"
 			: // Six Zeroes for Millions
 			Math.abs(price) >= 1.0e6
-			? (Math.abs(price) / 1.0e6).toFixed(toFixed ? 2 : 0) + " triệu"
+			? (price / 1.0e6).toFixed(toFixed ? 2 : 0) + " triệu"
 			: // Three Zeroes for Thousands
 			Math.abs(price) >= 1.0e3
-			? (Math.abs(price) / 1.0e3).toFixed(toFixed ? 2 : 0) + " nghìn"
-			: Math.abs(price);
+			? (price / 1.0e3).toFixed(toFixed ? 2 : 0) + " nghìn"
+			: price;
 
 	return noUnit ? `${result}` : `${result} VNĐ`;
 };

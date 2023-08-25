@@ -1,24 +1,21 @@
 import {Col, Form, Input, Row, Radio, Select} from "antd";
-import {defaultFormConfig} from "../../../_shared/config";
+import {defaultFormConfig, urlFormValidation} from "../../../_shared/config";
 import {
 	NOTIFICATION_TARGET_TYPE,
 	NOTIFICATION_TYPE,
 } from "@/constants/notification";
-import {userList} from "@/mock/data";
 import {PLACEHOLDER_LINK} from "@/constants/common";
+import {useGetProducts} from "@/hooks/api/product";
 
 export default function FormNotificationInfo() {
 	const formInstance = Form.useFormInstance();
 	const targetType = Form.useWatch("targetType", formInstance);
-
-	const onSelectChange = (value: string[]) => {
-		console.log(`status ${value}`);
-	};
+	const {data: productList} = useGetProducts();
 
 	return (
 		<Row gutter={20}>
 			<Col span={12}>
-				<Form.Item name="avatar" label="Ảnh avatar" {...defaultFormConfig}>
+				<Form.Item name="avatar" label="Ảnh avatar" {...urlFormValidation}>
 					<Input placeholder={PLACEHOLDER_LINK} />
 				</Form.Item>
 			</Col>
@@ -50,22 +47,24 @@ export default function FormNotificationInfo() {
 					<Radio.Group>
 						<Radio value={NOTIFICATION_TARGET_TYPE.ALL}>Tất cả</Radio>
 						<Radio value={NOTIFICATION_TARGET_TYPE.INDIVIDUAL}>
-							Lựa chọn khách
+							Lựa chọn sản phẩm
 						</Radio>
 					</Radio.Group>
 				</Form.Item>
 				{targetType === NOTIFICATION_TARGET_TYPE.INDIVIDUAL && (
 					<Form.Item
-						name="target"
-						label="Tên người dùng"
+						name="productIds"
+						label="Tên sản phẩm"
 						{...defaultFormConfig}
 					>
 						<Select
 							mode="multiple"
-							placeholder="Vui lòng chọn người dùng nhận thông báo"
+							placeholder="Vui lòng chọn sản phẩm nhận thông báo"
 							allowClear
-							onChange={onSelectChange}
-							options={userList.map(({id, name}) => ({label: name, value: id}))}
+							options={productList?.map(({key, name}) => ({
+								label: name,
+								value: key,
+							}))}
 						/>
 					</Form.Item>
 				)}

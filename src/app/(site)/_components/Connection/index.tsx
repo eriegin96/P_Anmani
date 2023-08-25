@@ -13,7 +13,12 @@ export default function Connection() {
 					{socialNetworks.map((network) => (
 						<li key={network.href}>
 							<a href={network.href} target="_blank" rel="noreferrer">
-								<Image src={network.icon} alt="" width={40} height={40} />
+								<Image
+									src={network.icon}
+									alt={network.href}
+									width={40}
+									height={40}
+								/>
 							</a>
 						</li>
 					))}

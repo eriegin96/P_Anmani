@@ -9,14 +9,5 @@ const fetcher = (url: string, {arg}: {arg: TNotification}) =>
 		.then((res) => res);
 
 export const useCreateNotification = () => {
-	const {data, trigger, isMutating, error} = useSWRMutation(
-		API_KEY.CREATE_NOTIFICATION,
-		fetcher
-	);
-
-	return {
-		trigger,
-		isMutating,
-		error,
-	};
+	return useSWRMutation(API_KEY.CREATE_NOTIFICATION, fetcher);
 };
