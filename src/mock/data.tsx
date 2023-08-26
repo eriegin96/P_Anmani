@@ -192,7 +192,7 @@ export const productList: TProduct[] = [
 		},
 		originalPrice: 13_500_000_000,
 		price: 13_000_000_000,
-		status: PRODUCT_STATUS.in_stock.value,
+		status: PRODUCT_STATUS["in-stock"].value,
 	},
 	{
 		key: "product-3",
@@ -232,7 +232,7 @@ export const productList: TProduct[] = [
 		},
 		originalPrice: 13_500_000_000,
 		price: 13_000_000_000,
-		status: PRODUCT_STATUS.in_stock.value,
+		status: PRODUCT_STATUS["in-stock"].value,
 	},
 	{
 		key: "product-4",
@@ -312,7 +312,7 @@ export const productList: TProduct[] = [
 		},
 		originalPrice: 13_500_000_000,
 		price: 13_000_000_000,
-		status: PRODUCT_STATUS.in_stock.value,
+		status: PRODUCT_STATUS["in-stock"].value,
 	},
 ];
 

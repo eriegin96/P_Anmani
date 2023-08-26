@@ -1,7 +1,7 @@
 export const PRODUCT_STATUS = {
 	sold: {value: "sold", label: "Đã bán"},
 	saved: {value: "saved", label: "Đang quan tâm"},
-	in_stock: {value: "in_stock", label: "Còn hàng"},
+	"in-stock": {value: "in-stock", label: "Còn hàng"},
 	booked: {value: "booked", label: "Hàng đặt"},
 } as const;
 

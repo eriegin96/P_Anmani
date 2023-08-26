@@ -5,7 +5,10 @@ import {QUERY_PARAMS} from "./route";
 
 export const statusOptions = [
 	{value: PRODUCT_STATUS.sold.value, label: PRODUCT_STATUS.sold.label},
-	{value: PRODUCT_STATUS.in_stock.value, label: PRODUCT_STATUS.in_stock.label},
+	{
+		value: PRODUCT_STATUS["in-stock"].value,
+		label: PRODUCT_STATUS["in-stock"].label,
+	},
 ];
 
 export const tagOptions = [
