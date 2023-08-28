@@ -1,6 +1,7 @@
 import {
 	investorOptions,
 	locationOptions,
+	projectOptions,
 	tagOptions,
 	typeOptions,
 } from "@/constants/selectOptions";
@@ -49,6 +50,16 @@ export default function FormCategory() {
 						onChange={onSelectChange}
 						allowClear
 						options={investorOptions}
+					/>
+				</Form.Item>
+			</Col>
+			<Col span={6}>
+				<Form.Item name={["projectName"]} label="Dự án" {...defaultFormConfig}>
+					<Select
+						placeholder="Vui lòng chọn dự án"
+						onChange={onSelectChange}
+						allowClear
+						options={projectOptions}
 					/>
 				</Form.Item>
 			</Col>

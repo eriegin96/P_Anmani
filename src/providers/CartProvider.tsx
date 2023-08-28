@@ -18,6 +18,7 @@ type TCartContextDefault = {
 	checkedListDefault: CheckboxValueType[];
 	checkedList: CheckboxValueType[];
 	setCheckedList: Dispatch<SetStateAction<CheckboxValueType[]>>;
+	totalOriginalPrice: number;
 	totalPrice: number;
 	discountAmount: number;
 	selectedProducts: TCartResponse[];
@@ -32,6 +33,7 @@ export const CartContext = createContext<TCartContextDefault>({
 	checkedListDefault: [],
 	checkedList: [],
 	setCheckedList: () => {},
+	totalOriginalPrice: 0,
 	totalPrice: 0,
 	discountAmount: 0,
 	selectedProducts: [],
@@ -42,6 +44,17 @@ export default function CartProvider({children}: TCartProviderProps) {
 	const checkedListDefault = cart?.map((item) => item.key) ?? [];
 	const [checkedList, setCheckedList] =
 		useState<CheckboxValueType[]>(checkedListDefault);
+
+	const totalOriginalPrice = useMemo(
+		() =>
+			cart?.reduce((prev, current) => {
+				const checkedPrice = checkedList.includes(current.key)
+					? current.product.originalPrice
+					: 0;
+				return prev + checkedPrice;
+			}, 0) ?? 0,
+		[cart, checkedList]
+	);
 
 	const totalPrice = useMemo(
 		() =>
@@ -82,6 +95,7 @@ export default function CartProvider({children}: TCartProviderProps) {
 		checkedList,
 		setCheckedList,
 		selectedProducts,
+		totalOriginalPrice,
 		totalPrice,
 		discountAmount,
 	};

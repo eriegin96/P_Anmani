@@ -14,6 +14,7 @@ import {
 	useUpdateVoucher,
 } from "@/hooks/api/voucher";
 import {ROUTE} from "@/constants/route";
+import {formatDate} from "@/utils/formatDate";
 
 type TVoucherFormProps = {
 	isEditing?: boolean;
@@ -50,7 +51,7 @@ export default function VoucherForm({isEditing = false}: TVoucherFormProps) {
 			...voucher,
 			option: voucher?.option ?? "amount",
 			expiredDate: voucher?.["expiredDate"]
-				? dayjs(voucher?.["expiredDate"], DATE_FORMAT)
+				? formatDate(voucher?.["expiredDate"])
 				: dayjs(new Date()),
 		});
 		console.log(voucher);

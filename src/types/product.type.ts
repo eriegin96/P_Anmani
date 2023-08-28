@@ -79,6 +79,8 @@ export type TProduct = {
 	name: string;
 	price: number;
 	originalPrice: number;
+	startDiscountDate: string;
+	endDiscountDate: string;
 	star: number;
 	image: TImage;
 	information: TInformation;

@@ -7,6 +7,7 @@ import {Avatar, Skeleton} from "antd";
 import {useAuthContext} from "@/providers/AuthProvider";
 import {useGetNotificationsByUser} from "@/hooks/api/notification";
 import {Fragment} from "react";
+import {formatDate} from "@/utils/formatDate";
 
 export default function NotificationContent() {
 	const {userInfo} = useAuthContext();
@@ -55,6 +56,7 @@ export default function NotificationContent() {
 										<div className={styles.notiText}>
 											<h5>{noti.title}</h5>
 											<p>{noti.content}</p>
+											<span>{formatDate(noti.expire)}</span>
 										</div>
 									</div>
 								) : (

@@ -1,6 +1,6 @@
-import {NUMBER_FORMAT} from "@/constants/common";
+import {DATE_FORMAT, NUMBER_FORMAT} from "@/constants/common";
 import {statusOptions} from "@/constants/selectOptions";
-import {Col, Form, Input, InputNumber, Row, Select} from "antd";
+import {Col, DatePicker, Form, Input, InputNumber, Row, Select} from "antd";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
 import {defaultFormConfig} from "@/app/(protected)/admin/_shared/config";
 
@@ -42,6 +42,36 @@ export default function FormBasicInfo() {
 						formatter={(value) => `VND ${value}`.replace(NUMBER_FORMAT, ".")}
 						parser={(value) => Number(value!.replace(/VND\s?|(\.*)/g, ""))}
 					/>
+				</Form.Item>
+			</Col>
+			<Col span={8}>
+				<Form.Item
+					name="startDiscountDate"
+					label="Ngày bắt đầu giảm giá"
+					rules={[
+						{
+							type: "object" as const,
+							required: true,
+							message: "Trường này không được để trống",
+						},
+					]}
+				>
+					<DatePicker placement="bottomLeft" format={DATE_FORMAT} />
+				</Form.Item>
+			</Col>
+			<Col span={8}>
+				<Form.Item
+					name="endDiscountDate"
+					label="Ngày kết thúc giảm giá"
+					rules={[
+						{
+							type: "object" as const,
+							required: true,
+							message: "Trường này không được để trống",
+						},
+					]}
+				>
+					<DatePicker placement="bottomLeft" format={DATE_FORMAT} />
 				</Form.Item>
 			</Col>
 		</Row>

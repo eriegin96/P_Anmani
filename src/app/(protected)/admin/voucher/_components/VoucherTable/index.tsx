@@ -14,9 +14,8 @@ import {useModalContext} from "@/providers/ModalProvider";
 import {useGetProducts} from "@/hooks/api/product";
 import {API_ENDPOINT} from "@/constants/api";
 import {concatHref} from "@/utils/concatHref";
-import dayjs from "dayjs";
-import {DATE_FORMAT} from "@/constants/common";
 import {PRODUCT_TYPE, TProductTypeValue} from "@/constants/product";
+import {formatDate} from "@/utils/formatDate";
 
 type DataIndex = keyof TVoucher;
 
@@ -149,7 +148,7 @@ export default function VoucherTable() {
 				dataIndex: "expiredDate",
 				...getColumnSearchProps("expiredDate"),
 				sorter: (a, b) => a.expiredDate.length - b.expiredDate.length,
-				render: (value) => <>{dayjs(value).format(DATE_FORMAT)}</>,
+				render: (value) => <>{formatDate(value)}</>,
 			},
 			{
 				title: "Xóa",

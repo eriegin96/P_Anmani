@@ -12,7 +12,7 @@ import {useModalContext} from "@/providers/ModalProvider";
 
 export default function Page() {
 	const router = useRouter();
-	const {totalPrice, discountAmount, selectedProducts} = useCartContext();
+	const {totalOriginalPrice, totalPrice, selectedProducts} = useCartContext();
 	const {showBookingModal} = useModalContext();
 
 	return (
@@ -36,15 +36,15 @@ export default function Page() {
 				</h4>
 				<div className={clsx(styles.calculationLine, styles.originalPrice)}>
 					<span>Giá chưa chiết khấu</span>
-					<span>{formatCurrency(totalPrice)}</span>
+					<span>{formatCurrency(totalOriginalPrice)}</span>
 				</div>
 				<div className={clsx(styles.calculationLine, styles.discountAmount)}>
 					<span>Giá discount voucher</span>
-					<span>{formatCurrency(discountAmount)}</span>
+					<span>{formatCurrency(totalOriginalPrice - totalPrice)}</span>
 				</div>
 				<div className={clsx(styles.calculationLine, styles.finalPrice)}>
 					<span>Tổng thanh toán</span>
-					<span>{formatCurrency(totalPrice - discountAmount)}</span>
+					<span>{formatCurrency(totalPrice)}</span>
 				</div>
 			</div>
 
@@ -52,8 +52,11 @@ export default function Page() {
 				<div className={styles.summaryWrapper}>
 					<span>Tổng ({selectedProducts.length} sản phẩm)</span>
 					<div>
-						<span>{formatCurrency(totalPrice - discountAmount)}</span>
-						<span>Bạn đã tiết kiệm được {formatCurrency(discountAmount)}</span>
+						<span>{formatCurrency(totalPrice)}</span>
+						<span>
+							Bạn đã tiết kiệm được{" "}
+							{formatCurrency(totalOriginalPrice - totalPrice)}
+						</span>
 					</div>
 				</div>
 				<div className={styles.action}>

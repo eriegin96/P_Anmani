@@ -14,8 +14,7 @@ import {IconX} from "@tabler/icons-react";
 import {useModalContext} from "@/providers/ModalProvider";
 import {useDeleteCart} from "@/hooks/api/cart";
 import {API_ENDPOINT} from "@/constants/api";
-import {DATE_FORMAT} from "@/constants/common";
-import dayjs from "dayjs";
+import {formatDate} from "@/utils/formatDate";
 
 type DataIndex = keyof TCartResponse;
 
@@ -151,7 +150,7 @@ export default function CartTable() {
 					record.date.indexOf(value.toString()) === 0,
 				sorter: (a, b) => a.date.length - b.date.length,
 				sortDirections: ["ascend", "descend"],
-				render: (value) => <>{dayjs(value).format(DATE_FORMAT)}</>,
+				render: (value) => <>{formatDate(value)}</>,
 			},
 			{
 				title: "Xóa",
