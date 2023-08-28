@@ -3,6 +3,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import {
 	IconBell,
+	IconMail,
 	IconMenu2,
 	IconPhoneFilled,
 	IconShoppingCart,
@@ -77,9 +78,9 @@ export default function Header() {
 								</Badge>
 							</Button>
 						</Popover>
-						<Link href={ROUTE.CART} className={styles.triggerBtn}>
-							<Badge size="small" count={cart.length}>
-								<IconShoppingCart color={color.white} />
+						<Link href={ROUTE.MESSAGE} className={styles.triggerBtn}>
+							<Badge size="small">
+								<IconMail color={color.white} />
 							</Badge>
 						</Link>
 					</>

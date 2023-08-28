@@ -14,6 +14,7 @@ import {
 import color from "@/styles/color.module.scss";
 import {ROUTE} from "@/constants/route";
 import {PRODUCT_TAG, PRODUCT_TYPE} from "@/constants/product";
+import {REPORT} from "@/constants/report";
 
 export const navLinks = [
 	{
@@ -53,22 +54,22 @@ export const navLinks = [
 	},
 	{
 		href: "/",
-		label: "Thị trường BĐS Hồ Chí Minh",
+		label: REPORT["market-hcm"].label,
 		icon: <IconBuildingCommunity color={color.green3} />,
 	},
 	{
 		href: "/",
-		label: "Thị trường BĐS Nha Trang",
+		label: REPORT["market-nhatrang"].label,
 		icon: <IconBuildingCommunity color={color.primary1} />,
 	},
 	{
 		href: "/",
-		label: "Thị trường BĐS Phú Quốc",
+		label: REPORT["market-phuquoc"].label,
 		icon: <IconBuildingCommunity color={color.primary2} />,
 	},
 	{
 		href: "/",
-		label: "Thị trường BĐS Đà Nẵng",
+		label: REPORT["market-danang"].label,
 		icon: <IconBuildingCommunity color={color.primary3} />,
 	},
 	{

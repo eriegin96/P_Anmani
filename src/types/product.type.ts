@@ -5,6 +5,7 @@ import {
 	TProductTagValue,
 	TProductTypeValue,
 } from "@/constants/product";
+import {TProjectValue} from "@/constants/project";
 
 export type TProductPlace = {
 	name: string;
@@ -74,7 +75,7 @@ export type TProduct = {
 	type: TProductTypeValue;
 	tag: TProductTagValue;
 	investor: TInvestor;
-	projectName: string;
+	projectName: TProjectValue;
 	name: string;
 	price: number;
 	originalPrice: number;

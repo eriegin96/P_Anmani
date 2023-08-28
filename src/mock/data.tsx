@@ -1,11 +1,10 @@
 import {TProduct} from "@/types/product.type";
-import {TVoucher} from "@/types/voucher.type";
 import {NOTIFICATION_TYPE} from "@/constants/notification";
 import {TUser} from "@/types/user.type";
 import {TNotification} from "@/types/notification.type";
-import {TExploreVideo, TExploreVideoStory} from "@/types/video.type";
-import {EXPLORE_TYPE} from "@/constants/explore";
 import {PRODUCT_STATUS, PRODUCT_TAG, PRODUCT_TYPE} from "@/constants/product";
+import {TReport} from "@/types/report.type";
+import {REPORT} from "@/constants/report";
 
 export const productInformation = {
 	landArea: "Diện tích đất 150m2",
@@ -227,133 +226,26 @@ export const saveList = [
 	// {...productList[4], type: PRODUCT_SAVE_VALUE.LATER},
 ];
 
-export const documentList = [
+export const reportList: TReport[] = [
 	{
-		id: "document-1",
-		title: "Title 1",
+		key: "document-1",
+		value: REPORT["market-hcm"].value,
 		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
 	},
 	{
-		id: "document-2",
-		title: "Title 2",
+		key: "document-2",
+		value: REPORT["market-nhatrang"].value,
 		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
 	},
 	{
-		id: "document-3",
-		title: "Title 3",
+		key: "document-3",
+		value: REPORT["market-phuquoc"].value,
 		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
 	},
 	{
-		id: "document-4",
-		title: "Title 4",
+		key: "document-4",
+		value: REPORT["market-danang"].value,
 		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
-	},
-	{
-		id: "document-5",
-		title: "Title 5",
-		href: "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf",
-	},
-];
-
-export const exploreVideoStories: TExploreVideoStory[] = [
-	{
-		id: "story-1",
-		title: "Title 1",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4",
-		type: EXPLORE_TYPE.VIDEO,
-	},
-	{
-		id: "story-2",
-		title: "Title 2",
-		url: "https://picsum.photos/id/100/900/1600",
-		type: EXPLORE_TYPE.IMAGE,
-	},
-	{
-		id: "story-3",
-		title: "Title 3",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
-		type: EXPLORE_TYPE.VIDEO,
-	},
-	{
-		id: "story-4",
-		title: "Title 4",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-woman-in-a-pool-1259-large.mp4",
-		type: EXPLORE_TYPE.VIDEO,
-	},
-];
-
-export const exploreVideoList: TExploreVideo[] = [
-	{
-		key: "video-1",
-		title: "Title 1",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-2",
-		title: "Title 2",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-boyfriends-taking-selfies-3200-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-3",
-		title: "Title 3",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-4",
-		title: "Title 4",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-woman-in-a-pool-1259-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-5",
-		title: "Title 5",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-girl-looking-proudly-at-a-homemade-valentines-day-card-47441-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-6",
-		title: "Title 6",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-fashion-model-with-a-cold-and-pale-appearance-39877-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-7",
-		title: "Title 7",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-girl-with-roller-skates-standing-in-the-middle-of-a-34545-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-8",
-		title: "Title 8",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-two-avenues-with-many-cars-traveling-at-night-34562-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-9",
-		title: "Title 9",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-avenue-with-trees-buildings-and-fast-cars-at-dusk-34563-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-10",
-		title: "Title 10",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-decorated-christmas-tree-in-close-up-shot-39750-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-11",
-		title: "Title 11",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-friends-chatting-while-sitting-at-a-party-48119-large.mp4",
-		stories: exploreVideoStories,
-	},
-	{
-		key: "video-12",
-		title: "Title 12",
-		url: "https://assets.mixkit.co/videos/preview/mixkit-man-runs-past-ground-level-shot-32809-large.mp4",
-		stories: exploreVideoStories,
 	},
 ];
 

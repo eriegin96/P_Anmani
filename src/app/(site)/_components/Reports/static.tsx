@@ -6,38 +6,39 @@ import {
 	IconShip,
 } from "@tabler/icons-react";
 import color from "@/styles/color.module.scss";
+import {REPORT} from "@/constants/report";
 
 export const reportList = [
 	{
 		icon: <IconBuildingBank color={color.primary3} />,
-		title: "Thị trường BĐS Hồ Chí Minh",
+		title: REPORT["market-hcm"].label,
 	},
 	{
 		icon: <IconSailboat color={color.green3} />,
-		title: "Thị trường BĐS Nha Trang",
+		title: REPORT["market-nhatrang"].label,
 	},
 	{
 		icon: <IconShip color={color.red1} />,
-		title: "Thị trường BĐS Phú Quốc",
+		title: REPORT["market-phuquoc"].label,
 	},
 	{
 		icon: <IconBuildingBridge color={color.purple1} />,
-		title: "Thị trường BĐS Đà Nẵng",
+		title: REPORT["market-danang"].label,
 	},
 	{
 		icon: <IconReport color={color.primary3} />,
-		title: "Giá BĐS Hồ Chí Minh",
+		title: REPORT["price-hcm"].label,
 	},
 	{
 		icon: <IconReport color={color.green3} />,
-		title: "Giá BĐS Nha Trang",
+		title: REPORT["price-nhatrang"].label,
 	},
 	{
 		icon: <IconReport color={color.red1} />,
-		title: "Giá BĐS Phú Quốc",
+		title: REPORT["price-phuquoc"].label,
 	},
 	{
 		icon: <IconReport color={color.purple1} />,
-		title: "Giá BĐS Đà Nẵng",
+		title: REPORT["price-danang"].label,
 	},
 ];

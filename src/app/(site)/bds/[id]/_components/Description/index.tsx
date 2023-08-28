@@ -46,15 +46,15 @@ export default function Description({
 
 			<div>
 				<div className={styles.titleWrapper}>
-					<span className={styles.title}>Pháp lý</span>
+					<span className={styles.title}>Pháp lý: </span>
 					<span>{juridice}</span>
 				</div>
 				<div className={styles.titleWrapper}>
-					<span className={styles.title}>Ngày bàn giao</span>
+					<span className={styles.title}>Ngày bàn giao: </span>
 					<span>{delivery?.date}</span>
 				</div>
 				<div className={styles.titleWrapper}>
-					<span className={styles.title}>Bàn giao</span>
+					<span className={styles.title}>Bàn giao: </span>
 					<span>{delivery?.info}</span>
 				</div>
 			</div>
