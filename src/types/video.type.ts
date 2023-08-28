@@ -1,12 +1,11 @@
 export type TExploreVideo = {
 	key: string;
 	title: string;
-	url: string;
-	stories: Omit<TExploreVideo, "stories" | "key">[];
+	stories: TExploreVideoStory[];
 };
 
 export type TExploreVideoStory = {
-	id: string;
+	key: string;
 	title: string;
 	url: string;
 	type: "video" | "image";

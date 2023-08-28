@@ -115,11 +115,11 @@ export default function ExploreTable() {
 			},
 			{
 				title: "Link hình ảnh/video chính",
-				dataIndex: "url",
-				...getColumnSearchProps("url"),
-				render: (url) => (
-					<a href={url} target="_black" rel="noreferer">
-						{url}
+				dataIndex: "stories",
+				...getColumnSearchProps("stories"),
+				render: (stories) => (
+					<a href={stories[0].url} target="_black" rel="noreferer">
+						{stories[0].url}
 					</a>
 				),
 			},

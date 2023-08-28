@@ -10,29 +10,24 @@ import {
 } from "antd";
 import {defaultFormConfig} from "../../../_shared/config";
 import {DATE_FORMAT, NUMBER_FORMAT} from "@/constants/common";
-import {useGetProducts} from "@/hooks/api/product";
+import {typeOptions} from "@/constants/selectOptions";
 
 export default function FormVoucherInfo() {
 	const form = Form.useFormInstance();
 	const option = Form.useWatch("option", form);
-	const {data: productList} = useGetProducts();
-	const productOptions = productList?.map((product) => ({
-		value: product.key,
-		label: product.name,
-	}));
 
 	return (
 		<Row gutter={20}>
 			<Col span={12}>
 				<Form.Item
-					name="productId"
-					label="Voucher này thuộc về sản phẩm"
+					name="productType"
+					label="Voucher này thuộc về loại bđs"
 					{...defaultFormConfig}
 				>
 					<Select
-						placeholder="Vui lòng chọn sản phẩm"
+						placeholder="Vui lòng chọn loại"
 						allowClear
-						options={productOptions}
+						options={typeOptions}
 					/>
 				</Form.Item>
 			</Col>

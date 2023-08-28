@@ -6,6 +6,8 @@ import Link from "next/link";
 import {ROUTE} from "@/constants/route";
 import {useGetExplores} from "@/hooks/api/explore/query/useGetExplores";
 import {Skeleton} from "antd";
+import {concatHref} from "@/utils/concatHref";
+import Image from "next/image";
 
 export default function Page() {
 	const {data: exploreVideoList, isLoading} = useGetExplores();
@@ -21,8 +23,14 @@ export default function Page() {
 					[1, 2, 3, 4].map((item) => <Skeleton key={item} active />)}
 
 				{exploreVideoList?.map((video) => (
-					<Link key={video.key} href={`${ROUTE.EXPLORE}/${video.key}`}>
-						<video src={video.url} autoPlay muted loop />
+					<Link key={video.key} href={concatHref(ROUTE.EXPLORE, video.key)}>
+						{video.stories[0].type === "video" ? (
+							<video src={video.stories[0].url} autoPlay muted loop />
+						) : (
+							<div className={styles.imageWrapper}>
+								<Image src={video.stories[0].url} alt="video" fill />
+							</div>
+						)}
 					</Link>
 				))}
 			</Masonry>

@@ -13,11 +13,6 @@ export default function FormExploreInfo() {
 					<Input placeholder="Cập nhật thông tin từ chủ đầu tư" />
 				</Form.Item>
 			</Col>
-			<Col span={12}>
-				<Form.Item name="url" label="Link thumbnail" {...urlFormValidation}>
-					<Input placeholder={PLACEHOLDER_LINK} />
-				</Form.Item>
-			</Col>
 			<Col span={24}>
 				<Form.List
 					name="stories"
