@@ -20,7 +20,7 @@ type TVoucherFormProps = {
 	isEditing?: boolean;
 };
 
-type TVoucherForm = TVoucher | {expiredDate: dayjs.Dayjs};
+type TVoucherForm = TVoucher | {expire: dayjs.Dayjs};
 
 export default function VoucherForm({isEditing = false}: TVoucherFormProps) {
 	const [form] = Form.useForm<TVoucherForm>();
@@ -39,8 +39,8 @@ export default function VoucherForm({isEditing = false}: TVoucherFormProps) {
 	} = useUpdateVoucher(id);
 
 	const handleSubmit = (values: TVoucherForm) => {
-		const expiredDate = (values.expiredDate as dayjs.Dayjs).format(DATE_FORMAT);
-		const dataBody = {...values, expiredDate} as TVoucher;
+		const expire = (values.expire as dayjs.Dayjs).format(DATE_FORMAT);
+		const dataBody = {...values, expire} as TVoucher;
 
 		console.log(dataBody);
 		isEditing ? updateVoucher(dataBody) : createVoucher(dataBody);
@@ -50,8 +50,8 @@ export default function VoucherForm({isEditing = false}: TVoucherFormProps) {
 		form.setFieldsValue({
 			...voucher,
 			option: voucher?.option ?? "amount",
-			expiredDate: voucher?.["expiredDate"]
-				? formatDate(voucher?.["expiredDate"])
+			expire: voucher?.["expire"]
+				? formatDate(voucher?.["expire"])
 				: dayjs(new Date()),
 		});
 		console.log(voucher);

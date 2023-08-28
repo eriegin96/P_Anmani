@@ -145,9 +145,9 @@ export default function VoucherTable() {
 			},
 			{
 				title: "Hết hạn lúc",
-				dataIndex: "expiredDate",
-				...getColumnSearchProps("expiredDate"),
-				sorter: (a, b) => a.expiredDate.length - b.expiredDate.length,
+				dataIndex: "expire",
+				...getColumnSearchProps("expire"),
+				sorter: (a, b) => a.expire.length - b.expire.length,
 				render: (value) => <>{formatDate(value)}</>,
 			},
 			{

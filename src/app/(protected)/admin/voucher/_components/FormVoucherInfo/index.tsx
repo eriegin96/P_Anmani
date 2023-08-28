@@ -33,7 +33,7 @@ export default function FormVoucherInfo() {
 			</Col>
 			<Col span={12}>
 				<Form.Item
-					name="expiredDate"
+					name="expire"
 					label="Ngày hết hạn"
 					rules={[
 						{

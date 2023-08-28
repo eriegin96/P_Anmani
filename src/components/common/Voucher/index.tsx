@@ -16,7 +16,7 @@ export default function Voucher({
 	voucher,
 	shouldShowBtn = false,
 }: TVoucherProps) {
-	const {amount, percentage, condition, expiredDate} = voucher;
+	const {amount, percentage, condition, expire} = voucher;
 	const discountAmount = amount
 		? amount.toString().replace(NUMBER_FORMAT, ".")
 		: `${percentage}%`;
@@ -43,7 +43,7 @@ export default function Voucher({
 					</Slider.Root>
 					<span className={styles.usedText}>Đã dùng 50%</span>
 				</div>
-				<span className={styles.expiredDate}>HSD: {expiredDate}</span>
+				<span className={styles.expire}>HSD: {expire}</span>
 			</div>
 			{shouldShowBtn && (
 				<div>

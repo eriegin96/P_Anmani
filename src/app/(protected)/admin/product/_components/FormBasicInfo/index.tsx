@@ -46,7 +46,7 @@ export default function FormBasicInfo() {
 			</Col>
 			<Col span={8}>
 				<Form.Item
-					name="startDiscountDate"
+					name="discountStartDate"
 					label="Ngày bắt đầu giảm giá"
 					rules={[
 						{
@@ -61,7 +61,7 @@ export default function FormBasicInfo() {
 			</Col>
 			<Col span={8}>
 				<Form.Item
-					name="endDiscountDate"
+					name="discountEndDate"
 					label="Ngày kết thúc giảm giá"
 					rules={[
 						{

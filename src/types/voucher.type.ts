@@ -8,7 +8,7 @@ export type TVoucher = {
 	option: "amount" | "percentage";
 	amount: number;
 	percentage: number;
-	expiredDate: string;
+	expire: string;
 };
 
 export type TVoucherForm = Omit<TVoucher, "key">;

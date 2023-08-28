@@ -121,8 +121,8 @@ export const product: TProduct = {
 	},
 	originalPrice: 13_500_000_000,
 	price: 13_000_000_000,
-	startDiscountDate: "26/08/2023",
-	endDiscountDate: "26/08/2023",
+	discountStartDate: "26/08/2023",
+	discountEndDate: "26/08/2023",
 	status: PRODUCT_STATUS.sold.value,
 };
 
