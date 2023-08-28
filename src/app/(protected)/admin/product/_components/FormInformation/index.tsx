@@ -52,7 +52,7 @@ export default function FormInformation() {
 			<Col span={4}>
 				<Form.Item
 					name={["information", "other"]}
-					label="Tiện ích khác"
+					label="Thông số khác"
 					{...defaultFormConfig}
 				>
 					<Input placeholder="Đơn giá" />

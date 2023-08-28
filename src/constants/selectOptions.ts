@@ -1,6 +1,7 @@
 import {INVESTOR} from "./investor";
 import {LOCATION, TLocationObject} from "./location";
 import {PRODUCT_STATUS, PRODUCT_TAG, PRODUCT_TYPE} from "./product";
+import {PROJECT} from "./project";
 import {QUERY_PARAMS} from "./route";
 
 export const statusOptions = [
@@ -15,6 +16,20 @@ export const tagOptions = [
 	{value: PRODUCT_TAG.investor.value, label: PRODUCT_TAG.investor.label},
 	{value: PRODUCT_TAG.transfer.value, label: PRODUCT_TAG.transfer.label},
 	{value: PRODUCT_TAG.rent.value, label: PRODUCT_TAG.rent.label},
+];
+
+export const projectOptions = [
+	{value: PROJECT["1"].value, label: PROJECT["1"].label},
+	{value: PROJECT["2"].value, label: PROJECT["2"].label},
+	{value: PROJECT["3"].value, label: PROJECT["3"].label},
+	{value: PROJECT["4"].value, label: PROJECT["4"].label},
+	{value: PROJECT["5"].value, label: PROJECT["5"].label},
+	{value: PROJECT["6"].value, label: PROJECT["6"].label},
+	{value: PROJECT["7"].value, label: PROJECT["7"].label},
+	{value: PROJECT["8"].value, label: PROJECT["8"].label},
+	{value: PROJECT["9"].value, label: PROJECT["9"].label},
+	{value: PROJECT["10"].value, label: PROJECT["10"].label},
+	{value: PROJECT["11"].value, label: PROJECT["11"].label},
 ];
 
 export const typeOptions = [

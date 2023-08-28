@@ -104,7 +104,7 @@ export default function SoSanhPage() {
 			},
 			{
 				key: "3",
-				label: "Tiện ích",
+				label: "Thông số",
 				children: (
 					<>
 						{[

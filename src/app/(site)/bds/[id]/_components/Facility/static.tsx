@@ -1,4 +1,4 @@
-import {PRODUCT_FACILITY} from "@/constants/product";
+import {PRODUCT_INFORMATION} from "@/constants/product";
 import {
 	IconBath,
 	IconBed,
@@ -8,19 +8,27 @@ import {
 	IconWall,
 } from "@tabler/icons-react";
 
-export const facilityList = [
+export const informationList = [
 	{
-		value: PRODUCT_FACILITY.LAND_AREA,
+		value: PRODUCT_INFORMATION.LAND_AREA,
 		icon: <IconTrees />,
 		title: "Tổng diện tích đất",
 	},
 	{
-		value: PRODUCT_FACILITY.FLOOR_AREA,
+		value: PRODUCT_INFORMATION.FLOOR_AREA,
 		icon: <IconWall />,
 		title: "Diện tích sàn tầng 1",
 	},
-	{value: PRODUCT_FACILITY.FLOOR, icon: <IconStairs />, title: "Số tầng"},
-	{value: PRODUCT_FACILITY.BEDROOM, icon: <IconBed />, title: "Số phòng ngủ"},
-	{value: PRODUCT_FACILITY.BATHROOM, icon: <IconBath />, title: "Số phòng tắm"},
-	{value: PRODUCT_FACILITY.OTHER, icon: <IconTag />, title: "Khác"},
+	{value: PRODUCT_INFORMATION.FLOOR, icon: <IconStairs />, title: "Số tầng"},
+	{
+		value: PRODUCT_INFORMATION.BEDROOM,
+		icon: <IconBed />,
+		title: "Số phòng ngủ",
+	},
+	{
+		value: PRODUCT_INFORMATION.BATHROOM,
+		icon: <IconBath />,
+		title: "Số phòng tắm",
+	},
+	{value: PRODUCT_INFORMATION.OTHER, icon: <IconTag />, title: "Khác"},
 ];

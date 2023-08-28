@@ -13,11 +13,25 @@ export type TProductPlace = {
 
 export type TSlotId = "1" | "2" | "3";
 
+export type TInvestor = {name: TInvestorValue; logo: string};
+
 export type TImage = {
 	thumbnail: string;
-	main: string[];
+	main: {
+		exterior: string[];
+		livingroom: string[];
+		bedroom: string[];
+		bathroom: string[];
+		lobby: string[];
+		restaurant: string[];
+		pool: string[];
+		meetingroom: string[];
+		entertainment: string[];
+		service: string[];
+	};
 	reality: string[];
 	area: string[];
+	ground: string[];
 };
 
 export type TInformation = {
@@ -59,12 +73,15 @@ export type TProduct = {
 	key: string;
 	type: TProductTypeValue;
 	tag: TProductTagValue;
-	investor: {name: TInvestorValue; logo: string};
+	investor: TInvestor;
+	projectName: string;
 	name: string;
 	price: number;
 	originalPrice: number;
+	star: number;
 	image: TImage;
 	information: TInformation;
+	utility: string[];
 	policy: TPolicy;
 	description: TDescription;
 	location: TLocation;

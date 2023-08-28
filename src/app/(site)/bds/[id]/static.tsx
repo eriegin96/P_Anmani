@@ -21,7 +21,7 @@ export const pageAnchorList = (
 	{anchor: "voucher", title: "Voucher", component: <VoucherList />},
 	{
 		anchor: "facilities",
-		title: "Tiện ích",
+		title: "Thông số",
 		component: <Facility product={product} />,
 	},
 	{

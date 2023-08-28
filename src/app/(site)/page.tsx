@@ -27,7 +27,7 @@ export default async function Page() {
 			<Carousel>
 				{carouselList.map((image) => (
 					<div key={image.id} className={styles.imageContainer}>
-						<Image src={image.src} alt="" fill />
+						<Image src={image.src} alt="Thumbnail" fill />
 					</div>
 				))}
 			</Carousel>

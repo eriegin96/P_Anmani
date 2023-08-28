@@ -13,7 +13,7 @@ export const PRODUCT_SAVE_VALUE = {
 
 export const PRODUCT_TYPE = {
 	single: {value: "single", label: "Dinh thự & Biệt thự đơn lập"},
-	double: {value: "double", label: "Dinh thự & Biệt thự song lập"},
+	double: {value: "double", label: "Biệt thự song lập"},
 	shophouse: {value: "shophouse", label: "Shophouse nhà phố thương mại"},
 	apartment: {value: "apartment", label: "Căn hộ"},
 } as const;
@@ -33,7 +33,7 @@ export const PRODUCT_ANCHOR = {
 	DESCRIPTION: "description",
 } as const;
 
-export const PRODUCT_FACILITY = {
+export const PRODUCT_INFORMATION = {
 	LAND_AREA: "landArea",
 	FLOOR_AREA: "floorArea",
 	FLOOR: "floor",
@@ -62,7 +62,7 @@ export const PRODUCT_DETAIL_TITLE = {
 		bedroom: "Số phòng ngủ",
 		bathroom: "Số phòng tắm",
 		floorArea: "Diện tích sàn",
-		other: "Tiện ích khác",
+		other: "Thông số khác",
 	},
 	policy: {
 		main: "Chính sách chung",

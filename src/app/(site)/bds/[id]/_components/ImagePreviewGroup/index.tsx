@@ -8,9 +8,12 @@ type TImagePreviewGroupProps = {
 };
 
 export default function ImagePreviewGroup({
-	image: {area, main, reality},
+	image: {main},
 }: TImagePreviewGroupProps) {
-	const imagePreviews = [...main, ...area, ...reality];
+	const imagePreviews = Object.values(main).reduce(
+		(prev, current) => [...prev, ...current],
+		[]
+	);
 	const lastIndex = imagePreviews.length >= 5 ? 4 : imagePreviews.length - 1;
 
 	return (

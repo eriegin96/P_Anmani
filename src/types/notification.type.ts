@@ -11,7 +11,7 @@ export type TNotification = {
 	type: TNotificationTypeValue;
 	avatar: string;
 	title: string;
-	date: string;
+	expire: string;
 	content: string;
 };
 
