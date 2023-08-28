@@ -17,7 +17,16 @@
 }
 
 .typeWrapper {
-	margin: rem(16) 0;
+	margin: rem(16) 0 rem(10);
+	display: flex;
+	align-items: center;
+}
+
+.subTypeWrapper {
+	margin-top: rem(10);
+	display: flex;
+	gap: rem(10);
+	align-items: center;
 }
 
 .type {
@@ -28,6 +37,11 @@
 	border-radius: $round-xl;
 }
 
+.star {
+	margin-left: rem(10);
+	color: $color-yellow-1;
+}
+
 .location {
 	display: flex;
 	align-items: center;
@@ -36,5 +50,18 @@
 	p {
 		display: inline-block;
 		margin-left: rem(4);
+	}
+}
+
+.btn {
+	@include btn;
+	border: rem(1) solid $color-orange-1;
+	color: $color-orange-1;
+	padding: rem(6);
+	border-radius: $round-md;
+
+	&:hover {
+		border-color: $color-orange-2;
+		color: $color-orange-2;
 	}
 }

@@ -44,10 +44,10 @@ export default function ProductPage({params}: TProductPageProps) {
 							name={item.anchor}
 							id={item.anchor}
 							className={clsx(
-								item.anchor !== PRODUCT_ANCHOR.MAIN && styles.block
+								item.anchor !== PRODUCT_ANCHOR.main.value && styles.block
 							)}
 						>
-							{item.anchor !== PRODUCT_ANCHOR.MAIN && (
+							{item.anchor !== PRODUCT_ANCHOR.main.value && (
 								<h3 className={styles.title}>{item.title}</h3>
 							)}
 							{item.component}

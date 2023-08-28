@@ -32,7 +32,7 @@ export type TImage = {
 	};
 	reality: string[];
 	area: string[];
-	ground: string[];
+	investor: string[];
 };
 
 export type TInformation = {

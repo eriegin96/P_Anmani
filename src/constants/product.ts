@@ -25,12 +25,14 @@ export const PRODUCT_TAG = {
 } as const;
 
 export const PRODUCT_ANCHOR = {
-	MAIN: "main",
-	VOUCHER: "voucher",
-	FACILITIES: "facilities",
-	LOCATION: "location",
-	POLICY: "policy",
-	DESCRIPTION: "description",
+	main: {value: "main", label: "Tổng quan"},
+	voucher: {value: "voucher", label: "Voucher"},
+	information: {value: "information", label: "Thông số"},
+	utility: {value: "utility", label: "Tiện ích"},
+	location: {value: "location", label: "Vị trí"},
+	policy: {value: "policy", label: "Chính sách"},
+	description: {value: "description", label: "Mô tả"},
+	image: {value: "image", label: "Hình ảnh"},
 } as const;
 
 export const PRODUCT_INFORMATION = {
@@ -84,8 +86,7 @@ export const PRODUCT_DETAIL_TITLE = {
 export type TProductTypeValue = keyof typeof PRODUCT_TYPE;
 export type TProductTagValue = keyof typeof PRODUCT_TAG;
 export type TProductStatusValue = keyof typeof PRODUCT_STATUS;
+export type TProductAnchorValue = keyof typeof PRODUCT_ANCHOR;
 
 export type TProductSaveKey = keyof typeof PRODUCT_SAVE_VALUE;
 export type TProductSaveValue = (typeof PRODUCT_SAVE_VALUE)[TProductSaveKey];
-export type TProductAnchorKey = keyof typeof PRODUCT_ANCHOR;
-export type TProductAnchorValue = (typeof PRODUCT_ANCHOR)[TProductAnchorKey];

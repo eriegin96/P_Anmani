@@ -1,0 +1,14 @@
+.collapse {
+	:global(.ant-collapse-item) {
+		:global(.ant-collapse-header) {
+			text-align: center;
+			font-size: rem(14);
+			color: $color-primary-1;
+		}
+	}
+}
+
+.list {
+	margin-left: rem(20);
+	list-style-type: disc;
+}

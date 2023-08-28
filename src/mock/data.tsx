@@ -116,7 +116,7 @@ export const product: TProduct = {
 		},
 		reality: ["https://picsum.photos/id/200/1600/900"],
 		area: ["https://picsum.photos/id/200/1600/900"],
-		ground: ["https://picsum.photos/id/200/1600/900"],
+		investor: ["https://picsum.photos/id/200/1600/900"],
 		thumbnail: "https://picsum.photos/id/200/1600/900",
 	},
 	originalPrice: 13_500_000_000,
