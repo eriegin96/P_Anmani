@@ -1,21 +1,21 @@
 import {Voucher} from "@/components";
-import {useParams} from "next/navigation";
 import styles from "./voucherList.module.scss";
-import {useGetVouchersByProductId} from "@/hooks/api/voucher";
+import {TProduct} from "@/types/product.type";
 
-export default function VoucherList() {
-	const {id} = useParams();
-	const {data: voucherList} = useGetVouchersByProductId(id);
+type TVoucherListProps = {
+	product: TProduct;
+};
 
+export default function VoucherList({product: {vouchers}}: TVoucherListProps) {
 	return (
 		<>
-			{voucherList?.length ? (
+			{vouchers?.length ? (
 				<>
 					<p className={styles.description}>
 						Hãy áp dụng ngay mã giảm giá trước khi hết hạn
 					</p>
 					<div className={styles.list}>
-						{voucherList?.map((voucher) => (
+						{vouchers?.map((voucher) => (
 							<Voucher key={voucher.key} voucher={voucher} />
 						))}
 					</div>

@@ -33,6 +33,7 @@ export const PRODUCT_ANCHOR = {
 	policy: {value: "policy", label: "Chính sách"},
 	description: {value: "description", label: "Mô tả"},
 	image: {value: "image", label: "Hình ảnh"},
+	suggestion: {value: "suggestion", label: "Sản phẩm tương tự"},
 } as const;
 
 export const PRODUCT_INFORMATION = {

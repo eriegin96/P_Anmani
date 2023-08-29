@@ -6,6 +6,7 @@ import {
 	TProductTypeValue,
 } from "@/constants/product";
 import {TProjectValue} from "@/constants/project";
+import {TVoucher} from "./voucher.type";
 
 export type TProductPlace = {
 	name: string;
@@ -90,6 +91,8 @@ export type TProduct = {
 	location: TLocation;
 	view: number;
 	status: TProductStatusValue;
+	vouchers: TVoucher[];
+	suggestions: TProduct[];
 };
 
 export type TProductForm = Omit<TProduct, "key">;

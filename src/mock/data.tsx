@@ -124,6 +124,8 @@ export const product: TProduct = {
 	discountStartDate: "26/08/2023",
 	discountEndDate: "26/08/2023",
 	status: PRODUCT_STATUS.sold.value,
+	suggestions: [],
+	vouchers: [],
 };
 
 export const productList: TProduct[] = [

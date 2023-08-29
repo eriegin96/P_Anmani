@@ -8,6 +8,7 @@ import {
 	Overview,
 	Policy,
 	VoucherList,
+	Suggestion,
 } from "./_components";
 import {ReactElement} from "react";
 import {PRODUCT_ANCHOR, TProductAnchorValue} from "@/constants/product";
@@ -23,7 +24,7 @@ export const pageAnchorList = (
 	{
 		anchor: PRODUCT_ANCHOR.voucher.value,
 		title: PRODUCT_ANCHOR.voucher.label,
-		component: <VoucherList />,
+		component: <VoucherList product={product} />,
 	},
 	{
 		anchor: PRODUCT_ANCHOR.information.value,
@@ -54,5 +55,10 @@ export const pageAnchorList = (
 		anchor: PRODUCT_ANCHOR.image.value,
 		title: PRODUCT_ANCHOR.image.label,
 		component: <MoreImage product={product} />,
+	},
+	{
+		anchor: PRODUCT_ANCHOR.suggestion.value,
+		title: PRODUCT_ANCHOR.suggestion.label,
+		component: <Suggestion product={product} />,
 	},
 ];

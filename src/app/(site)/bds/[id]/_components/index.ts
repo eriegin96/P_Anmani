@@ -9,3 +9,4 @@ export {default as Policy} from "./Policy";
 export {default as Description} from "./Description";
 export {default as Action} from "./Action";
 export {default as MoreImage} from "./MoreImage";
+export {default as Suggestion} from "./Suggestion";
