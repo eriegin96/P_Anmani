@@ -7,6 +7,7 @@ import {TLocation} from "@/types/product.type";
 import {PRODUCT_LOCATION} from "@/constants/product";
 import {locationTabList} from "./static";
 import {useCallback, useState} from "react";
+import {LOCATION} from "@/constants/location";
 
 type TLocationProps = {
 	location: TLocation;
@@ -62,7 +63,7 @@ export default function Location({
 				<></>
 			)}
 			<span className={styles.location}>
-				{sub}, {main}
+				{sub}, {LOCATION[main].label}
 			</span>
 			<div>
 				<Tabs.Root

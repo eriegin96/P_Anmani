@@ -8,6 +8,10 @@
 	"name": "The Coral Cavalli Gran Meliá C-02-03A by Mr.Roberto Cavalli",
 	"price": 10000000000,
 	"originalPrice": 13000000000,
+	"discountStartDate": "2023/08/26",
+	"discountEndDate": "2023/08/26",
+	"star": 4,
+	"projectName": "1",
 	"information": {
 		"landArea": "1153,7m2 (40m X 28,8m)",
 		"floor": "2 tầng",
@@ -16,6 +20,20 @@
 		"floorArea": "282,5m2 (25m X 11,3m)",
 		"other": "Khác"
 	},
+	"utility": [
+		"Tiện nghi riêng tại gia",
+		"Dịch vụ Quản gia riêng 24/7",
+		"Dịch vụ Đầu bếp cá nhân Home Chef",
+		"Nghi thức mùi hương Home Spa Ritual với BST Intuitive Gran Meliá Scent",
+		"Dịch vụ kết nối giám tuyến nghệ thuật",
+		"Tiện ích Gran Meliá Nha Trang",
+		"Pacific Lagoon Hồ khoáng nóng 4000m2",
+		"Bãi tắm San hô 370m",
+		"Các hoạt động giải trí",
+		"Quảng trường trung tâm, ẩm thực đêm",
+		"Shopping Plaza",
+		"Bãi tắm Vega 370m"
+	],
 	"policy": {
 		"main": "- Bàn Giao đầy đủ nội thất cao cấp\n- Nội thất tùy biến tôn vinh chủ nhân với các module đa dạng: thư phòng, nhà hát tại gia,home spa & gym, wine & cigar lounge\n - Chủ nhân được sử dụng 30 đêm nghỉ/năm trong vòng 10 năm khi tham gia CTCT\n - Chủ nhân có thể mua ở và không tham gia CTCT\n - Dinh thự được quản lý theo tiêu chuẩn 6 sao của Gran Meliá đầu tiên tại Châu Á\n - Tặng 2 thẻ Melia Platinum \n - Miễn phí dịch vụ quản lý vận hành 10 năm đối với Khách hàng mua ở\n - 10 vé xem Show the Đó/năm\n - 10 vé lặn ngắm san hô/năm\n - 1 bữa tiệc tại gia cho 6 người/năm\n - Spa Thổ Nhĩ Kì 2 người/năm\n - 1 chuyến du thuyền cho 6-10 người/năm\n - Dịch vụ đưa đón bằng xe riêng cùng quản gia riêng",
 		"loan": "- Thanh toán giãn 30% đến khi nhận nhà Quý I/2024\n- Lãi suất 0% kể từ ngày giải ngân đầu tiên đến 31/12/2024 cho khoản vay 65%\n - Ân hạn nợ gốc lên tới 36 tháng\n - Thời hạn vay lên tới 30 năm \n - Miễn phí trả nợ trước hạn trong thời gian hỗ trợ lãi suất",
@@ -39,18 +57,29 @@
 		"nearby": [{"name": "Vịnh Nha Trang", "distance": "0m"}],
 		"popular": [{"name": "Chợ đêm Trần Phú Nha Trang", "distance": "10 phút"}]
 	},
-	"view": 0,
 	"image": {
 		"thumbnail": "https://uc6d71d8c75cda6bfc07139f77e1.previews.dropboxusercontent.com/p/thumb/AB-O_8_wzktiQw4mwGU_0wuFNCb9v2jaGwRT72Hs7hADo8hEhefE1bfF4CEq27Ylx2gZ8NzKU-qGw5_oyvqixeyDAghc9KG5MWIQyycLyFOe47_7JSyH1Nf3Gb67MMd7wNjmZpDhJ_a4mEdBJ77uT8JCBL-KNHZbOkPB9FubnM-f94ge5wRLU6d3jVR9kx6hiTtj0XGSx42ooNXgjgWy1clG7PxQWHeHxgfEETyDFq3U6QS_PjbT2nyQeC7c-7UskuKXUENBBZ5cNLbsRWxht_h_8xScFnWAKdtUWVLoMA2N-rngYGOjbbOxi-fyMmOUPvqSoaXjDZ-1SadtnU86WerujjsjA9WRJwbfyL_K5qFJM2w0LaS0CfkhSr9KqZHZSJ8/p.jpeg",
-		"main": [
-			"https://uc6d71d8c75cda6bfc07139f77e1.previews.dropboxusercontent.com/p/thumb/AB-O_8_wzktiQw4mwGU_0wuFNCb9v2jaGwRT72Hs7hADo8hEhefE1bfF4CEq27Ylx2gZ8NzKU-qGw5_oyvqixeyDAghc9KG5MWIQyycLyFOe47_7JSyH1Nf3Gb67MMd7wNjmZpDhJ_a4mEdBJ77uT8JCBL-KNHZbOkPB9FubnM-f94ge5wRLU6d3jVR9kx6hiTtj0XGSx42ooNXgjgWy1clG7PxQWHeHxgfEETyDFq3U6QS_PjbT2nyQeC7c-7UskuKXUENBBZ5cNLbsRWxht_h_8xScFnWAKdtUWVLoMA2N-rngYGOjbbOxi-fyMmOUPvqSoaXjDZ-1SadtnU86WerujjsjA9WRJwbfyL_K5qFJM2w0LaS0CfkhSr9KqZHZSJ8/p.jpeg",
-			"https://ucd39d7cf53ca44e0a9860b005cd.previews.dropboxusercontent.com/p/thumb/AB9CxGYGz9wKy4B6yUHX-cfcA46bJo5Vwyez8rM6Cyfea2QBveCXaiiaZgJpJkDvxhHPYsy2LULEzQQaFXRIwXSn5fLHhfQFaY_H1LwRvvwm4tmndCuje7gZAHWFh2crKNnU-rtF7DSQ-czZH440wnoFJdu4-ApMg5EAqpVlTEIq8capSCEpYOmX1DzEL1F-V00oLx9rl9QNilQ3eZWgHPlISitRI6_gDBw_JFXXCi7gWeBq_CGp84vE_cank70sbBmkOO-D7qBMdAIFGV8wnZVvpCJwsSPK64QKhnSwnJVlEedZv0CUV1qThilpE-1qLNeh8UQmwbAB-fNRrCC39rrdn1scy0xy7WWg4_9SLn4XEFOOE-drAHvHwxDpw1MULeZgi4XWhgn_L4ogU1VsRME4uTX5VXE_HD3Msu-9qxvZ4HBm7rTiKe2iL_ymM6frI-zDiJGdQwuhA40u5uxGIuMF_syBH8HjmlQjgQwkVQccVEcEjm3B4CoQtSbSr-Ku13g/p.jpeg"
-		],
+		"main": {
+			"exterior": ["https://picsum.photos/id/200/1600/900"],
+			"livingroom": ["https://picsum.photos/id/200/1600/900"],
+			"bedroom": ["https://picsum.photos/id/200/1600/900"],
+			"bathroom": ["https://picsum.photos/id/200/1600/900"],
+			"lobby": ["https://picsum.photos/id/200/1600/900"],
+			"restaurant": ["https://picsum.photos/id/200/1600/900"],
+			"pool": ["https://picsum.photos/id/200/1600/900"],
+			"meetingroom": ["https://picsum.photos/id/200/1600/900"],
+			"entertainment": ["https://picsum.photos/id/200/1600/900"],
+			"service": ["https://picsum.photos/id/200/1600/900"]
+		},
 		"reality": [
 			"https://uc6d71d8c75cda6bfc07139f77e1.previews.dropboxusercontent.com/p/thumb/AB-O_8_wzktiQw4mwGU_0wuFNCb9v2jaGwRT72Hs7hADo8hEhefE1bfF4CEq27Ylx2gZ8NzKU-qGw5_oyvqixeyDAghc9KG5MWIQyycLyFOe47_7JSyH1Nf3Gb67MMd7wNjmZpDhJ_a4mEdBJ77uT8JCBL-KNHZbOkPB9FubnM-f94ge5wRLU6d3jVR9kx6hiTtj0XGSx42ooNXgjgWy1clG7PxQWHeHxgfEETyDFq3U6QS_PjbT2nyQeC7c-7UskuKXUENBBZ5cNLbsRWxht_h_8xScFnWAKdtUWVLoMA2N-rngYGOjbbOxi-fyMmOUPvqSoaXjDZ-1SadtnU86WerujjsjA9WRJwbfyL_K5qFJM2w0LaS0CfkhSr9KqZHZSJ8/p.jpeg",
 			"https://ucd39d7cf53ca44e0a9860b005cd.previews.dropboxusercontent.com/p/thumb/AB9CxGYGz9wKy4B6yUHX-cfcA46bJo5Vwyez8rM6Cyfea2QBveCXaiiaZgJpJkDvxhHPYsy2LULEzQQaFXRIwXSn5fLHhfQFaY_H1LwRvvwm4tmndCuje7gZAHWFh2crKNnU-rtF7DSQ-czZH440wnoFJdu4-ApMg5EAqpVlTEIq8capSCEpYOmX1DzEL1F-V00oLx9rl9QNilQ3eZWgHPlISitRI6_gDBw_JFXXCi7gWeBq_CGp84vE_cank70sbBmkOO-D7qBMdAIFGV8wnZVvpCJwsSPK64QKhnSwnJVlEedZv0CUV1qThilpE-1qLNeh8UQmwbAB-fNRrCC39rrdn1scy0xy7WWg4_9SLn4XEFOOE-drAHvHwxDpw1MULeZgi4XWhgn_L4ogU1VsRME4uTX5VXE_HD3Msu-9qxvZ4HBm7rTiKe2iL_ymM6frI-zDiJGdQwuhA40u5uxGIuMF_syBH8HjmlQjgQwkVQccVEcEjm3B4CoQtSbSr-Ku13g/p.jpeg"
 		],
 		"area": [
+			"https://uc6d71d8c75cda6bfc07139f77e1.previews.dropboxusercontent.com/p/thumb/AB-O_8_wzktiQw4mwGU_0wuFNCb9v2jaGwRT72Hs7hADo8hEhefE1bfF4CEq27Ylx2gZ8NzKU-qGw5_oyvqixeyDAghc9KG5MWIQyycLyFOe47_7JSyH1Nf3Gb67MMd7wNjmZpDhJ_a4mEdBJ77uT8JCBL-KNHZbOkPB9FubnM-f94ge5wRLU6d3jVR9kx6hiTtj0XGSx42ooNXgjgWy1clG7PxQWHeHxgfEETyDFq3U6QS_PjbT2nyQeC7c-7UskuKXUENBBZ5cNLbsRWxht_h_8xScFnWAKdtUWVLoMA2N-rngYGOjbbOxi-fyMmOUPvqSoaXjDZ-1SadtnU86WerujjsjA9WRJwbfyL_K5qFJM2w0LaS0CfkhSr9KqZHZSJ8/p.jpeg",
+			"https://ucd39d7cf53ca44e0a9860b005cd.previews.dropboxusercontent.com/p/thumb/AB9CxGYGz9wKy4B6yUHX-cfcA46bJo5Vwyez8rM6Cyfea2QBveCXaiiaZgJpJkDvxhHPYsy2LULEzQQaFXRIwXSn5fLHhfQFaY_H1LwRvvwm4tmndCuje7gZAHWFh2crKNnU-rtF7DSQ-czZH440wnoFJdu4-ApMg5EAqpVlTEIq8capSCEpYOmX1DzEL1F-V00oLx9rl9QNilQ3eZWgHPlISitRI6_gDBw_JFXXCi7gWeBq_CGp84vE_cank70sbBmkOO-D7qBMdAIFGV8wnZVvpCJwsSPK64QKhnSwnJVlEedZv0CUV1qThilpE-1qLNeh8UQmwbAB-fNRrCC39rrdn1scy0xy7WWg4_9SLn4XEFOOE-drAHvHwxDpw1MULeZgi4XWhgn_L4ogU1VsRME4uTX5VXE_HD3Msu-9qxvZ4HBm7rTiKe2iL_ymM6frI-zDiJGdQwuhA40u5uxGIuMF_syBH8HjmlQjgQwkVQccVEcEjm3B4CoQtSbSr-Ku13g/p.jpeg"
+		],
+		"investor": [
 			"https://uc6d71d8c75cda6bfc07139f77e1.previews.dropboxusercontent.com/p/thumb/AB-O_8_wzktiQw4mwGU_0wuFNCb9v2jaGwRT72Hs7hADo8hEhefE1bfF4CEq27Ylx2gZ8NzKU-qGw5_oyvqixeyDAghc9KG5MWIQyycLyFOe47_7JSyH1Nf3Gb67MMd7wNjmZpDhJ_a4mEdBJ77uT8JCBL-KNHZbOkPB9FubnM-f94ge5wRLU6d3jVR9kx6hiTtj0XGSx42ooNXgjgWy1clG7PxQWHeHxgfEETyDFq3U6QS_PjbT2nyQeC7c-7UskuKXUENBBZ5cNLbsRWxht_h_8xScFnWAKdtUWVLoMA2N-rngYGOjbbOxi-fyMmOUPvqSoaXjDZ-1SadtnU86WerujjsjA9WRJwbfyL_K5qFJM2w0LaS0CfkhSr9KqZHZSJ8/p.jpeg",
 			"https://ucd39d7cf53ca44e0a9860b005cd.previews.dropboxusercontent.com/p/thumb/AB9CxGYGz9wKy4B6yUHX-cfcA46bJo5Vwyez8rM6Cyfea2QBveCXaiiaZgJpJkDvxhHPYsy2LULEzQQaFXRIwXSn5fLHhfQFaY_H1LwRvvwm4tmndCuje7gZAHWFh2crKNnU-rtF7DSQ-czZH440wnoFJdu4-ApMg5EAqpVlTEIq8capSCEpYOmX1DzEL1F-V00oLx9rl9QNilQ3eZWgHPlISitRI6_gDBw_JFXXCi7gWeBq_CGp84vE_cank70sbBmkOO-D7qBMdAIFGV8wnZVvpCJwsSPK64QKhnSwnJVlEedZv0CUV1qThilpE-1qLNeh8UQmwbAB-fNRrCC39rrdn1scy0xy7WWg4_9SLn4XEFOOE-drAHvHwxDpw1MULeZgi4XWhgn_L4ogU1VsRME4uTX5VXE_HD3Msu-9qxvZ4HBm7rTiKe2iL_ymM6frI-zDiJGdQwuhA40u5uxGIuMF_syBH8HjmlQjgQwkVQccVEcEjm3B4CoQtSbSr-Ku13g/p.jpeg"
 		]

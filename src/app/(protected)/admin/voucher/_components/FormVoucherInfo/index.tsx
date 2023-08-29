@@ -10,7 +10,7 @@ import {
 } from "antd";
 import {defaultFormConfig} from "../../../_shared/config";
 import {DATE_FORMAT, NUMBER_FORMAT} from "@/constants/common";
-import {typeOptions} from "@/constants/selectOptions";
+import {projectOptions, typeOptions} from "@/constants/selectOptions";
 
 export default function FormVoucherInfo() {
 	const form = Form.useFormInstance();
@@ -18,7 +18,7 @@ export default function FormVoucherInfo() {
 
 	return (
 		<Row gutter={20}>
-			<Col span={12}>
+			<Col span={8}>
 				<Form.Item
 					name="productType"
 					label="Voucher này thuộc về loại bđs"
@@ -31,7 +31,16 @@ export default function FormVoucherInfo() {
 					/>
 				</Form.Item>
 			</Col>
-			<Col span={12}>
+			<Col span={8}>
+				<Form.Item name="projectName" label="Dự án" {...defaultFormConfig}>
+					<Select
+						placeholder="Vui lòng chọn dự án"
+						allowClear
+						options={projectOptions}
+					/>
+				</Form.Item>
+			</Col>
+			<Col span={8}>
 				<Form.Item
 					name="expire"
 					label="Ngày hết hạn"

@@ -13,6 +13,7 @@ export default function NotificationContent() {
 	const {userInfo} = useAuthContext();
 	const {data: notificationList, isLoading} =
 		useGetNotificationsByUser(userInfo);
+	console.log(notificationList);
 
 	return (
 		<div>

@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./soSanh.module.scss";
-import {AdvancedSearch} from "../_components";
 import {Col, Collapse, CollapseProps, Row} from "antd";
 import {useMemo} from "react";
 import {IconChevronDown, IconPlus} from "@tabler/icons-react";
@@ -41,7 +40,9 @@ export default function SoSanhPage() {
 							{product1 && (
 								<Col span={colSpan}>
 									{voucherList
-										?.filter((voucher) => voucher.productId === product1.key)
+										?.filter(
+											(voucher) => voucher.projectName === product1.projectName
+										)
 										?.map(({key, amount, percentage}) => (
 											<div key={key}>
 												Giảm{" "}
@@ -53,7 +54,9 @@ export default function SoSanhPage() {
 							{product2 && (
 								<Col span={colSpan}>
 									{voucherList
-										?.filter((voucher) => voucher.productId === product2.key)
+										?.filter(
+											(voucher) => voucher.projectName === product2.projectName
+										)
 										?.map(({key, amount, percentage}) => (
 											<div key={key}>
 												Giảm{" "}
@@ -65,7 +68,9 @@ export default function SoSanhPage() {
 							{product3 && (
 								<Col span={colSpan}>
 									{voucherList
-										?.filter((voucher) => voucher.productId === product3.key)
+										?.filter(
+											(voucher) => voucher.projectName === product3.projectName
+										)
 										?.map(({key, amount, percentage}) => (
 											<div key={key}>
 												Giảm{" "}

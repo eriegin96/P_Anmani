@@ -12,11 +12,17 @@ import {
 	useUpdateNotification,
 } from "@/hooks/api/notification";
 import {ROUTE} from "@/constants/route";
+import dayjs from "dayjs";
 
 type TNotificationFormProps = {
 	isEditing?: boolean;
 };
-type TNotificationForm = TNotification & {targetType: "all" | "individual"};
+type TNotificationForm = (
+	| TNotification
+	| {expire: dayjs.Dayjs; productIds: string[]}
+) & {
+	targetType: "all" | "individual";
+};
 
 export default function NotificationForm({
 	isEditing = false,
@@ -37,12 +43,23 @@ export default function NotificationForm({
 	} = useUpdateNotification(id);
 
 	const handleSubmit = (values: TNotificationForm) => {
-		isEditing ? updateNotification(values) : createNotification(values);
+		const expire = (values.expire as dayjs.Dayjs).toISOString();
+		const {targetType, ...newValues} = values;
+		const dataBody = {
+			...newValues,
+			expire,
+			productIds: values?.productIds ? values?.productIds : [],
+		} as TNotification;
+
+		isEditing ? updateNotification(dataBody) : createNotification(dataBody);
 	};
 
 	useEffect(() => {
 		form.setFieldsValue({
 			...notification,
+			expire: notification?.expire
+				? dayjs(notification?.expire)
+				: dayjs(new Date()),
 			targetType: notification?.productIds?.length ? "individual" : "all",
 		});
 	}, [notification, id, form]);

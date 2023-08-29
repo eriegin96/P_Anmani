@@ -6,6 +6,7 @@ import styles from "./voucher.module.scss";
 import {TVoucher} from "@/types/voucher.type";
 import {NUMBER_FORMAT} from "@/constants/common";
 import Button from "../Button";
+import {formatDate} from "@/utils/formatDate";
 
 type TVoucherProps = {
 	voucher: TVoucher;
@@ -43,7 +44,7 @@ export default function Voucher({
 					</Slider.Root>
 					<span className={styles.usedText}>Đã dùng 50%</span>
 				</div>
-				<span className={styles.expire}>HSD: {expire}</span>
+				<span className={styles.expire}>HSD: {formatDate(expire)}</span>
 			</div>
 			{shouldShowBtn && (
 				<div>

@@ -6,7 +6,6 @@ import {useEffect} from "react";
 import FormVoucherInfo from "../FormVoucherInfo";
 import {TVoucher} from "@/types/voucher.type";
 import dayjs from "dayjs";
-import {DATE_FORMAT} from "@/constants/common";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
 import {
 	useCreateVoucher,
@@ -14,7 +13,6 @@ import {
 	useUpdateVoucher,
 } from "@/hooks/api/voucher";
 import {ROUTE} from "@/constants/route";
-import {formatDate} from "@/utils/formatDate";
 
 type TVoucherFormProps = {
 	isEditing?: boolean;
@@ -39,10 +37,9 @@ export default function VoucherForm({isEditing = false}: TVoucherFormProps) {
 	} = useUpdateVoucher(id);
 
 	const handleSubmit = (values: TVoucherForm) => {
-		const expire = (values.expire as dayjs.Dayjs).format(DATE_FORMAT);
+		const expire = (values.expire as dayjs.Dayjs).toISOString();
 		const dataBody = {...values, expire} as TVoucher;
 
-		console.log(dataBody);
 		isEditing ? updateVoucher(dataBody) : createVoucher(dataBody);
 	};
 
@@ -51,10 +48,9 @@ export default function VoucherForm({isEditing = false}: TVoucherFormProps) {
 			...voucher,
 			option: voucher?.option ?? "amount",
 			expire: voucher?.["expire"]
-				? formatDate(voucher?.["expire"])
+				? dayjs(voucher["expire"])
 				: dayjs(new Date()),
 		});
-		console.log(voucher);
 	}, [voucher, id, form]);
 
 	useEffect(() => {

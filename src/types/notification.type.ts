@@ -13,15 +13,21 @@ export type TNotification = {
 	title: string;
 	expire: string;
 	content: string;
+	productIds?: string[];
+	products?: TProduct[];
+	users?: TUser[];
 };
 
 export type TNotificationRequest = TNotification & {
 	productIds: string[];
 };
 
-export type TNotificationResponse = TNotification & {
-	products: TProduct[];
-	users: TUser[];
-};
+export type TNotificationResponse = Omit<
+	TNotification & {
+		products: TProduct[];
+		users: TUser[];
+	},
+	"productIds"
+>;
 
 export type TNotificationForm = Omit<TNotificationRequest, "key">;
