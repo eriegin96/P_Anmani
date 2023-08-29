@@ -1,6 +1,6 @@
 "use client";
 
-import {Button, Form} from "antd";
+import {Button, Form, message} from "antd";
 import {useParams, useRouter} from "next/navigation";
 import {useEffect} from "react";
 import {TProduct} from "@/types/product.type";
@@ -19,13 +19,19 @@ import {
 } from "@/hooks/api/product";
 import {ROUTE} from "@/constants/route";
 import {INVESTOR} from "@/constants/investor";
+import dayjs from "dayjs";
+import FormUtility from "../FormUtility";
 
 type TProductFormProps = {
 	isEditing?: boolean;
 };
+type TProductForm = Omit<TProduct, "discountStartDate" | "discountEndDate"> & {
+	discountEndDate: dayjs.Dayjs;
+	discountStartDate: dayjs.Dayjs;
+};
 
 export default function ProductForm({isEditing = false}: TProductFormProps) {
-	const [form] = Form.useForm<TProduct>();
+	const [form] = Form.useForm<TProductForm>();
 	const router = useRouter();
 	const {id} = useParams();
 	const {data: product} = useGetProductById(id);
@@ -40,7 +46,7 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 		data: dataUpdate,
 	} = useUpdateProduct(id);
 
-	const handleSubmit = (values: TProduct) => {
+	const handleSubmit = (values: TProductForm) => {
 		const lat = Number(values.location.lat);
 		const lng = Number(values.location.lng);
 		const price = Number(values.price);
@@ -54,14 +60,24 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 			},
 			price,
 			originalPrice,
+			discountStartDate: values.discountStartDate.toISOString(),
+			discountEndDate: values.discountStartDate.toISOString(),
 		};
 
 		isEditing ? updateProduct(newValues) : createProduct(newValues);
 	};
 
 	useEffect(() => {
-		form.setFieldsValue({...product});
-	}, [product, form]);
+		const discountEndDate = product?.discountEndDate
+			? dayjs(product?.discountEndDate)
+			: dayjs(new Date());
+		const discountStartDate = product?.discountStartDate
+			? dayjs(product?.discountStartDate)
+			: dayjs(new Date());
+
+		form.setFieldsValue({...product, discountStartDate, discountEndDate});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [product]);
 
 	useEffect(() => {
 		if (dataCreate || dataUpdate) router.push(ROUTE.ADMIN_PRODUCT);
@@ -84,8 +100,11 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 			<label>Phân loại BĐS</label>
 			<FormCategory />
 
-			<label>Thông tin tiện ích</label>
+			<label>Thông số</label>
 			<FormInformation />
+
+			<label>Tiện ích</label>
+			<FormUtility />
 
 			<label>Địa điểm</label>
 			<FormLocation />

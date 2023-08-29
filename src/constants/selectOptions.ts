@@ -46,6 +46,14 @@ export const locationOptions: TLocationObject[] = [
 	{value: LOCATION["hcm"].value, label: LOCATION["hcm"].label},
 ];
 
+export const starOptions: {value: number; label: string}[] = [
+	{value: 1, label: "1"},
+	{value: 2, label: "2"},
+	{value: 3, label: "3"},
+	{value: 4, label: "4"},
+	{value: 5, label: "5"},
+];
+
 export const investorOptions = [
 	{value: INVESTOR["1"].value, label: INVESTOR["1"].label},
 	{value: INVESTOR["2"].value, label: INVESTOR["2"].label},

@@ -5,13 +5,14 @@ import type {ColumnType, ColumnsType, TableProps} from "antd/es/table";
 import type {FilterConfirmProps} from "antd/es/table/interface";
 import Link from "next/link";
 import {ROUTE} from "@/constants/route";
-import {TProduct} from "@/types/product.type";
+import {TLocation, TProduct} from "@/types/product.type";
 import {IconX} from "@tabler/icons-react";
 import {useGetProducts} from "@/hooks/api/product/query/useGetProducts";
 import {useDeleteProduct} from "@/hooks/api/product";
 import {useModalContext} from "@/providers/ModalProvider";
 import {API_ENDPOINT} from "@/constants/api";
 import {formatCurrency} from "@/utils/formatCurrency";
+import {LOCATION} from "@/constants/location";
 
 type DataIndex = keyof TProduct;
 
@@ -124,7 +125,7 @@ export default function ProductTable() {
 				dataIndex: "location",
 				...getColumnSearchProps("location"),
 				sorter: (a, b) => a.location.main.length - b.location.main.length,
-				render: (location) => <>{location.main}</>,
+				render: (location: TLocation) => <>{LOCATION[location.main].label}</>,
 			},
 			{
 				title: "Xóa",

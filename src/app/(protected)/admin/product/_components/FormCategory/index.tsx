@@ -2,6 +2,7 @@ import {
 	investorOptions,
 	locationOptions,
 	projectOptions,
+	starOptions,
 	tagOptions,
 	typeOptions,
 } from "@/constants/selectOptions";
@@ -9,13 +10,9 @@ import {Col, Form, Row, Select} from "antd";
 import {defaultFormConfig} from "@/app/(protected)/admin/_shared/config";
 
 export default function FormCategory() {
-	const onSelectChange = (value: string) => {
-		console.log(`status ${value}`);
-	};
-
 	return (
 		<Row gutter={20}>
-			<Col span={6}>
+			<Col span={8}>
 				<Form.Item
 					name="tag"
 					label="Hình thức bán/cho thuê"
@@ -23,23 +20,21 @@ export default function FormCategory() {
 				>
 					<Select
 						placeholder="Vui lòng chọn hình thức bán/cho thuê"
-						onChange={onSelectChange}
 						allowClear
 						options={tagOptions}
 					/>
 				</Form.Item>
 			</Col>
-			<Col span={6}>
+			<Col span={8}>
 				<Form.Item name="type" label="Loại hình" {...defaultFormConfig}>
 					<Select
 						placeholder="Vui lòng chọn loại hình"
-						onChange={onSelectChange}
 						allowClear
 						options={typeOptions}
 					/>
 				</Form.Item>
 			</Col>
-			<Col span={6}>
+			<Col span={8}>
 				<Form.Item
 					name={["investor", "name"]}
 					label="Chủ đầu tư"
@@ -47,23 +42,21 @@ export default function FormCategory() {
 				>
 					<Select
 						placeholder="Vui lòng chọn chủ đầu tư"
-						onChange={onSelectChange}
 						allowClear
 						options={investorOptions}
 					/>
 				</Form.Item>
 			</Col>
-			<Col span={6}>
+			<Col span={8}>
 				<Form.Item name={["projectName"]} label="Dự án" {...defaultFormConfig}>
 					<Select
 						placeholder="Vui lòng chọn dự án"
-						onChange={onSelectChange}
 						allowClear
 						options={projectOptions}
 					/>
 				</Form.Item>
 			</Col>
-			<Col span={6}>
+			<Col span={8}>
 				<Form.Item
 					name={["location", "main"]}
 					label="Khu vực"
@@ -71,9 +64,17 @@ export default function FormCategory() {
 				>
 					<Select
 						placeholder="Vui lòng chọn khu vực"
-						onChange={onSelectChange}
 						allowClear
 						options={locationOptions}
+					/>
+				</Form.Item>
+			</Col>
+			<Col span={8}>
+				<Form.Item name={"star"} label="Sao" {...defaultFormConfig}>
+					<Select
+						placeholder="Vui lòng chọn khu vực"
+						allowClear
+						options={starOptions}
 					/>
 				</Form.Item>
 			</Col>

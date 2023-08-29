@@ -1,34 +1,25 @@
 import {Button, Form, Input} from "antd";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
-import {PLACEHOLDER_LINK} from "@/constants/common";
 import {IconMinus, IconPlus} from "@tabler/icons-react";
 
-type ImageFormFieldProps = {
-	formName: string[];
-	label: string;
-	addBtnText: string;
-};
+type Props = {};
 
-export default function ImageFormField({
-	formName,
-	label,
-	addBtnText,
-}: ImageFormFieldProps) {
+export default function FormUtility({}: Props) {
 	return (
 		<Form.List
-			name={formName}
+			name={"utility"}
 			rules={[
 				{
 					validator: async (_, names) => {
 						if (!names || names.length < 1) {
-							return Promise.reject(new Error("Ít nhất 1 hình ảnh"));
+							return Promise.reject(new Error("Ít nhất 1 tiện ích"));
 						}
 					},
 				},
 			]}
 		>
 			{(fields, {add, remove}, {errors}) => (
-				<Form.Item label={label} required>
+				<Form.Item label="Tiện ích" required>
 					{fields.map(({key, name}) => (
 						<Form.Item key={key} className={styles.formListItem}>
 							<Form.Item
@@ -38,16 +29,12 @@ export default function ImageFormField({
 									{
 										required: true,
 										whitespace: true,
-										message: "Vui lòng nhập link hình ảnh",
-									},
-									{
-										type: "url",
-										message: "Trường này phải có định dạng https://...",
+										message: "Vui lòng nhập tiện ích",
 									},
 								]}
 								noStyle
 							>
-								<Input placeholder={PLACEHOLDER_LINK} />
+								<Input placeholder="Dịch vụ Quản gia riêng 24/7" />
 							</Form.Item>
 							<Button shape="circle" danger onClick={() => remove(name)}>
 								<IconMinus />
@@ -61,7 +48,7 @@ export default function ImageFormField({
 						icon={<IconPlus />}
 						className={styles.addListItemBtn}
 					>
-						{addBtnText}
+						Thêm tiện ích
 					</Button>
 					<Form.ErrorList errors={errors} />
 				</Form.Item>
