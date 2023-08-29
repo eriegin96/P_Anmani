@@ -17,7 +17,7 @@ export default function OverView({product}: TOverViewProps) {
 	const stars = Array.from(Array(product.star ?? 5).keys());
 
 	const handleAddComparison = () => {
-		setComparisonProduct(product.key);
+		setComparisonProduct(product);
 		showDrawer();
 	};
 

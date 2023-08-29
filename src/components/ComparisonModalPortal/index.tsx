@@ -5,14 +5,17 @@ import SearchBox from "../common/SearchBox";
 import styles from "./comparisonModalPortal.module.scss";
 import {useState} from "react";
 import {useProductComparisonContext} from "@/providers/ProductComparisonProvider";
+import {useGetProductById} from "@/hooks/api/product";
 
 export default function ComparisonModalPortal() {
 	const {setComparisonProduct, hideComparisonModal} =
 		useProductComparisonContext();
 	const [searchBoxValue, setSearchBoxValue] = useState<string>("");
+	const {data: product} = useGetProductById(searchBoxValue);
 
 	const handleAdd = () => {
-		setComparisonProduct(searchBoxValue);
+		if (!product) return;
+		setComparisonProduct(product);
 		hideComparisonModal();
 		setSearchBoxValue("");
 	};

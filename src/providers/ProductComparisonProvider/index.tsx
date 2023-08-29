@@ -10,13 +10,12 @@ import clsx from "clsx";
 import {TProduct, TSlotId} from "@/types/product.type";
 import {ROUTE} from "@/constants/route";
 import Link from "next/link";
-import {useGetProducts} from "@/hooks/api/product";
 
 type TProductComparisonProviderContextDefault = {
 	showDrawer: () => void;
 	showComparisonModal: (slotId: TSlotId) => void;
 	hideComparisonModal: () => void;
-	setComparisonProduct: (productId: string) => void;
+	setComparisonProduct: (product: TProduct) => void;
 	removeComparisonProduct: (slotId: TSlotId) => void;
 	selectedProducts: Map<TSlotId, TProduct | null>;
 };
@@ -41,7 +40,6 @@ export default function ProductComparisonProvider({
 	const [isComparisonOpen, setIsComparisonOpen] = useState(false);
 	const [isComparisonModalOpen, setIsComparisonModalOpen] = useState(false);
 	const [slotId, setSlotId] = useState<TSlotId>("1");
-	const {data: productList} = useGetProducts();
 
 	const [selectedProducts, setSelectedProducts] = useState<
 		Map<TSlotId, TProduct | null>
@@ -67,9 +65,7 @@ export default function ProductComparisonProvider({
 	const hideComparisonModal = () => {
 		setIsComparisonModalOpen(false);
 	};
-	const setComparisonProduct = (productId: string) => {
-		const product =
-			productList?.find((product) => product.key === productId) ?? null;
+	const setComparisonProduct = (product: TProduct) => {
 		const newSelectedProducts = new Map(selectedProducts);
 		newSelectedProducts.set(slotId, product);
 		setSelectedProducts(newSelectedProducts);
