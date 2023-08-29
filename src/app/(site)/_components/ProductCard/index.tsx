@@ -18,6 +18,7 @@ import {ROUTE} from "@/constants/route";
 import {formatCurrency} from "@/utils/formatCurrency";
 import {concatHref} from "@/utils/concatHref";
 import {INVESTOR} from "@/constants/investor";
+import {useCartContext} from "@/providers/CartProvider";
 
 type TProductCardProps = {
 	info: TProduct;
@@ -40,6 +41,9 @@ export default function ProductCard({
 		location,
 		status,
 	} = info;
+	const discountPercent = Math.round(
+		((originalPrice - price) / originalPrice) * 100
+	);
 	const [value, setValue] = useState<TProductSaveValue>(
 		PRODUCT_SAVE_VALUE.LATER
 	);
@@ -71,7 +75,9 @@ export default function ProductCard({
 									className={styles.logo}
 								/>
 							</div>
-							<span className={styles.discount}>Tiết kiệm {32}%</span>
+							<span className={styles.discount}>
+								Tiết kiệm {discountPercent}%
+							</span>
 						</div>
 
 						<div className={styles.descriptionWrapper}>

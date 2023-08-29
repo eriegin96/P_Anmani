@@ -28,7 +28,7 @@ export default function Page() {
 							<video src={video.stories[0].url} autoPlay muted loop />
 						) : (
 							<div className={styles.imageWrapper}>
-								<Image src={video.stories[0].url} alt="video" fill />
+								<Image src={video.stories[0].url} alt="Image" fill />
 							</div>
 						)}
 					</Link>

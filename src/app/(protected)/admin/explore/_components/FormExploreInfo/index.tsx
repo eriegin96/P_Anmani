@@ -1,16 +1,35 @@
-import {Col, Form, Input, Row, Button, Radio} from "antd";
-import {defaultFormConfig, urlFormValidation} from "../../../_shared/config";
+import {Col, Form, Input, Row, Button, Radio, Select} from "antd";
+import {defaultFormConfig} from "../../../_shared/config";
 import {PLACEHOLDER_LINK} from "@/constants/common";
 import {IconMinus, IconPlus} from "@tabler/icons-react";
 import styles from "@/app/(protected)/admin/_shared/form.module.scss";
 import {EXPLORE_TYPE} from "@/constants/explore";
+import {useGetProducts} from "@/hooks/api/product";
 
 export default function FormExploreInfo() {
+	const {data: productList} = useGetProducts();
+
 	return (
 		<Row gutter={20}>
 			<Col span={12}>
 				<Form.Item name="title" label="Tiêu đề khám phá" {...defaultFormConfig}>
 					<Input placeholder="Cập nhật thông tin từ chủ đầu tư" />
+				</Form.Item>
+			</Col>
+			<Col span={12}>
+				<Form.Item
+					name="productIds"
+					label="Sản phẩm gợi ý"
+					{...defaultFormConfig}
+				>
+					<Select
+						mode="multiple"
+						placeholder="Vui lòng chọn sản phẩm gợi ý"
+						options={productList?.map(({key, name}) => ({
+							label: name,
+							value: key,
+						}))}
+					/>
 				</Form.Item>
 			</Col>
 			<Col span={24}>

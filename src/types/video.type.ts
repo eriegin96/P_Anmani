@@ -1,7 +1,10 @@
+import {TProduct} from "./product.type";
+
 export type TExploreVideo = {
 	key: string;
 	title: string;
 	stories: TExploreVideoStory[];
+	products: TProduct[];
 };
 
 export type TExploreVideoStory = {

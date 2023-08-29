@@ -60,7 +60,10 @@ export default function NotificationForm({
 			expire: notification?.expire
 				? dayjs(notification?.expire)
 				: dayjs(new Date()),
-			targetType: notification?.productIds?.length ? "individual" : "all",
+			targetType: notification?.products?.length ? "individual" : "all",
+			productIds: notification?.products?.length
+				? notification?.products?.map((product) => product.key)
+				: [],
 		});
 	}, [notification, id, form]);
 

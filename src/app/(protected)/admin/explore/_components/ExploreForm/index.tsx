@@ -39,9 +39,7 @@ export default function ExploreForm({isEditing = false}: TExploreFormProps) {
 	};
 
 	useEffect(() => {
-		const fieldsValue = exploreVideo;
 		form.setFieldsValue({...exploreVideo});
-		console.log(fieldsValue);
 	}, [exploreVideo, id, form]);
 
 	useEffect(() => {

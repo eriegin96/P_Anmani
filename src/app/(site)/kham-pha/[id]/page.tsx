@@ -10,14 +10,12 @@ import {ROUTE} from "@/constants/route";
 import Stories from "react-insta-stories";
 import {useGetExploreById} from "@/hooks/api/explore/query/useGetExploreById";
 import Loading from "../../loading";
-import {useGetProducts} from "@/hooks/api/product";
 import {useCartContext} from "@/providers/CartProvider";
 
 type TKhamPhaPageProps = {params: {id: string}};
 
 export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 	const {data: video, isLoading, error} = useGetExploreById(params.id);
-	const {data: productList} = useGetProducts();
 	const {cart} = useCartContext();
 	const [open, setOpen] = useState(false);
 
@@ -76,7 +74,7 @@ export default function KhamPhaPage({params}: TKhamPhaPageProps) {
 						open={open}
 						rootClassName={styles.drawer}
 					>
-						{productList?.slice(0, 2).map((product) => (
+						{video?.products.slice(0, 2).map((product) => (
 							<ProductCard key={product.key} info={product} />
 						))}
 					</Drawer>
