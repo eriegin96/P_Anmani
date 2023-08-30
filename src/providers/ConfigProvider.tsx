@@ -8,6 +8,7 @@ import {SWRConfig} from "swr";
 import {HANDLER} from "@/constants/handler";
 import {useGetMe} from "@/hooks/api/auth/query/useGetMe";
 import Loading from "@/app/(site)/loading";
+import {usePathname} from "next/navigation";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -18,6 +19,7 @@ export default function ConfigProvider({
 }) {
 	const [messageApi, contextHolder] = message.useMessage();
 	const {isLoading} = useGetMe();
+	const pathname = usePathname();
 
 	if (isLoading) return <Loading />;
 
@@ -32,7 +34,8 @@ export default function ConfigProvider({
 					},
 					onError: (error, key) => {
 						console.log({error});
-						messageApi.error(error?.response?.data?.message);
+						if (pathname.includes("admin"))
+							messageApi.error(error?.response?.data?.message);
 					},
 				}}
 			>

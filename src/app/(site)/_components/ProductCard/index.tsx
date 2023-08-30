@@ -8,9 +8,9 @@ import Image from "next/image";
 import {SaveDialogPortal} from "@/components";
 import {IconBookmark, IconBookmarkFilled} from "@tabler/icons-react";
 import {
-	PRODUCT_SAVE_VALUE,
+	PRODUCT_BOOKMARK,
 	PRODUCT_STATUS,
-	TProductSaveValue,
+	TProductBookmarkValue,
 } from "@/constants/product";
 import {useState} from "react";
 import {RadioChangeEvent} from "antd";
@@ -44,13 +44,13 @@ export default function ProductCard({
 	const discountPercent = Math.round(
 		((originalPrice - price) / originalPrice) * 100
 	);
-	const [value, setValue] = useState<TProductSaveValue>(
-		PRODUCT_SAVE_VALUE.LATER
-	);
+	const [bookmarkValue, setBookmarkValue] = useState<
+		TProductBookmarkValue | ""
+	>("");
 
 	const handleSave = (e: RadioChangeEvent) => {
 		console.log(e.target.value);
-		setValue(e.target.value);
+		setBookmarkValue(e.target.value);
 	};
 
 	return (
@@ -113,7 +113,7 @@ export default function ProductCard({
 					<IconBookmark size={30} />
 					{/* )} */}
 				</Dialog.Trigger>
-				<SaveDialogPortal value={value} onChange={handleSave} />
+				<SaveDialogPortal value={bookmarkValue} onChange={handleSave} />
 			</Dialog.Root>
 		</div>
 	);

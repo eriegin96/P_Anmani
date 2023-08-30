@@ -5,7 +5,7 @@ import type {RadioChangeEvent} from "antd";
 import {Radio} from "antd";
 import styles from "./saveDialogPortal.module.scss";
 import clsx from "clsx";
-import {PRODUCT_SAVE_VALUE} from "@/constants/product";
+import {PRODUCT_BOOKMARK} from "@/constants/product";
 
 type TSaveDialogPortalProps = {
 	value: string;
@@ -23,14 +23,15 @@ export default function SaveDialogPortal({
 				<Radio.Group
 					onChange={onChange}
 					value={value}
-					className={styles.buttons}>
-					<Radio value={PRODUCT_SAVE_VALUE.LATER} className={styles.button}>
+					className={styles.buttons}
+				>
+					<Radio value={PRODUCT_BOOKMARK.later} className={styles.button}>
 						Để xem sau
 					</Radio>
-					<Radio value={PRODUCT_SAVE_VALUE.BUY} className={styles.button}>
+					<Radio value={PRODUCT_BOOKMARK.buy} className={styles.button}>
 						Cần mua
 					</Radio>
-					<Radio value={PRODUCT_SAVE_VALUE.RENT} className={styles.button}>
+					<Radio value={PRODUCT_BOOKMARK.rent} className={styles.button}>
 						Cần thuê
 					</Radio>
 				</Radio.Group>

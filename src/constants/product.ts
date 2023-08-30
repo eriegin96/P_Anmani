@@ -5,10 +5,10 @@ export const PRODUCT_STATUS = {
 	booked: {value: "booked", label: "Hàng đặt"},
 } as const;
 
-export const PRODUCT_SAVE_VALUE = {
-	LATER: "later",
-	BUY: "buy",
-	RENT: "rent",
+export const PRODUCT_BOOKMARK = {
+	later: "later",
+	buy: "buy",
+	rent: "rent",
 } as const;
 
 export const PRODUCT_TYPE = {
@@ -88,6 +88,4 @@ export type TProductTypeValue = keyof typeof PRODUCT_TYPE;
 export type TProductTagValue = keyof typeof PRODUCT_TAG;
 export type TProductStatusValue = keyof typeof PRODUCT_STATUS;
 export type TProductAnchorValue = keyof typeof PRODUCT_ANCHOR;
-
-export type TProductSaveKey = keyof typeof PRODUCT_SAVE_VALUE;
-export type TProductSaveValue = (typeof PRODUCT_SAVE_VALUE)[TProductSaveKey];
+export type TProductBookmarkValue = keyof typeof PRODUCT_BOOKMARK;
