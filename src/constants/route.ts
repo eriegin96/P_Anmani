@@ -41,7 +41,7 @@ export const ROUTE = {
 
 export const QUERY_PARAMS = {
 	SORT: {
-		PRICE_ASCENDING: "price-ascending",
-		PRICE_DESCENDING: "price-descending",
+		PRICE_ASCENDING: "asc",
+		PRICE_DESCENDING: "desc",
 	},
 } as const;

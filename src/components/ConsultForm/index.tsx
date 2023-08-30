@@ -11,14 +11,17 @@ import {useCartContext} from "@/providers/CartProvider";
 import {TUpdateCart, useUpdateCart} from "@/hooks/api/cart";
 import {useGetProductById} from "@/hooks/api/product";
 import {useModalContext} from "@/providers/ModalProvider";
-import {useGetVouchersByProductId} from "@/hooks/api/voucher";
+import {useGetVouchersByProduct} from "@/hooks/api/voucher";
+import {getParams} from "@/utils/parameters";
 
 export default function ConsultForm() {
 	const {id: productId} = useParams();
 	const {cart, checkedList, totalPrice} = useCartContext();
 	const {userInfo} = useAuthContext();
 	const {data: product} = useGetProductById(productId);
-	const {data: vouchers} = useGetVouchersByProductId(productId);
+	const {data: vouchers} = useGetVouchersByProduct(
+		getParams({productType: product?.type, projectName: product?.projectName})
+	);
 	const {hideBookingModal} = useModalContext();
 	const {trigger: createCart, data: dataCreateCart} = useCreateCart();
 	const {trigger: updateCart, data: dataUpdateCart} = useUpdateCart();

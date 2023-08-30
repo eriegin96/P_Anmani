@@ -61,7 +61,7 @@ export default function ProductForm({isEditing = false}: TProductFormProps) {
 			price,
 			originalPrice,
 			discountStartDate: values.discountStartDate.toISOString(),
-			discountEndDate: values.discountStartDate.toISOString(),
+			discountEndDate: values.discountEndDate.toISOString(),
 		};
 
 		isEditing ? updateProduct(newValues) : createProduct(newValues);

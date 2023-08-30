@@ -7,6 +7,7 @@ import {
 	sortOptions,
 	investorOptions,
 	typeOptions,
+	projectOptions,
 } from "@/constants/selectOptions";
 import {useSearchParams} from "next/navigation";
 import {ChangeEvent, useMemo, useState} from "react";
@@ -17,6 +18,7 @@ import {formatCurrency} from "@/utils/formatCurrency";
 import {useGetSearchProducts} from "@/hooks/api/product/query/useGetProducts";
 import {parseURLSearchParams} from "@/utils/parseURLSearchParams";
 import {getParams} from "@/utils/parameters";
+import Loading from "../loading";
 
 export default function Page() {
 	const searchParams = useSearchParams();
@@ -24,7 +26,7 @@ export default function Page() {
 		parseURLSearchParams(searchParams.toString())
 	);
 	const [searchBoxValue, setSearchBoxValue] = useState<string>("");
-	const {data: productList, trigger} = useGetSearchProducts();
+	const {data: productList, trigger, isMutating} = useGetSearchProducts();
 
 	const formatter = (value?: number) => {
 		return formatCurrency(value, true);
@@ -39,6 +41,9 @@ export default function Page() {
 	};
 
 	const handleChange = (type: string, value: string) => {
+		if (type === "sort") {
+			return setParams((prev) => ({...prev, sort: "price", order: value}));
+		}
 		setParams((prev) => ({...prev, [type]: value}));
 	};
 
@@ -76,6 +81,12 @@ export default function Page() {
 				value: searchParams.get("investor") || null,
 				onChange: (value: string) => handleChange("investor", value),
 				options: investorOptions,
+			},
+			{
+				placeholder: "Dự án",
+				value: searchParams.get("projectName") || null,
+				onChange: (value: string) => handleChange("projectName", value),
+				options: projectOptions,
 			},
 			{
 				placeholder: "Sắp xếp",
@@ -134,6 +145,8 @@ export default function Page() {
 			/>
 
 			<Divider className={styles.divider} />
+			{isMutating && <Loading />}
+
 			{productList?.length === 0 ? (
 				<div>Không tìm thấy sản phẩm</div>
 			) : (

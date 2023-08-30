@@ -42,6 +42,29 @@
 	color: $color-yellow-1;
 }
 
+.countdownWrapper {
+	margin: rem(16) 0 rem(6);
+
+	.countdownText {
+		padding: rem(4);
+		border-top-left-radius: $round-sm;
+		border-bottom-left-radius: $round-sm;
+		border: rem(1) solid $color-pink-2;
+		background-color: $color-pink-2;
+		color: $color-white;
+	}
+
+	.countdown {
+		padding: rem(4);
+		border-top-right-radius: $round-sm;
+		border-bottom-right-radius: $round-sm;
+		border: rem(1) solid $color-pink-2;
+		background-color: $color-pink-1;
+		color: $color-pink-2;
+		font-weight: 600;
+	}
+}
+
 .location {
 	display: flex;
 	align-items: center;

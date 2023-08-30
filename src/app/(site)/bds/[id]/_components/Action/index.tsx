@@ -10,17 +10,18 @@ import {CART_STATUS} from "@/constants/cart";
 import {useSWRConfig} from "swr";
 import {useEffect} from "react";
 import {API_ENDPOINT} from "@/constants/api";
-import {useGetVouchersByProductId} from "@/hooks/api/voucher";
-import {useParams} from "next/navigation";
+import {useGetVouchersByProduct} from "@/hooks/api/voucher";
+import {getParams} from "@/utils/parameters";
 
 type TActionProps = {
 	product: TProduct;
 };
 
 export default function Action({product}: TActionProps) {
-	const {id: productId} = useParams();
 	const {userInfo} = useAuthContext();
-	const {data: vouchers} = useGetVouchersByProductId(productId);
+	const {data: vouchers} = useGetVouchersByProduct(
+		getParams({productType: product.type, projectName: product.projectName})
+	);
 	const {showBookingModal} = useModalContext();
 	const {showDrawer} = useProductComparisonContext();
 	const {trigger, data} = useCreateCart();
