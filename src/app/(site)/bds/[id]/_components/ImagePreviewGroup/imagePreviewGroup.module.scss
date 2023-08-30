@@ -6,21 +6,25 @@
 .imageMore {
 	display: flex;
 	flex-wrap: wrap;
+	height: 100%;
 
 	& > .imageItem:first-of-type {
 		width: 100%;
+		height: 75%;
 	}
 
 	& > .imageItem:not(:first-of-type) {
 		width: 25%;
+		height: 25%;
 	}
 }
 
 .imageItem {
 	position: relative;
+	cursor: pointer;
 
 	&:hover .overlay {
-		background-color: transparent;
+		background-color: $color-rgba-black-3;
 	}
 }
 
@@ -46,4 +50,40 @@
 
 .previewGroup {
 	display: none;
+}
+
+.drawer {
+	:global(.ant-drawer-content-wrapper) {
+		width: 100% !important;
+
+		:global(.ant-drawer-header) {
+			padding: rem(10) rem(16);
+		}
+		:global(.ant-drawer-body) {
+			padding: 0;
+		}
+	}
+}
+
+.mainImageWrapper {
+	margin-top: rem(12);
+
+	.mainImageLabel {
+		padding: 0 rem(10);
+		font-weight: 500;
+	}
+
+	.mainImageGroup {
+		margin-top: rem(8);
+		display: flex;
+		flex-wrap: wrap;
+
+		.mainImageItem {
+			width: 25%;
+
+			.mainImage {
+				width: 100%;
+			}
+		}
+	}
 }

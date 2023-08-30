@@ -17,20 +17,22 @@ export type TSlotId = "1" | "2" | "3";
 
 export type TInvestor = {name: TInvestorValue; logo: string};
 
+export type TImageMain = {
+	exterior: string[];
+	livingroom: string[];
+	bedroom: string[];
+	bathroom: string[];
+	lobby: string[];
+	restaurant: string[];
+	pool: string[];
+	meetingroom: string[];
+	entertainment: string[];
+	service: string[];
+};
+
 export type TImage = {
 	thumbnail: string;
-	main: {
-		exterior: string[];
-		livingroom: string[];
-		bedroom: string[];
-		bathroom: string[];
-		lobby: string[];
-		restaurant: string[];
-		pool: string[];
-		meetingroom: string[];
-		entertainment: string[];
-		service: string[];
-	};
+	main: TImageMain;
 	reality: string[];
 	area: string[];
 	investor: string[];
@@ -96,3 +98,4 @@ export type TProduct = {
 };
 
 export type TProductForm = Omit<TProduct, "key">;
+export type TImageMainKey = keyof TImageMain;
