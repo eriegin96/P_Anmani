@@ -5,10 +5,10 @@ import type {RadioChangeEvent} from "antd";
 import {Radio} from "antd";
 import styles from "./saveDialogPortal.module.scss";
 import clsx from "clsx";
-import {PRODUCT_BOOKMARK} from "@/constants/product";
+import {PRODUCT_BOOKMARK, TProductBookmarkValue} from "@/constants/product";
 
 type TSaveDialogPortalProps = {
-	value: string;
+	value?: TProductBookmarkValue;
 	onChange: ((e: RadioChangeEvent) => void) | undefined;
 };
 

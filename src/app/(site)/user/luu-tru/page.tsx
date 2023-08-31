@@ -3,15 +3,35 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import styles from "./luuTru.module.scss";
 import {saveTabs} from "./static";
-import {saveList} from "@/mock/data";
 import Image from "next/image";
 import {IconBookmark} from "@/assets";
 import {formatCurrency} from "@/utils/formatCurrency";
-import {Popover} from "antd";
-import {Button} from "@/components";
+import {Button, Popover} from "antd";
 import {IconBookmarkOff, IconDots, IconShare} from "@tabler/icons-react";
+import {useDeleteBookmark, useGetBookmarksByUser} from "@/hooks/api/bookmark";
+import {useAuthContext} from "@/providers/AuthProvider";
+import {useSWRConfig} from "swr";
+import {concatHref} from "@/utils/concatHref";
+import {API_ENDPOINT} from "@/constants/api";
+import {useEffect} from "react";
 
 export default function Page() {
+	const {userInfo} = useAuthContext();
+	const {data} = useGetBookmarksByUser(userInfo);
+	const {trigger, data: deleteSuccess} = useDeleteBookmark();
+	const {mutate} = useSWRConfig();
+
+	const handleUnBookmark = (key: string) => {
+		if (!userInfo?.key) return;
+
+		trigger(key);
+	};
+
+	useEffect(() => {
+		if (deleteSuccess && userInfo)
+			mutate(concatHref(API_ENDPOINT.BOOKMARKS_USER, userInfo.key));
+	}, [deleteSuccess, userInfo, mutate]);
+
 	return (
 		<>
 			<Tabs.Root defaultValue={saveTabs[0].value} className={styles.tabsRoot}>
@@ -32,29 +52,32 @@ export default function Page() {
 						value={tab.value}
 						className={styles.tabsContent}
 					>
-						{saveList.filter((item) => item.type === tab.value).length ===
-							0 && (
+						{data?.filter((item) => item.type === tab.value).length === 0 && (
 							<div className={styles.noSave}>
 								<Image src={IconBookmark} alt="bookmark" />
 								Bạn chưa lưu bất động sản nào
 							</div>
 						)}
 
-						{saveList
-							.filter((item) => item.type === tab.value)
-							.map((item) => (
-								<div key={item.key} className={styles.itemWrapper}>
+						{data
+							?.filter((item) => item.type === tab.value)
+							.map(({key, product}) => (
+								<div key={key} className={styles.itemWrapper}>
 									<div className={styles.itemInfo}>
 										<div className={styles.imageWrapper}>
-											<Image src={item.image.thumbnail} alt={item.name} fill />
+											<Image
+												src={product.image.thumbnail}
+												alt={product.name}
+												fill
+											/>
 										</div>
 										<div className={styles.descriptionWrapper}>
-											<h5>{item.name}</h5>
+											<h5>{product.name}</h5>
 											<p className={styles.price}>
-												{formatCurrency(item.price)}
+												{formatCurrency(product.price)}
 											</p>
 											<p className={styles.description}>
-												{item.description.pros}
+												{product.description.pros}
 											</p>
 										</div>
 									</div>
@@ -62,7 +85,7 @@ export default function Page() {
 										placement="bottom"
 										content={
 											<div className={styles.popoverContent}>
-												<Button>
+												<Button onClick={() => handleUnBookmark(key)}>
 													<IconBookmarkOff size={24} />
 													Bỏ lưu
 												</Button>

@@ -5,11 +5,13 @@ import {TProduct} from "./product.type";
 export type TBookmarkRequest = {
 	userId: string;
 	productId: string;
-	type: TProductBookmarkValue;
+	type?: TProductBookmarkValue;
 };
 
 export type TBookmarkResponse = TBookmarkRequest & {
 	key: string;
-	user: TUser[];
-	product: TProduct[];
+	userId: string;
+	productId: string;
+	user: TUser;
+	product: TProduct;
 };

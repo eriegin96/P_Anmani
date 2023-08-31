@@ -4,36 +4,6 @@
 	align-items: center;
 }
 
-.clock {
-	margin-left: rem(120);
-
-	span {
-		background-color: $color-black;
-		color: $color-white;
-		border-radius: $round-sm;
-		padding: rem(2);
-	}
-}
-
 .productWrapper {
 	margin: rem(20) rem(10);
-}
-
-.flashSale {
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	font-size: rem(20);
-	font-weight: 700;
-
-	img {
-		position: absolute;
-		left: rem(8);
-	}
-}
-
-.afterIcon {
-	position: absolute;
-	left: rem(24);
-	white-space: nowrap;
 }

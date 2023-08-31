@@ -9,9 +9,9 @@ const fetcher = (url: string, {arg}: {arg: TBookmarkRequest}) =>
 		.patch<TBookmarkResponse>(url, JSON.stringify(arg))
 		.then((res) => res);
 
-export const useUpdateBookmark = (bookmarkId: string) => {
+export const useUpdateBookmark = (bookmarkId?: string) => {
 	return useSWRMutation(
-		concatHref(API_ENDPOINT.BOOKMARKS, bookmarkId),
+		bookmarkId ? concatHref(API_ENDPOINT.BOOKMARKS, bookmarkId) : bookmarkId,
 		fetcher
 	);
 };
