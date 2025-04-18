@@ -2,6 +2,7 @@ import {PRODUCT_TAG} from "@/constants/product";
 import {ROUTE} from "@/constants/route";
 import {
 	IconBuilding,
+	IconChartBar,
 	IconHome2,
 	IconReceiptTax,
 	IconTopologyComplex,
@@ -28,5 +29,10 @@ export const navLinkList = [
 		icon: <IconTopologyComplex />,
 		title: PRODUCT_TAG.rent.label,
 		href: `${ROUTE.ADVANCED_SEARCH}?tag=${PRODUCT_TAG.rent.value}`,
+	},
+	{
+		icon: <IconChartBar />,
+		title: "Giá vàng",
+		href: ROUTE.GOLD,
 	},
 ];

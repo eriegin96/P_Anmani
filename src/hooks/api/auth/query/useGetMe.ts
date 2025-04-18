@@ -28,7 +28,7 @@ export const useGetMe = () => {
 		if (isChecked) return;
 		if (error) {
 			setIsChecked(true);
-			return router.push(ROUTE.HOME);
+			// return router.push(ROUTE.HOME);
 		}
 		if (!data) return;
 

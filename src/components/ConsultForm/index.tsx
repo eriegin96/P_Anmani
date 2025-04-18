@@ -1,3 +1,5 @@
+"use client";
+
 import {DatePicker, Input} from "antd";
 import styles from "./consultForm.module.scss";
 import {Button} from "@/components";

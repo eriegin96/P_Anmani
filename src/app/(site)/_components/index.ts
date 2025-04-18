@@ -13,3 +13,4 @@ export {default as PersonalInfo} from "./PersonalInfo";
 export {default as Connection} from "./Connection";
 export {default as AdvancedSearch} from "./AdvancedSearch";
 export {default as NavLinks} from "./NavLinks";
+export {default as TradingViewWidget} from "./TradingViewWidget";
