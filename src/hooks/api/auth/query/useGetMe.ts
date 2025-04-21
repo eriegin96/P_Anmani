@@ -13,21 +13,26 @@ const fetcher = (url: string) =>
 export const useGetMe = () => {
 	const router = useRouter();
 	const {setUserInfo, isChecked, setIsChecked} = useAuthContext();
+	const data = undefined;
+	const isLoading = false;
+	const error = "";
 
-	const {data, isLoading, error} = useSWR(
-		isChecked ? null : API_ENDPOINT.GET_ME,
-		fetcher,
-		{
-			revalidateIfStale: false,
-			revalidateOnFocus: false,
-			revalidateOnReconnect: false,
-		}
-	);
+	// const {data, isLoading, error} = useSWR(
+	// 	isChecked ? null : API_ENDPOINT.GET_ME,
+	// 	fetcher,
+	// 	{
+	// 		revalidateIfStale: false,
+	// 		revalidateOnFocus: false,
+	// 		revalidateOnReconnect: false,
+
+	// 	}
+	// );
 
 	useEffect(() => {
 		if (isChecked) return;
 		if (error) {
 			setIsChecked(true);
+			return;
 			// return router.push(ROUTE.HOME);
 		}
 		if (!data) return;
