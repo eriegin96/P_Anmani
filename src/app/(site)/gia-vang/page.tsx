@@ -6,6 +6,7 @@ import styles from "./giaVang.module.scss";
 import {goldColumns, goldData, TGoldTable} from "./static";
 import {formatFulldate} from "@/utils/formatDate";
 import {useEffect, useState} from "react";
+import {useLayoutContext} from "@/providers/LayoutProvider";
 
 export default function Page() {
 	const [date, setDate] = useState(new Date());

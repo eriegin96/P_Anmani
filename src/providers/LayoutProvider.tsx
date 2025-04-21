@@ -6,6 +6,7 @@ import {ReactNode, createContext, useContext, useEffect, useState} from "react";
 
 type TLayoutContextDefault = {
 	isAtExplorePage: boolean;
+	isAtGiaVangPage: boolean;
 };
 
 type TLayoutProviderProps = {
@@ -14,19 +15,18 @@ type TLayoutProviderProps = {
 
 export const LayoutContext = createContext<TLayoutContextDefault>({
 	isAtExplorePage: false,
+	isAtGiaVangPage: false,
 });
 
 export default function LayoutProvider({children}: TLayoutProviderProps) {
 	const pathname = usePathname();
 	const {id} = useParams();
-	const [isAtExplorePage, setIsAtExplorePage] = useState(false);
-
-	useEffect(() => {
-		setIsAtExplorePage(Boolean(pathname.includes(ROUTE.EXPLORE) && id));
-	}, [pathname, id]);
+	const isAtExplorePage = Boolean(pathname.includes(ROUTE.EXPLORE) && id);
+	const isAtGiaVangPage = pathname.includes(ROUTE.GOLD);
 
 	const value = {
 		isAtExplorePage,
+		isAtGiaVangPage,
 	};
 
 	return (

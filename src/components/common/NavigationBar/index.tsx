@@ -24,10 +24,16 @@ const navLinks = [
 
 export default function NavigationBar() {
 	const pathname = usePathname();
-	const {isAtExplorePage} = useLayoutContext();
+	const {isAtExplorePage, isAtGiaVangPage} = useLayoutContext();
 
 	return (
-		<div className={clsx(styles.wrapper, isAtExplorePage && styles.revert)}>
+		<div
+			className={clsx(
+				styles.wrapper,
+				isAtExplorePage && styles.revert,
+				isAtGiaVangPage && styles.none
+			)}
+		>
 			{navLinks.map((link) => {
 				const isActive =
 					pathname === ROUTE.HOME
